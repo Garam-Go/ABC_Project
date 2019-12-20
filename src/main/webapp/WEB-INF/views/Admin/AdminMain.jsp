@@ -7,6 +7,9 @@
 <title>어드민 메인페이지</title>
 </head>
 <body>
+<div id="page">
 	<h1>어드민 메인페이지</h1>
+	
+</div>
 </body>
 </html>
