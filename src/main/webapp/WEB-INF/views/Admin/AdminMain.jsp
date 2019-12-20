@@ -9,7 +9,11 @@
 <body>
 <div id="page">
 	<h1>어드민 메인페이지</h1>
-	
+	<table>
+		<tr>
+			<td></td>
+		</tr>
+	</table>
 </div>
 </body>
 </html>
