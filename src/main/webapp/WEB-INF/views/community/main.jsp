@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>커뮤니티 메인</title>
 </head>
 <body>
-	<h1>커뮤니티 메인</h1>
+	<h1>[커뮤니티 메인]</h1>
+	
+	<div style="width:500px; height:300px; background:gray"></div>
+	<div style="width:500px; height:300px; background:gray"></div>
 </body>
 </html>
