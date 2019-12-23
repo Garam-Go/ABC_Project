@@ -23,7 +23,7 @@
 <div id="page">
 	<div id="header">
 	<div id="login">
-		<a href="로그인"></a>
+		<jsp:include page="menu.jsp"></jsp:include>
 	</div>
     <div id="navbar">
         <a href="#">
