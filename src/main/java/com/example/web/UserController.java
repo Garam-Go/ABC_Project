@@ -28,10 +28,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="loginPost",method=RequestMethod.POST)
-	public String loginPost(String uid, String upw, HttpSession session){
+	public String loginPost(String mid, String mpw, HttpSession session){
 		//test id : id = user00 , password = pass
-		if(uid.equals("user00") && upw.equals("pass")){ //로그인 정보가 맞으면
-			session.setAttribute("uid", uid); //일치한 uid를 httpsession에 저장해서 가져감
+		if(mid.equals("user00") && mpw.equals("pass")){ //로그인 정보가 맞으면
+			session.setAttribute("mid", mid); //일치한 mid를 httpsession에 저장해서 가져감
 			//httpsession = 프로젝트가 종료될때까지 데이터 유지
 			
 			//만약에 인터셉터에서 받아온 des값이 비어있지 않으면 = 값이 있으면
@@ -46,7 +46,7 @@ public class UserController {
 
 	@RequestMapping("logout")
 	public String logout(HttpSession session){
-		session.removeAttribute("uid");
+		session.removeAttribute("mid");
 		return "redirect:list";
 	}
 	

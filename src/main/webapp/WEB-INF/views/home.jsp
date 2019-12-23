@@ -26,12 +26,12 @@
 	<div id="header">
 	<div id="login">
 		<jsp:include page="menu.jsp"></jsp:include>
-<!-- 		<div id="darken"> -->
-<!-- 			<div id="lightbox"> -->
-<%-- 				<jsp:include page="login.jsp"></jsp:include> --%>
-<!-- 				<button id="lightboxClose">close</button> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+		<div id="darken">
+			<div id="lightbox">
+				<jsp:include page="login.jsp"></jsp:include>
+				<button id="lightboxClose">close</button>
+			</div>
+		</div>
 	</div>
     <div id="navbar">
         <a href="#">
