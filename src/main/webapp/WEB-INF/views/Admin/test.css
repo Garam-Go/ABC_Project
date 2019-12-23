@@ -1,0 +1,52 @@
+#page{
+    background-color: white; 
+    width:100%; 
+    /* box-shadow: 1px 1px 10px gray; */
+    margin: 0 auto;
+    padding-top: 50px;
+}
+#navbar{
+    text-align: center;
+    width:100%;
+    background-color: #9CC89D;
+    height: 150px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding-top: 20px;
+}
+#content{
+    width: 960px;
+    height: 800px;
+    margin: 0 auto;
+    padding: 15px 50px 15px 50px; 
+    overflow: hidden;
+}
+#content-left{
+    float: left;
+}
+#content-right{
+    float: right;
+}
+#footer{
+    width:100%;
+    background-color: #9CC89D;
+    height: 500px;
+    line-height: 150px;
+    padding: 15px 50px 15px 50px; 
+}
+/* 요소들 */
+.oribtn{
+    width: 150px;
+    height: 75px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 1px 1px 10px gray;
+    margin-left: 100px;
+    font-weight: bold;
+    font-size: 25px;
+    vertical-align: middle;
+}
+#iconimg{
+    vertical-align: middle;
+
+}
