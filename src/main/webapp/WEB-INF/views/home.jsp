@@ -16,6 +16,8 @@
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
+	<script type="text/javascript"	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"	charset="utf-8"></script>
+	<script type="text/javascript"	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 </head>
@@ -24,11 +26,12 @@
 	<div id="header">
 	<div id="login">
 		<jsp:include page="menu.jsp"></jsp:include>
-		<div id="darken">
-			<div id="lightbox">
-				<jsp:include page="login.jsp"></jsp:include>
-			</div>
-		</div>
+<!-- 		<div id="darken"> -->
+<!-- 			<div id="lightbox"> -->
+<%-- 				<jsp:include page="login.jsp"></jsp:include> --%>
+<!-- 				<button id="lightboxClose">close</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 	</div>
     <div id="navbar">
         <a href="#">
@@ -65,8 +68,7 @@ $("#login").on("click", function() {
 });
 
 //lightbox닫기
-$("#btnlogin").on("click", function() {
-	alert("로그인 성공!");
+$("#lightboxClose").on("click", function() {
 	$("#darken").hide();
 });
 </script>

@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
-	<c:if test="${uid==null}">
-		<a href="#" id="login">로그인</a>
+	<c:if test="${mid==null}">
+		<a href="login" id="login">로그인</a>
 	</c:if>
-	<c:if test="${uid != null}">
+	<c:if test="${mid != null}">
 		<a href="logout">로그아웃</a>
-		[ ID : ${uid } ]
+		[ ID : ${mid } ]
 	</c:if>

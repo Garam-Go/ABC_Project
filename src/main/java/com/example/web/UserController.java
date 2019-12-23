@@ -12,7 +12,7 @@ public class UserController {
 	@RequestMapping("list")
 	public String list(String email, HttpSession session){
 		if(email != null){
-			session.setAttribute("uid", email);
+			session.setAttribute("mid", email);
 		}
 		return "list";
 	}
@@ -22,10 +22,10 @@ public class UserController {
 		return "insert";
 	}
 	
-//	@RequestMapping("login")
-//	public String login(){
-//		return "login";
-//	}
+	@RequestMapping("login")
+	public String login(){
+		return "login";
+	}
 	
 	@RequestMapping(value="loginPost",method=RequestMethod.POST)
 	public String loginPost(String uid, String upw, HttpSession session){
