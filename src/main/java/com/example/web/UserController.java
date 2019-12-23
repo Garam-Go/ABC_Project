@@ -22,10 +22,10 @@ public class UserController {
 		return "insert";
 	}
 	
-	@RequestMapping("login")
-	public String login(){
-		return "login";
-	}
+//	@RequestMapping("login")
+//	public String login(){
+//		return "login";
+//	}
 	
 	@RequestMapping(value="loginPost",method=RequestMethod.POST)
 	public String loginPost(String uid, String upw, HttpSession session){
@@ -41,7 +41,7 @@ public class UserController {
 			//이게 처음 로그인할때는 이 작업을 진행하지 않으니까 바로 리스트 페이지로 가는데
 			//글쓰기를 누른다음에 로그인을 하면 des값이 저장되니까 로그인을 하면 그 페이지로 이동하게끔 해주는 작업
 		}
-		return "redirect:list";
+		return "redirect:/";
 	}
 
 	@RequestMapping("logout")

@@ -6,10 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>LOGIN</title>
 <style>
-body {
-	background: #BCF5A9;
-	text-align: center;
-}
 
 table, tr, td {
 	border-collapse: collapse;
@@ -34,17 +30,12 @@ table, tr, td {
 	box-shadow: 1px 1px 5px gray;
 }
 </style>
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-	charset="utf-8"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"	charset="utf-8"></script>
+<script type="text/javascript"	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
+
 	<h1>LOGINLOGIN</h1>
-	<div id="top">
-		<jsp:include page="menu.jsp"></jsp:include>
-	</div>
 	<div id="con">
 	<form action="loginPost" method="post">
 		<table>
@@ -55,7 +46,7 @@ table, tr, td {
 					<td>비밀번호 : <input type="password" name="upw"></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="LOGIN"></td>
+					<td><input type="submit" value="LOGIN" id="btnlogin"></td>
 				</tr>
 			</table>
 	</form>
@@ -74,6 +65,6 @@ table, tr, td {
 	</script>
 	</div>
 
-
 </body>
+
 </html>
