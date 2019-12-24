@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,6 +19,7 @@
 	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
+
 <style>
 #page{
 	background: skyblue;
@@ -55,17 +57,17 @@ tr td{
 		<table class="loginTable">
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="uid"></td>
+					<td><input type="text" name="mid" <c:if test="${mid != null}">value="${mid }"</c:if>></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="upw"></td>
+					<td><input type="password" name="mpassword"></td>
 				</tr>
 				<tr>
 					<td colspan=2>
 						<input type="submit" value="로그인" id="btnlogin">
-						<input type="button" id="signUp" value="회원가입">
-						<input type="button" id="loginCancel" value="취소">
+						<input type="button" onClick="location.href='signIn'" value="회원가입">
+						<input type="button" onClick="location.href='home'" value="취소">
 					</td>
 				</tr>
 			</table>
@@ -74,7 +76,7 @@ tr td{
 	<div id="naver_id_login"></div>
 	<!-- //네이버아이디로 로그인 버튼 노출 영역 -->
 	<script type="text/javascript">
-		var naver_id_login = new naver_id_login("rqO0TDIARI6udRXDMExh", "http://localhost:8088/example/naverlogin");
+		var naver_id_login = new naver_id_login("rqO0TDIARI6udRXDMExh", "http://localhost:8088/example/Member/naverlogin");
 		var state = naver_id_login.getUniqState();
 		naver_id_login.setButton("green", 3, 40);
 		naver_id_login.setDomain("http://localhost:8088");
@@ -86,9 +88,7 @@ tr td{
 	</div>
 </body>
 <script>
-$("#loginCancel").on("click",function(){
-	location.href="home";
-});
+
 
 </script>
 </html>

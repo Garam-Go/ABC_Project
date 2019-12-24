@@ -19,9 +19,10 @@
 
 
 	//로그인 된 네이버 아이디를 바로 회원가입 페이지로감
-	
-	//리스트로 이동
     location.href="signIn?mid="+naver_id_login.getProfileData('email');
+
+	//리스트로 이동
+    
   }
 </script>
 </body>

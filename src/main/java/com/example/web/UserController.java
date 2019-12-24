@@ -1,14 +1,20 @@
 package com.example.web;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.domain.MemberVO;
+import com.example.persistence.MemberDAO;
+
 @RequestMapping("Member")
 @Controller
 public class UserController {
+	@Inject
+	MemberDAO dao;
 	
 	@RequestMapping("home")
 	public String home(String email, HttpSession session){
@@ -37,10 +43,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="loginPost",method=RequestMethod.POST)
-	public String loginPost(String mid, String mpw, HttpSession session){
+	public String loginPost(MemberVO vo, HttpSession session){
 		//test id : id = user00 , password = pass
-		if(mid.equals("user00") && mpw.equals("pass")){ //로그인 정보가 맞으면
-			session.setAttribute("mid", mid); //일치한 mid를 httpsession에 저장해서 가져감
+		if(vo.getMid().equals("user00") && vo.getMpassword().equals("pass")){ //로그인 정보가 맞으면
+			session.setAttribute("mid", vo.getMid()); //일치한 mid를 httpsession에 저장해서 가져감
 			//httpsession = 프로젝트가 종료될때까지 데이터 유지
 			
 			//만약에 인터셉터에서 받아온 des값이 비어있지 않으면 = 값이 있으면
@@ -65,4 +71,15 @@ public class UserController {
 		return "/Member/naverlogin";
 	}
 	
+	//회원가입
+	@RequestMapping("signIn")
+	public String signIn(){
+		return "/Member/signIn";
+	}
+	 
+	@RequestMapping(value="signIn",method=RequestMethod.POST)
+	public void signInPost(MemberVO vo,HttpSession session)throws Exception{
+		dao.signIn(vo);
+		session.setAttribute("mid", vo.getMid());
+	}
 }
