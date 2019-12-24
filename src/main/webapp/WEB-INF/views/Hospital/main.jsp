@@ -5,24 +5,30 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>병원 메인 페이지</title>
+	<title>main</title>
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-	
-	<style>
-		*{
-			margin:0px;
-			padding:0px;
-		}
-	</style>
+	<link href="${pageContext.request.contextPath}/resources/main (2).css" rel="stylesheet">
 </head>
 <body>
-	<div id="page" style="margin:0px auto;background:gray;width:800px;height:1200px;">
+<div id="page">
+	<div id="navbar">
+		
+	</div>
+	<div id="content" style="overflow:hidden;"><!-- content 시작 -->
+			
+		<div id="content-left" style="float:left;width:680px;"><!-- content  left 시작 -->
 		<div style="text-align:center;margin-top:20px;">
 			<input type="text" id="query" value="하이">
 			<input type="button" value="검색" id="btnsearch">
+		</div>	
+		<div id="new">
+			<select style="margin:0px auto;margin-top:25px;height:50px;" id="hide-new">
+				<option>1.인기 검색어 시작 </option>
+				<option>10.인기 검색어 끝</option>
+			</select>
 		</div>
 		
-		<table border=1 width=500 style="text-align:center;margin:20px auto;" id="tbl">
+		<table border=1 width=530 style="margin-top:100px;">
 				<tr>
 					<td colspan="2" width=100>증상별</td>
 				</tr>
@@ -36,41 +42,58 @@
 				</tr>
 				<tr>
 					<td width=100>테마</td>
-					<td width=400>
+					<td width=500>
+							<div style="margin-left:5px;float:left;">
+								<input type="button" value="◀" id="btnpre" style="margin-top:7px;margin-bottom:7px;height:35px;">
+							</div>
 								<div id="divtheme" style="float:left;">
-									<input type="button" value="응급실" class="theme">							
-									<input type="button" value="대학병원" class="theme">
-									<input type="button" value="보건소" class="theme">
-									<input type="button" value="전문병원" class="theme">
+									<input type="button" value="응급실" class="theme" style="margin-left:7px;margin-top:7px;margin-bottom:7px;height:35px;">							
+									<input type="button" value="대학병원" class="theme" style="margin-top:7px;margin-bottom:7px;height:35px;">
+									<input type="button" value="보건소" class="theme" style="margin-top:7px;margin-bottom:7px;height:35px;">
+									<input type="button" value="전문병원" class="theme" style="margin-top:7px;margin-bottom:7px;height:35px;">
 								</div>
-							<input type="button" value="▶">
+							<input type="button" value="▶" id="btnnext" style="margin-top:7px;margin-bottom:7px;height:35px;">
+							
+							
 					</td>
 				</tr>
 			</table>
+	</div><!-- content  left 끝 -->
+		<div id="content-right" style="width:120px;height:1000px; background:lightgray;float:left;"><!-- content  right 시작 -->
+			<jsp:include page="right.jsp"></jsp:include>
+		</div><!-- content right 끝 -->
+	</div><!-- content 끝 -->
+	
+	<div id="footer" style="width:800px; height:100px;background:#666666;"><!-- footer 시작 -->
+		<jsp:include page="bottom.jsp"></jsp:include>
+	</div>	<!-- footer 끝 -->
+			
 		
-	</div>
+</div><!-- page 끝 -->
 	
 </body>
 	<script>
 		var query=$("#query").val();
-		var theme=$(".theme").val();
 		
-		$("#divtheme").on("click",function(){
-			var size = $("input[class='theme']").length;
-	        for(i=0;i< size; i++){
-	            //alert( i + $("input[name='inputName']").eq(i).attr("value") );
-	            //네임에 값을 넣어줌
-	            alert(theme)
-	        }
+		var theme="";
+		
+		$("#btnnext").on("click",function(){
+			
 		});
+
+		
+		   $("#divtheme").on("click","input:button",function(){
+			   theme=$(this).val();
+			   query=$("#query").val();
+			   //$(this).text(theme);
+			   //alert(theme+"/"+query);
+			   location.href="search?query="+query+"&theme="+theme;
+		   });
+		
 		    
 		
 		
-		$("#btnsearch").on("click",function(){
-			query=$("#query").val();
-			alert(query);	
-			location.href='search';
-		});
+	
 	
 		
 		
