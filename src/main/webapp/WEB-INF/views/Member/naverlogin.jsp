@@ -8,21 +8,20 @@
 </head>
 <body>
 <script type="text/javascript">
-  var naver_id_login = new naver_id_login("rqO0TDIARI6udRXDMExh", "http://localhost:8088/example/naverlogin");
+  var naver_id_login = new naver_id_login("rqO0TDIARI6udRXDMExh", "http://localhost:8088/example/Member/naverlogin");
   // 접근 토큰 값 출력
-  alert(naver_id_login.oauthParams.access_token);
+   var token = naver_id_login.oauthParams.access_token;
   // 네이버 사용자 프로필 조회
   naver_id_login.get_naver_userprofile("naverSignInCallback()");
   // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
   function naverSignInCallback() {
     alert(naver_id_login.getProfileData('email'));
-
-
-	//로그인 된 네이버 아이디를 바로 회원가입 페이지로감
-    location.href="signIn?mid="+naver_id_login.getProfileData('email');
-
-	//리스트로 이동
-    
+    var email = naver_id_login.getProfileData('email');
+//     alert(naver_id_login.getProfileData('nick_name'));
+//     alert(naver_id_login.getProfileData('gender'));
+//     alert(token)
+	
+    location.href="signIn?mid="+email;
   }
 </script>
 </body>
