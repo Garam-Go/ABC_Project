@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+@RequestMapping("Member")
 @Controller
 public class UserController {
 	
@@ -32,7 +33,7 @@ public class UserController {
 	
 	@RequestMapping("login")
 	public String login(){
-		return "login";
+		return "/Member/login";
 	}
 	
 	@RequestMapping(value="loginPost",method=RequestMethod.POST)
@@ -55,13 +56,13 @@ public class UserController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session){
 		session.removeAttribute("mid");
-		return "redirect:list";
+		return "redirect:home";
 	}
 	
 	//³×¾Æ·Î
 	@RequestMapping("naverlogin")
 	public String naverlogin(){
-		return "naverlogin";
+		return "/Member/naverlogin";
 	}
 	
 }

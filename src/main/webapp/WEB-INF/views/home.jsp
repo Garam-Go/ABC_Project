@@ -24,7 +24,7 @@
 <div id="page">
 	<div id="header">
 	<div id="login">
-		<jsp:include page="menu.jsp"></jsp:include>
+		<jsp:include page="Member/menu.jsp"></jsp:include>
 <!-- 		<div id="darken"> -->
 <!-- 			<div id="lightbox"> -->
 <%-- 				<jsp:include page="login.jsp"></jsp:include> --%>
