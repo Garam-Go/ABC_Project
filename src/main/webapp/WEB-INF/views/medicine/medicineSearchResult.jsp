@@ -123,7 +123,10 @@
 		<div id="top" style="margin-top:50px;"></div>
 		
 		<div id="search" style="margin-bottom:50px;">
-			<button>三</button>
+			<select id="searchType">
+				<option value="name">이름</option>
+				<option value="symptom">증상</option>
+			</select>
 			<input type="text" id="keyword">
 			<input type="button" value="검색" id="btnsearch">
 		</div>
@@ -170,6 +173,7 @@
 </body>
 <script>
 var page=1;
+var searchType=$("#searchType").val();
 var keyword=$("#keyword").val();
 getmedicine();
 function getmedicine(){
