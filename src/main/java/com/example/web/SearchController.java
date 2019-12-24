@@ -23,7 +23,32 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SearchController {
 
-	
+	//네이버 소아과 검색에서 병원 위치 지도 가져오기
+			@ResponseBody
+			@RequestMapping("daumlocal.json")
+			public ArrayList daumlocal() throws Exception{
+				
+				ArrayList array=new ArrayList();
+				
+				Document doc=Jsoup.connect("https://search.naver.com/search.naver?sm=top_hty&fbm=0&ie=utf8&query=%EC%9D%B4%EB%B9%88%EC%9D%B4%ED%9B%84%EA%B3%BC").get();
+				
+				
+				
+				Elements es=doc.select(".list_area .list_place_col1");
+				
+				
+				for(Element e:es.select("li")){
+					HashMap<String,Object> map=new HashMap<String,Object>();
+					map.put("title", e.select(".name").text());
+					map.put("image", e.select("img").attr("src"));
+					array.add(map);
+					
+				}
+				System.out.println(array);
+				return array;
+				
+				
+			}
 	//네이버 소아과 검색에서 병원 이름 가져오기
 	@ResponseBody
 	@RequestMapping("daum.json")
@@ -74,6 +99,7 @@ public class SearchController {
 			
 			
 		}
+		
 		//네이버 성형외과 검색에서 병원 이름 가져오기
 		@ResponseBody
 		@RequestMapping("daum3.json")

@@ -29,35 +29,18 @@
 		</div>
 		
 		<table border=1 width=530 style="margin-top:100px;">
-				<tr>
-					<td colspan="2" width=100>증상별</td>
-				</tr>
-				<tr>
-				<td width=100>증상</td>
-					<td width=400></td>
-				</tr>
-				<tr>
-					<td width=100>종류</td>
-					<td width=400></td>
-				</tr>
-				<tr>
-					<td width=100>테마</td>
-					<td width=500>
-							<div style="margin-left:5px;float:left;">
-								<input type="button" value="◀" id="btnpre" style="margin-top:7px;margin-bottom:7px;height:35px;">
-							</div>
-								<div id="divtheme" style="float:left;">
-									<input type="button" value="응급실" class="theme" style="margin-left:7px;margin-top:7px;margin-bottom:7px;height:35px;">							
-									<input type="button" value="대학병원" class="theme" style="margin-top:7px;margin-bottom:7px;height:35px;">
-									<input type="button" value="보건소" class="theme" style="margin-top:7px;margin-bottom:7px;height:35px;">
-									<input type="button" value="전문병원" class="theme" style="margin-top:7px;margin-bottom:7px;height:35px;">
-								</div>
-							<input type="button" value="▶" id="btnnext" style="margin-top:7px;margin-bottom:7px;height:35px;">
-							
-							
-					</td>
-				</tr>
-			</table>
+			<tr>
+				<td colspan="2" height=100>병원 검색</td>
+			</tr>		
+			<tr>
+				<td rowspan="2" height=500>
+					<a href="search">외과</a>
+				</td>
+				<td rowspan="2" height=500>
+					<a href="search">내과</a>
+				</td>
+			</tr>
+		</table>
 	</div><!-- content  left 끝 -->
 		<div id="content-right" style="width:120px;height:1000px; background:lightgray;float:left;"><!-- content  right 시작 -->
 			<jsp:include page="right.jsp"></jsp:include>
@@ -67,8 +50,7 @@
 	<div id="footer" style="width:800px; height:100px;background:#666666;"><!-- footer 시작 -->
 		<jsp:include page="bottom.jsp"></jsp:include>
 	</div>	<!-- footer 끝 -->
-			
-		
+
 </div><!-- page 끝 -->
 	
 </body>

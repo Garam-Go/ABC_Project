@@ -38,7 +38,11 @@
 				<td>{{h_name}}</td>
 			</tr>
 		{{/each}}
+		<tr>
+			<td><button onClick="location.href='reservation'">예약</button></td>
+		</tr>
 		
+
 		</script>
 		
 		
@@ -94,18 +98,25 @@
 		<div id="footer" style="width:800px; height:100px;background:#666666;">
 			<jsp:include page="bottom.jsp"></jsp:include>
 		</div>
+		<div>
+			<a href="search">◀</a>
+		</div>
 </div>	
 </body>
 	<script>
 		var h_code="${param.h_code}";
-		alert(h_code);
+		
+		//alert(h_code);
 		getlist();
 		function getlist(){
+			h_code="${param.h_code}";
+			//alert(h_code);
 			$.ajax({
 				type:"get",
 				url:"read.json",
-				data{"h_code":h_code},
+				data:{"h_code":h_code},
 				success:function(data){
+					//alert("하하");
 					var temp=Handlebars.compile($("#temp").html());
 					$("#tbl").html(temp(data));
 				}

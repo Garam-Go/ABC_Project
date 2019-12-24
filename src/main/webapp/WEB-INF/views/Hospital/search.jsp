@@ -92,6 +92,9 @@
 		<div id="footer"style="width:800px; height:100px;background:#666666;">
 			<jsp:include page="bottom.jsp"></jsp:include>
 		</div>
+		<div>
+			<a href="main">◀</a>
+		</div>
 </div>
 	
 		

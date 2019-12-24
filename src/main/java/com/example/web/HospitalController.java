@@ -51,7 +51,7 @@ public class HospitalController {
 	@ResponseBody
 	@RequestMapping("read.json")
 	public HVO readjson(String h_code) throws Exception{
-		//System.out.println(dao.slist(cri));
+		System.out.println(dao.read(h_code));
 		return	dao.read(h_code); 
 		
 	}
