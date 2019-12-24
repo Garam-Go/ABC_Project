@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>MedicineMain</title>
+	<title>MedicineIngreSearchResult</title>
 	<style>
 		body {
 			margin:0px;
@@ -22,30 +22,18 @@
 		#content{
 			margin:0 auto;
 			width:800px;
-			height:500px;
+			height:600px;
 			position:relative;
 		}
 		#left{
+			border:1px solid black;
 			width:150px;
 			height:170px;
 			background:white;
 			margin-left:15px;
 			margin-right:35px;
-			margin-top:100px;
+			margin-top:300px;
 			float:left;
-		}
-		#left1{
-			border:1px solid black;
-			width:150px;
-			height:170px;
-			background:white;
-			margin-bottom:70px;
-		}
-		#left2{
-			border:1px solid black;
-			width:150px;
-			height:170px;
-			background:white;
 		}
 		#center{
 			border:1px solid black;
@@ -86,7 +74,6 @@
 			height:150px;
 			margin-bottom:50px;
 		}
-		
 	</style>
 </head>
 <body>
@@ -96,32 +83,15 @@
 		<div id="search" style="margin-bottom:50px;">
 			<button>三</button>
 			<input type="text">
-			<button onClick="location.href='medicineSearchResult'">검색</button>
+			<button onClick="location.href='medicineIngreDes'">검색</button>
 		</div>
 		
 		<div id="content">
-			<div id="left">
-				<div id="left1">
-					<a href="">관심 있는 약</a>
-				</div>
-				<div id="left2">
-					<a href="">최근 검색한 약</a>
-				</div>
-			</div>
-			<div id="center">
-				<div class="">
-					
-				</div>
-				<input type="text"><br>
-				<button>검색</button>
-			</div>
+			<div id="left"></div>
+			<div id="center"></div>
 			<div id="right">
-				<div class="right1">
-					<a href="">메시지</a>
-				</div>
-				<div class="right2">
-					<a href="">전문의에게 질문</a>
-				</div>
+				<div class="right1"></div>
+				<div class="right2"></div>
 			</div>
 		</div>
 		

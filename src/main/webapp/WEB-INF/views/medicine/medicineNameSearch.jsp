@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>MedicineMain</title>
+	<title>MedicineNameSearch</title>
 	<style>
 		body {
 			margin:0px;
@@ -13,7 +13,7 @@
 		}
 		#page {
 			width:900px;
-			height:1000px;
+			height:1200px;
 			margin:20px auto;
 			background:white;
 			text-align:center;
@@ -26,29 +26,16 @@
 			position:relative;
 		}
 		#left{
+			border:1px solid black;
 			width:150px;
 			height:170px;
 			background:white;
 			margin-left:15px;
 			margin-right:35px;
-			margin-top:100px;
+			margin-top:300px;
 			float:left;
 		}
-		#left1{
-			border:1px solid black;
-			width:150px;
-			height:170px;
-			background:white;
-			margin-bottom:70px;
-		}
-		#left2{
-			border:1px solid black;
-			width:150px;
-			height:170px;
-			background:white;
-		}
 		#center{
-			border:1px solid black;
 			width:400px;
 			height:500px;
 			background:white;
@@ -74,58 +61,60 @@
 			height:150px;
 			background:white;
 		}
-		#bottom{
-			width:900px;
-			height:120px;
-			background:gold;
-			margin-top:60px;
-		}
 		#top{
 			background:gray;
 			width:900px;
 			height:150px;
 			margin-bottom:50px;
 		}
-		
+		.center1{
+			border:1px solid;
+			width:400px;
+			height:150px;
+		}
+		.center2{
+		 	border:1px solid;
+		 	width:400px;
+		 	height:500px;
+		 	margin-bottom:100px;
+		}
+		.des{
+			width:400px;
+			height:62.5px;
+			background:none;
+			border:none;
+		}
+		#sbutton{
+			border:none;
+		}
 	</style>
 </head>
 <body>
 	<div id="page">
 		<div id="top" style="margin-top:50px;"></div>
 		
-		<div id="search" style="margin-bottom:50px;">
+		<div id="search" style="margin-bottom:100px;">
 			<button>三</button>
 			<input type="text">
-			<button onClick="location.href='medicineSearchResult'">검색</button>
+			<button id="sbutton">검색</button>
 		</div>
 		
 		<div id="content">
-			<div id="left">
-				<div id="left1">
-					<a href="">관심 있는 약</a>
-				</div>
-				<div id="left2">
-					<a href="">최근 검색한 약</a>
-				</div>
-			</div>
+			<div id="left"></div>
 			<div id="center">
-				<div class="">
-					
+				<div class="center1">
+					<input type="text"><br>
+					<button>검색</button>
 				</div>
-				<input type="text"><br>
-				<button>검색</button>
+				<div class="center2">
+				</div>
 			</div>
 			<div id="right">
-				<div class="right1">
-					<a href="">메시지</a>
-				</div>
-				<div class="right2">
-					<a href="">전문의에게 질문</a>
-				</div>
+				<div class="right1"></div>
+				<div class="right2"></div>
 			</div>
 		</div>
 		
-		<div id="bottom"></div>
 	</div>
 </body>
 </html>
