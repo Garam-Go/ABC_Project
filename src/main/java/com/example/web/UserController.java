@@ -9,6 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class UserController {
 	
+	@RequestMapping("home")
+	public String home(String email, HttpSession session){
+		if(email != null){
+			session.setAttribute("mid", email);
+		}
+		return "home";
+	}
+	
 	@RequestMapping("list")
 	public String list(String email, HttpSession session){
 		if(email != null){
@@ -41,7 +49,7 @@ public class UserController {
 			//이게 처음 로그인할때는 이 작업을 진행하지 않으니까 바로 리스트 페이지로 가는데
 			//글쓰기를 누른다음에 로그인을 하면 des값이 저장되니까 로그인을 하면 그 페이지로 이동하게끔 해주는 작업
 		}
-		return "redirect:/";
+		return "redirect:home";
 	}
 
 	@RequestMapping("logout")

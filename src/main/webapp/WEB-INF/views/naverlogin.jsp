@@ -21,7 +21,7 @@
 
 
 	//리스트로 이동
-    location.href="list?email="+naver_id_login.getProfileData('email');
+    location.href="home?email="+naver_id_login.getProfileData('email');
   }
 </script>
 </body>
