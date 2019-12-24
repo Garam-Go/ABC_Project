@@ -20,5 +20,10 @@ public class MedicineDAOImpl implements MedicineDAO{
 	public List<MedicineVO> list(SearchCriteria cri) throws Exception {
 		return session.selectList(namespace + ".list", cri);
 	}
+
+	@Override
+	public void insert(MedicineVO vo) throws Exception {
+		session.insert(namespace + ".insert", vo);
+	}
 	
 }

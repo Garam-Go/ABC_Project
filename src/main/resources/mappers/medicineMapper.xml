@@ -5,4 +5,8 @@
 	<select id="list" resultType="com.example.domain.MedicineVO">
 		select * from medlist 
 	</select>
+	<insert id="insert">
+		insert into medlist(thumbnail,medname,medcontent,recommendcnt,meddate)
+		values(#{thumbnail},#{medname},#{medcontent},#{recommendcnt},#{meddate})
+	</insert>
 </mapper>

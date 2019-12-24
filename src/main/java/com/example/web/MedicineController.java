@@ -35,5 +35,10 @@ public class MedicineController {
 	public List<MedicineVO> mjson(SearchCriteria cri) throws Exception{
 		return mdao.list(cri);
 	}
+	@ResponseBody
+	@RequestMapping("insert")
+	public void insert(MedicineVO vo) throws Exception{
+		mdao.insert(vo);
+	}
 }
 

@@ -206,12 +206,12 @@ function getmedicine(){
 $("#pagination").on("click", "a", function(event){
 	event.preventDefault();
 	page = $(this).attr("href");
-	getList();
+	getmedicine();
 });
 $("#btnsearch").on("click", function(){
 	keyword=$("#keyword").val();
 	page=1;
-	getList();
+	getmedicine();
 });
 
 $("#keyword").keydown(function(key){
@@ -219,7 +219,7 @@ $("#keyword").keydown(function(key){
 		searchType=$("#searchType").val();
 		keyword=$("#keyword").val();
 		page=1;
-		getList();
+		getmedicine();
 	}
 });
 

@@ -7,4 +7,6 @@ import com.example.domain.SearchCriteria;
 
 public interface MedicineDAO {
 	public List<MedicineVO> list(SearchCriteria cri) throws Exception;
+	
+	public void insert(MedicineVO vo) throws Exception; 
 }
