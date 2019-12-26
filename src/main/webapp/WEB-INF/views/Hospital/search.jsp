@@ -177,10 +177,12 @@ getMovie();
 function getMovie(){
 	$.ajax({
 		type:"get",
-		url:"../q7.json",
-		dataType:"json",
+		url:"../q12.json",
 		success:function(data){
 			//alert(data[0]["id"]);
+			var temp=Handlebars.compile($("#tempc").html());
+			$("#tblc").html(temp(data));
+
 		}
 		});
 	}			    															
