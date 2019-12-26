@@ -6,7 +6,7 @@
 		select * from medlist 
 	</select>
 	<insert id="insert">
-		insert into medlist(thumbnail,medname,medcontent,recommendcnt,meddate)
-		values(#{thumbnail},#{medname},#{medcontent},#{recommendcnt},#{meddate})
+		insert into medlist(medcode,medname,medcontent)
+		values(#{medcode},#{medname},#{medcontent})
 	</insert>
 </mapper>

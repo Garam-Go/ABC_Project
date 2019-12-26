@@ -39,6 +39,8 @@ public class MedicineController {
 	@RequestMapping("insert")
 	public void insert(MedicineVO vo) throws Exception{
 		mdao.insert(vo);
+		System.out.println(vo.toString());
 	}
+	
 }
 

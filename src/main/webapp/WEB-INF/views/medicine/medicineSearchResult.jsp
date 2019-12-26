@@ -93,7 +93,7 @@
 			width:100px;
 			float:left;
 		}
-		.mcontent{
+		.medcontent{
 			overflow: hidden;
 		    text-overflow: ellipsis;
 		    display: -webkit-box;
@@ -125,9 +125,9 @@
 		<div id="search" style="margin-bottom:50px;">
 			<select id="searchType">
 				<option value="name">이름</option>
-				<option value="symptom">증상</option>
+				<option value="ingre">증상</option>
 			</select>
-			<input type="text" id="keyword">
+			<input type="text" id="keyword" value="타이레놀">
 			<input type="button" value="검색" id="btnsearch">
 		</div>
 		
@@ -152,11 +152,14 @@
 					<td rowspan=3>★100</td>
 				</tr>	
 				<tr>
-					<td class="mcontent">{{medcontent}}</td>
+					<td class="medcontent">{{medcontent}}</td>
+				</tr>
+				<tr>
+					<td><button medcode="{{medcode}}"
+						medname="{{medname}}"medcontent="{{medcontent}}">저장</button></td>
 				</tr>
 				{{/each}}
 				</script>
-				<div id="pagination"></div>
 			</div>
 			<div id="right">
 				<div class="right1">
@@ -172,45 +175,24 @@
 	</div>
 </body>
 <script>
-var page=1;
 var searchType=$("#searchType").val();
 var keyword=$("#keyword").val();
+
 getmedicine();
 function getmedicine(){
 	$.ajax({
 		type:"get",
 		url:"../medicine.json",
-		data:{"page":page,"searchType":searchType,"keyword":keyword},
+		data:{"searchType":searchType,"keyword":keyword},
 		success:function(data){
 			var temp=Handlebars.compile($("#temp").html());
 			$("#boxlist").html(temp(data));
-
-			var str="";
-			if(data.pm.prev){
-				str += "<a href='" + (data.pm.startPage-1) + "'>◀</a>";
-			}
-			for(var i=data.pm.startPage; i<=data.pm.endPage;i++){
-				if(data.pm.cri.page==i){
-					str += "<a href='" + i + "' class='active'>" + i + "</a>"	
-				}else{
-					str += "<a href='" + i + "'>" + i + "</a>"
-				}
-			}
-			if(data.pm.next){
-				str += "<a href='" + (data.pm.endPage+1) + "'>▶</a>";
-			}
-			$("#pagination").html(str);
 		}
 	});
 }
-$("#pagination").on("click", "a", function(event){
-	event.preventDefault();
-	page = $(this).attr("href");
-	getmedicine();
-});
+
 $("#btnsearch").on("click", function(){
 	keyword=$("#keyword").val();
-	page=1;
 	getmedicine();
 });
 
@@ -218,10 +200,23 @@ $("#keyword").keydown(function(key){
 	if(key.keyCode=13){
 		searchType=$("#searchType").val();
 		keyword=$("#keyword").val();
-		page=1;
 		getmedicine();
 	}
 });
-
+$("#boxlist").on("click", "tr td button", function(){
+	
+	var medcode=$(this).attr("medcode");
+	var medname=$(this).attr("medname");
+	var medcontent=$(this).attr("medcontent");
+	alert(medcode+medname+medcontent);
+	$.ajax({
+		type:"get",
+		url:"insert",
+		data:{"medcode":medcode,"medname":medname,"medcontent":medcontent},
+		success:function(){
+			alert("저장되었습니다");
+		}
+	});
+});
 </script>
 </html>
