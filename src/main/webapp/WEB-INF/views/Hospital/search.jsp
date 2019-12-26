@@ -60,14 +60,16 @@
 			<script id="tempc" type="text/x-handlebars-template">
 				{{#each .}}
 				<tr>
-					<td style="padding:5px;">
+					<td width=100 style="padding:5px;">
 						<a href="#">{{title}}</a>
 					</td>
-					<td>{{h_code}}</td>
-					<td><button h_name="{{title}}" h_code="{{id}}">저장</button></td>
+					<td width100><button h_name="{{title}}" h_code="{{id}}">저장</button></td>
+				</tr>
+				<tr>
+					<td width=25 height=100>{{id}}</td>
+				</tr>
 				{{/each}}
 			</script>
-			
 			 
 			<!-- 크롤링 한 데이터를 테이블에 저장 -->
 			<h2>내 테이블에 저장된 데이터 목록</h2>
@@ -110,35 +112,29 @@
 			<a href="main">◀</a>
 		</div>
 </div>
-	
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	
 </body>
 	<script>
 		var query="${param.query}";
 		var theme="${param.theme}";
 		//alert(query+"\n"+theme);
-	
 		var query2=$("#query2").val();
-		
 		var keyword=$("#keyword").val();
-		
 		getlist();
+				
+
+		
 		
 		 $("#btnsearch").on("click", function() {
 		        keyword = $("#keyword").val();
 		        //alert(keyword);
 		        getlist();
 		 });
-		
+		$("#keyword").keydown(function(key){
+			if(key.keyCode==13){
+				keyword=$("#keyword").val();
+				getlist();	
+			}
+		});
 		function getlist(){
 			//alert("gg");
 			//keyword=$("#keyword").val();
@@ -159,13 +155,14 @@
 			//alert("g");
 			var h_code=$(this).attr("h_code");
 			var h_name=$(this).attr("h_name");
-			alert(h_code+"\n"+h_name);
+			//alert(h_code+"\n"+h_name);
 			$.ajax({
 				type:"get",
 				url:"insert.json",
 				data:{"h_code":h_code,"h_name":h_name},
 				success:function(){
-					alert("저장됨");	
+					//alert("저장됨");	
+				
 				}
 				
 			});
@@ -174,41 +171,18 @@
 			query2=$("#query2").val();
 			//alert(query2);
 		});
-		/* 내 테이블에 저장된 목록을 출력*/
-	getMovie();
-	function getMovie(){
-		$.ajax({
-			type:"get",
-			url:"../daum0.json",
-			success:function(data){
-				var temp=Handlebars.compile($("#temp").html());
-				$("#tbl").html(temp(data));
-			}
-		});
-	}
 	
 /*크롤링한 데이터 출력*/
 getMovie();
 function getMovie(){
 	$.ajax({
 		type:"get",
-		url:"../daum5.json",
+		url:"../q7.json",
+		dataType:"json",
 		success:function(data){
-			var temp=Handlebars.compile($("#tempc").html());
-			$("#tblc").html(temp(data));
-		
+			//alert(data[0]["id"]);
 		}
 		});
-	}
-	
-		    
-		
-		
-	
-	
-		
-		
-			
-		
+	}			    															
 	</script>
 </html>

@@ -20,16 +20,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import okhttp3.Request;
+
 @Controller
 public class SearchController {
-	//네이버 안과
+	//네이버 내과
 	@ResponseBody
 	@RequestMapping("q1.json")
 	public ArrayList q1() throws Exception{
 		
 		ArrayList array=new ArrayList();
 		
-		Document doc=Jsoup.connect("https://search.naver.com/search.naver?sm=top_hty&fbm=0&ie=utf8&query=%EB%82%B4%EA%B3%BC").get();
+		Document doc=Jsoup.connect("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%82%B4%EA%B3%BC").get();
 		
 		
 		
@@ -178,6 +180,7 @@ public class SearchController {
 		
 		
 	}
+	//정신의학과 여기부터 못함 !!!!
 	//정신의학과
 	@ResponseBody
 	@RequestMapping("q7.json")
@@ -185,17 +188,15 @@ public class SearchController {
 		
 		ArrayList array=new ArrayList();
 		
-		Document doc=Jsoup.connect("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%A0%95%EC%8B%A0%EC%9D%98%ED%95%99%EA%B3%BC").get();
+		Document doc=Jsoup.connect("https://store.naver.com/hospitals/list?department=%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95%EC%9D%98%ED%95%99%EA%B3%BC&query=%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC%20%ED%95%99%EC%9D%B5%EB%8F%99%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95%EC%9D%98%ED%95%99%EA%B3%BC&queryType=hospital&sessionid=PHxnrSggtMNQ15%2FjMthRFndJ&sortingOrder=precision").get();
 		
-		
-		
-		Elements es=doc.select(".list_area .list_place_col1");
+		Elements es=doc.select(".list_wrapper_inner .list_area .list_place_col1");
 		
 		
 		for(Element e:es.select("li")){
 			HashMap<String,Object> map=new HashMap<String,Object>();
-			map.put("title", e.select(".name").text());
-			map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
+			map.put("title", e.select(".category").text());
+			//map.put("id",e.select(".list_item").text());
 			array.add(map);
 			
 		}
@@ -204,6 +205,8 @@ public class SearchController {
 		
 		
 	}
+	
+	
 	//가정의학과
 	@ResponseBody
 	@RequestMapping("q8.json")
@@ -284,22 +287,22 @@ public class SearchController {
 	}
 	//마취통증과
 	@ResponseBody
-	@RequestMapping("q11.json")
-	public ArrayList q11() throws Exception{
+	@RequestMapping("daum2.json")
+	public ArrayList daum2() throws Exception{
 		
 		ArrayList array=new ArrayList();
 		
-		Document doc=Jsoup.connect("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%A7%88%EC%B7%A8%ED%86%B5%EC%A6%9D%EA%B3%BC").get();
+		Document doc=Jsoup.connect("https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&sug=&sugo=&q=%EC%A0%95%EC%8B%A0%EC%9D%98%ED%95%99%EA%B3%BC").get();
 		
 		
 		
-		Elements es=doc.select(".list_area .list_place_col1");
+		Elements es=doc.select(".wrap_place .list_place");
 		
 		
 		for(Element e:es.select("li")){
 			HashMap<String,Object> map=new HashMap<String,Object>();
-			map.put("title", e.select(".name").text());
-			map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
+			map.put("title", e.select(".fn_tit").text());
+			//map.put("id", e.select("#list_item"));
 			array.add(map);
 			
 		}
