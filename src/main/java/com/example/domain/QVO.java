@@ -2,36 +2,27 @@ package com.example.domain;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-public class FVO {
-	private int pid;
+public class QVO {
+	private int qid;
 	private int num;
 	private String title;
 	private String content;
-	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date wdate;
 	private String image;
 	private String file;
 	private String fname;
 	
+	public int getQid() {
+		return qid;
+	}
+	public void setQid(int qid) {
+		this.qid = qid;
+	}
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
-	}
-	public String getFname() {
-		return fname;
-	}
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-	public int getPid() {
-		return pid;
-	}
-	public void setPid(int pid) {
-		this.pid = pid;
 	}
 	public String getTitle() {
 		return title;
@@ -63,10 +54,16 @@ public class FVO {
 	public void setFile(String file) {
 		this.file = file;
 	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
 	
 	@Override
 	public String toString() {
-		return "FVO [pid=" + pid + ", num=" + num + ", title=" + title + ", content=" + content + ", wdate=" + wdate
+		return "QVO [qid=" + qid + ", num=" + num + ", title=" + title + ", content=" + content + ", wdate=" + wdate
 				+ ", image=" + image + ", file=" + file + ", fname=" + fname + "]";
 	}
 }

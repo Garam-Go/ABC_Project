@@ -7,28 +7,25 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.example.domain.FVO;
+import com.example.domain.HVO;
 import com.example.domain.SearchCriteria;
-
 @Repository
-public class FDAOImpl implements FDAO{
+public class HDAOImpl implements HDAO{
 
+	String namespace="healthNewsMapper";
 	@Inject
 	SqlSession session;
 	
-	String namespace="freeMapper";
-
 	@Override
-	public List<FVO> clist(SearchCriteria cri) throws Exception {
+	public void hinsert(HVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectList(namespace+".clist", cri);
+		session.insert(namespace+".hinsert",vo);
 	}
 
 	@Override
-	public int ctotal(SearchCriteria cri) throws Exception {
+	public List<HVO> hlist(SearchCriteria cri) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne(namespace+".ctotal", cri);
+		return session.selectList(namespace+".hlist",cri);
 	}
-	
-	
+
 }
