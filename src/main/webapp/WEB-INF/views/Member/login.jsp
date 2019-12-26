@@ -53,11 +53,11 @@ tr td{
 	
 	<div id="loginDiv">
 	<h1>로그인</h1>
-	<form action="loginPost" method="post">
+	<form action="loginPost" method="post" name="fom">
 		<table class="loginTable">
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="mid" <c:if test="${mid != null}">value="${mid }"</c:if>></td>
+					<td><input type="text" name="mid" <c:if test="${signlogin != null}">value="${signlogin }"</c:if>></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -65,7 +65,7 @@ tr td{
 				</tr>
 				<tr>
 					<td colspan=2>
-						<input type="submit" value="로그인" id="btnlogin">
+						<input type="button" value="로그인" id="btnlogin">
 						<input type="button" onClick="location.href='signIn'" value="회원가입">
 						<input type="button" onClick="location.href='home'" value="취소">
 					</td>
@@ -88,7 +88,17 @@ tr td{
 	</div>
 </body>
 <script>
-
+$("#btnlogin").on("click",function(){
+	if($(fom.mid).val()==""){
+		alert("아이디를 입력하세요");
+	}else if($(fom.mpassword).val()==""){
+		alert("비밀번호를 입력하세요");
+		fom.mpassword.focus();
+	}else{
+		fom.submit();
+	}
+	
+});
 
 </script>
 </html>

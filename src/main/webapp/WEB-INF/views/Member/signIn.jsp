@@ -71,7 +71,8 @@ tr td{
 				<tr>
 					<td>성별</td>
 					<td>
-						<input type="radio" value="male" name="mgender">남자 &nbsp;&nbsp;&nbsp;
+						<input type="radio" value="asss" name="mgender">
+						<input type="radio" value="male" name="mgender">남자 
 						<input type="radio" value="female" name="mgender">여자
 					</td>
 				</tr>
@@ -89,21 +90,33 @@ tr td{
 </body>
 <script>
 $("#btnSignIn").on("click",function(){
-	var mid = $(fom.mid).val();
-	var mpassword = $(fom.mpassword).val();
-	var mname = $(fom.mname).val();
-	var mgender = $(fom.mgender).val();
-	
-// 	alert(mid + mpassword + mname + mgender);
-	$.ajax({
-		type:"post",
-		url:"signIn",
-		data:{"mid":mid,"mpassword":mpassword,"mname":mname,"mgender":mgender},
-		success:function(){
-			alert("회원가입 완료!");
-			location.href="login";	
-		}
-	});
+	if($(fom.mid).val()==""){
+		alert("아이디를 입력하세요")
+	}else if($(fom.mpassword).val()==""){
+		alert("비밀번호를 입력하세요")
+	}else if($(fom.mname).val()==""){
+		alert("이름을 입력하시오")
+	}else if($(fom.mgender).val()==""){
+		alert("성별을 선택하세요")
+	}else{
+		
+		var mid = $(fom.mid).val();
+		var mpassword = $(fom.mpassword).val();
+		var mname = $(fom.mname).val();
+		var mgender = fom.mgender.value;
+		
+	 	alert(mid + mpassword + mname + mgender);
+	 	
+		$.ajax({
+			type:"post",
+			url:"signIn",
+			data:{"mid":mid,"mpassword":mpassword,"mname":mname,"mgender":mgender},
+			success:function(){
+				alert("회원가입 완료!");
+				location.href="login";	
+			}
+		});
+	}
 	
 });
 </script>

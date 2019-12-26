@@ -35,7 +35,16 @@
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg value="c:/Prac/upload" />
 	</beans:bean>
-
-
-
+	
+<!-- 	로그인하기전에 인터셉터해서 작업함 -->
+	<beans:bean id="loginInterceptor" class="com.example.domain.LoginInterceptor"/>
+		
+		<interceptors>
+			<interceptor>
+<!-- 			loginpost라고 치면 loginInterceptor가 가로채겠다고 선언 -->
+				<mapping path="/loginPost"/>
+				<beans:ref bean="loginInterceptor"/>
+			</interceptor>
+		</interceptors>
+	
 </beans:beans>

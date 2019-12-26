@@ -11,4 +11,8 @@
 	<select id="list" resultType="com.example.domain.MemberVO">
 		select * from mlogin
 	</select>
+<!-- 	login -->
+	<select id="login" resultType="com.example.domain.MemberVO">
+		select * from mlogin where mid=#{mid}
+	</select>
 </mapper>

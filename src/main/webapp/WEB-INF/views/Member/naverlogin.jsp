@@ -21,7 +21,7 @@
 //     alert(naver_id_login.getProfileData('gender'));
 //     alert(token)
 	
-    location.href="signIn?mid="+email;
+    location.href="naverHomelogin?mid="+email;
   }
 </script>
 </body>
