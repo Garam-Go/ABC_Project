@@ -140,7 +140,7 @@
 				</div>
 				<div class="center2">
 					<button class="des">성분 ▼</button><br>
-					<button class="des">효능 / 부작용 ▼</button><br>
+					<button class="des">효능효과 ▼</button><br>
 					<button class="des">용법용량 ▼</button><br>
 					<button class="des">주의사항 ▼</button>
 				</div>
