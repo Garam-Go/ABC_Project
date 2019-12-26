@@ -71,7 +71,6 @@ tr td{
 				<tr>
 					<td>성별</td>
 					<td>
-						<input type="radio" value="asss" name="mgender">
 						<input type="radio" value="male" name="mgender">남자 
 						<input type="radio" value="female" name="mgender">여자
 					</td>
@@ -113,7 +112,7 @@ $("#btnSignIn").on("click",function(){
 			data:{"mid":mid,"mpassword":mpassword,"mname":mname,"mgender":mgender},
 			success:function(){
 				alert("회원가입 완료!");
-				location.href="login";	
+				location.href="../login";	
 			}
 		});
 	}
