@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +28,6 @@ public class HospitalController {
 	
 	@Inject
 	HDAO dao;
-	
 	@ResponseBody
 	@RequestMapping("insert.json")
 	public void insertjson(HVO vo) throws Exception{
@@ -43,27 +43,33 @@ public class HospitalController {
 	@ResponseBody
 	@RequestMapping("slist.json")
 	public List<HVO> slistjson(SearchCriteria cri) throws Exception{
-		System.out.println(dao.slist(cri));
+		//System.out.println(dao.slist(cri));
 		return	dao.slist(cri); 
 		
 	}
 	
+	/*
 	@ResponseBody
 	@RequestMapping("read.json")
 	public HVO readjson(String h_code) throws Exception{
-		System.out.println(dao.read(h_code));
+		//System.out.println(dao.read(h_code));
 		return	dao.read(h_code); 
 		
 	}
+	*/
 	
 	
 	@RequestMapping("search")
-	public String search(){
+	public String search(Model model,SearchCriteria cri) throws Exception{
+		model.addAttribute("list",dao.list());
+		//System.out.println(dao.list());
 		return "/Hospital/search";
 	}
 	
 	@RequestMapping("detail")
-	public String detail(){
+	public String detail(Model model,String h_code) throws Exception{
+		model.addAttribute("vo",dao.read(h_code));
+		//System.out.println(dao.read("1234567812"));
 		return "/Hospital/detail";
 	}
 	

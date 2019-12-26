@@ -55,7 +55,7 @@
 		<div style="width:210px; background:#E0F8E6;margin-left:400px;margin-bottom:50px;padding:15px;">
 			<!-- <a href="detail">예치과</a>-->
 			<!-- 크롤링 한 데이터 -->
-			<!-- 
+			<!-- --> 
 			<table border=1 width=180 id="tblc"></table>
 			<script id="tempc" type="text/x-handlebars-template">
 				{{#each .}}
@@ -63,12 +63,14 @@
 					<td style="padding:5px;">
 						<a href="#">{{title}}</a>
 					</td>
-					<td><button h_name="{{title}}">저장</button></td>
+					<td>{{h_code}}</td>
+					<td><button h_name="{{title}}" h_code="{{id}}">저장</button></td>
 				{{/each}}
 			</script>
-			 -->
+			
 			 
 			<!-- 크롤링 한 데이터를 테이블에 저장 -->
+			<h2>내 테이블에 저장된 데이터 목록</h2>
 			<table border=1 width=180 id="tbl"></table>
 			<script id="temp" type="text/x-handlebars-template">
 				{{#each .}}
@@ -79,7 +81,19 @@
 				{{/each}}
 			</script>
 			
-			
+			<!-- 
+			 <form>
+			 <table border=1 width=180>
+			 <c:forEach items="${list}" var="vo">
+			 
+				 <tr onClick="location.href='detail?h_code=${vo.h_code}'">
+				 	<td>${vo.h_code}</td>
+				 	<td>${vo.h_name}</td>
+				 </tr>
+				 </c:forEach>
+			 </table>
+			 </form>
+			 -->
 		</div>
 		</div><!--content-left 끝  -->		
 			
@@ -121,12 +135,14 @@
 		
 		 $("#btnsearch").on("click", function() {
 		        keyword = $("#keyword").val();
+		        //alert(keyword);
 		        getlist();
 		 });
 		
 		function getlist(){
 			//alert("gg");
 			//keyword=$("#keyword").val();
+			//alert(keyword);
 			$.ajax({
 				type:"get",
 				url:"slist.json",
@@ -141,7 +157,7 @@
 		
 		$("#tblc").on("click","tr td button",function(){
 			//alert("g");
-			var h_code="1234567814";
+			var h_code=$(this).attr("h_code");
 			var h_name=$(this).attr("h_name");
 			alert(h_code+"\n"+h_name);
 			$.ajax({
@@ -158,19 +174,20 @@
 			query2=$("#query2").val();
 			//alert(query2);
 		});
-		/*
+		/* 내 테이블에 저장된 목록을 출력*/
 	getMovie();
 	function getMovie(){
 		$.ajax({
 			type:"get",
-			url:"../daum.json",
+			url:"../daum0.json",
 			success:function(data){
 				var temp=Handlebars.compile($("#temp").html());
 				$("#tbl").html(temp(data));
 			}
 		});
 	}
-*/
+	
+/*크롤링한 데이터 출력*/
 getMovie();
 function getMovie(){
 	$.ajax({

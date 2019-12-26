@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>        
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,6 +27,23 @@
 		<div style="background:#E0F8E6;width:600px; height:200px;margin:0px auto;margin-top:20px;">
 			지도 출력
 		</div>
+		<input type="hidden" value="${vo.h_code}">
+		
+		<form>
+			<table border=1 width=530>
+				<tr>
+					<td>병원코드</td>
+					<td>${vo.h_code}</td>
+				</tr>
+				<tr>
+					<td>병원이름</td>
+					<td>${vo.h_name}</td>
+				</tr>
+			</table>
+		</form>
+		
+		<!-- ajax 으로 read 를 하렸는되 안됨-->
+		<!-- 
 		<table border=1 width=530 id="tbl"></table>
 		<script id="temp" type="text/x-handlebars-template">
 		<tr>
@@ -39,12 +57,12 @@
 			</tr>
 		{{/each}}
 		<tr>
-			<td><button onClick="location.href='reservation'">예약</button></td>
+			<td colspan="2"><button onClick="location.href='reservation'">예약</button></td>
 		</tr>
 		
 
 		</script>
-		
+		 -->
 		
 		<!-- 
 		<table border=1 width=530 style="margin:0px auto;margin-top:20px;margin-bottom:20px;">
@@ -104,12 +122,13 @@
 </div>	
 </body>
 	<script>
-		var h_code="${param.h_code}";
-		
+	/*
+		var h_code=$("#h_code").val();
+		//alert(h_code);
 		//alert(h_code);
 		getlist();
 		function getlist(){
-			h_code="${param.h_code}";
+			h_code=$("#h_code").val();
 			//alert(h_code);
 			$.ajax({
 				type:"get",
@@ -122,5 +141,6 @@
 				}
 			});
 		}
+		*/
 	</script>
 </html>
