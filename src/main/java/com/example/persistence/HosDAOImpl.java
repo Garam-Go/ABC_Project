@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.example.domain.HosVO;
 import com.example.domain.SearchCriteria;
 @Repository
-public class HDAOImpl implements HDAO{
+public class HosDAOImpl implements HosDAO{
 
 	String namespace="healthNewsMapper";
 	@Inject

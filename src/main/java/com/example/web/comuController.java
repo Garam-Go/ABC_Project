@@ -26,7 +26,7 @@ import com.example.domain.HosVO;
 import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.FDAO;
-import com.example.persistence.HDAO;
+import com.example.persistence.HosDAO;
 import com.example.persistence.QDAO;
 
 @Controller
@@ -39,7 +39,7 @@ public class comuController {
 	QDAO qdao;
 	
 	@Inject
-	HDAO hdao;
+	HosDAO hdao;
 
 	//자유게시판 이동
 	@RequestMapping("comu_clist")
