@@ -24,7 +24,7 @@
 <div id="page">
 	<div id="header">
 	<div id="login">
-		<jsp:include page="Member/menu.jsp"></jsp:include>
+		<jsp:include page="Member/loginmenu.jsp"></jsp:include>
 <!-- 		<div id="darken"> -->
 <!-- 			<div id="lightbox"> -->
 <%-- 				<jsp:include page="login.jsp"></jsp:include> --%>
@@ -60,7 +60,9 @@
 </div><!-- page -->
 </body>
 <script>
-
+$(document).ready(function(){
+	
+});
 // //lightbox열기
 // $("#login").on("click", function() {
 // 	$("#darken").show();

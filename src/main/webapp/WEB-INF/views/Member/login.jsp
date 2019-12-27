@@ -18,62 +18,45 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
-<link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/Loginpage.css" rel="stylesheet">
 
 <style>
-#page{
-	background: skyblue;
-}
-tr td{
-	padding: 30px;
-	background:skyblue;
-	border-collapse: collapse; 
-	border: 3px solid white;
-}
-.loginTable{
-	background:white;
-	width:500px;
-	margin: 30px auto;
-	padding: 30px;
-	border: 1px solid black;
-}
 #loginDiv{
+	width:400px;
+	height:600px;
 	background:white;
-	width:960px;
-	height:700px;
-	border:1px solid;
-	text-align:center;
-	margin:0 auto;
+	margin:100px auto;
+	box-shadow : 1px 1px 10px gray;
 }
+
 </style>
 
 </head>
 <body>
-<div id="page">
-	
 	<div id="loginDiv">
-	<h1>로그인</h1>
-	<form action="loginPost" method="post" name="fom">
-		<table class="loginTable">
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="mid" <c:if test="${signlogin != null}">value="${signlogin }"</c:if>></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="mpassword"></td>
-				</tr>
-				<tr>
-					<td colspan=2>
-						<input type="button" value="로그인" id="btnlogin">
-						<input type="button" onClick="location.href='signIn'" value="회원가입">
-						<input type="button" onClick="location.href='home'" value="취소">
-					</td>
-				</tr>
-			</table>
+
+	<form action="loginPost" method="post" name="fom">			
+		<div class="login-box">
+			<h1>로그인</h1>
+			<div class="textbox">
+				<i class="fa fa-user" aria-hidden="true"></i>
+				<input type="text" id="mid" name="mid" placeholder="아이디">
+			</div>
+			
+			<div class="textbox">
+				<i class="fa fa-lock" aria-hidden="true"></i>
+				<input type="password"  id="mpassword" name="mpassword" placeholder="비밀번호">
+			</div>
+			<div style="text-align:center">
+			<input type="button" value="로그인" id="btnlogin" class="btn">
+			<input type="button" onClick="location.href='signIn'" value="회원가입" class="btn">
+			<input type="button" onClick="location.href='home'" value="취소" class="btn">
+			</div>
+			<!-- 네이버아이디로 로그인 버튼 노출 영역 -->
+			<div id="naver_id_login" style="margin:0 auto;"></div>
+		</div>
 	</form>
-	<!-- 네이버아이디로 로그인 버튼 노출 영역 -->
-	<div id="naver_id_login"></div>
+	
 	<!-- //네이버아이디로 로그인 버튼 노출 영역 -->
 	<script type="text/javascript">
 		var naver_id_login = new naver_id_login("rqO0TDIARI6udRXDMExh", "http://localhost:8088/example/Member/naverlogin");
@@ -85,7 +68,7 @@ tr td{
 		naver_id_login.init_naver_id_login();
 	</script>
 	</div>
-	</div>
+	
 </body>
 <script>
 $("#btnlogin").on("click",function(){

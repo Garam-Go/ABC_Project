@@ -111,10 +111,10 @@ $("#btnSignIn").on("click",function(){
 			url:"signIn",
 			data:{"mid":mid,"mpassword":mpassword,"mname":mname,"mgender":mgender},
 			success:function(){
-				alert("회원가입 완료!");
-				location.href="../login";	
 			}
 		});
+		alert("회원가입 완료!");
+		location.href="login";	
 	}
 	
 });
