@@ -5,8 +5,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>MedicineDes</title>
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	<style>
 		body {
 			margin:0px;
@@ -150,20 +148,8 @@
 					이 글을 추천합니다 <a href="">☆</a>
 				</div>
 				<div class="center4">
-					<input type="text" size=25 id="replycontent">
+					<input type="text" size=25>
 					<button id="btncomment">등록</button>
-					<table id="tbl" border=1 width=500></table>
-					<script id="temp" type="text/x-handlebars-template">
-					{{#each list}}
-						<tr>
-							<td>{{replyid}}</td>
-							<td>{{replycontent}}</td>
-							<td>{{replydate}}</td>
-							<td><button replyid={{replyid}}>x</button></td>
-						</tr>
-					{{/each}}
-					</script>
-					<div id="pagination"></div>
 				</div>
 			</div>
 			<div id="right">
@@ -178,95 +164,4 @@
 		
 	</div>
 </body>
-<script>
-	var bno=${vo.bno};
-	var page=1;
-	
-	$("#tbl").on("click","button",function(){
-		var replyid=$(this).attr("replyid");
-		if(!confirm(replyid + "을(를) 삭제하시겠습니까?")) return;
-			$.ajax({
-				type:"post",
-				url:"delete",
-				data:{"replyid":replyid},
-				success:function(){
-					alert("삭제되었습니다");
-					getList();
-				}
-			});	
-	});
-	
-	$("#btncomment").on("click", function(){
-		var replycontent=$("#replycontent").val();
-		if(replycontent==""){
-			alert("댓글 내용을 입력하세요!");
-			$("#replycontent").focus();
-		}else{
-			$.ajax({
-				type:"post",
-				url:"insert",
-				data:{"boardid":boardid, "replycontent":replycontent},
-				success:function(){
-					alert("저장되었습니다");
-					$("replycontent").val("");
-					page=1;
-					getList();
-				}
-			});
-		}
-	});
-	
-	$("#btncomment").keydown(function(key){
-		if(key.keyCode==13){
-			var replytext=$("#replycontent").val();
-			if(replytext==""){
-				alert("댓글 내용을 입력하세요!");
-				$("#replycontent").focus();
-			}else{
-				$.ajax({
-					type:"post",
-					url:"insert",
-					data:{"boardid":boardid, "replycontent":replycontent},
-					success:function(){
-						alert("저장되었습니다");
-						$("replycontent").val("");
-						page=1;
-						getList();
-					}
-				});
-			}
-		}
-	});
-	
-	getList();
-	function getList(){
-		$.ajax({
-			type:"get",
-			url:"../reply/list",
-			data:{"bno":bno,"page":page},
-			success:function(data){
-				var temp=Handlebars.compile($("#temp").html());
-				$("#tbl").html(temp(data));
-				
-				var str="";
-				if(data.pm.prev){
-					str += "<a href='" + (data.pm.startPage-1) + "'>◀</a>";
-				}
-				for(var i=data.pm.startPage; i<data.pm.endPage; i++){
-					str += "<a href='" + i + "' >" + i + "</a>";
-				}
-				if(data.pm.next){
-					str += "<a href='" + (data.pm.endPage+1) + "'>▶</a>";
-				}
-				$("#pagination").html(str);
-				$("#total").html("전체" + data.pm.totalCount + "건");
-			}
-		});
-	}
-	$("#pagination").on("click", "a", function(event){
-		event.preventDefault();
-		page=$(this).attr("href");
-		getList();
-	});
-</script>
 </html>
