@@ -40,12 +40,12 @@
 			<h1>로그인</h1>
 			<div class="textbox">
 				<i class="fa fa-user" aria-hidden="true"></i>
-				<input type="text" id="mid" name="mid" placeholder="아이디">
+				<input type="text" id="input" name="mid" placeholder="아이디">
 			</div>
 			
 			<div class="textbox">
 				<i class="fa fa-lock" aria-hidden="true"></i>
-				<input type="password"  id="mpassword" name="mpassword" placeholder="비밀번호">
+				<input type="password"  id="input" name="mpassword" placeholder="비밀번호">
 			</div>
 			<div style="text-align:center">
 			<input type="button" value="로그인" id="btnlogin" class="btn">

@@ -15,31 +15,67 @@
 	<link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+	<style>
+	#navbar h1{vertical-align: middle;}
+	#content{
+		 width: 100%;
+	    height: 800px;
+	    padding: 15px; 
+	    overflow: hidden;
+	}
+	#inner-navbar{
+		background:yellow;
+		width:300px;
+		height:100%;
+		margin: 10px;
+		float:left;
+		padding:30px;
+		font-size:20px;
+	}
+	#inner-content{
+		background:skyblue;
+		width:1000px;
+		height:100%;
+		margin: 10px;
+		float:left;
+	}
+	#inner-member{
+		border:1px solid;
+		padding:10px;
+		text-align:center;
+		background:white;
+	}
+	</style>
 </head>
 <body>
 <div id="page">
-	<h1>어드민 메인페이지</h1>
-	<a href="#" id="login">로그인</a>
-	<div id="darken">
-			<div id="lightbox">
-				<button onClick="funClose()" id="lightboxClose">close</button>
-			</div>
-		</div>
+
+	<div id="login">
+		<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+	</div>
+    <div id="navbar">
+		<h1>어드민 메인페이지</h1>
+    </div>
+    <div id="content">
+    	<div id="inner-navbar">
+    		<div id="inner-member">회원관리</div>
+    		<ul>
+    			<li>회원리스트</li>
+    			<li>회원등급전환</li>
+    			<li>신고된회원목록</li>
+    			<li>블랙리스트 회원목록</li>
+    			<li>탈퇴회원관리</li>
+    		</ul>
+    	</div>
+    	<div id="inner-content">
+    	
+    	</div>
+    </div>
+    <div id="footer">
+    </div>
 </div>
 </body>
 <script>
-//lightbox열기
-$("#login").on("click", function() {
-	$("#darken").show();
-});
 
-//lightbox닫기
-function funClose(){
-	$("#darken").hide();
-}
-
-$("#lightboxClose").on("click", function() {
-	$("#darken").hide();
-});
 </script>
 </html>

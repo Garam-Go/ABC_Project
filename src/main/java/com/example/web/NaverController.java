@@ -33,9 +33,10 @@ public class NaverController {
 	public String naverlogin(String mid) throws Exception {
 		System.out.println(mid);
 		System.out.println(dao.login(mid));
+		
 		if (dao.login(mid)==null) {
 			return "redirect:../signIn?mid=" + mid;
-		} else{
+		}else{
 			MemberVO loginInfo = dao.login(mid);
 
 			String logid = loginInfo.getMid();
