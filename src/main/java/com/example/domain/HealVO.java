@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class HosVO {
+public class HealVO {
 	private int hid;
 	private String title;
 	private String wdate;

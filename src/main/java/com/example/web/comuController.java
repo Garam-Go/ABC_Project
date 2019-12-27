@@ -11,22 +11,17 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.domain.HosVO;
+import com.example.domain.HealVO;
 import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.FDAO;
-import com.example.persistence.HosDAO;
+import com.example.persistence.HealDAO;
 import com.example.persistence.QDAO;
 
 @Controller
@@ -39,7 +34,7 @@ public class comuController {
 	QDAO qdao;
 	
 	@Inject
-	HosDAO hdao;
+	HealDAO hdao;
 
 	//자유게시판 이동
 	@RequestMapping("comu_clist")
@@ -107,9 +102,9 @@ public class comuController {
 			
 			Elements es = doc.select("#article-list tbody tr td table tbody");
 			
-			ArrayList<HosVO> array = new ArrayList<HosVO>();
+			ArrayList<HealVO> array = new ArrayList<HealVO>();
 			for(Element e:es.select("tr")){
-				HosVO vo = new HosVO();
+				HealVO vo = new HealVO();
 				vo.setTitle(e.select("td table tbody tr td table tbody tr .list-titles a").text());
 				vo.setLink(e.select("td table tbody tr td table tbody tr .list-titles a").attr("href"));
 				vo.setWdate(e.select("td table tbody tr td table tbody tr .list-times").text());
@@ -126,7 +121,7 @@ public class comuController {
 		//건강정보 DB에 집어 넣기
 		@ResponseBody
 		@RequestMapping(value="hinsert", method=RequestMethod.POST)
-		public void hinsert(HosVO vo) throws Exception{
+		public void hinsert(HealVO vo) throws Exception{
 			System.out.println(vo.toString());
 			hdao.hinsert(vo);
 		}
