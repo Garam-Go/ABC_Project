@@ -40,13 +40,12 @@
 				<option>읍/면/동/로 선택</option>
 			</select>
 			
-			<select style="height:50px;">
-				<option>증상 (ex)</option>
-				<option>종류 (ex)</option>
-				<option>테마 (ex)</option>
+			<select style="height:50px;" id="searchType" >
+				<option value="h_code">외과</option>
+				<option value="h_code">내과</option>
 			</select>
 
-		<input type="button" value="검색">
+		<input type="button" value="검색" id="selsearch">
 		</div>
 		
 		<div style="background:#E0F8E6; width:280px;height:500px; margin-left:90px;float:left;">
@@ -119,10 +118,19 @@
 		//alert(query+"\n"+theme);
 		var query2=$("#query2").val();
 		var keyword=$("#keyword").val();
+	
+		var searchType=$("#searchType").val();
+		
+		getlist();
 		getlist();
 				
 
-		
+		$("#selsearch").on("click",function(){
+			//alert("gg");
+			searchType=$("#searchType").val();
+			keyword=$("#keyword").val();
+			getlist();
+		});
 		
 		 $("#btnsearch").on("click", function() {
 		        keyword = $("#keyword").val();
@@ -136,6 +144,22 @@
 			}
 		});
 		function getlist(){
+			//alert("gg");
+			//keyword=$("#keyword").val();
+			//alert(keyword);
+			$.ajax({
+				type:"get",
+				url:"slist.json",
+				data:{"keyword":keyword},
+				success:function(data){
+					//alert("tbl2");
+					var temp=Handlebars.compile($("#temp").html());
+					$("#tbl").html(temp(data));
+				}
+			});
+		}
+		
+		function gettlist(){
 			//alert("gg");
 			//keyword=$("#keyword").val();
 			//alert(keyword);
@@ -180,8 +204,8 @@ function getMovie(){
 		url:"../q12.json",
 		success:function(data){
 			//alert(data[0]["id"]);
-			var temp=Handlebars.compile($("#tempc").html());
-			$("#tblc").html(temp(data));
+			//var temp=Handlebars.compile($("#tempc").html());
+			//$("#tblc").html(temp(data));
 
 		}
 		});
