@@ -100,5 +100,12 @@ $("#btnlogin").on("click",function(){
 	
 });
 
+var error = "${param.error}";
+//로그인 실패 alert창 띄우기
+$(document).ready(function(){
+	if(error != "" ){
+		alert(error);
+	}
+});
 </script>
 </html>
