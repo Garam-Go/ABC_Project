@@ -40,13 +40,25 @@
 				<option>읍/면/동/로 선택</option>
 			</select>
 			
-			<select style="height:50px;">
-				<option>증상 (ex)</option>
-				<option>종류 (ex)</option>
-				<option>테마 (ex)</option>
+			<select style="height:50px;" id="searchType">
+				<option value="이비인후과"<c:out value="${param.themes=='이비인후과'?'selected':''}"/>>이비인후과</option>
+				<option value="내과"<c:out value="${param.themes=='내과'?'selected':''}"/>>${param.themes}</option>
+				<option value="소아과" <c:out value="${param.themes=='소아과'?'selected':''}"/>>소아과</option>
+				<option value="피부과" <c:out value="${param.themes=='피부과'?'selected':''}"/>>피부과</option>
+				<option value="정형외과" <c:out value="${param.themes=='정형외과'?'selected':''}"/>>정형외과</option>
+				<option value="안과" <c:out value="${param.themes=='안과'?'selected':''}"/>>안과</option>
+				<option value="치과" <c:out value="${param.themes=='치과'?'selected':''}"/>>치과</option>
+				<option value="한의원" <c:out value="${param.themes=='한의원'?'selected':''}"/>>한의원</option>
+				<option value="산부인과" <c:out value="${param.themes=='산부인과'?'selected':''}"/>>산부인과</option>
+				<option value="비뇨기과"<c:out value="${param.themes=='비뇨기과'?'selected':''}"/>>비뇨기과</option>
+				<option value="성형외과"<c:out value="${param.themes=='성형외과'?'selected':''}"/>>성형외과</option>
+				<option value="가정의학과"<c:out value="${param.themes=='가정의학과'?'selected':''}"/>>가정의학과</option>
+				<option value="외과"<c:out value="${param.themes=='외과'?'selected':''}"/>>외과</option>
+				<option value="신경외과"<c:out value="${param.themes=='신경외과'?'selected':''}"/>>신경외과</option>
+				<option value="신경과"<c:out value="${param.themes=='신경과'?'selected':''}"/>>신경과</option>
 			</select>
 
-		<input type="button" value="검색">
+		<input type="button" value="검색" id="selsearch">
 		</div>
 		
 		<div style="background:#E0F8E6; width:280px;height:500px; margin-left:90px;float:left;">
@@ -111,18 +123,71 @@
 		<div>
 			<a href="main">◀</a>
 		</div>
+		<input type="text" value="${param.themes}" id="themes">
 </div>
 </body>
 	<script>
 		var query="${param.query}";
-		var theme="${param.theme}";
+		//var theme="${param.theme}";
 		//alert(query+"\n"+theme);
 		var query2=$("#query2").val();
 		var keyword=$("#keyword").val();
-		getlist();
-				
-
+		gettlist();
+		var themes="${param.themes}";
+		//alert(themes);
+			
+		var searchType=$("#searchType option:selected").val();
 		
+
+		//alert(searchType);
+		
+		$("#selsearch").trigger("click");
+		$(document).ready(function(){
+
+			
+
+			/*$(".buttons").bind("click", function(){
+
+				alert("click " + $(this).text());
+
+			});
+
+			*/
+
+//	 		$(".buttons").click( function(){
+
+//	 			alert("click " + $(this).text());
+
+//	 		});
+
+			
+/*
+			$(".buttons").bind("dblclick", function(){
+
+				alert("double-click " + $(this).text());
+
+			});
+
+	*/		
+
+//	 		$(".buttons").dblclick( function(){
+
+//	 			alert("double-click " + $(this).text());
+
+//	 		});
+
+			$("#selsearch").trigger("click");
+
+		});
+		
+		
+		$("#selsearch").on("click",function(){
+			//alert("gg");
+			searchType=$("#searchType option:selected").val();
+			//alert(searchType);
+			gettlist();
+			
+		});
 		
 		 $("#btnsearch").on("click", function() {
 		        keyword = $("#keyword").val();
@@ -150,6 +215,23 @@
 				}
 			});
 		}
+		/*  카테코리별 검색  */
+		function gettlist(){
+			//alert("gg");
+			//keyword=$("#keyword").val();
+			//alert(keyword);
+			$.ajax({
+				type:"get",
+				url:"slist.json",
+				data:{"keyword":searchType},
+				success:function(data){
+					//alert(keyword);
+					var temp=Handlebars.compile($("#temp").html());
+					$("#tbl").html(temp(data));
+				}
+			});
+		}
+		
 		
 		$("#tblc").on("click","tr td button",function(){
 			//alert("g");
@@ -173,6 +255,8 @@
 		});
 	
 /*크롤링한 데이터 출력*/
+ 
+ /*
 getMovie();
 function getMovie(){
 	$.ajax({
@@ -185,6 +269,6 @@ function getMovie(){
 
 		}
 		});
-	}			    															
+	}*/			    															
 	</script>
 </html>

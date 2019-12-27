@@ -34,10 +34,20 @@
 			</tr>		
 			<tr>
 				<td rowspan="2" height=500>
-					<a href="search">외과</a>
-				</td>
-				<td rowspan="2" height=500>
-					<a href="search">내과</a>
+				<div id="theme">
+					<input type="button" value="이비인후과" class="theme">
+					<input type="button" value="소아과" class="theme">
+					<input type="button" value="피부과" class="theme">
+					<input type="button" value="외과" class="theme">
+					<input type="button" value="정형외과" class="theme">
+					<input type="button" value="안과" class="theme">
+					<input type="button" value="치과" class="theme">
+					<input type="button" value="한의원" class="theme">
+					<input type="button" value="산부인과" class="theme">
+					<input type="button" value="비뇨기과" class="theme">
+					<input type="button" value="성형외과" class="theme">
+					<input type="button" value="신경과" class="theme">
+				</div>
 				</td>
 			</tr>
 		</table>
@@ -55,14 +65,31 @@
 	
 </body>
 	<script>
+		var btnin="${param.theme}";
+		//alert(btnin);
 		var query=$("#query").val();
 		
 		var theme="";
-		
+		$("#theme").on("click","input:button",function(){
+			var themes=$(this).val();
+			//alert(themes);
+			location.href="search?themes=" +themes;
+			
+		});
 		$("#btnnext").on("click",function(){
 			
 		});
 
+		$("#btnin").on("click",function(){
+			var theme=$(this).val();
+			location.href="search?theme=" +theme;
+		});
+		
+		$("#btnout").on("click",function(){
+			var theme=$(this).val();
+			location.href="search?theme=" +theme;
+		});
+		
 		
 		   $("#divtheme").on("click","input:button",function(){
 			   theme=$(this).val();
