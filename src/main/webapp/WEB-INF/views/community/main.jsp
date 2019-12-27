@@ -72,8 +72,11 @@
 			<!-- mid -->
 			<div id="content-left" style = "width:600px; float:left">
 				<div style="margin-top: 50px;">
-					<div style="overflow: hidden;">				
+					<div style="overflow: hidden;">
+						
+							
 							<span> 
+								
 								<form name=frm>
 									<span style="float: left">
 										<select name=searchType id=searchType>
