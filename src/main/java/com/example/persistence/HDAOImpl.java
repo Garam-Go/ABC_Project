@@ -35,9 +35,4 @@ public class HDAOImpl implements HDAO{
 		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".read",h_code);
 	}
-	@Override
-	public List<HVO> klist(SearchCriteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return session.selectList(namespace+".tlist",cri);
-	}
 }

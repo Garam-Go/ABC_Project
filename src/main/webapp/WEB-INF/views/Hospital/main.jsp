@@ -28,16 +28,16 @@
 			</select>
 		</div>
 		
-		<table border=1 width=530 id="tbl" style="margin-top:100px;">
+		<table border=1 width=530 style="margin-top:100px;">
 			<tr>
 				<td colspan="2" height=100>병원 검색</td>
 			</tr>		
 			<tr>
 				<td rowspan="2" height=500>
-					<input type="button" value="외과" id="btnout">
+					<a href="search">외과</a>
 				</td>
 				<td rowspan="2" height=500>
-					<input type="button" value="내과" id="btnin">
+					<a href="search">내과</a>
 				</td>
 			</tr>
 		</table>
@@ -58,21 +58,6 @@
 		var query=$("#query").val();
 		
 		var theme="";
-		
-		$("#btnin").on("click",function(){
-			//alert("내과");
-			var theme=$(this).val();
-			//alert(theme);
-			location.href="search?theme=" +theme;
-		});
-		
-		$("#btnout").on("click",function(){
-			//alert("외과");
-			var theme=$(this).val();
-			//alert(theme);
-			location.href="search?theme=" +theme;
-		});
-		
 		
 		$("#btnnext").on("click",function(){
 			

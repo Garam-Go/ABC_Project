@@ -21,13 +21,5 @@
 		select * from hsearch
 		where h_code=#{h_code}
 	</select>
-	
-	<select id="klist" resultType="com.example.domain.HVO">
-		select * from hsearch
-		<if test="searchType=='h_name'">
-			where h_name like concat('%',#{keyword},'%')
-		</if>
-		limit 0,6
-	</select>
 </mapper>
 

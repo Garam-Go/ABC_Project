@@ -98,12 +98,7 @@
 		-->
 		<div style="background:white; width:600px; height:50px; margin:0px auto;margin-bottom:20px;">
 			<select style="height:50px;">
-				<option>평점선택</option>
-				<option>★★★★★</option>
-				<option>☆★★★★</option>
-				<option>☆☆★★★</option>
-				<option>☆☆☆★★</option>
-				<option>☆☆☆☆★</option>
+				<option>평점 선택</option>
 			</select>
 			<input type="text" size=55 style="height:50px;">
 			<input type="button"value="등록" style="height:50px;">
@@ -123,7 +118,6 @@
 		</div>
 		<div>
 			<a href="search">◀</a>
-			<a href="reservation">▶</a>
 		</div>
 </div>	
 </body>

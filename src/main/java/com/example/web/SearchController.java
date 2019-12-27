@@ -45,7 +45,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -71,7 +71,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -97,7 +97,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -123,7 +123,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -149,7 +149,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -175,7 +175,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -205,7 +205,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -231,7 +231,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -257,7 +257,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -284,7 +284,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -315,7 +315,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
@@ -338,7 +338,7 @@ public class SearchController {
 			array.add(map);
 			
 		}
-		//System.out.println(array);
+		System.out.println(array);
 		return array;
 		
 		
