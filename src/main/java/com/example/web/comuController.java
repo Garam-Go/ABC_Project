@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.domain.HVO;
+import com.example.domain.HosVO;
 import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.FDAO;
@@ -107,9 +107,9 @@ public class comuController {
 			
 			Elements es = doc.select("#article-list tbody tr td table tbody");
 			
-			ArrayList<HVO> array = new ArrayList<HVO>();
+			ArrayList<HosVO> array = new ArrayList<HosVO>();
 			for(Element e:es.select("tr")){
-				HVO vo = new HVO();
+				HosVO vo = new HosVO();
 				vo.setTitle(e.select("td table tbody tr td table tbody tr .list-titles a").text());
 				vo.setLink(e.select("td table tbody tr td table tbody tr .list-titles a").attr("href"));
 				vo.setWdate(e.select("td table tbody tr td table tbody tr .list-times").text());
@@ -126,7 +126,7 @@ public class comuController {
 		//건강정보 DB에 집어 넣기
 		@ResponseBody
 		@RequestMapping(value="hinsert", method=RequestMethod.POST)
-		public void hinsert(HVO vo) throws Exception{
+		public void hinsert(HosVO vo) throws Exception{
 			System.out.println(vo.toString());
 			hdao.hinsert(vo);
 		}

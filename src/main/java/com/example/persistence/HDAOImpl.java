@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.example.domain.HVO;
+import com.example.domain.HosVO;
 import com.example.domain.SearchCriteria;
 @Repository
 public class HDAOImpl implements HDAO{
@@ -17,13 +17,13 @@ public class HDAOImpl implements HDAO{
 	SqlSession session;
 	
 	@Override
-	public void hinsert(HVO vo) throws Exception {
+	public void hinsert(HosVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		session.insert(namespace+".hinsert",vo);
 	}
 
 	@Override
-	public List<HVO> hlist(SearchCriteria cri) throws Exception {
+	public List<HosVO> hlist(SearchCriteria cri) throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".hlist",cri);
 	}
