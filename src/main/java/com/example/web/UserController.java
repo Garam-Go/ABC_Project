@@ -17,7 +17,8 @@ import com.example.persistence.MemberDAO;
 public class UserController {
 	@Inject
 	MemberDAO dao;
-
+	
+	//홈
 	@RequestMapping("home")
 	public String home(String email, HttpSession session) {
 		if (email != null) {
@@ -26,6 +27,7 @@ public class UserController {
 		return "home";
 	}
 
+	//로그인 이동
 	@RequestMapping("login")
 	public String login() {
 		return "/Member/login";
@@ -79,6 +81,7 @@ public class UserController {
 		
 	}
 
+	//로그아웃
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("mid");
@@ -93,11 +96,16 @@ public class UserController {
 		return "/Member/signIn";
 	}
 
+	//회원가입post
 	@RequestMapping(value = "signIn", method = RequestMethod.POST)
 	public void signInPost(MemberVO vo, HttpSession session) throws Exception {
 		dao.signIn(vo); 
 		session.setAttribute("signlogin", vo.getMid());
 	}
 
-	
+	//마이페이지 이동
+	@RequestMapping("MyPage")
+	public String mypage(){
+		return "/Member/MyPage";
+	}
 }

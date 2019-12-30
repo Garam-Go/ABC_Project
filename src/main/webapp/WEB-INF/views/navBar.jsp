@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<a href="#"> 
-	<img src="http://placehold.it/120x120" id="iconimg">
+<a href="home"> 
+	<img src="resources/logo.png" id="iconimg" width=120>
 </a>
 <button class="oribtn">병원검색</button>
 <button class="oribtn">약검색</button>

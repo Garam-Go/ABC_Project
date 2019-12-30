@@ -22,10 +22,13 @@
 
 <style>
 #loginDiv{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 	width:400px;
 	height:600px;
 	background:white;
-	margin:100px auto;
 	box-shadow : 1px 1px 10px gray;
 }
 

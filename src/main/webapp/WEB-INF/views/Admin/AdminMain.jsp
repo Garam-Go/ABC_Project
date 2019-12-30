@@ -44,6 +44,7 @@
 		padding:10px;
 		text-align:center;
 		background:white;
+		margin-bottom:10px;
 	}
 	</style>
 </head>
