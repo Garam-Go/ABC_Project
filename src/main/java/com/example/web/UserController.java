@@ -103,9 +103,5 @@ public class UserController {
 		session.setAttribute("signlogin", vo.getMid());
 	}
 
-	//마이페이지 이동
-	@RequestMapping("MyPage")
-	public String mypage(){
-		return "/Member/MyPage";
-	}
+	
 }

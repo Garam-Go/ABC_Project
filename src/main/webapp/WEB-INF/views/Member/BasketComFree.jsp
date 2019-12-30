@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이페이지</title>
 <link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/mypageNavbar.css" rel="stylesheet">
+
 <style>
 #inner-navbar{
 		background:yellow;
@@ -48,31 +50,49 @@
 	<div id="content">
 		<div id="inner-navbar">
 			<ul id="out-ul">
-				<li>나의 보관함
-					<ul id="in-ul">
-						<li>병원</li>
-						<li>약</li>
-						<li>커뮤</li>
-					</ul>
-				</li>
-			</ul>
-			<ul id="out-ul">
-				<li>메세지함
-					<ul id="in-ul">
-						<li>메세지 확인</li>
-						<li>주소록</li>
-						<li>휴지통</li>
-					</ul>
-				</li>
-			</ul>
-			<ul id="out-ul">
-				<li>고객센터
-					<ul id="in-ul">
-						<li>QnA</li>
-						<li>1:1 질문하기</li>
-					</ul>
-				</li>
-			</ul>
+					<li id="out-li">나의 보관함
+						<ul id="in-ul">
+							<li id="in-hos"><a href="BasketHos">병원</a>
+								<div id="in-hos-menu">
+									<a href="BasketHosRecent">최근 본 병원</a><br>
+									<a href="BasketHosRes">병원 예약 관리</a><br>
+									<a href="BasketHosRev">리뷰관리</a>
+								</div>
+							</li>
+							<li id="in-med">약
+								<div id="in-med-menu">
+									<a href="#">최근 검색한 약</a><br>
+									<a href="#">내 관심 약</a><br>
+									<a href="#">약 댓글 관리</a>
+								</div>
+							</li>
+							<li id="in-com">커뮤
+								<div id="in-com-menu">
+									<a href="#">내가 쓴 글</a><br>
+									<a href="#">내가 쓴 질문</a><br>
+									<a href="#">내 댓글 관리</a>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul id="out-ul">
+					<li id="out-li">메세지함
+						<ul id="in-ul">
+							<li>메세지 확인</li>
+							<li>주소록</li>
+							<li>휴지통</li>
+						</ul>
+					</li>
+				</ul>
+				<ul id="out-ul">
+					<li id="out-li">고객센터
+						<ul id="in-ul">
+							<li>QnA</li>
+							<li>1:1 질문하기</li>
+						</ul>
+					</li>
+				</ul>
 		</div>
 		<div id="inner-content">
 			<table id="table-hospital" border=1>
@@ -80,42 +100,13 @@
 					<td colspan=3 style="overflow:hidden; background:lightgreen;">병원저장페이지
 						<input type="button" value="수정" style="float:right;">
 					</td>
-					
-					
 				</tr>
 				<tr>
-					
-					<td width=100>이름</td>
-					<td width=250></td>
+					<td width=200>병원이름</td>
+					<td width=300>주소</td>
+					<td width=200>전화번호</td>
 				</tr>
-				<tr>
-					
-					<td width=100>아이디</td>
-					<td width=250></td>
-				</tr>
-				<tr>
-					
-					<td width=100>현재 등급</td>
-					<td width=250></td>
-				</tr>
-				<tr>
-					
-					<td width=100>가입일</td>
-					<td width=250></td>
-				</tr>
-				<tr>
-					
-					<td width=100>신고수</td>
-					<td width=250></td>
-				</tr>
-				<tr>
-					<td> 
-						<input type="button" value="저장">
-						<input type="button" value="취소">
-					</td>
-					<td width=100></td>
-					<td width=250></td>
-				</tr>
+
 			</table>
 		</div>
 	</div>
