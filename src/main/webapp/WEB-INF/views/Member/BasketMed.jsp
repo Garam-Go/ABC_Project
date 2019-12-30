@@ -67,7 +67,7 @@
 			<div id="inner-button">
                 <button class="my-button" onClick="location.href='BasketMedList'">최근 검색한 약</button>
                 <button class="my-button" onClick="location.href='BasketMedFav'">관심있는 약</button>
-                <button class="my-button" onClick="location.href='BasketComRep'">내가 쓴 댓글</button>
+                <button class="my-button" onClick="location.href='BasketRepList'">내가 쓴 댓글</button>
             </div>
 		</div>
 	</div>

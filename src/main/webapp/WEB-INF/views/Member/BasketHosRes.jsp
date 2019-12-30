@@ -50,50 +50,7 @@
 	</div>
 	<div id="content">
 		<div id="inner-navbar">
-			<ul id="out-ul">
-					<li id="out-li">나의 보관함
-						<ul id="in-ul">
-							<li id="in-hos"><a href="BasketHos">병원</a>
-								<div id="in-hos-menu">
-									<a href="BasketHosRecent">최근 본 병원</a><br>
-									<a href="BasketHosRes">병원 예약 관리</a><br>
-									<a href="BasketHosRev">리뷰관리</a>
-								</div>
-							</li>
-							<li id="in-med">약
-								<div id="in-med-menu">
-									<a href="#">최근 검색한 약</a><br>
-									<a href="#">내 관심 약</a><br>
-									<a href="#">약 댓글 관리</a>
-								</div>
-							</li>
-							<li id="in-com">커뮤
-								<div id="in-com-menu">
-									<a href="#">내가 쓴 글</a><br>
-									<a href="#">내가 쓴 질문</a><br>
-									<a href="#">내 댓글 관리</a>
-								</div>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul id="out-ul">
-					<li id="out-li">메세지함
-						<ul id="in-ul">
-							<li>메세지 확인</li>
-							<li>주소록</li>
-							<li>휴지통</li>
-						</ul>
-					</li>
-				</ul>
-				<ul id="out-ul">
-					<li id="out-li">고객센터
-						<ul id="in-ul">
-							<li>QnA</li>
-							<li>1:1 질문하기</li>
-						</ul>
-					</li>
-				</ul>
+			<jsp:include page="MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
 			<table id="table-hospital" border=1>

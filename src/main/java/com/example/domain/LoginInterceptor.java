@@ -3,6 +3,7 @@ package com.example.domain;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -18,7 +19,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		System.out.println("로그인 인터셉터 테스트 pre");
 		
-		//네이버 아이디로 로그인했을시 바로 회원가입하도록 함
+		//로그인 작업 들어오면 session초기화
+		HttpSession session = request.getSession();
+		if(session.getAttribute("mid") != null){
+			session.removeAttribute("mid");
+		}
 		
 		return super.preHandle(request, response, handler);
 	}

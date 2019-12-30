@@ -9,43 +9,31 @@
 <link href="${pageContext.request.contextPath}/resources/mypageNavbar.css" rel="stylesheet">
 
 <style>
-#inner-navbar {
-	background: yellow;
-	width: 300px;
-	height: 100%;
-	margin: 10px;
-	float: left;
-	padding-top: 30px;
-	font-size: 20px;
-}
-
-#inner-content {
-	background: skyblue;
-	width: 70%;
-	height: 100%;
-	margin: 10px;
-	float: left;
-}
-
-#inner-button{
-    border:1px solid;
-    width:80%;
-    padding-left: 150px;
-}
-
-.my-button{
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    border: none;
-    background-color: lightgreen;
-    box-shadow: 1px 1px 5px gray;
-    font-weight: bold;
-    font-size: 20px;
-    margin: 50px;
-}
-
-.my-button:hover{cursor:pointer;}
+#inner-navbar{
+		background:yellow;
+		width:200px;
+		height:100%;
+		margin: 10px;
+		float:left;
+		padding:30px;
+		font-size:20px;
+	}
+	#inner-content{
+		background:skyblue;
+		width:70%;
+		height:100%;
+		margin: 10px;
+		float:left;
+	}
+	#table-hospital{
+		width:800px;
+		background:white;
+		margin:100px auto;
+		
+	}
+	table tr td{
+		border-collapse: collapse;
+	}
 </style>
 </head>
 <body>
@@ -64,11 +52,22 @@
 			<jsp:include page="MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<div id="inner-button">
-                <button class="my-button" onClick="location.href='BasketComFree'">내가 쓴 글</button>
-                <button class="my-button" onClick="location.href='BasketComQes'">내가 쓴 질문</button>
-                <button class="my-button" onClick="location.href='BasketRepList'">내가 쓴 댓글</button>
-            </div>
+			<table id="table-hospital" border=1>
+				<tr>
+					<td colspan=3 style="overflow:hidden; background:lightgreen;">내가 쓴 게시글
+						<select id="FreeSelect">
+							<option>자유게시판</option>
+							<option selected>질문게시판</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td width=200>글번호</td>
+					<td width=300>제목</td>
+					<td width=200>작성일</td>
+				</tr>
+
+			</table>
 		</div>
 	</div>
 	<div id="footer">

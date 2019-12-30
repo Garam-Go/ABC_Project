@@ -30,17 +30,17 @@
 <ul id="out-ul">
 	<li id="out-li">메세지함
 		<ul id="in-ul">
-			<li>메세지 확인</li>
-			<li>주소록</li>
-			<li>휴지통</li>
+			<li><a href="MessageHome">메세지 확인</a></li>
+			<li><a href="MessageBook">주소록</a></li>
+			<li><a href="MessageDel">휴지통</a></li>
 		</ul>
 	</li>
 </ul>
 <ul id="out-ul">
 	<li id="out-li">고객센터
 		<ul id="in-ul">
-			<li>QnA</li>
-			<li>1:1 질문하기</li>
+			<li><a href="#">QnA</a></li>
+			<li><a href="#">1:1 질문하기</a></li>
 		</ul>
 	</li>
 </ul>

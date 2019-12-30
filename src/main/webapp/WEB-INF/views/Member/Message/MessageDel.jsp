@@ -26,26 +26,15 @@
 	margin: 10px;
 	float: left;
 }
-
-#inner-button{
-    border:1px solid;
-    width:80%;
-    padding-left: 150px;
-}
-
-.my-button{
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    border: none;
-    background-color: lightgreen;
-    box-shadow: 1px 1px 5px gray;
-    font-weight: bold;
-    font-size: 20px;
-    margin: 50px;
-}
-
-.my-button:hover{cursor:pointer;}
+	#table-hospital{
+		width:800px;
+		background:white;
+		margin:100px auto;
+		
+	}
+	table tr td{
+		border-collapse: collapse;
+	}
 </style>
 </head>
 <body>
@@ -53,22 +42,40 @@
 	<div id="header">
 		<h1>마이페이지</h1>
 		<div id="login">
-			<jsp:include page="loginmenu.jsp"></jsp:include>
+			<jsp:include page="../loginmenu.jsp"></jsp:include>
 		</div>
 	    <div id="navbar">
-			<jsp:include page="../navBar.jsp"></jsp:include>
+			<jsp:include page="../../navBar.jsp"></jsp:include>
 	    </div>
 	</div>
 	<div id="content">
 		<div id="inner-navbar">
-			<jsp:include page="MyNavList.jsp"></jsp:include>
+			<jsp:include page="../MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<div id="inner-button">
-                <button class="my-button" onClick="location.href='BasketComFree'">내가 쓴 글</button>
-                <button class="my-button" onClick="location.href='BasketComQes'">내가 쓴 질문</button>
-                <button class="my-button" onClick="location.href='BasketRepList'">내가 쓴 댓글</button>
-            </div>
+			<table id="table-hospital" border=1>
+				<tr style= "background:lightgreen;">
+					<td width=50>
+						<input type="checkbox" id="chk-all">
+					</td>
+					<td width=300>제목</td>
+					<td width=100>주소</td>
+					<td width=150>보낸사람</td>
+					<td width=100>삭제</td>
+				</tr>
+				<tr>
+					<td width=50>
+						<input type="checkbox" id="chk-in">
+					</td>
+					<td width=300>1</td>
+					<td width=100>2</td>
+					<td width=150>3</td>
+					<td width=100>
+						<button>삭제</button>	
+					</td>
+				</tr>
+
+			</table>
 		</div>
 	</div>
 	<div id="footer">

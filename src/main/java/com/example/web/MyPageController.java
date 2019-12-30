@@ -49,12 +49,12 @@ public class MyPageController {
 	//최근 검색 약
 	@RequestMapping("BasketMedList")
 	public String Basketmedlist(){
-		return "/Member/BasketMed";
+		return "/Member/BasketMedList";
 	}
 	//관심있는 약
 	@RequestMapping("BasketMedFav")
 	public String Basketmedfav(){
-		return "/Member/BasketMed";
+		return "/Member/BasketMedFav";
 	}
 	//댓글 리스트(커뮤니티 페이지하고 연동)
 	@RequestMapping("BasketRepList")
@@ -76,4 +76,19 @@ public class MyPageController {
 	public String Basketcomqes(){
 		return "/Member/BasketComQes";
 	}
+	//메세지함 이동
+	@RequestMapping("MessageHome")
+	public String Messagehome(){
+		return "/Member/Message/MessageHome";
+	}
+	//주소록 이동
+	@RequestMapping("MessageBook")
+	public String messagebook(){
+		return "/Member/Message/MessageBook";
+	}
+	//휴지통 이동
+		@RequestMapping("MessageDel")
+		public String messageDel(){
+			return "/Member/Message/MessageDel";
+		}
 }
