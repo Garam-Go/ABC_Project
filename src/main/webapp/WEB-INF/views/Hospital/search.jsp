@@ -42,7 +42,7 @@
 			
 			<select style="height:50px;" id="searchType">
 				<option value="이비인후과"<c:out value="${param.themes=='이비인후과'?'selected':''}"/>>이비인후과</option>
-				<option value="내과"<c:out value="${param.themes=='내과'?'selected':''}"/>>${param.themes}</option>
+				<option value="내과"<c:out value="${param.themes=='내과'?'selected':''}"/>>내과</option>
 				<option value="소아과" <c:out value="${param.themes=='소아과'?'selected':''}"/>>소아과</option>
 				<option value="피부과" <c:out value="${param.themes=='피부과'?'selected':''}"/>>피부과</option>
 				<option value="정형외과" <c:out value="${param.themes=='정형외과'?'selected':''}"/>>정형외과</option>
@@ -64,33 +64,100 @@
 		<div style="background:#E0F8E6; width:280px;height:500px; margin-left:90px;float:left;">
 			
 		</div>
+		
+		
 		<div style="width:210px; background:#E0F8E6;margin-left:400px;margin-bottom:50px;padding:15px;">
 			<!-- <a href="detail">예치과</a>-->
-			<!-- 크롤링 한 데이터 -->
-			<!-- --> 
-			<table border=1 width=180 id="tblc"></table>
-			<script id="tempc" type="text/x-handlebars-template">
+			<h2>검색 목록을 크롤링 한 데이터 </h2>
+			 
+			<table border=1 width=210 id="tbl"></table>
+			<script id="temp" type="text/x-handlebars-template">
 				{{#each .}}
-				<tr>
-					<td width=100 style="padding:5px;">
-						<a href="#">{{title}}</a>
+				<tr class="row">
+					<td width=30>
+						<button h_code="{{id}}" h_name="{{title}}" h_time="{{time}}" h_phone="{{phone}}" 
+							h_address="{{addressA}}" h_phone="{{phone}}" h_machine="{{desc}}">저장하기</button>
 					</td>
-					<td width100><button h_name="{{title}}" h_code="{{id}}">저장</button></td>
-				</tr>
-				<tr>
-					<td width=25 height=100>{{id}}</td>
+					<td width=30>{{id}}</td>
+					<td width=30>{{title}}</td>
+					<td width=30>{{time}}</td>
+					<td width=30>{{addressA}}</td>
+					<td width=30>{{phone}}</td>
+					<td width=30>{{desc}}</td>
 				</tr>
 				{{/each}}
 			</script>
-			 
-			<!-- 크롤링 한 데이터를 테이블에 저장 -->
+			<script>
+				$("#tbl").on("click","tr td button",function(){
+					//alert("Gg");
+					var h_code=$(this).attr("h_code");
+					var h_name=$(this).attr("h_name");
+					var h_time=$(this).attr("h_time");
+					var h_phone=$(this).attr("h_phone");
+					var h_address=$(this).attr("h_address");
+					var h_machine=$(this).attr("h_machine");
+					//alert("h_code="+h_code+"\n"+"h_name="+h_name+"\n"+"h_time="+h_time+"\n"+"h_phone="+h_phone+"\n"+"h_address="+h_address+"\n"+"h_machine="+h_machine);
+					
+					$.ajax({
+						type:"get",
+						url:"tinsert.json",
+						data:{
+							"h_code":h_code,"h_name":h_name,
+							"h_time":h_time,
+							"h_phone":h_phone,
+							"h_address":h_address,
+							"h_machine":h_machine
+							},
+						success:function(){
+							alert(저장);
+						}
+					});
+				});
+				
+				getMovie2();
+				function getMovie2(){
+					$.ajax({
+						type:"get",
+						url:"../a4.json",
+						success:function(data){
+							//alert(data[0]["id"]);
+							var temp=Handlebars.compile($("#temp").html());
+							$("#tbl").html(temp(data));
+
+						}
+						});
+					}
+			</script>
+			 <h2>검색 리드를 크롤링한 데이터</h2>
+			 <table border=1 width=180 id="tblc"></table>
+			<script id="tempc" type="text/x-handlebars-template">
+				<tr>
+					<td>전화번호</td>
+					<td>도로명주소</td>
+					<td>지번주소</td>
+					<td>의료장비</td>
+					<td>저장</td>
+					
+				</tr>
+				{{#each .}}
+				<tr>
+					<td width=100 style="padding:5px;">{{phone}}</td>
+					<td width=100 style="padding:5px;">{{addressA}}</td>
+					<td width=100 style="padding:5px;">{{addressB}}</td>
+					<td>{{desc}}</td>
+					<td><button>저장</button></td>
+				</tr>
+				{{/each}}
+			</script>
+			
 			<h2>내 테이블에 저장된 데이터 목록</h2>
-			<table border=1 width=180 id="tbl"></table>
-			<script id="temp" type="text/x-handlebars-template">
+			<table border=1 width=180 id="tblr"></table>
+			<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
 				<tr>
 					<td style="padding:5px;"><a href="detail?h_code={{h_code}}">{{h_name}}</a></td>
 					<td>{{h_code}}</td>
+					<td>{{h_time}}</td>
 				</tr>
 				{{/each}}
 			</script>
@@ -117,13 +184,14 @@
 		
 		</div><!-- content 끝 -->
 
-		<div id="footer"style="width:800px; height:100px;background:#666666;">
-			<jsp:include page="bottom.jsp"></jsp:include>
+		<div id="footer">
+		
 		</div>
+		
 		<div>
 			<a href="main">◀</a>
 		</div>
-		<input type="text" value="${param.themes}" id="themes">
+		<input type="hidden" value="${param.themes}" id="themes">
 </div>
 </body>
 	<script>
@@ -175,7 +243,7 @@
 //	 			alert("double-click " + $(this).text());
 
 //	 		});
-
+	//페이지가 로딩하자마자 selsearch 버튼을 누르겠음
 			$("#selsearch").trigger("click");
 
 		});
@@ -200,6 +268,7 @@
 				getlist();	
 			}
 		});
+		/*
 		function getlist(){
 			//alert("gg");
 			//keyword=$("#keyword").val();
@@ -210,15 +279,18 @@
 				data:{"keyword":keyword},
 				success:function(data){
 					//alert("tbl2");
-					var temp=Handlebars.compile($("#temp").html());
-					$("#tbl").html(temp(data));
+					var temp=Handlebars.compile($("#tempr").html());
+					$("#tblr").html(temp(data));
 				}
 			});
 		}
+		
+		gettlist();
 		/*  카테코리별 검색  */
+		
 		function gettlist(){
 			//alert("gg");
-			//keyword=$("#keyword").val();
+			keyword=$("#keyword").val();
 			//alert(keyword);
 			$.ajax({
 				type:"get",
@@ -226,42 +298,67 @@
 				data:{"keyword":searchType},
 				success:function(data){
 					//alert(keyword);
-					var temp=Handlebars.compile($("#temp").html());
-					$("#tbl").html(temp(data));
+					var temp=Handlebars.compile($("#tempr").html());
+					$("#tblr").html(temp(data));
 				}
 			});
 		}
-		
-		
-		$("#tblc").on("click","tr td button",function(){
+		/*크롤링한 데이터 hsearch에 저장*/
+		/*
+		$("#tbl").on("click","tr td button",function(){
 			//alert("g");
 			var h_code=$(this).attr("h_code");
 			var h_name=$(this).attr("h_name");
-			//alert(h_code+"\n"+h_name);
+			var h_time=$(this).attr("h_time");
+			//alert(h_code+"\n"+h_name+"\n" +h_time);
+			
 			$.ajax({
 				type:"get",
-				url:"insert.json",
-				data:{"h_code":h_code,"h_name":h_name},
+				url:"rinsert.json",
+				data:{"h_code":h_code,"h_name":h_name,"h_time":h_time},
 				success:function(){
 					//alert("저장됨");	
 				
 				}
 				
 			});
+			
 		});
+		*/
+		/*검색 리드한 테이블을 검색 목록에 저장하기*/
+		$("#tblc").on("click","tr td button",function(){
+			//alert("g");
+			var h_code=$("#tbl tr td button").attr("h_code");
+			var h_name=$(this).attr("h_name");
+			var h_time=$(this).attr("h_time");
+			alert(h_code+"\n"+h_name+"\n" +h_time);
+			
+			$.ajax({
+				type:"get",
+				url:"rinsert.json",
+				data:{"h_code":h_code,"h_name":h_name,"h_time":h_time},
+				success:function(){
+					//alert("저장됨");	
+				
+				}
+				
+			});
+			
+		});
+		
 		$("#btnsearch").on("click",function(){
 			query2=$("#query2").val();
 			//alert(query2);
 		});
 	
-/*크롤링한 데이터 출력*/
+/*리드한 크롤링한 데이터 출력*/
  
  /*
 getMovie();
 function getMovie(){
 	$.ajax({
 		type:"get",
-		url:"../q12.json",
+		url:"../r1.json",
 		success:function(data){
 			//alert(data[0]["id"]);
 			var temp=Handlebars.compile($("#tempc").html());
@@ -269,6 +366,16 @@ function getMovie(){
 
 		}
 		});
-	}*/			    															
+	}	
+
+*/
+/*hsearch에 id가 무엇인 것에 전화번호,도로명 주소,의료장비 넣기!*/
+ 
+ 
+ 
+/**/
+
+
+	
 	</script>
 </html>

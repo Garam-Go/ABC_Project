@@ -28,10 +28,26 @@ public class HospitalController {
 	
 	@Inject
 	HDAO dao;
+	
+	//코드,이름 저장
 	@ResponseBody
 	@RequestMapping("insert.json")
 	public void insertjson(HVO vo) throws Exception{
 		 dao.insert(vo);
+	}
+	//코드,이름,진료시간 저장
+	@ResponseBody
+	@RequestMapping("rinsert.json")
+	public void insert(HVO vo) throws Exception{
+		 dao.rinsert(vo);
+	}
+	//지도빼고 다
+	@ResponseBody
+	@RequestMapping("tinsert.json")
+	public void tinsert(HVO vo) throws Exception{
+		System.out.println(vo.toString()); 
+		dao.tinsert(vo);
+		 
 	}
 	
 	@ResponseBody
@@ -44,8 +60,13 @@ public class HospitalController {
 	@RequestMapping("slist.json")
 	public List<HVO> slistjson(SearchCriteria cri) throws Exception{
 		//System.out.println(dao.slist(cri));
-		return	dao.slist(cri); 
-		
+		return	dao.slist(cri); 	
+	}
+	
+	@ResponseBody
+	@RequestMapping("update.json")
+	public void update(HVO vo) throws Exception{
+		dao.update(vo);
 	}
 	
 	/*
@@ -57,6 +78,8 @@ public class HospitalController {
 		
 	}
 	*/
+	
+	
 	
 	
 	@RequestMapping("search")

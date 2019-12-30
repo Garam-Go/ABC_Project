@@ -33,7 +33,8 @@
 				<td colspan="2" height=100>병원 검색</td>
 			</tr>		
 			<tr>
-				<td rowspan="2" height=500>
+				<td width=200>병원이름으로 검색</td>
+				<td>
 				<div id="theme">
 					<input type="button" value="이비인후과" class="theme">
 					<input type="button" value="소아과" class="theme">
@@ -55,10 +56,15 @@
 		<div id="content-right" style="width:120px;height:1000px; background:lightgray;float:left;"><!-- content  right 시작 -->
 			<jsp:include page="right.jsp"></jsp:include>
 		</div><!-- content right 끝 -->
+		
+		
 	</div><!-- content 끝 -->
 	
-	<div id="footer" style="width:800px; height:100px;background:#666666;"><!-- footer 시작 -->
-		<jsp:include page="bottom.jsp"></jsp:include>
+
+	
+	
+	<div id="footer"><!-- footer 시작 -->
+		
 	</div>	<!-- footer 끝 -->
 
 </div><!-- page 끝 -->
