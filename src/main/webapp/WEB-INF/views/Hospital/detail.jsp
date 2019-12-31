@@ -27,14 +27,10 @@
 		<div style="background:#E0F8E6;width:600px; height:200px;margin:0px auto;margin-top:20px;">
 			지도 출력
 		</div>
-		<input type="hidden" value="${vo.h_code}">
+		<input type="hidden" value="${vo.h_code}" id="h_code">
 		
-		<form>
+		
 			<table border=1 width=530>
-				<tr>
-					<td>병원코드</td>
-					<td>${vo.h_code}</td>
-				</tr>
 				<tr>
 					<td>병원이름</td>
 					<td>${vo.h_name}</td>
@@ -43,10 +39,23 @@
 					<td>진료시간</td>
 					<td>${vo.h_time}</td>
 				</tr>
-				
+				<tr>
+					<td>전화번호</td>
+					<td>${vo.h_phone}</td>
+				</tr>
+				<tr>
+					<td>주소</td>
+					<td>${vo.h_address}</td>
+				</tr>
+				<tr>
+					<td>진료과목</td>
+					<td>${vo.h_machine}</td>
+					
+				</tr>
 			</table>
-		</form>
+	
 		
+	
 		<!-- ajax 으로 read 를 하렸는되 안됨-->
 		<!-- 
 		<table border=1 width=530 id="tbl"></table>

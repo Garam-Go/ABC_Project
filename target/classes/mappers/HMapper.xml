@@ -31,7 +31,7 @@
 		where h_code=#{h_code}
 	</select>
 	<update id="update">
-		update hsearch set h_address=#{h_address}, h_machine=#{h_machine}, h_phone=#{h_phone}
+		update hsearch set h_address=#{h_address}, h_machine=#{h_machine}, h_phone=#{h_phone},h_name=#{h_name},h_time=#{h_time}
 		where h_code=#{h_code}
 	</update>
 </mapper>

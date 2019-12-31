@@ -104,12 +104,11 @@ public class HReadController {
 			
 			
 			
-			Elements el=doc2.select(".tab_detail_area");
-			
-			Elements e3=el.select(".hospital_info");
+				Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 				
-				map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-			
+				Elements e3=el.select(".hospital_info");
+					
+					map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 			
 			
 				
@@ -156,12 +155,11 @@ public class HReadController {
 					
 					
 					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -207,13 +205,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -260,12 +256,11 @@ public class HReadController {
 					
 					
 					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -311,14 +306,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -363,14 +355,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -415,13 +404,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -468,13 +455,11 @@ public class HReadController {
 					
 					
 					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -519,13 +504,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -571,13 +554,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -623,13 +604,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -676,13 +655,11 @@ public class HReadController {
 					
 					
 					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -728,12 +705,11 @@ public class HReadController {
 					
 					
 					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -779,14 +755,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -831,13 +804,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -883,14 +854,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -936,13 +904,11 @@ public class HReadController {
 					
 					
 					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -988,14 +954,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -1040,13 +1003,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -1092,13 +1053,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -1143,14 +1102,11 @@ public class HReadController {
 						map.put("addressB", e2.select(".list_item_address .list_address li:nth-child(2) .addr").text());//지번 주소
 					
 					
-					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 					
 						
@@ -1196,14 +1152,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -1248,14 +1201,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -1300,14 +1250,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -1352,15 +1299,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 						
 					array.add(map);	
 					return array;
@@ -1403,14 +1346,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -1454,14 +1394,11 @@ public class HReadController {
 					
 					
 					
-					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -1506,13 +1443,11 @@ public class HReadController {
 					
 					
 					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	
@@ -1558,13 +1493,11 @@ public class HReadController {
 					
 					
 					
-					Elements el=doc2.select(".tab_detail_area");
-					
-					Elements e3=el.select(".hospital_info");
+						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
 						
-						map.put("desc", e3.select("div:nth-child(3) .desc").text());//진료기계
-					
-					
+						Elements e3=el.select(".hospital_info");
+							
+							map.put("desc", e3.select("div:nth-child(1) .desc").text());//진료기계
 					
 						
 					array.add(map);	

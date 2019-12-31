@@ -15,10 +15,10 @@ public interface HDAO {
 	
 	public List<HVO> list() throws Exception; //크롤링 데이터 hsearch에 저장한 목록 출력
 	public List<HVO> slist(SearchCriteria cri) throws Exception;//크롤링 데이터 hsearch에 저장한 목록 출력 keyword 검색 가능
-	public HVO read(String h_code) throws Exception;
+	public HVO read(String h_code) throws Exception;//코드,이름,진료 시간 read
 	
 	
-	public void update(HVO vo)throws Exception; //크롤링 데이터를 리드하는 데이터 
+	public void update(HVO vo)throws Exception; //진료과목 입력하기ㄴ
 	
 	
 	

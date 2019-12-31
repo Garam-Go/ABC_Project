@@ -17,16 +17,19 @@
 	<div id="content" style="overflow:hidden;"><!-- content 시작 -->
 			
 		<div id="content-left" style="float:left;width:680px;"><!-- content  left 시작 -->
-		<div style="text-align:center;margin-top:20px;">
-			<input type="text" id="query" value="하이">
+			
+			<input type="text" id="query" value="ㅎㅎ">
+			
 			<input type="button" value="검색" id="btnsearch">
-		</div>	
-		<div id="new">
-			<select style="margin:0px auto;margin-top:25px;height:50px;" id="hide-new">
-				<option>1.인기 검색어 시작 </option>
-				<option>10.인기 검색어 끝</option>
-			</select>
-		</div>
+			
+		
+			
+			<div id="new">
+				<select style="margin:0px auto;margin-top:25px;height:50px;" id="hide-new">
+					<option>1.인기 검색어 시작 </option>
+					<option>10.인기 검색어 끝</option>
+				</select>
+			</div>
 		
 		<table border=1 width=530 style="margin-top:100px;">
 			<tr>
@@ -37,7 +40,7 @@
 				<td>
 				<div id="theme">
 					<input type="button" value="이비인후과" class="theme">
-					<input type="button" value="소아과" class="theme">
+					<input type="button" value="소아" class="theme">
 					<input type="button" value="피부과" class="theme">
 					<input type="button" value="외과" class="theme">
 					<input type="button" value="정형외과" class="theme">
@@ -48,6 +51,9 @@
 					<input type="button" value="비뇨기과" class="theme">
 					<input type="button" value="성형외과" class="theme">
 					<input type="button" value="신경과" class="theme">
+					<input type="button" value="신경외과" class="theme">
+					<input type="button" value="정신" class="theme">
+					<input type="button" value="마취통증" class="theme">
 				</div>
 				</td>
 			</tr>
@@ -71,39 +77,22 @@
 	
 </body>
 	<script>
-		var btnin="${param.theme}";
-		//alert(btnin);
-		var query=$("#query").val();
+		
 		
 		var theme="";
 		$("#theme").on("click","input:button",function(){
 			var themes=$(this).val();
 			//alert(themes);
 			location.href="search?themes=" +themes;
-			
 		});
 		$("#btnnext").on("click",function(){
 			
 		});
 
-		$("#btnin").on("click",function(){
-			var theme=$(this).val();
-			location.href="search?theme=" +theme;
-		});
-		
-		$("#btnout").on("click",function(){
-			var theme=$(this).val();
-			location.href="search?theme=" +theme;
-		});
+	
 		
 		
-		   $("#divtheme").on("click","input:button",function(){
-			   theme=$(this).val();
-			   query=$("#query").val();
-			   //$(this).text(theme);
-			   //alert(theme+"/"+query);
-			   location.href="search?query="+query+"&theme="+theme;
-		   });
+		  
 		
 		    
 		

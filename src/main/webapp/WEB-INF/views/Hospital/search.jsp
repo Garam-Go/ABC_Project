@@ -19,8 +19,10 @@
 			<div id="content-left" style="float:left;width:680px;">
 				<div id="new">
 			<!-- 검색 연습 시작-->	
-			<input type="text" id="keyword">
+			<input type="text" id="keyword" value="${param.query}">
 			<input type="button" value="검색" id="btnsearch">
+			
+			
 			<!-- 검색 연습 끝 -->
 			<select style="margin:0px auto; height:50px;" id="hide-new">
 				<option>1.인기 검색어 시작 </option>
@@ -39,11 +41,11 @@
 			<select style="height:50px;">
 				<option>읍/면/동/로 선택</option>
 			</select>
-			
+			<!-- 카테고리 별 검색 -->
 			<select style="height:50px;" id="searchType">
 				<option value="이비인후과"<c:out value="${param.themes=='이비인후과'?'selected':''}"/>>이비인후과</option>
 				<option value="내과"<c:out value="${param.themes=='내과'?'selected':''}"/>>내과</option>
-				<option value="소아과" <c:out value="${param.themes=='소아과'?'selected':''}"/>>소아과</option>
+				<option value="소아" <c:out value="${param.themes=='소아'?'selected':''}"/>>소아과</option>
 				<option value="피부과" <c:out value="${param.themes=='피부과'?'selected':''}"/>>피부과</option>
 				<option value="정형외과" <c:out value="${param.themes=='정형외과'?'selected':''}"/>>정형외과</option>
 				<option value="안과" <c:out value="${param.themes=='안과'?'selected':''}"/>>안과</option>
@@ -56,9 +58,12 @@
 				<option value="외과"<c:out value="${param.themes=='외과'?'selected':''}"/>>외과</option>
 				<option value="신경외과"<c:out value="${param.themes=='신경외과'?'selected':''}"/>>신경외과</option>
 				<option value="신경과"<c:out value="${param.themes=='신경과'?'selected':''}"/>>신경과</option>
+				<option value="정신"<c:out value="${param.themes=='정신'?'selected':''}"/>>정신과</option>
+				<option value="마취통증"<c:out value="${param.themes=='마취통증'?'selected':''}"/>>마취통증과</option>
 			</select>
 
 		<input type="button" value="검색" id="selsearch">
+		<!-- 직접 검색 -->	
 		</div>
 		
 		<div style="background:#E0F8E6; width:280px;height:500px; margin-left:90px;float:left;">
@@ -68,8 +73,9 @@
 		
 		<div style="width:210px; background:#E0F8E6;margin-left:400px;margin-bottom:50px;padding:15px;">
 			<!-- <a href="detail">예치과</a>-->
+			<!-- 
 			<h2>검색 목록을 크롤링 한 데이터 </h2>
-			 
+			
 			<table border=1 width=210 id="tbl"></table>
 			<script id="temp" type="text/x-handlebars-template">
 				{{#each .}}
@@ -88,6 +94,7 @@
 				{{/each}}
 			</script>
 			<script>
+			
 				$("#tbl").on("click","tr td button",function(){
 					//alert("Gg");
 					var h_code=$(this).attr("h_code");
@@ -118,7 +125,7 @@
 				function getMovie2(){
 					$.ajax({
 						type:"get",
-						url:"../j6.json",
+						url:"../r1.json",
 						success:function(data){
 							//alert(data[0]["id"]);
 							var temp=Handlebars.compile($("#temp").html());
@@ -128,6 +135,73 @@
 						});
 					}
 			</script>
+			 -->
+			 <!-- 
+			 	<h3>h_machine 값 안 넣은 애들 수정</h3>
+			  	<table border=1 width=210 id="tblz"></table>
+			<script id="tempz" type="text/x-handlebars-template">
+				{{#each .}}
+				<tr class="row">
+					<td width=30>
+						<button h_code="{{id}}" h_name="{{title}}" h_time="{{time}}" h_phone="{{phone}}" 
+							h_address="{{addressA}}" h_phone="{{phone}}" h_machine="{{desc}}">저장하기</button>
+					</td>
+					<td width=30>{{id}}</td>
+					<td width=30>{{title}}</td>
+					<td width=30>{{time}}</td>
+					<td width=30>{{addressA}}</td>
+					<td width=30>{{phone}}</td>
+					<td width=30>{{desc}}</td>
+				</tr>
+				{{/each}}
+			</script>
+			<script>
+			$("#tblz").on("click","tr td button",function(){
+				//alert("Gg");
+				var h_code=$(this).attr("h_code");
+				var h_name=$(this).attr("h_name");
+				var h_time=$(this).attr("h_time");
+				var h_phone=$(this).attr("h_phone");
+				var h_address=$(this).attr("h_address");
+				var h_machine=$(this).attr("h_machine");
+				alert("h_code="+h_code+"\n"+"h_name="+h_name+"\n"+"h_time="+h_time+"\n"+"h_phone="+h_phone+"\n"+"h_address="+h_address+"\n"+"h_machine="+h_machine);
+			
+				$.ajax({
+					type:"get",
+					url:"update.json",
+					data:{
+						"h_code":h_code,"h_name":h_name,
+						"h_time":h_time,
+						"h_phone":h_phone,
+						"h_address":h_address,
+						"h_machine":h_machine
+						},
+					success:function(){
+						alert(수정);
+					}
+				});
+			
+			});
+				
+				getMovie2();
+				function getMovie2(){
+					$.ajax({
+						type:"get",
+						url:"../x6.json",
+						success:function(data){
+							//alert(data[0]["id"]);
+							//$("#h_code").html(data.id);
+							var temp=Handlebars.compile($("#tempz").html());
+							$("#tblz").html(temp(data));
+							
+
+						}
+						});
+					}
+			</script>
+			  -->
+			 <!--  -->
+			 <!-- 
 			 <h2>검색 리드를 크롤링한 데이터</h2>
 			 <table border=1 width=180 id="tblc"></table>
 			<script id="tempc" type="text/x-handlebars-template">
@@ -149,15 +223,13 @@
 				</tr>
 				{{/each}}
 			</script>
-			
+			 -->
 			<h2>내 테이블에 저장된 데이터 목록</h2>
 			<table border=1 width=180 id="tblr"></table>
 			<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
 				<tr>
 					<td style="padding:5px;"><a href="detail?h_code={{h_code}}">{{h_name}}</a></td>
-					<td>{{h_code}}</td>
-					<td>{{h_time}}</td>
 				</tr>
 				{{/each}}
 			</script>
@@ -209,46 +281,15 @@
 
 		//alert(searchType);
 		
+		
+		
+		
 		$("#selsearch").trigger("click");
 		$(document).ready(function(){
-
-			
-
-			/*$(".buttons").bind("click", function(){
-
-				alert("click " + $(this).text());
-
-			});
-
-			*/
-
-//	 		$(".buttons").click( function(){
-
-//	 			alert("click " + $(this).text());
-
-//	 		});
-
-			
-/*
-			$(".buttons").bind("dblclick", function(){
-
-				alert("double-click " + $(this).text());
-
-			});
-
-	*/		
-
-//	 		$(".buttons").dblclick( function(){
-
-//	 			alert("double-click " + $(this).text());
-
-//	 		});
 	//페이지가 로딩하자마자 selsearch 버튼을 누르겠음
 			$("#selsearch").trigger("click");
-
 		});
-		
-		
+	
 		$("#selsearch").on("click",function(){
 			//alert("gg");
 			searchType=$("#searchType option:selected").val();
@@ -268,7 +309,7 @@
 				getlist();	
 			}
 		});
-		/*
+	/**/
 		function getlist(){
 			//alert("gg");
 			//keyword=$("#keyword").val();
@@ -285,8 +326,9 @@
 			});
 		}
 		
+			
+		
 		gettlist();
-		/*  카테코리별 검색  */
 		
 		function gettlist(){
 			//alert("gg");
@@ -303,6 +345,7 @@
 				}
 			});
 		}
+		
 		/*크롤링한 데이터 hsearch에 저장*/
 		/*
 		$("#tbl").on("click","tr td button",function(){
@@ -352,7 +395,7 @@
 		});
 	
 /*리드한 크롤링한 데이터 출력*/
- 
+ /*
  /*
 getMovie();
 function getMovie(){
