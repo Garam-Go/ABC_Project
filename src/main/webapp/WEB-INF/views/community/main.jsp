@@ -19,9 +19,17 @@
 		text-align: left;
 	}
 	
+	.hos{
+		width:160px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		text-align: left;
+	}
+	
 	.active{color:black}
 </style>
-<title>커뮤니티 메인</title>
+<title>커뮤니티 메인(자유게시판)</title>
 </head>
 <body>
 	<div id="page">
@@ -52,20 +60,19 @@
 				</div>
 				
 				<div style="width: 300px; height: 150px; float: right; margin-right: 50px;">
-					<div style="text-align:right; font-size:20px;">
-						<b>+</b>
+					<div style="text-align:right; padding-right:10px; font-size:20px;">
+						<b><a href="comu_qlist" style="text-decoration:none">+</a></b>
 					</div>
-					
-					<table border=1 style="border-collapse:collapse;">
-						<c:forEach var="qvo" items="${qlist}" begin="0" end="4">
-
-								<tr>
-									<td>${qvo.qid}</td>
-									<td><div class=health>${qvo.title}</div></td>
-								</tr>
-
-						</c:forEach>
-					</table>
+					<div style="text-align:center;">
+						<table border=1 style="border-collapse:collapse;">
+							<c:forEach var="qvo" items="${qlist}" begin="0" end="4">
+									<tr>
+										<td><div class=health>${qvo.title}</div></td>
+									</tr>
+	
+							</c:forEach>
+						</table>
+					</div>
 				</div>
 			</div>
 	
@@ -73,10 +80,7 @@
 			<div id="content-left" style = "width:600px; float:left">
 				<div style="margin-top: 50px;">
 					<div style="overflow: hidden;">
-						
-							
 							<span> 
-								
 								<form name=frm>
 									<span style="float: left">
 										<select name=searchType id=searchType>
@@ -84,20 +88,14 @@
 												<option value="content">내용</option>
 												<option value="fname">작성자</option>
 										</select>
-									
 										<input type="text" id=keyword size=10> 
 										<input type="button" value="검색" id="btnsearch"> 
-										<input type="hidden" id=page>
 									</span>
-								</form> 
-								
+								</form>								
 								<span id=total style="float:right;"></span>
 							</span>
 							
-
-		
 						<div>
-							
 							<div>
 								<table id="tbl1" border=1 width=600 style="text-align: center;"></table>
 								<script id="temp1" type="text/x-handlebars-template">
@@ -127,10 +125,37 @@
 				</div>
 			</div>
 			
-			<div id = "content-right" style="width: 180px; float: right; margin: 50px 10px 10px 0px; background:lightgray;">					
+			<div id = "content-right" style="width: 180px; float: right; margin: 50px 0px 10px 20px; background:lightgray;">					
 				<input type="button" value="메세지함" style="width:100px;height:75px; margin:10px;">
-           		<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;">
-           		
+           		<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;">   
+           		<input type="text" id="query" style="width:160px;margin:10px;">
+
+           		<table id="boxh" border=1 width=180 style="; border-collapse:collapse; overflow:hidden;"></table>
+				<script id="temph" type="text/x-handlebars-template">	
+				{{#each hlist}}
+					<tr>
+						<td>
+							<div class=hos>
+								<a href="comu_community?h_code={{h_code}}&h_name={{h_name}}" style="text-decoration:none; color:black;">
+									{{h_name}}
+								</a>
+							</div>
+						</td>
+					</tr>	
+				{{/each}}
+				</script>
+				
+				<!-- 병원목록 페이지 버튼 -->
+				<div>		
+					<span>
+						<button id="btnprev">◀</button>
+					</span>
+					
+					<span>
+						<button id="btnnext">▶</button>
+					</span>
+				</div>
+				
 			</div>
 		</div>		<!-- content end -->
 
@@ -143,9 +168,12 @@
 		var keyword = $("#keyword").val();
 		var total=0;
 		var page=1;
+		var page1=1;
+		var query = $("#query").val();
 	
 		getlist();
 		gethealth();
+		gethlist();
 		
 		//건강정보
 		function gethealth(){
@@ -215,7 +243,53 @@
 			event.preventDefault();
 			page = $(this).attr("href");
 			getlist();
-		})
+		});
+		
+		
+		
+		var htotal = 1;
+		
+		// 병원 목록 이전 다음
+		$("#btnprev").on("click", function(){
+			if(page1 > 1){
+				page1 = page1 - 1;
+				gethlist();
+			}
+		});
+		
+		$("#btnnext").on("click", function(){
+			if((page1*10) < htotal){
+				page1 = page1 + 1;
+				gethlist();
+			}
+		});
+		
+		//키 검색
+		$("#query").keyup(function(key) {
+			if (key.keyCode == 13) {
+				query = $("#query").val();
+				page1=1;
+				gethlist();
+			}
+		});
+		
+		
+		
+		//리스트
+		function gethlist() {
+			$.ajax({
+				type : "get",
+				url : "community.json",
+				data:{"page":page1, "keyword":query},
+				success : function(data) {
+					var temp = Handlebars.compile($("#temph").html());
+					$("#boxh").html(temp(data));
+					
+					htotal = data.pm.totalCount;
+				}
+			});	
+		}
+		
 	</script>
 </body>
 </html>

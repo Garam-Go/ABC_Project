@@ -4,28 +4,50 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class QVO {
-	private int qid;
-	private int num;
+public class HosVO {
+	private String hcode;
+	private int hid;
+	private String type;
 	private String title;
+	private String fname;
 	private String content;
+	
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date wdate;
 	private String image;
 	private String file;
-	private String fname;
+	private int num;
 	
-	public int getQid() {
-		return qid;
+	
+	public String getType() {
+		return type;
 	}
-	public void setQid(int qid) {
-		this.qid = qid;
+	public void setType(String type) {
+		this.type = type;
 	}
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public int getHid() {
+		return hid;
+	}
+	public void setHid(int hid) {
+		this.hid = hid;
+	}
+	public String getHcode() {
+		return hcode;
+	}
+	public void setHcode(String hcode) {
+		this.hcode = hcode;
 	}
 	public String getTitle() {
 		return title;
@@ -57,16 +79,12 @@ public class QVO {
 	public void setFile(String file) {
 		this.file = file;
 	}
-	public String getFname() {
-		return fname;
-	}
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
 	
 	@Override
 	public String toString() {
-		return "QVO [qid=" + qid + ", num=" + num + ", title=" + title + ", content=" + content + ", wdate=" + wdate
-				+ ", image=" + image + ", file=" + file + ", fname=" + fname + "]";
+		return "HosVO [hcode=" + hcode + ", hid=" + hid + ", type=" + type + ", title=" + title + ", fname=" + fname
+				+ ", content=" + content + ", wdate=" + wdate + ", image=" + image + ", file=" + file + ", num=" + num
+				+ "]";
 	}
+	
 }
