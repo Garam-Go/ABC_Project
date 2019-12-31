@@ -11,12 +11,12 @@ import com.example.persistence.MemberDAO;
 @Controller
 public class MyPageController {
 	@Inject
-	MemberDAO dao;
+	MemberDAO mdao;
 	
 	//마이페이지 이동 (프로필용 사용자 정보 가져감)
 	@RequestMapping("MyPage")
 	public String Basket(Model model, String mid) throws Exception{
-		model.addAttribute("my",dao.login(mid));
+		model.addAttribute("my",mdao.login(mid));
 		return "/Member/MyPage";
 	}
 	
@@ -81,6 +81,13 @@ public class MyPageController {
 	public String Messagehome(){
 		return "/Member/Message/MessageHome";
 	}
+	
+	//메세지 보내기
+	@RequestMapping("Message")
+	public String Message(){
+		return "/Member/Message/Message";
+	}
+	
 	//주소록 이동
 	@RequestMapping("MessageBook")
 	public String messagebook(){

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="MessageMapper">
+<!-- 	list -->
+	<select id="mslist" resultType="com.example.domain.MessageVO">
+		select * from mmessage where msreceiver = #{mid}
+		order by msid desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+		
+	</select>
+<!-- 	message send -->
+	<insert id="msend">
+		insert into mmessage (mstitle, mscontent, msreceiver,mssender)
+		values(#{mstitle},#{mscontent},#{msreceiver},#{mssender})
+	</insert>
+</mapper>

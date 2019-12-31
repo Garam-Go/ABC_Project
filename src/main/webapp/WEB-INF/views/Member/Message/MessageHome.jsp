@@ -7,6 +7,8 @@
 <title>마이페이지</title>
 <link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/mypageNavbar.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <style>
 #inner-navbar {
@@ -53,29 +55,32 @@
 			<jsp:include page="../MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<table id="table-hospital" border=1>
+			<table id="table-hospital" border=1></table>
+			<script id="temp" type="text/x-handlebars-templete">
 				<tr style= "background:lightgreen;">
 					<td width=50>
 						<input type="checkbox" id="chk-all">
 					</td>
 					<td width=300>제목</td>
-					<td width=100>주소</td>
-					<td width=150>보낸사람</td>
+					<td width=100>보낸사람</td>
+					<td width=150>보낸날짜</td>
 					<td width=100>답장</td>
 				</tr>
-				<tr>
-					<td width=50>
-						<input type="checkbox" id="chk-in">
-					</td>
-					<td width=300>1</td>
-					<td width=100>2</td>
-					<td width=150>3</td>
-					<td width=100>
-						<button>답장</button>
-					</td>
-				</tr>
+				{{#each list}}
+					<tr>
+						<td width=50>
+							<input type="checkbox" id="chk-in">
+						</td>
+						<td width=300>{{mstitle}}</td>
+						<td width=100>2</td>
+						<td width=150>3</td>
+						<td width=100>
+							<button>답장</button>
+						</td>
+					</tr>
+				{{/each}}
+			</script>
 
-			</table>
 		</div>
 	</div>
 	<div id="footer">
