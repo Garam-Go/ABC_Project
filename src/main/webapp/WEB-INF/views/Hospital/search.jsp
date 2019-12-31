@@ -118,7 +118,7 @@
 				function getMovie2(){
 					$.ajax({
 						type:"get",
-						url:"../a4.json",
+						url:"../j6.json",
 						success:function(data){
 							//alert(data[0]["id"]);
 							var temp=Handlebars.compile($("#temp").html());
