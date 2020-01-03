@@ -31,23 +31,6 @@
 </style>
 </head>
 <body>
-	
-	<div id="top"><!-- 메뉴  -->
-		<jsp:include page="menu.jsp"></jsp:include>
-	</div>
-	<div>
-		<form action="loginPost" method="post">
-		<table border=1 width=300>
-			<tr>
-				<td>아이디:<input type="text" name="mid"></td>
-				<td rowspan="2"><input type="submit" value="로그인"></td>
-			</tr>
-			<tr>
-				<td>비밀번호:<input type="password" name="mpassword"></td>
-			</tr>
-		</table>
-		</form>
-	</div>
 	<div id="page">
 		<div id="navbar"></div>
 		<div id="content" style="overflow: hidden;">
@@ -143,26 +126,13 @@
 					<table border=1 width=180 id="tblr"></table>
 					<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
-				<tr>
-					<td>{{h_code}}</td>
+				<tr onClick="location.href='detail?h_code={{h_code}}'">
 					<td style="padding:5px;">{{h_name}}</td>
 				</tr>
 				{{/each}}
 			</script>
 
-					<!-- 
-			 <form>
-			 <table border=1 width=180>
-			 <c:forEach items="${list}" var="vo">
-			 
-				 <tr onClick="location.href='detail?h_code=${vo.h_code}'">
-				 	<td>${vo.h_code}</td>
-				 	<td>${vo.h_name}</td>
-				 </tr>
-				 </c:forEach>
-			 </table>
-			 </form>
-			 -->
+		
 				</div>
 
 			</div>
@@ -193,40 +163,10 @@
 	var keyword = $("#keyword").val();
 	gettlist();
 	var themes = "${param.themes}";
-	//alert(themes);
 
 	var searchType = $("#searchType option:selected").val();
 
-	$("#tblr").on("click","tr",function(){
-		//alert("G");
-		var str="";
-		//var tdArr=new Array();
-		var tr=$(this);
-		var td=tr.children();
-		
-		//alert("클릭한 row의 모든 데이터:" +tr.text());
-		
-		//반복문을 이용해서 배열에 값을 담아 사용가능
-		var mhrecent=td.eq(0).text();
-		//var mhid="shrjs1@naver.com";
-		//alert("mhrecent:" +mhrecent +"mhid:" +mhid);
-		
-		$.ajax({
-			type:"get",
-			url:"reviewinsert",
-			data:{"mhrecent":mhrecent,"mhid":"shrjs1@naver.com"},
-			success:function(){
-				alert("성공");
-			}
-		});
-		
 	
-		
-	});
-	 
-
-		
-	//////////////////////////////////////////////////////////////////
 	$("#selsearch").trigger("click");
 	$(document).ready(function() {
 		//페이지가 로딩하자마자 selsearch 버튼을 누르겠음

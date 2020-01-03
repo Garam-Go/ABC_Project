@@ -38,6 +38,5 @@
 		insert into mbhrev(revcontent,revgrade,hrevmyid)
 		values(#{revcontent},#{revgrade},#{hrevmyid})
 	</insert>
-	
 </mapper>
 

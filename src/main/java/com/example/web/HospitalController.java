@@ -4,20 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.HVO;
-import com.example.domain.MBasketHVO;
 import com.example.domain.PageMaker;
+import com.example.domain.ReviewVO;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.HDAO;
-import com.example.persistence.ReviewDAO;
 
 @RequestMapping("Hospital")
 @Controller
@@ -73,22 +70,7 @@ public class HospitalController {
 	public void update(HVO vo) throws Exception{
 		dao.update(vo);
 	}
-	
-
-	
-	
-	/*
-	@ResponseBody
-	@RequestMapping("read.json")
-	public HVO readjson(String h_code) throws Exception{
-		//System.out.println(dao.read(h_code));
-		return	dao.read(h_code); 
 		
-	}
-	*/
-	
-	
-	
 	/* search 페이지로 이동*/
 	@RequestMapping("search")
 	public String search(Model model,SearchCriteria cri) throws Exception{
@@ -109,121 +91,12 @@ public class HospitalController {
 		return "/Hospital/reservation";
 	}
 	
-	@Inject
-	ReviewDAO rdao;
-	
-	/* 병원 리뷰 평점 병원에 저장 */
-	@ResponseBody
-	@RequestMapping("reviewlist")
-	public List<MBasketHVO> reviewlist()throws Exception{
-		return rdao.list();
-	}
-	
-	
-	
-	/* 병원저장 테이블에 병원 id + 병원 mid + 저장 */
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/* 아이디를 세션값에 저장하고 싶음  */
-	@RequestMapping("login")
-	public String login(){
-		return "/Hospital/login";
-	}
-	
-	@RequestMapping(value="loginPost",method=RequestMethod.POST)
-	public String loginPost(String mid,String mpassword,HttpSession session){
-		//아이디 user00,비밀번호 pass
-		
-		if(mid.equals("shrjs1@naver.com") && mpassword.equals("pass")){
-			session.setAttribute("mid",mid);
-			
-			if(session.getAttribute("dest")!=null){
-				return "redirect:" + (String)session.getAttribute("dest");
-			}
+	//리뷰테이블 리뷰저장
+		@ResponseBody
+		@RequestMapping("reviewinsert.json")
+		public void reviewinsert(ReviewVO vo) throws Exception{
+			 dao.reviewinsert(vo);
 		}
-		return "redirect:/Hospital/detail";
-	}
-	
-	/* 세션에 저장된 id로 insert하고 싶음 */
-	@ResponseBody
-	@RequestMapping("reviewinsert")
-	public void reviewinsert(MBasketHVO hvo)throws Exception{
-		
-		
-		rdao.reviewinsert(hvo);
-	}
-	
-	
-	
-	@RequestMapping("logout")
-	public String logout(HttpSession session){
-		session.removeAttribute("mid");
-		return "/Hospital/detail";
-	}
-	/*
-	@RequestMapping("naverLogin")
-	public String naverLogin(){
-		
-		return "naverLogin";
-	}
-	*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

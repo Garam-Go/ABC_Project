@@ -26,24 +26,6 @@ td {
 </style>
 </head>
 <body>
-	<h3>로그인</h3>
-	
-	<div id="top"><!-- 메뉴  -->
-		<jsp:include page="menu.jsp"></jsp:include>
-	</div>
-	<div>
-		<form action="loginPost" method="post">
-		<table border=1 width=300>
-			<tr>
-				<td>아이디:<input type="text" name="mid"></td>
-				<td rowspan="2"><input type="submit" value="로그인"></td>
-			</tr>
-			<tr>
-				<td>비밀번호:<input type="password" name="mpassword"></td>
-			</tr>
-		</table>
-		</form>
-	</div>
 	<div id="page">
 		<div id="navbar"></div>
 		<div id="content" style="overflow: hidden;">
@@ -58,7 +40,7 @@ td {
 				<div
 					style="background: #E0F8E6; width: 600px; height: 200px; margin: 0px auto; margin-top: 20px;">
 					지도 출력</div>
-				<input type="text" value="${vo.h_code}" id="h_code">
+				<input type="hidden" value="${vo.h_code}" id="h_code">
 
 
 				<table border=1 width=530 style="margin-top:20px;">
@@ -83,64 +65,7 @@ td {
 						<td>${vo.h_machine}</td>
 
 					</tr>
-				</table>
-
-
-
-				<!-- ajax 으로 read 를 하렸는되 안됨-->
-				<!-- 
-		<table border=1 width=530 id="tbl"></table>
-		<script id="temp" type="text/x-handlebars-template">
-		<tr>
-			<td>병원 코드</td>
-			<td>병원 이름</td>
-		</tr>
-		{{#each .}}
-			<tr>
-				<td>{{h_code}}</td>
-				<td>{{h_name}}</td>
-			</tr>
-		{{/each}}
-		<tr>
-			<td colspan="2"><button onClick="location.href='reservation'">예약</button></td>
-		</tr>
-		
-
-		</script>
-		 -->
-
-				<!-- 
-		<table border=1 width=530 style="margin:0px auto;margin-top:20px;margin-bottom:20px;">
-			<tr>
-				<td width=100>병원 이름</td>
-				<td width=350></td>
-			</tr>
-			<tr>
-				<td width=100>병원 주소</td>
-				<td width=350></td>
-			</tr>
-			<tr>
-				<td width=100>진료 시간</td>
-				<td width=350></td>
-			</tr>
-			<tr>
-				<td width=100>의료장비</td>
-				<td width=350></td>
-			</tr>
-			<tr>
-				<td width=100>연락처</td>
-				<td width=350></td>
-			</tr>
-			<tr>
-				<td>예약하기</td>
-				<td>
-					<div>
-						<input type="button" onClick="location.href='reservation'" value="예약" >
-					</div>	
-				</td>
-			</tr>
-		</table>
-		-->
+				</table>				
 				<div
 					style="background: white; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
 					<select style="height: 50px;" id="grade">
@@ -150,28 +75,10 @@ td {
 						<option value="3">★★★☆☆</option>
 						<option value="2">★★☆☆☆</option>
 						<option value="1">★☆☆☆☆</option>
-					</select> <input type="text" size=55 style="height: 50px;" id="review"> <input
-						type="button" value="등록" style="height: 50px;" id="btnreview">
-				
-				<!-- mbhrev 목록 출력 -->
-				
-				<table border=1 width=500 id="rev"></table>
-				<script id="temp" type="text/x-handlebars-template">
-				{{#each}}
-				<tr>
-					<td>{{mhid}}</td>
-					<td>{{mhrecent}}</td>
-					<td>{{mhres}}</td>	
-					<td>{{mhreview}}</td>
-				</tr>
-				{{/each}}		
-				</script>
-				
-				<!-- mbasketH 리뷰번호 insert한 목록 출력 -->		
-						
-
-			
-				
+					</select> 
+					<input type="text" size=55 style="height: 50px;" id="review"> 
+					<input type="button" value="등록" style="height: 50px;" id="btnreview">
+					
 				<div
 					style="background: #E0F8E6; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
 					<input type="button" value="길찾기" style="margin-top: 12px;">
@@ -192,53 +99,34 @@ td {
 	</div>
 	
 </body>
-<script>
-	/* mhhrev에 리뷰를 등록할때 mbasketH에도 저장할거임(병원코드와 리뷰번호를) */
-	
-	
-	/*
+	<script>
+	/* 리뷰작성 */
 	$("#btnreview").on("click",function(){
-		//alert("gg");
-		
 		var revcontent=$("#review").val();
-		//alert(review);
 		var revgrade=$("#grade option:selected").val();
-		
-		alert("revcontent:" +revcontent +"revgrade:" +revgrade);
-	
-		var mhid=$("#mhrecent").
+		//alert(revcontent+"\n"+revgrade);
 		$.ajax({
 			type:"get",
 			url:"reviewinsert",
-			data:{"revcontent":revcontent,"revgrade":revgrade,"hrevmyid":"shrjs1@naver.com","mhid":"shrjs1@naver.com",},
+			data:{"revcontent":revcontent,"revgrade":revgrade,"hrevmyid":"shrjs1@naver.com"},
 			success:function(data){
-				//alert("성공하고싶음제발");
-				$("#review").val("");
-				$("#regrade").val("");
+				alert("성공");
 			}
 		});
-	
 	});
-	*/
-	/*
-		var h_code=$("#h_code").val();
-		//alert(h_code);
-		//alert(h_code);
-		getlist();
-		function getlist(){
-			h_code=$("#h_code").val();
-			//alert(h_code);
-			$.ajax({
-				type:"get",
-				url:"read.json",
-				data:{"h_code":h_code},
-				success:function(data){
-					//alert("하하");
-					var temp=Handlebars.compile($("#temp").html());
-					$("#tbl").html(temp(data));
-				}
-			});
-		}
-	 */
-</script>
+	
+	$("#btnreview").on("click",function(){
+		var mhrecent=$("#h_code").val();
+		var revgrade=$("#grade option:selected").val();
+		//alert(revcontent+"\n"+revgrade);
+		$.ajax({
+			type:"get",
+			url:"reviewinsert",
+			data:{"revcontent":revcontent,"revgrade":revgrade,"mhid":"shrjs1@naver.com"},
+			success:function(data){
+				alert("성공");
+			}
+		});
+	});
+	</script>
 </html>

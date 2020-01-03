@@ -94,9 +94,8 @@ td {
 							style="border: 1px solid gray;"></table>
 						<script id="temp" type="text/x-handlebars-template">
 							{{#each .}}
-								<tr onClick="location.href=''" h_code="{{h_code}}">
+								<tr onClick="location.href='detail?h_code={{h_code}}'" h_code="{{h_code}}">
 									<td>{{h_name}}</td>
-									<td>{{h_code}}</td>
 								</tr>
 							{{/each}}
 							</script>
