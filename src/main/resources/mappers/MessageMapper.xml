@@ -14,4 +14,12 @@
 		insert into mmessage (mstitle, mscontent, msreceiver,mssender)
 		values(#{mstitle},#{mscontent},#{msreceiver},#{mssender})
 	</insert>
+<!-- 	message read -->
+	<select id="read" resultType="com.example.domain.MessageVO">
+		select * from mmessage where msid = #{msid}
+	</select>
+<!-- 	total -->
+	<select id="total" resultType="int">
+		select count(*) from mmessage where msreceiver = #{mid}
+	</select>
 </mapper>

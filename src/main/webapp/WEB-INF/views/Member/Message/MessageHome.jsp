@@ -28,14 +28,25 @@
 	margin: 10px;
 	float: left;
 }
-	#table-hospital{
+	#table-message{
 		width:800px;
 		background:white;
 		margin:100px auto;
 		
 	}
+	
+	#table-read {
+	width: 800px;
+	border: 1px solid;
+}
 	table tr td{
 		border-collapse: collapse;
+		padding:5px;
+	}
+	
+	.msg-detail:hover{
+		cursor: pointer;
+		background:lightgreen;
 	}
 </style>
 </head>
@@ -55,32 +66,38 @@
 			<jsp:include page="../MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<table id="table-hospital" border=1></table>
+			<input type="text" value="${mid }" id="mid">
+			<table id="table-message" border=1></table>
 			<script id="temp" type="text/x-handlebars-templete">
 				<tr style= "background:lightgreen;">
-					<td width=50>
+					<td width=30>
 						<input type="checkbox" id="chk-all">
 					</td>
 					<td width=300>제목</td>
 					<td width=100>보낸사람</td>
-					<td width=150>보낸날짜</td>
-					<td width=100>답장</td>
+					<td width=200>보낸날짜</td>
+					<td width=50>답장</td>
 				</tr>
 				{{#each list}}
 					<tr>
-						<td width=50>
+						<td width=30>
 							<input type="checkbox" id="chk-in">
 						</td>
-						<td width=300>{{mstitle}}</td>
-						<td width=100>2</td>
-						<td width=150>3</td>
-						<td width=100>
+						<td width=300 class="msg-detail" msid="{{msid}}">{{mstitle}}</td>
+						<td width=100>{{mssender}}</td>
+						<td width=200>{{msdate}}</td>
+						<td width=50>
 							<button>답장</button>
 						</td>
 					</tr>
 				{{/each}}
 			</script>
-
+<!-- 	lightbox -->
+		<div id="darken">
+			<div id="lightbox">
+				<jsp:include page="MessageRead.jsp"></jsp:include>
+			</div>
+		</div>
 		</div>
 	</div>
 	<div id="footer">
@@ -88,4 +105,53 @@
 	</div>
 </div>
 </body>
+<script>
+getList();
+
+function getList(){
+	var mid = $("#mid").val();
+	$.ajax({
+		type:"get",
+		url:"messagelist",
+		data:{"mid":mid},
+		success:function(data){
+			var temp=Handlebars.compile($("#temp").html());
+			$("#table-message").html(temp(data));
+
+		}
+	});
+}
+
+var msid = "";
+
+//메세지 읽기
+$("#table-message").on("click",".msg-detail",function(){
+	msid = $(this).attr("msid");
+	alert(msid);
+	
+	$("#darken").show();
+	
+	getRead();
+});
+
+//메세지 읽기 ajax
+function getRead(){
+	$.ajax({
+		type:"get",
+		url:"msgread",
+		data:{"msid":msid},
+		success:function(data){
+// 			alert("yee");
+			var temp=Handlebars.compile($("#temp-read").html());
+			$("#table-read").html(temp(data));
+
+		}
+	});
+}
+
+//lightbox 닫기
+$("#btn-close").on("click",function(){
+	$("#darken").hide();
+});
+</script>
 </html>

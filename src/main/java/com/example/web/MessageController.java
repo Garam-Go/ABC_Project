@@ -30,7 +30,7 @@ public class MessageController {
 		PageMaker pm = new PageMaker(); //페이지에 관한 정보들
 		pm.setCri(cri);
 		
-		pm.setTotalCount(10); //전체의 데이터를 임의로 몇개라고 지정해줌.
+		pm.setTotalCount(msdao.total(mid)); //전체의 데이터를 임의로 몇개라고 지정해줌.
 		
 		hash.put("list", msdao.list(mid, cri));
 		hash.put("pm", pm);
@@ -42,5 +42,16 @@ public class MessageController {
 	@RequestMapping(value="message",method=RequestMethod.POST)
 	public void messagepost(MessageVO vo)throws Exception{
 		msdao.insert(vo);
+	}
+	
+	
+	//메세지 읽어오기
+	@ResponseBody
+	@RequestMapping("msgread")
+	public MessageVO msgread(String msid){
+		MessageVO vo = msdao.read(msid);
+		//System.out.println(vo.toString());
+
+		return vo;
 	}
 }

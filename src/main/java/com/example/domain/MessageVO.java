@@ -1,11 +1,27 @@
 package com.example.domain;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class MessageVO {
+	
+	private String msid;
 	private String mstitle;
 	private String mscontent;
-	private String msdate;
+	
+	@JsonFormat(pattern="yyyy-MM-dd kk:mm",timezone="Asia/Seoul")
+	private Date msdate;
 	private String mssender;
 	private String msreceiver;
+	
+	
+	public String getMsid() {
+		return msid;
+	}
+	public void setMsid(String msid) {
+		this.msid = msid;
+	}
 	public String getMstitle() {
 		return mstitle;
 	}
@@ -18,10 +34,10 @@ public class MessageVO {
 	public void setMscontent(String mscontent) {
 		this.mscontent = mscontent;
 	}
-	public String getMsdate() {
+	public Date getMsdate() {
 		return msdate;
 	}
-	public void setMsdate(String msdate) {
+	public void setMsdate(Date msdate) {
 		this.msdate = msdate;
 	}
 	public String getMssender() {

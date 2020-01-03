@@ -71,7 +71,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td width=100>받는사람</td>
+							<td width=100>받는이</td>
 							<td width=700 style="overflow:hidden;">
 								<input type="text" name="msreceiver">
 								<input type="button" value="주소록" id="bookbutton" style="float:right;">

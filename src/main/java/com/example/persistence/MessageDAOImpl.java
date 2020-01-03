@@ -44,4 +44,16 @@ public class MessageDAOImpl implements MessageDAO{
 		
 	}
 
+	@Override
+	public int total(String mid) {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".total",mid);
+	}
+
+	@Override
+	public MessageVO read(String msid) {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".read",msid);
+	}
+
 }
