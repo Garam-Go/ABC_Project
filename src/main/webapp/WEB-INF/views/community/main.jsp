@@ -79,6 +79,13 @@
 			<!-- mid -->
 			<div id="content-left" style = "width:600px; float:left">
 				<div style="margin-top: 50px;">
+				
+				<div style="overflow:hidden; margin-bottom:10px;">
+					<span style="float:right">
+						<input type="button" value="글쓰기" onClick="location.href='comu_insert'">
+					</span>
+				</div>
+				
 					<div style="overflow: hidden;">
 							<span> 
 								<form name=frm>
@@ -110,7 +117,7 @@
 										<tr class=tr>
 											<td width=50>{{pid}}</td>
 											<td width=100>{{wdate}}</td>
-											<td width=275>{{title}}</td>
+											<td width=275><a href="comu_detailList?id={{pid}}">{{title}}</a></td>
 											<td width=75>{{fname}}</td>
 											<td width=50>{{num}}</td>
 										</tr>
@@ -127,7 +134,7 @@
 			
 			<div id = "content-right" style="width: 180px; float: right; margin: 50px 0px 10px 20px; background:lightgray;">					
 				<input type="button" value="메세지함" style="width:100px;height:75px; margin:10px;">
-           		<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;">   
+           		<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;" onClick="location.href='comu_qlist'">   
            		<input type="text" id="query" style="width:160px;margin:10px;">
 
            		<table id="boxh" border=1 width=180 style="; border-collapse:collapse; overflow:hidden;"></table>
@@ -275,7 +282,7 @@
 		
 		
 		
-		//리스트
+		//병원리스트
 		function gethlist() {
 			$.ajax({
 				type : "get",

@@ -73,6 +73,9 @@
 			</div>
 		
 		<div id="content-left" style="float:left; margin:50px 10px; overflow:hidden; width:580px;" >
+		
+			
+		
 			<span style="float:right">
 				<input type="text" id=keyword size=10> 
 				<input type="button" value="검색" id="btnsearch"> 
@@ -112,7 +115,7 @@
 		
 		<div id = "content-right" style="width: 180px; float: right; margin:50px 10px; background:lightgray;">					
 			<input type="button" value="메세지함" style="width:100px;height:75px; margin:10px;">
-         	<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;">
+         	<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;" onClick="location.href='comu_qlist'">
            	
            	<input type="text" id="query" style="width:160px;margin:10px;">
 

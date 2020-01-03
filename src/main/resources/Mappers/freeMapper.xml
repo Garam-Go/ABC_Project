@@ -28,4 +28,8 @@
 			where fname like concat('%',#{keyword},'%')
 		</if>
 	</select>
+	
+	<select id="cread" resultType="com.example.domain.FVO">
+		select * from comu_free where pid=#{pid}
+	</select>
 </mapper>

@@ -85,7 +85,7 @@
 		
 		<div id = "content-right" style="width: 180px; float: right; margin: 50px 0px 10px 20px; background:lightgray;">					
 			<input type="button" value="메세지함" style="width:100px;height:75px; margin:10px;">
-           	<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;">   
+           	<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;" onClick="location.href='comu_qlist'">   
 		</div>
 	</div>
 	

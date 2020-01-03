@@ -19,12 +19,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.HealVO;
 import com.example.domain.PageMaker;
+import com.example.domain.ReplyVO;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.FDAO;
 import com.example.persistence.HealDAO;
 import com.example.persistence.HosDAO;
 import com.example.persistence.HsearchDAO;
 import com.example.persistence.QDAO;
+import com.example.persistence.ReplyDAO;
 
 @Controller
 public class comuController {
@@ -44,6 +46,9 @@ public class comuController {
 	@Inject
 	HsearchDAO hsearchdao;
 
+	@Inject
+	ReplyDAO rdao;
+	
 	//자유게시판 이동
 	@RequestMapping("comu_clist")
 	public String comu_clist(Model model, SearchCriteria cri) throws Exception {
@@ -203,5 +208,26 @@ public class comuController {
 	@RequestMapping("comu_insert")
 	public String comu_insert() throws Exception {
 		return "community/comInsert";
+	}
+	
+	//상세정보 페이지
+		@RequestMapping("comu_detailList")
+		public String comu_detailList(int id, Model model) throws Exception {
+			model.addAttribute("vo",fdao.cread(id));
+			return "community/comDetail";
+		}
+	
+	//replyList
+	@ResponseBody
+	@RequestMapping("replyList.json")
+	public List<ReplyVO> replyList_json(int pid) throws Exception{
+		return rdao.list(pid);
+	}
+	
+	//replyInsert
+	@ResponseBody
+	@RequestMapping("replyinsert.json")
+	public void replyinsert_json(ReplyVO vo) throws Exception{
+		rdao.insert(vo);
 	}
 }

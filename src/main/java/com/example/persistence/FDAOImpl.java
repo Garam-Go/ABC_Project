@@ -29,6 +29,12 @@ public class FDAOImpl implements FDAO{
 		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".ctotal", cri);
 	}
+
+	@Override
+	public FVO cread(int pid) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".cread",pid);
+	}
 	
 	
 }
