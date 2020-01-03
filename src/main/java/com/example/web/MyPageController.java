@@ -88,11 +88,7 @@ public class MyPageController {
 		return "/Member/Message/Message";
 	}
 	
-	//주소록 이동
-	@RequestMapping("MessageBook")
-	public String messagebook(){
-		return "/Member/Message/MessageBook";
-	}
+	
 	//휴지통 이동
 		@RequestMapping("MessageDel")
 		public String messageDel(){

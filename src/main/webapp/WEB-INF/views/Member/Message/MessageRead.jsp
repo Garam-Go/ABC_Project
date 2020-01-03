@@ -30,11 +30,11 @@
 				<script id="temp-read" type="text/x-handlebars-templete">
 					<tr>
 							<td width=100>제목</td>
-							<td width=700 id="title-read">{{mstitle}}</td>
+							<td width=700>{{mstitle}}</td>
 						</tr>
 						<tr>
 							<td width=100>보낸사람</td>
-							<td width=700 id="">{{mssender}}</td>
+							<td width=700>{{mssender}}</td>
 						</tr>
 						<tr>
 							<td width=100>보낸날짜</td>

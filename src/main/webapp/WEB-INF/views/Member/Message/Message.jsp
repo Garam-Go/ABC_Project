@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -67,13 +69,13 @@
 						<tr>
 							<td width=100>제목</td>
 							<td width=700>
-								<input type="text" size=100 name="mstitle">
+								<input type="text" size=100 name="mstitle" value="${param.mstitle }">
 							</td>
 						</tr>
 						<tr>
 							<td width=100>받는이</td>
 							<td width=700 style="overflow:hidden;">
-								<input type="text" name="msreceiver">
+								<input type="text" name="msreceiver" value="${param.msreceiver }">
 								<input type="button" value="주소록" id="bookbutton" style="float:right;">
 							</td>
 						</tr>
@@ -103,7 +105,7 @@ $("#message-send").on("click",function(){
 	var mssender = fom.mssender.value;
 	var msreceiver = fom.msreceiver.value;
 	
-	alert(mstitle+mscontent+mssender+msreceiver);
+	//alert(mstitle+mscontent+mssender+msreceiver);
 	
 	$.ajax({
 		type:"post",
@@ -111,6 +113,7 @@ $("#message-send").on("click",function(){
 		data:{"mstitle":mstitle,"mscontent":mscontent,"mssender":mssender,"msreceiver":msreceiver},
 		success:function(){
 			alert("메세지 전송 성공!");
+			location.href="MessageHome";
 		}
 	});
 	

@@ -2,6 +2,7 @@ package com.example.persistence;
 
 import java.util.List;
 
+import com.example.domain.BookVO;
 import com.example.domain.MessageVO;
 import com.example.domain.SearchCriteria;
 
@@ -23,4 +24,10 @@ public interface MessageDAO {
 	
 	//메세지 읽기
 	public MessageVO read(String msid);
+	
+	//주소록 읽기
+	public List<BookVO> booklist(String mbmyid,SearchCriteria cri);
+	
+	//페이징용 전체주소록 데이터 수
+		public int btotal(String mbmyid);
 }

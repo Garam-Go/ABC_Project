@@ -84,10 +84,10 @@
 							<input type="checkbox" id="chk-in">
 						</td>
 						<td width=300 class="msg-detail" msid="{{msid}}">{{mstitle}}</td>
-						<td width=100>{{mssender}}</td>
+						<td width=100 class="mssender">{{mssender}}</td>
 						<td width=200>{{msdate}}</td>
 						<td width=50>
-							<button>답장</button>
+							<button class="message-reply">답장</button>
 						</td>
 					</tr>
 				{{/each}}
@@ -152,6 +152,14 @@ function getRead(){
 //lightbox 닫기
 $("#btn-close").on("click",function(){
 	$("#darken").hide();
+});
+
+//답장하기
+$("#table-message").on("click",".message-reply",function(){
+	var row = $(this).parent().parent();
+	var mstitle = "re: "+row.find(".msg-detail").html();
+	var msreceiver = row.find(".mssender").html();
+	location.href = "Message?msreceiver="+msreceiver+"&mstitle="+mstitle;
 });
 </script>
 </html>

@@ -22,4 +22,14 @@
 	<select id="total" resultType="int">
 		select count(*) from mmessage where msreceiver = #{mid}
 	</select>
+	
+<!-- 	booklist -->
+	<select id="booklist" resultType="com.example.domain.BookVO">
+		select * from mbook where mbmyid= #{mbmyid}
+	</select>
+	
+	<!-- 	btotal -->
+	<select id="total" resultType="int">
+		select count(*) from mbook where mbmyid = #{mbmyid}
+	</select>
 </mapper>

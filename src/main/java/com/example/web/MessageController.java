@@ -54,4 +54,19 @@ public class MessageController {
 
 		return vo;
 	}
+	
+	//주소록 읽어오기
+	@RequestMapping("MessageBook")
+	public String messageBook(String mbmyid, Model model,SearchCriteria cri){
+		cri.setPerPageNum(10); //한 페이지에 보여줄 데이터 갯수
+		
+		PageMaker pm = new PageMaker(); //페이지에 관한 정보들
+		pm.setCri(cri);
+		
+		pm.setTotalCount(msdao.btotal(mbmyid)); //전체의 데이터를 임의로 몇개라고 지정해줌.
+		
+		model.addAttribute("book",msdao.booklist(mbmyid, cri));
+		model.addAttribute("pm",pm);
+		return "/Member/Message/MessageBook";
+	}
 }

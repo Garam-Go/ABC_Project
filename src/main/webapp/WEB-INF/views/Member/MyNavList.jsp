@@ -32,7 +32,7 @@
 		<ul id="in-ul">
 			<li><a href="MessageHome">메세지 확인</a></li>
 			<li><a href="Message">메세지 보내기</a></li>
-			<li><a href="MessageBook">주소록</a></li>
+			<li><a href="'MessageBook?mbmyid='+${mid }">주소록</a></li>
 			<li><a href="MessageDel">휴지통</a></li>
 		</ul>
 	</li>
