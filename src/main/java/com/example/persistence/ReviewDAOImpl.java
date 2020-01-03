@@ -22,6 +22,11 @@ public class ReviewDAOImpl implements ReviewDAO{
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".list");
 	}
+	@Override
+	public void reviewinsert(MBasketHVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace+".reviewinsert",vo);
+	}
 	
 	
 	

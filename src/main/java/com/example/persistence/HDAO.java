@@ -22,7 +22,7 @@ public interface HDAO {
 	/*    º´¿ø ¸®ºä    */
 	public void reviewinsert(ReviewVO vo) throws Exception;
 	
-	
+
 	
 	
 

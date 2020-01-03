@@ -31,6 +31,23 @@
 </style>
 </head>
 <body>
+	
+	<div id="top"><!-- 메뉴  -->
+		<jsp:include page="menu.jsp"></jsp:include>
+	</div>
+	<div>
+		<form action="loginPost" method="post">
+		<table border=1 width=300>
+			<tr>
+				<td>아이디:<input type="text" name="mid"></td>
+				<td rowspan="2"><input type="submit" value="로그인"></td>
+			</tr>
+			<tr>
+				<td>비밀번호:<input type="password" name="mpassword"></td>
+			</tr>
+		</table>
+		</form>
+	</div>
 	<div id="page">
 		<div id="navbar"></div>
 		<div id="content" style="overflow: hidden;">
@@ -120,164 +137,15 @@
 
 				<div
 					style="width: 210px; background: #E0F8E6; margin-left: 400px; margin-bottom: 50px; padding: 15px;">
-					<!-- <a href="detail">예치과</a>-->
-					<!-- 
-			<h2>검색 목록을 크롤링 한 데이터 </h2>
 			
-			<table border=1 width=210 id="tbl"></table>
-			<script id="temp" type="text/x-handlebars-template">
-				{{#each .}}
-				<tr class="row">
-					<td width=30>
-						<button h_code="{{id}}" h_name="{{title}}" h_time="{{time}}" h_phone="{{phone}}" 
-							h_address="{{addressA}}" h_phone="{{phone}}" h_machine="{{desc}}">저장하기</button>
-					</td>
-					<td width=30>{{id}}</td>
-					<td width=30>{{title}}</td>
-					<td width=30>{{time}}</td>
-					<td width=30>{{addressA}}</td>
-					<td width=30>{{phone}}</td>
-					<td width=30>{{desc}}</td>
-				</tr>
-				{{/each}}
-			</script>
-			<script>
-			
-				$("#tbl").on("click","tr td button",function(){
-					//alert("Gg");
-					var h_code=$(this).attr("h_code");
-					var h_name=$(this).attr("h_name");
-					var h_time=$(this).attr("h_time");
-					var h_phone=$(this).attr("h_phone");
-					var h_address=$(this).attr("h_address");
-					var h_machine=$(this).attr("h_machine");
-					//alert("h_code="+h_code+"\n"+"h_name="+h_name+"\n"+"h_time="+h_time+"\n"+"h_phone="+h_phone+"\n"+"h_address="+h_address+"\n"+"h_machine="+h_machine);
-					
-					$.ajax({
-						type:"get",
-						url:"tinsert.json",
-						data:{
-							"h_code":h_code,"h_name":h_name,
-							"h_time":h_time,
-							"h_phone":h_phone,
-							"h_address":h_address,
-							"h_machine":h_machine
-							},
-						success:function(){
-							alert(저장);
-						}
-					});
-				});
-				
-				getMovie2();
-				function getMovie2(){
-					$.ajax({
-						type:"get",
-						url:"../r1.json",
-						success:function(data){
-							//alert(data[0]["id"]);
-							var temp=Handlebars.compile($("#temp").html());
-							$("#tbl").html(temp(data));
-
-						}
-						});
-					}
-			</script>
-			 -->
-					<!-- 
-			 	<h3>h_machine 값 안 넣은 애들 수정</h3>
-			  	<table border=1 width=210 id="tblz"></table>
-			<script id="tempz" type="text/x-handlebars-template">
-				{{#each .}}
-				<tr class="row">
-					<td width=30>
-						<button h_code="{{id}}" h_name="{{title}}" h_time="{{time}}" h_phone="{{phone}}" 
-							h_address="{{addressA}}" h_phone="{{phone}}" h_machine="{{desc}}">저장하기</button>
-					</td>
-					<td width=30>{{id}}</td>
-					<td width=30>{{title}}</td>
-					<td width=30>{{time}}</td>
-					<td width=30>{{addressA}}</td>
-					<td width=30>{{phone}}</td>
-					<td width=30>{{desc}}</td>
-				</tr>
-				{{/each}}
-			</script>
-			<script>
-			$("#tblz").on("click","tr td button",function(){
-				//alert("Gg");
-				var h_code=$(this).attr("h_code");
-				var h_name=$(this).attr("h_name");
-				var h_time=$(this).attr("h_time");
-				var h_phone=$(this).attr("h_phone");
-				var h_address=$(this).attr("h_address");
-				var h_machine=$(this).attr("h_machine");
-				alert("h_code="+h_code+"\n"+"h_name="+h_name+"\n"+"h_time="+h_time+"\n"+"h_phone="+h_phone+"\n"+"h_address="+h_address+"\n"+"h_machine="+h_machine);
-			
-				$.ajax({
-					type:"get",
-					url:"update.json",
-					data:{
-						"h_code":h_code,"h_name":h_name,
-						"h_time":h_time,
-						"h_phone":h_phone,
-						"h_address":h_address,
-						"h_machine":h_machine
-						},
-					success:function(){
-						alert(수정);
-					}
-				});
-			
-			});
-				
-				getMovie2();
-				function getMovie2(){
-					$.ajax({
-						type:"get",
-						url:"../x6.json",
-						success:function(data){
-							//alert(data[0]["id"]);
-							//$("#h_code").html(data.id);
-							var temp=Handlebars.compile($("#tempz").html());
-							$("#tblz").html(temp(data));
-							
-
-						}
-						});
-					}
-			</script>
-			  -->
-					<!--  -->
-					<!-- 
-			 <h2>검색 리드를 크롤링한 데이터</h2>
-			 <table border=1 width=180 id="tblc"></table>
-			<script id="tempc" type="text/x-handlebars-template">
-				<tr>
-					<td>전화번호</td>
-					<td>도로명주소</td>
-					<td>지번주소</td>
-					<td>의료장비</td>
-					<td>저장</td>
-					
-				</tr>
-				{{#each .}}
-				<tr>
-					<td width=100 style="padding:5px;">{{phone}}</td>
-					<td width=100 style="padding:5px;">{{addressA}}</td>
-					<td width=100 style="padding:5px;">{{addressB}}</td>
-					<td>{{desc}}</td>
-					<td><button>저장</button></td>
-				</tr>
-				{{/each}}
-			</script>
-			 -->
+			 
 					<h2>내 테이블에 저장된 데이터 목록</h2>
 					<table border=1 width=180 id="tblr"></table>
 					<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
 				<tr>
-					<td style="padding:5px;"><a href="detail?h_code={{h_code}}">{{h_name}}</a></td>
+					<td>{{h_code}}</td>
+					<td style="padding:5px;">{{h_name}}</td>
 				</tr>
 				{{/each}}
 			</script>
@@ -296,25 +164,6 @@
 			 </form>
 			 -->
 				</div>
-			<!-- 	
-				<input type="text" id="queryapi" value="해리포터">
-				<input type="button" value="검색"id="api">
-			 -->				
-				<!-- 카카오 api 카테고리로 병원 검색 -->
-				<!-- 
-				<table border=1 width=700 id="tblapi"></table>
-				<script id="tempapi" type="text/x-handlebars-template">
-				{{#each documents}}
-				<tr class="row">
-					<td><input type="checkbox"></td>
-					<td>{{place_name}}</td>
-					<td>{{address_name}}</td>
-					<td>{{phone}}</td>
-					<td><button class="mapView" x="{{x}}" y="{{y}}" place="{{place_name}}" tel="{{phone}}">지도보기</button></td>
-				</tr>
-				{{/each}}
-				</script>
-		 		-->
 
 			</div>
 			<!--content-left 끝  -->
@@ -348,130 +197,34 @@
 
 	var searchType = $("#searchType option:selected").val();
 
-	//alert(searchType);
-
-	//그냥지도출력
-	/*
-	var queryapi=$("#queryapi").val();
-				$("#api").on("click",function(){
-					queryapi=$("#queryapi").val();
-					//alert(queryapi);
-					getapi();
-				});
-				*/
-	/*
-getapi();
-	//카테코리 검색 api
-	function getapi() {
+	$("#tblr").on("click","tr",function(){
+		//alert("G");
+		var str="";
+		//var tdArr=new Array();
+		var tr=$(this);
+		var td=tr.children();
+		
+		//alert("클릭한 row의 모든 데이터:" +tr.text());
+		
+		//반복문을 이용해서 배열에 값을 담아 사용가능
+		var mhrecent=td.eq(0).text();
+		//var mhid="shrjs1@naver.com";
+		//alert("mhrecent:" +mhrecent +"mhid:" +mhid);
+		
 		$.ajax({
-			type : "get",
-			url : "https://dapi.kakao.com/v2/local/search/keyword.json?",
-			headers : {
-				"Authorization" : "KakaoAK 6baa3500ff42695b48d705aa87132cb3"
-			},
-			dataType : "json",
-			data : {
-				"query":"인천 속편한내과의원",
-				"page" : "1",
-				"size" : "10"
-			},
-			success : function(data) {
-				var temp = Handlebars.compile($("#tempapi").html());
-				$("#tblapi").html(temp(data));
-				//$("#container").html(temp(data));내용이 refresh
-				//$("#container").appned(temp(data));내용이 추가
-				//is_end=data.meta.is_end;
+			type:"get",
+			url:"reviewinsert",
+			data:{"mhrecent":mhrecent,"mhid":"shrjs1@naver.com"},
+			success:function(){
+				alert("성공");
 			}
 		});
-	}
-
-	*/
+		
 	
-	//////////////////////////////////////////////////////////////////////
-	//테이블에 저장된 지도 출력
-	
-	
-	/*
-	
-	$("#divmap").show();
-		var lat = $("#tblr tr .row").attr("y");
-		//위도
-		var ing = $("#tblr tr .row").attr("x");
-		//경도
-		alert(lat +"-"+ lng);
-
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center : new kakao.maps.LatLng(lat, lng), //지도의 중심좌표.
-			level : 3
-		//지도의 레벨(확대, 축소 정도)
-		};
-		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴	
-		var marker = new kakao.maps.Marker({
-			position : new kakao.maps.LatLng(lat, lng)
-		});
-		marker.setMap(map);
-
-		var str = "<div>" + place + "</div>";
-		str += "<div>" + tel + "</div>";
-		//출력할 impormation 생성
-		var info = new kakao.maps.InfoWindow({
-			content : str
-		})
-		kakao.maps.event.addListener(marker, "mouseover", function() {
-			info.open(map, marker);
-		});
-		kakao.maps.event.addListener(marker, "mouseout", function() {
-			info.close(map, marker);
-		});
-	
-	
-	
-	
-	
-	
-		*/
-	
-	//api 지도 출력 
-	/* 
-	
-	$("#tblapi").on("click","tr td button",function(){
-		$("#divmap").show();
-		var lat = $(this).attr("y");
-		//위도
-		var lng = $(this).attr("x");
-		//경도
-		alert(lat +"-"+ lng);
-		var place = $(this).attr("place");
-		var tel = $(this).attr("tel");
-
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center : new kakao.maps.LatLng(lat, lng), //지도의 중심좌표.
-			level : 3
-		//지도의 레벨(확대, 축소 정도)
-		};
-		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴	
-		var marker = new kakao.maps.Marker({
-			position : new kakao.maps.LatLng(lat, lng)
-		});
-		marker.setMap(map);
-
-		var str = "<div>" + place + "</div>";
-		str += "<div>" + tel + "</div>";
-		//출력할 impormation 생성
-		var info = new kakao.maps.InfoWindow({
-			content : str
-		})
-		kakao.maps.event.addListener(marker, "mouseover", function() {
-			info.open(map, marker);
-		});
-		kakao.maps.event.addListener(marker, "mouseout", function() {
-			info.close(map, marker);
-		});
-
+		
 	});
-		*/
+	 
+
 		
 	//////////////////////////////////////////////////////////////////
 	$("#selsearch").trigger("click");
@@ -500,25 +253,7 @@ getapi();
 		}
 	});
 
-	/*
-	function getlist() {
-		//alert("gg");
-		//keyword=$("#keyword").val();
-		//alert(keyword);
-		$.ajax({
-			type : "get",
-			url : "slist.json",
-			data : {
-				"keyword" : keyword
-			},
-			success : function(data) {
-				//alert("tbl2");
-				var temp = Handlebars.compile($("#tempr").html());
-				$("#tblr").html(temp(data));
-			}
-		});
-	}
-*/
+
 	gettlist();
 
 	function gettlist() {
@@ -540,28 +275,7 @@ getapi();
 		});
 	}
 
-	/*크롤링한 데이터 hsearch에 저장*/
-	/*
-	$("#tbl").on("click","tr td button",function(){
-		//alert("g");
-		var h_code=$(this).attr("h_code");
-		var h_name=$(this).attr("h_name");
-		var h_time=$(this).attr("h_time");
-		//alert(h_code+"\n"+h_name+"\n" +h_time);
-		
-		$.ajax({
-			type:"get",
-			url:"rinsert.json",
-			data:{"h_code":h_code,"h_name":h_name,"h_time":h_time},
-			success:function(){
-				//alert("저장됨");	
-			
-			}
-			
-		});
-		
-	});
-	 */
+
 	/*검색 리드한 테이블을 검색 목록에 저장하기*/
 	$("#tblc").on("click", "tr td button", function() {
 		//alert("g");
@@ -591,27 +305,5 @@ getapi();
 		query2 = $("#query2").val();
 		//alert(query2);
 	});
-
-	/*리드한 크롤링한 데이터 출력*/
-	/*
-	/*
-	getMovie();
-	function getMovie(){
-	$.ajax({
-		type:"get",
-		url:"../r1.json",
-		success:function(data){
-			//alert(data[0]["id"]);
-			var temp=Handlebars.compile($("#tempc").html());
-			$("#tblc").html(temp(data));
-
-		}
-		});
-	}	
-
-	 */
-	/*hsearch에 id가 무엇인 것에 전화번호,도로명 주소,의료장비 넣기!*/
-
-	/**/
 </script>
 </html>

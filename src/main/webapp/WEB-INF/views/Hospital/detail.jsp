@@ -26,7 +26,24 @@ td {
 </style>
 </head>
 <body>
-
+	<h3>로그인</h3>
+	
+	<div id="top"><!-- 메뉴  -->
+		<jsp:include page="menu.jsp"></jsp:include>
+	</div>
+	<div>
+		<form action="loginPost" method="post">
+		<table border=1 width=300>
+			<tr>
+				<td>아이디:<input type="text" name="mid"></td>
+				<td rowspan="2"><input type="submit" value="로그인"></td>
+			</tr>
+			<tr>
+				<td>비밀번호:<input type="password" name="mpassword"></td>
+			</tr>
+		</table>
+		</form>
+	</div>
 	<div id="page">
 		<div id="navbar"></div>
 		<div id="content" style="overflow: hidden;">
@@ -41,7 +58,7 @@ td {
 				<div
 					style="background: #E0F8E6; width: 600px; height: 200px; margin: 0px auto; margin-top: 20px;">
 					지도 출력</div>
-				<input type="hidden" value="${vo.h_code}" id="h_code">
+				<input type="text" value="${vo.h_code}" id="h_code">
 
 
 				<table border=1 width=530 style="margin-top:20px;">
@@ -135,7 +152,9 @@ td {
 						<option value="1">★☆☆☆☆</option>
 					</select> <input type="text" size=55 style="height: 50px;" id="review"> <input
 						type="button" value="등록" style="height: 50px;" id="btnreview">
-						
+				
+				<!-- mbhrev 목록 출력 -->
+				
 				<table border=1 width=500 id="rev"></table>
 				<script id="temp" type="text/x-handlebars-template">
 				{{#each}}
@@ -147,7 +166,8 @@ td {
 				</tr>
 				{{/each}}		
 				</script>
-						
+				
+				<!-- mbasketH 리뷰번호 insert한 목록 출력 -->		
 						
 
 			
@@ -173,7 +193,10 @@ td {
 	
 </body>
 <script>
+	/* mhhrev에 리뷰를 등록할때 mbasketH에도 저장할거임(병원코드와 리뷰번호를) */
 	
+	
+	/*
 	$("#btnreview").on("click",function(){
 		//alert("gg");
 		
@@ -183,10 +206,11 @@ td {
 		
 		alert("revcontent:" +revcontent +"revgrade:" +revgrade);
 	
+		var mhid=$("#mhrecent").
 		$.ajax({
 			type:"get",
 			url:"reviewinsert",
-			data:{"revcontent":revcontent,"revgrade":revgrade,"hrevmyid":"shrjs1@naver.com"},
+			data:{"revcontent":revcontent,"revgrade":revgrade,"hrevmyid":"shrjs1@naver.com","mhid":"shrjs1@naver.com",},
 			success:function(data){
 				//alert("성공하고싶음제발");
 				$("#review").val("");
@@ -195,7 +219,7 @@ td {
 		});
 	
 	});
-	
+	*/
 	/*
 		var h_code=$("#h_code").val();
 		//alert(h_code);
