@@ -31,4 +31,5 @@
 	  <tx:annotation-driven/>
 	  
 	  <context:component-scan base-package="com.example.persistence"></context:component-scan>
+	  <context:component-scan base-package="com.example.service"></context:component-scan>
 </beans>

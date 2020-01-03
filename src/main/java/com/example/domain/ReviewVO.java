@@ -6,8 +6,22 @@ public class ReviewVO {
 	private String revcontent;
 	private int revgrade;
 	private String hrevmyid;
+	private String h_hcode;
+	private int grade;
 	
 	
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	public String getH_hcode() {
+		return h_hcode;
+	}
+	public void setH_hcode(String h_hcode) {
+		this.h_hcode = h_hcode;
+	}
 	public int getHrevid() {
 		return hrevid;
 	}
@@ -32,6 +46,12 @@ public class ReviewVO {
 	public void setHrevmyid(String hrevmyid) {
 		this.hrevmyid = hrevmyid;
 	}
+	@Override
+	public String toString() {
+		return "ReviewVO [hrevid=" + hrevid + ", revcontent=" + revcontent + ", revgrade=" + revgrade + ", hrevmyid="
+				+ hrevmyid + ", h_hcode=" + h_hcode + ", grade=" + grade + "]";
+	}
+	
 	
 	
 }

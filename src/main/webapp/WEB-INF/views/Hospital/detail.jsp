@@ -100,33 +100,25 @@ td {
 	
 </body>
 	<script>
-	/* 리뷰작성 */
-	$("#btnreview").on("click",function(){
-		var revcontent=$("#review").val();
-		var revgrade=$("#grade option:selected").val();
-		//alert(revcontent+"\n"+revgrade);
-		$.ajax({
-			type:"get",
-			url:"reviewinsert",
-			data:{"revcontent":revcontent,"revgrade":revgrade,"hrevmyid":"shrjs1@naver.com"},
-			success:function(data){
-				alert("성공");
-			}
-		});
-	});
+	/* 리뷰 목록 */
 	
 	$("#btnreview").on("click",function(){
-		var mhrecent=$("#h_code").val();
-		var revgrade=$("#grade option:selected").val();
-		//alert(revcontent+"\n"+revgrade);
-		$.ajax({
-			type:"get",
-			url:"reviewinsert",
-			data:{"revcontent":revcontent,"revgrade":revgrade,"mhid":"shrjs1@naver.com"},
-			success:function(data){
-				alert("성공");
-			}
-		});
+		//alert("하하");
+	var revcontent=$("#review").val();
+	var h_hcode=$("#h_code").val();
+	var revgrade=$("#grade option:selected").val();
+	//alert(revgrade);
+	
+	
+	$.ajax({
+		type:"get",
+		url:"../reviewinsert",
+		data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":"user00"},
+		success:function(){
+			alert("성공");
+		}
+	});
+	
 	});
 	</script>
 </html>
