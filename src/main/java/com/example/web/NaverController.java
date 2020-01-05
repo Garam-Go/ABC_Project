@@ -25,15 +25,18 @@ public class NaverController {
 	public String naverlogin() {
 		return "/Member/naverlogin";
 	}
+	
+	
 
 	// 네이버 아이디로 로그인 작업
 	@RequestMapping("naverHomelogin")
 	public String naverlogin(String mid) throws Exception {
-		String logmid = dao.login(mid).getMid();
-
-		if (logmid == null) {
-			return "redirect:signIn?mid=" + mid;
-		} else {
+		System.out.println(mid);
+		System.out.println(dao.login(mid));
+		
+		if (dao.login(mid)==null) {
+			return "redirect:../signIn?mid=" + mid;
+		}else{
 			MemberVO loginInfo = dao.login(mid);
 
 			String logid = loginInfo.getMid();
