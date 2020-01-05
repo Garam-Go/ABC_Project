@@ -29,7 +29,7 @@
 	</select>
 	
 	<!-- 	btotal -->
-	<select id="total" resultType="int">
+	<select id="btotal" resultType="int">
 		select count(*) from mbook where mbmyid = #{mbmyid}
 	</select>
 </mapper>
