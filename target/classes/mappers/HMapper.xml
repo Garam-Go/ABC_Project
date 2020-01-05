@@ -6,6 +6,12 @@
 		insert into HSearch(h_code,h_name)
 		values(#{h_code},#{h_name})
 	</insert>
+	
+	
+	<insert id="tinsert">
+		insert into HSearch(h_code,h_name,h_time,h_address,h_machine,h_phone)
+		values(#{h_code},#{h_name},#{h_time},#{h_address},#{h_machine},#{h_phone})
+	</insert>
 	<select id="list" resultType="com.example.domain.HVO">
 		select * from hsearch
 		order by h_name asc
@@ -21,13 +27,16 @@
 		select * from hsearch
 		where h_code=#{h_code}
 	</select>
-	
-	<select id="klist" resultType="com.example.domain.HVO">
-		select * from hsearch
-		<if test="searchType=='h_name'">
-			where h_name like concat('%',#{keyword},'%')
-		</if>
-		limit 0,6
+	<update id="update">
+		update hsearch set h_address=#{h_address}, h_machine=#{h_machine}, h_phone=#{h_phone},h_name=#{h_name},h_time=#{h_time}
+		where h_code=#{h_code}
+	</update>
+	<select id="rlist" resultType="com.example.domain.ReviewVO">
+		select * from mbhrev
 	</select>
+	<insert id="reviewinsert">
+		insert into mbhrev(revcontent,revgrade,hrevmyid)
+		values(#{revcontent},#{revgrade},#{hrevmyid})
+	</insert>
 </mapper>
 
