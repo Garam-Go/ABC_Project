@@ -21,11 +21,11 @@ public void insert(ReviewVO vo) throws Exception {
 	session.insert(namespace+".insert",vo);
 }
 @Override
-public void update(String h_hcode, int revgrade) throws Exception {
+public void update(String h_hcode,int grade) throws Exception {
 	// TODO Auto-generated method stub
 	HashMap<String,Object> map=new HashMap<String,Object>();
 	map.put("h_hcode", h_hcode);
-	map.put("revgrade", revgrade);
+	map.put("grade", grade);
 	session.update(namespace+".update",map);
 }
 

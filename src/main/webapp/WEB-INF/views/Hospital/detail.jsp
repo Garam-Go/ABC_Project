@@ -106,19 +106,19 @@ td {
 		//alert("하하");
 	var revcontent=$("#review").val();
 	var h_hcode=$("#h_code").val();
-	var revgrade=$("#grade option:selected").val();
-	//alert(revgrade);
+	var grade=$("#grade option:selected").val();
+	alert(grade);
 	
-	
+	/*
 	$.ajax({
 		type:"get",
 		url:"../reviewinsert",
-		data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":"user00"},
+		data:{"revcontent":revcontent,"grade":grade,"h_hcode":h_hcode,"hrevmyid":"user00"},
 		success:function(){
 			alert("성공");
 		}
 	});
-	
+	*/
 	});
 	</script>
 </html>

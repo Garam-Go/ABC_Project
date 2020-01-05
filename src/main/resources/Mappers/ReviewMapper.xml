@@ -7,7 +7,7 @@
 		values(#{revcontent},#{revgrade},#{h_hcode},#{hrevmyid})
 	</insert>
 	<update id="update">
-		update mbhrev set revgrade=revgrade+#{revgrade}
+		update mbhrev set revgrade=revgrade+#{grade}
 		where h_hcode=#{h_hcode}
 	</update>
 </mapper>

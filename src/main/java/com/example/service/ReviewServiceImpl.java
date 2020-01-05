@@ -18,9 +18,8 @@ public class ReviewServiceImpl implements ReviewService{
 	public void insert(ReviewVO vo) throws Exception{
 		// TODO Auto-generated method stub
 		dao.insert(vo);
-		if(vo.getRevgrade()==0){
-			dao.update(vo.getH_hcode(), vo.getRevgrade());
-		}
+		dao.update(vo.getH_hcode(),vo.getGrade());
+		
 		
 	}
 
