@@ -105,24 +105,36 @@ td {
 </body>
 	<script>
 	/* 리뷰 목록 */
-	
 	$("#btnreview").on("click",function(){
 		//alert("하하");
 	var revcontent=$("#review").val();
 	var h_hcode=$("#h_code").val();
-	var grade=$("#grade option:selected").val();
+	var revgrade=$("#grade option:selected").val();
 	//alert(grade);
 	
+	//유효성체크
+	if(revcontent==""){
+		alert("내용을 입력하세요");
+		revcontent.focus();
+		return false;
+	}
+	
+	if(grade==""){
+		alert("평점을 선택하세요");
+		return false;
+	}
 	
 	$.ajax({
 		type:"get",
 		url:"../Hos-reviewinsert",
-		data:{"revcontent":revcontent,"grade":grade,"h_hcode":h_hcode,"hrevmyid":"user00"},
+		data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":"user00"},
 		success:function(){
 			alert("성공");
 		}
 	});
 	
 	});
+	
+	
 	</script>
 </html>

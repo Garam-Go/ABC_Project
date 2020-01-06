@@ -23,7 +23,7 @@ public class ReviewController {
 	
 	@ResponseBody
 	@RequestMapping("Hos-reviewinsert")
-	public void list(ReviewVO vo)throws Exception{
+	public void review(ReviewVO vo)throws Exception{
 		service.insert(vo);
 	}
 }

@@ -57,7 +57,7 @@ public class HospitalController {
 		@RequestMapping("Hos-slist.json")
 		public List<HVO> slistjson(SearchCriteria cri) throws Exception{
 			//System.out.println(dao.slist(cri));
-			return	dao.slist(cri); 	
+			return	dao.slist(cri);
 		}
 	
 
