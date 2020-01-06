@@ -16,19 +16,13 @@ public class ReviewController {
 	
 	@Inject
 	ReviewDAO dao;
-	/*
-	@ResponseBody
-	@RequestMapping("reviewlist")
-	public List<ReviewVO> list()throws Exception{
-		return  dao.list();
-	}
-	*/
+	
 	@Inject
 	ReviewService service;
 	
 	
 	@ResponseBody
-	@RequestMapping("reviewinsert")
+	@RequestMapping("Hos-reviewinsert")
 	public void list(ReviewVO vo)throws Exception{
 		service.insert(vo);
 	}

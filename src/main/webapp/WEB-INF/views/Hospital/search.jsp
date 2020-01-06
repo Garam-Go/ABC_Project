@@ -126,7 +126,7 @@
 					<table border=1 width=180 id="tblr"></table>
 					<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
-				<tr onClick="location.href='detail?h_code={{h_code}}'">
+				<tr onClick="location.href='Hos-detail?h_code={{h_code}}'">
 					<td style="padding:5px;">{{h_name}}</td>
 				</tr>
 				{{/each}}
@@ -141,7 +141,10 @@
 			<div id="content-right"
 				style="width: 120px; height: 1000px; background: lightgray; float: left;">
 				<!-- content-right 시작 -->
-				<jsp:include page="right.jsp"></jsp:include>
+				<div style="margin-top:150px;">
+					<input type="button" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
+					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
+				</div>
 			</div>
 
 		</div>
@@ -203,7 +206,7 @@
 
 		$.ajax({
 			type : "get",
-			url : "slist.json",
+			url : "Hos-slist.json",
 			data : {
 				"keyword" : searchType,
 			},

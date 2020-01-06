@@ -27,7 +27,8 @@
 		
 		<table border=1 width=530 style="margin:0px auto;margin-top:20px;margin-bottom:20px;">
 		<tr>
-			<td colspan="2" height=50>병원 이름:</td>
+			<td width="100" height=50>병원 이름:</td>
+			<td width="430">${vo.h_name}</td>
 		</tr>
 		<tr>
 			<td rowspan="2" width=200 height=150>위치:</td>
@@ -49,7 +50,7 @@
 		<tr>
 			<td colspan="2">
 				<div style="margin-left:150px;"> 
-					<input type="button" value="메인" onClick="location.href='./main'" style="margin-top:7px;margin-bottom:7px;height:35px;">
+					<input type="button" value="메인" onClick="location.href='./Hos-main'" style="margin-top:7px;margin-bottom:7px;height:35px;">
 					<input type="reset" value="취소"style="margin-top:7px;margin-bottom:7px;height:35px;">
 					<input type="button" value="예약" style="margin-top:7px;margin-bottom:7px;height:35px;">
 				</div>
@@ -58,7 +59,10 @@
 		</table>
 			</div>
 			<div id="content-right" style="width:120px;height:1000px; background:lightgray;float:left;">
-				<jsp:include page="right.jsp"></jsp:include>
+				<div style="margin-top:150px;">
+					<input type="button" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
+					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
+				</div>
 			</div>
 		</div>
 		<div id="footer">
