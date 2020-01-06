@@ -9,8 +9,8 @@
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<link href="${pageContext.request.contextPath}/resources/main (2).css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/main (2).css"	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/test.css"	rel="stylesheet">
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6baa3500ff42695b48d705aa87132cb3"></script>
 <script type="text/javascript"
@@ -32,44 +32,19 @@
 </head>
 <body>
 	<div id="page">
-		<div id="navbar"></div>
-		<div id="content" style="overflow: hidden;">
-			<div id="content-left" style="float: left; width: 680px;">
-				<div id="new">
-
-
-
-
-					<!-- 검색 연습 끝 -->
-					<select style="margin: 0px auto; height: 50px;" id="hide-new">
-						<option>1.인기 검색어 시작</option>
-						<option>10.인기 검색어 끝</option>
-					</select>
-				</div>
-
-				<div
-					style="text-align: center; width: 600px; height: 50px; margin-top: 25px; margin-left: 70px; height: 50px; margin-bottom: 25px;">
-					<div
-						style="border: 5px solid #E0F8E6; width: 500px; margin: 0px auto; padding: 5px;">
-						<!-- 나중에 -->
-						<!--		
-			<select style="height:50px;">
-				<option>시/도 선택</option>
-			</select>
-			
-			<select style="height:50px;">
-				<option>시/군/구 선택</option>
-			</select>
-			
-			<select style="height:50px;">
-				<option>읍/면/동/로 선택</option>
-			</select>
-			-->
-						<!-- 검색  -->
-						
-
+		<div id="login">
+			<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+		</div>
+	<div id="navbar">
+		<jsp:include page="../Nav/navBar.jsp"></jsp:include>
+	</div>
+	<div id="content" style="overflow: hidden;">
+		<div id="content-left" style="float: left; width: 680px;">
+				
+			<div style="text-align: center; width: 750px; margin-top: 25px; margin-left: 70px; margin-bottom: 25px; overflow:hidden;">
+				<div style="border: 5px solid #E0F8E6; width: 500px; margin-bottom: 30px; padding: 5px; float:left;">
 						<!-- 카테고리 별 검색 -->
-						<select style="height: 25px;" id="searchType">
+						<select style="height: 35px;" id="searchType">
 							<option value="이비인후과"
 								<c:out value="${param.themes=='이비인후과'?'selected':''}"/>>이비인후과</option>
 							<option value="내과"
@@ -105,44 +80,38 @@
 							<option value="마취통증"
 								<c:out value="${param.themes=='마취통증'?'selected':''}"/>>마취통증과</option>
 						</select> 
-						
+						<input type="text" id="keyword" size=30 style="height:35px">
 						<input type="button" value="검색" id="selsearch" class="selsearch">
 						<!-- 직접 검색 -->
 					</div>
-				</div>
-
-				<div
-					style="background: #E0F8E6; width: 280px; height: 500px; margin-left: 90px; float: left;">
+					<div id="new" style="float:right;">
+					<!-- 검색 연습 끝 -->
+						<select style="width:200px; margin: 0px auto; height: 50px;" id="hide-new">
+							<option>1.인기 검색어 시작</option>
+							<option>10.인기 검색어 끝</option>
+						</select>
+					</div>	
 				
-
-				</div>
-
-
-				<div
-					style="width: 210px; background: #E0F8E6; margin-left: 400px; margin-bottom: 50px; padding: 15px;">
-			
-			 
-					<h2>내 테이블에 저장된 데이터 목록</h2>
-					<table border=1 width=180 id="tblr"></table>
-					<script id="tempr" type="text/x-handlebars-template">
+		<div style="width: 700px; background: #E0F8E6; margin-bottom: 50px; padding: 15px; clear:both;">		
+			<h2>검색된 병원 목록</h2>
+			<table border=1 width=600 id="tblr"></table>
+			<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
 				<tr onClick="location.href='Hos-detail?h_code={{h_code}}'">
 					<td style="padding:5px;">{{h_name}}</td>
 				</tr>
 				{{/each}}
 			</script>
-
-		
-				</div>
-
-			</div>
+		</div>
+	</div>
+	</div>
 			<!--content-left 끝  -->
 
 			<div id="content-right"
 				style="width: 120px; height: 1000px; background: lightgray; float: left;">
 				<!-- content-right 시작 -->
 				<div style="margin-top:150px;">
-					<input type="button" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
+					<input type="button" onClick="MessageHome" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
 					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
 				</div>
 			</div>
@@ -153,7 +122,7 @@
 		<div id="footer"></div>
 
 		<div>
-			<a href="main">◀</a>
+			<a href="main">홈으로</a>
 		</div>
 		<input type="hidden" value="${param.themes}" id="themes">
 	</div>

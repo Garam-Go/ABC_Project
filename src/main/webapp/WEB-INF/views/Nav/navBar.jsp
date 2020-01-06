@@ -6,5 +6,5 @@
 </a>
 <button class="oribtn" onClick="location.href='Hos-main'">병원검색</button>
 <button class="oribtn" onClick="location.href='medicineMain'">약검색</button>
-<button class="oribtn" onClick="location.href='comu-clist'">커뮤니티</button>
+<button class="oribtn" onClick="location.href='comu_clist'">커뮤니티</button>
 <button class="oribtn" onClick="location.href='CSqna'">고객센터</button>

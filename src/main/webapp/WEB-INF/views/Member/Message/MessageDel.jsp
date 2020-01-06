@@ -45,7 +45,7 @@
 			<jsp:include page="../loginmenu.jsp"></jsp:include>
 		</div>
 	    <div id="navbar">
-			<jsp:include page="../../navBar.jsp"></jsp:include>
+			<jsp:include page="../../Nav/navBar.jsp"></jsp:include>
 	    </div>
 	</div>
 	<div id="content">

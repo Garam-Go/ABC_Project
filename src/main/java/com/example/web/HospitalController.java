@@ -15,7 +15,6 @@ import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.HDAO;
 
-@RequestMapping("Hospital")
 @Controller
 public class HospitalController {
 	@Inject

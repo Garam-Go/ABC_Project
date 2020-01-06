@@ -7,13 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>홈페이지</title>
-    
-<!--     합쳐지고 최소화된 최신 CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!--     부가적인 테마 -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!--     합쳐지고 최소화된 최신 자바스크립트 -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
    
 <link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
@@ -34,20 +27,14 @@
 	<div id="header">
 	<div id="login">
 		<jsp:include page="Member/loginmenu.jsp"></jsp:include>
-<!-- 		<div id="darken"> -->
-<!-- 			<div id="lightbox"> -->
-<%-- 				<jsp:include page="login.jsp"></jsp:include> --%>
-<!-- 				<a id="lightboxClose" href="#">X</a> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
 	</div>
     <div id="navbar">
-		<jsp:include page="navBar.jsp"></jsp:include>
+		<jsp:include page="Nav/navBar.jsp"></jsp:include>
     </div>
     </div> <!--     header -->
     <div id="content">
         <div id="content-left">
-            <img src="http://placehold.it/300x300">
+            <img src="resources/abc.png" width=500 style="vertical-align: middle;">
         </div>
         <div id="content-right">
             <h1>알보칠 검색 서비스</h1>
@@ -55,10 +42,7 @@
         </div>
     </div><!-- content -->
     <div id="footer">
-        <button class="cirbtn">병원검색</button>
-        <button class="cirbtn">약검색</button>
-        <button class="cirbtn">메세지함</button>
-        <button class="cirbtn">전문의 질문 게시판</button>
+        <h1>여기에는 뭘 넣어야 할까</h1>
     </div><!-- footer -->
 </div><!-- page -->
 </body>

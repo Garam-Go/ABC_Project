@@ -7,6 +7,7 @@
 <html>
 <head>
 <link href="resources/main.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/test.css"	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -25,8 +26,11 @@
 </head>
 <body>
 	<div id="page">
+		<div id="login">
+			<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+		</div>
 		<div id="navbar">
-		
+			<jsp:include page="../Nav/navBar.jsp"></jsp:include>
 		</div>
 
 		<div id="content" style="overflow:hidden;">

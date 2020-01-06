@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>main</title>
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-<link href="${pageContext.request.contextPath}/resources/main (2).css"
-	rel="stylesheet">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<link href="${pageContext.request.contextPath}/resources/main (2).css"	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/test.css"	rel="stylesheet">
+
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <style>
 #darken-background {
 	position: absolute;
@@ -75,18 +75,19 @@ td {
 </head>
 <body>
 	<div id="page">
-		<div id="navbar"></div>
+		<div id="login">
+			<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+		</div>
+		<div id="navbar">
+			<jsp:include page="../Nav/navBar.jsp"></jsp:include>
+		</div>
 		<div id="content" style="overflow: hidden;">
 			<!-- content 시작 -->
 
 			<div id="content-left" style="float: left; width: 680px;">
 				<!-- content  left 시작 -->
-
-				<input type="text" id="query" value="소아"> <input
-					type="button" value="검색" id="btnsearch">
+				
 				<!-- 라이트박스 -->
-
-
 				<div id="darken-background">
 
 					<div id="lightbox">
@@ -155,10 +156,6 @@ td {
 
 
 
-
-
-
-
 				<div id="new">
 					<select style="margin: 0px auto; margin-top: 25px; height: 50px;"
 						id="hide-new">
@@ -169,38 +166,41 @@ td {
 				<!-- 메뉴 테이블 -->
 				<table border=0 style="margin-top: 20px; margin-right: 20px;">
 					<tr>
-						<td colspan="2" height=100>병원 검색</td>
+						<td height=100>병원 검색</td>
+						<td>
+							<input type="text" id="query" placeholder="검색어 입력"> 
+							<input type="button" value="검색" id="btnsearch">		
+						</td>
 					</tr>
 					<tr>
 						<td width=200>병원이름으로 검색</td>
 						<td>
 							<div id="theme">
-								<input type="button" value="이비인후과" class="theme"> <input
-									type="button" value="소아" class="theme"> <input
-									type="button" value="피부과" class="theme"> <input
-									type="button" value="외과" class="theme"> <input
-									type="button" value="정형외과" class="theme"> <input
-									type="button" value="안과" class="theme"> <input
-									type="button" value="치과" class="theme"> <input
-									type="button" value="한의원" class="theme"> <input
-									type="button" value="산부인과" class="theme"> <input
-									type="button" value="비뇨기과" class="theme"> <input
-									type="button" value="성형외과" class="theme"> <input
-									type="button" value="신경과" class="theme"> <input
-									type="button" value="신경외과" class="theme"> <input
-									type="button" value="정신" class="theme"> <input
-									type="button" value="마취통증" class="theme">
+								<input type="button" value="이비인후과" class="theme"> 
+								<input type="button" value="소아" class="theme"> 
+								<input type="button" value="피부과" class="theme"> 
+								<input type="button" value="외과" class="theme">
+								<input type="button" value="정형외과" class="theme"> 
+								<input type="button" value="안과" class="theme"> 
+								<input type="button" value="치과" class="theme"> 
+								<input type="button" value="한의원" class="theme"> 
+								<input type="button" value="산부인과" class="theme"> 
+								<input type="button" value="비뇨기과" class="theme"> 
+								<input type="button" value="성형외과" class="theme">
+								<input type="button" value="신경과" class="theme"> 
+								<input type="button" value="신경외과" class="theme"> 
+								<input type="button" value="정신" class="theme"> 
+								<input type="button" value="마취통증" class="theme">
 							</div>
 						</td>
 					</tr>
 				</table>
 			</div>
 			<!-- content  left 끝 -->
-			<div id="content-right"
-				style="width: 120px; height: 1000px; background: lightgray; float: left;">
+			<div id="content-right"	style="width: 120px; height: 500px; background: lightgray; float: left; margin-top:50px; margin-bottom:50px;" >
 				<!-- content  right 시작 -->
 				<div style="margin-top:150px;">
-					<input type="button" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
+					<input type="button" onClick="location.href='MessageHome'" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:100px;">
 					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
 				</div>
 			</div>

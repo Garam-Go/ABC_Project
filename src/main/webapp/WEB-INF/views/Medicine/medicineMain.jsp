@@ -4,6 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="${pageContext.request.contextPath}/resources/test.css"	rel="stylesheet">
 	<title>MedicineMain</title>
 	<style>
 		body {
@@ -90,14 +91,17 @@
 </head>
 <body>
 	<div id="page">
-		<div id="top" style="margin-top:50px;"></div>
-		
-		<div id="search" style="margin-bottom:50px;">
-			<input type="text">
-			<button onClick="location.href='medicineSearchResult'">검색</button>
+		<div id="login">
+			<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
 		</div>
-		
+		<div id="navbar">
+			<jsp:include page="../Nav/navBar.jsp"></jsp:include>
+		</div>
 		<div id="content">
+			<div id="search" style="margin-bottom:50px;">
+				<input type="text">
+				<button onClick="location.href='medicineSearchResult'">검색</button>
+			</div>
 			<div id="left">
 				<jsp:include page="left.jsp"></jsp:include>		
 			</div>

@@ -46,7 +46,7 @@ public class comuController {
 	public String comu_clist(Model model, SearchCriteria cri) throws Exception {
 		cri.setPerPageNum(10);
 		model.addAttribute("qlist", qdao.qlist(cri));
-		return "community/main";
+		return "/community/main";
 	}
 	
 	@ResponseBody
@@ -91,7 +91,7 @@ public class comuController {
 		public String comu_hlist(Model model, SearchCriteria cri) throws Exception {
 			cri.setPerPageNum(5);
 			model.addAttribute("clist", fdao.clist(cri));
-			return "community/hlist";
+			return "/community/hlist";
 		}
 		
 		//건강정보 크롤링
@@ -142,6 +142,6 @@ public class comuController {
 		
 		model.addAttribute("qlist", qdao.qlist(cri));
 		model.addAttribute("pm", pm);
-		return "community/qlist";
+		return "/community/qlist";
 	}
 }

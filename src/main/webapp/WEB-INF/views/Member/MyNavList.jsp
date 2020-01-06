@@ -14,7 +14,7 @@
 				<div id="in-med-menu">
 					<a href="BasketMedList">최근 검색한 약</a><br>
 					<a href="BasketMedFav">내 관심 약</a><br>
-					<a href="BasketComFav">약 댓글 관리</a>
+					<a href="BasketRepList">약 댓글 관리</a>
 				</div>
 			</li>
 			<li id="in-com"><a href="BasketComMove">커뮤</a>
