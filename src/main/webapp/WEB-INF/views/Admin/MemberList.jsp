@@ -82,7 +82,31 @@
 			</ul>
 			</div>
     	<div id="inner-content">
-    		<h1>Captain on Bridge</h1>
+    		<table id="tbl" width=800 border=1></table>
+			<script id="temp" type="text/x-handlebars-templete">
+				<tr>
+					<td>
+						<input type="checkbox">
+					</td>
+					<td>아이디</td>
+					<td>이름</td>
+					<td>가입일자</td>
+					<td>회원등급</td>
+					<td>메세지</td>
+				</tr>
+				{{#each .}}
+					<tr>
+						<td>
+							<input type="checkbox">
+						</td>
+						<td>아이디</td>
+						<td>이름</td>
+						<td>가입일자</td>
+						<td>회원등급</td>
+						<td>메세지</td>
+					</tr>				
+				{{/each}}
+			</script>
     	</div>
     </div>
     <div id="footer">

@@ -40,8 +40,8 @@
 <ul id="out-ul">
 	<li id="out-li">고객센터
 		<ul id="in-ul">
-			<li><a href="#">QnA</a></li>
-			<li><a href="#">1:1 질문하기</a></li>
+			<li><a href="CSqna">QnA</a></li>
+			<li><a href="CSqes">1:1 질문하기</a></li>
 		</ul>
 	</li>
 </ul>
