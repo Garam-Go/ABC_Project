@@ -2,25 +2,30 @@ package com.example.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ReplyVO {
 	private int replyid;
-	private int boardid;
+	private int medcode;
 	private String replyname;
 	private String replycontent;
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="Asia/Seoul")
 	private Date replydate;
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="Asia/Seoul")
 	private Date replyupdate;
 	private int replycommend;
+	
 	public int getReplyid() {
 		return replyid;
 	}
 	public void setReplyid(int replyid) {
 		this.replyid = replyid;
 	}
-	public int getBoardid() {
-		return boardid;
+	public int getMedcode() {
+		return medcode;
 	}
-	public void setBoardid(int boardid) {
-		this.boardid = boardid;
+	public void setMedcode(int medcode) {
+		this.medcode = medcode;
 	}
 	public String getReplyname() {
 		return replyname;
@@ -28,11 +33,11 @@ public class ReplyVO {
 	public void setReplyname(String replyname) {
 		this.replyname = replyname;
 	}
-	public String getReplycomment() {
+	public String getReplycontent() {
 		return replycontent;
 	}
-	public void setReplycomment(String replycomment) {
-		this.replycontent = replycomment;
+	public void setReplycontent(String replycontent) {
+		this.replycontent = replycontent;
 	}
 	public Date getReplydate() {
 		return replydate;
@@ -54,10 +59,11 @@ public class ReplyVO {
 	}
 	@Override
 	public String toString() {
-		return "ReplyVO [replyid=" + replyid + ", boardid=" + boardid + ", replyname=" + replyname + ", replycomment="
+		return "ReplyVO [replyid=" + replyid + ", medcode=" + medcode + ", replyname=" + replyname + ", replycontent="
 				+ replycontent + ", replydate=" + replydate + ", replyupdate=" + replyupdate + ", replycommend="
 				+ replycommend + "]";
 	}
+	
 	
 	
 }

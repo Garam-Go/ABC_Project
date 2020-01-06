@@ -19,22 +19,21 @@ public class ReplyDAOImpl implements ReplyDAO{
 	String namespace="ReplyMapper";
 	
 	@Override
-	public List<ReplyVO> list(Criteria cri, int boardid) throws Exception {
+	public List<ReplyVO> list(Criteria cri, int medcode) throws Exception {
 		Map<String, Object> map=new HashMap<String, Object>();
-		map.put("boardid", boardid);
+		map.put("medcode", medcode);
 		map.put("cri", cri);
 		return session.selectList(namespace + ".list", map);
-	}
-	@Override
-	public int total(int boardid) throws Exception {
-		return session.selectOne(namespace + ".total", boardid);
 	}
 	@Override
 	public void insert(ReplyVO vo) throws Exception {
 		session.insert(namespace + ".insert", vo);
 	}
 	@Override
-	public void delete(int replyid) throws Exception {
-		session.delete(namespace + ".delete", replyid);
+	public void delete(int replyid, int medcode) throws Exception {
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("replyid", replyid);
+		map.put("medcode", medcode);
+		session.selectList(namespace + ".delete", map);
 	}
 }

@@ -14,7 +14,7 @@ import com.example.persistence.MemberDAO;
 @Controller
 public class AdminController {
 	@Inject
-	MemberDAO mdao;
+	MemberDAO Memdao;
 	
 	//어드민 메인페이지 이동
 	@RequestMapping("AdminMain")
@@ -26,7 +26,7 @@ public class AdminController {
 	@ResponseBody
 	@RequestMapping("MemList")
 	public List<MemberVO> Memlist() throws Exception{
-		List<MemberVO> list = mdao.list();
+		List<MemberVO> list = Memdao.list();
 		return list;
 	}
 }

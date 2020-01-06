@@ -39,7 +39,7 @@ public class comuController {
 	QDAO qdao;
 	
 	@Inject
-	HosDAO hdao;
+	HosDAO hosdao;
 
 	//자유게시판 이동
 	@RequestMapping("comu_clist")
@@ -128,7 +128,7 @@ public class comuController {
 		@RequestMapping(value="hinsert", method=RequestMethod.POST)
 		public void hinsert(HosVO vo) throws Exception{
 			System.out.println(vo.toString());
-			hdao.hinsert(vo);
+			hosdao.hinsert(vo);
 		}
 	
 	//질문게시판 이동

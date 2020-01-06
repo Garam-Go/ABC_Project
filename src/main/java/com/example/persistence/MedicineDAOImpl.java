@@ -25,5 +25,15 @@ public class MedicineDAOImpl implements MedicineDAO{
 	public void insert(MedicineVO vo) throws Exception {
 		session.insert(namespace + ".insert", vo);
 	}
+
+	@Override
+	public int total() throws Exception {
+		return session.selectOne(namespace + ".total");
+	}
+
+	@Override
+	public MedicineVO read(int medcode) throws Exception {
+		return session.selectOne(namespace + ".read", medcode);
+	}
 	
 }

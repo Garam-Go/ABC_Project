@@ -19,7 +19,8 @@ import com.example.persistence.HDAO;
 @Controller
 public class HospitalController {
 	@Inject
-	HDAO dao;
+	HDAO Hdao;
+	
 	/* main 페이지로 이동*/
 	@RequestMapping("Hos-main")
 	public String main(){
@@ -32,21 +33,21 @@ public class HospitalController {
 	/* search 페이지로 이동*/
 	@RequestMapping("Hos-search")
 	public String search(Model model,SearchCriteria cri) throws Exception{
-		model.addAttribute("list",dao.list());
+		model.addAttribute("list",Hdao.list());
 		//System.out.println(dao.list());
 		return "/Hospital/search";
 	}
 	/* detail 페이지로 이동*/
 	@RequestMapping("Hos-detail")
 	public String detail(Model model,String h_code) throws Exception{
-		model.addAttribute("vo",dao.read(h_code));
+		model.addAttribute("vo",Hdao.read(h_code));
 		//System.out.println(dao.read("1234567812"));
 		return "/Hospital/detail";
 	}
 	/* reservation 페이지로 이동*/
 	@RequestMapping("Hos-reservation")
 	public String reservation(Model model,String h_code)throws Exception{
-		model.addAttribute("vo",dao.read(h_code));
+		model.addAttribute("vo",Hdao.read(h_code));
 		return "/Hospital/reservation";
 	}
 	
@@ -57,7 +58,7 @@ public class HospitalController {
 		@RequestMapping("Hos-slist.json")
 		public List<HVO> slistjson(SearchCriteria cri) throws Exception{
 			//System.out.println(dao.slist(cri));
-			return	dao.slist(cri);
+			return	Hdao.slist(cri);
 		}
 	
 

@@ -7,9 +7,16 @@ public class MedicineVO {
 	private String thumbnail;
 	private String medname;
 	private String medcontent;
+	private String medingre;
 	private int recommendcnt;
 	private Date meddate;
 	
+	public String getMedingre() {
+		return medingre;
+	}
+	public void setMedingre(String medingre) {
+		this.medingre = medingre;
+	}
 	public int getMedcode() {
 		return medcode;
 	}

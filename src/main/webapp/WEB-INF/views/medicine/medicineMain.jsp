@@ -12,26 +12,32 @@
 			background:darkgray;
 		}
 		#page {
-			width:900px;
-			height:1000px;
+			width:1200px;
+			height:1800px;
 			margin:20px auto;
 			background:white;
 			text-align:center;
 			box-shadow:1px 5px 5px gray;
 		}
+		#top{
+			background:gray;
+			width:1200px;
+			height:150px;
+			margin-bottom:50px;
+		}
 		#content{
 			margin:0 auto;
-			width:800px;
-			height:500px;
+			width:1200px;
+			height:700px;
 			position:relative;
 		}
 		#left{
 			width:150px;
-			height:170px;
+			height:410px;
 			background:white;
-			margin-left:15px;
-			margin-right:35px;
 			margin-top:100px;
+			margin-left:50px;
+			margin-right:45px;
 			float:left;
 		}
 		#left1{
@@ -48,22 +54,24 @@
 			background:white;
 		}
 		#center{
-			border:1px solid black;
-			width:400px;
-			height:500px;
+			width:700px;
+			height:600px;
 			background:white;
-			margin:auto;
+			margin:20px auto;
 			float:left;
 		}
 		#right{
-			width:160px;
+			width:150px;
+			height:170px;
 			float:right;
-			margin-top:30px;
+			margin-top:100px;
+			margin-left:40px;
+			margin-right:50px;
 		}
 		.right1{
 			border:1px solid black;
 			width:150px;
-			height:150px;
+			height:50px;
 			background:white;
 			margin-bottom:70px;
 			
@@ -71,22 +79,13 @@
 		.right2{
 			border:1px solid black;
 			width:150px;
-			height:150px;
+			height:50px;
 			background:white;
 		}
-		#bottom{
-			width:900px;
-			height:120px;
-			background:gold;
-			margin-top:60px;
+		table{
+			border-color:black;
+			border-collapse:collapse;
 		}
-		#top{
-			background:gray;
-			width:900px;
-			height:150px;
-			margin-bottom:50px;
-		}
-		
 	</style>
 </head>
 <body>
@@ -94,34 +93,21 @@
 		<div id="top" style="margin-top:50px;"></div>
 		
 		<div id="search" style="margin-bottom:50px;">
-			<button>三</button>
 			<input type="text">
 			<button onClick="location.href='medicineSearchResult'">검색</button>
 		</div>
 		
 		<div id="content">
 			<div id="left">
-				<div id="left1">
-					<a href="">관심 있는 약</a>
-				</div>
-				<div id="left2">
-					<a href="">최근 검색한 약</a>
-				</div>
+				<jsp:include page="left.jsp"></jsp:include>		
 			</div>
 			<div id="center">
-				<div class="">
+				<div class="center1">
 					
 				</div>
-				<input type="text"><br>
-				<button>검색</button>
 			</div>
 			<div id="right">
-				<div class="right1">
-					<a href="">메시지</a>
-				</div>
-				<div class="right2">
-					<a href="">전문의에게 질문</a>
-				</div>
+				<jsp:include page="right.jsp"></jsp:include>
 			</div>
 		</div>
 		

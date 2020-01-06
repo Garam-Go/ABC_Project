@@ -15,15 +15,15 @@ import com.example.service.ReviewService;
 public class ReviewController {
 	
 	@Inject
-	ReviewDAO dao;
+	ReviewDAO Revdao;
 	
 	@Inject
-	ReviewService service;
+	ReviewService Revservice;
 	
 	
 	@ResponseBody
 	@RequestMapping("Hos-reviewinsert")
 	public void review(ReviewVO vo)throws Exception{
-		service.insert(vo);
+		Revservice.insert(vo);
 	}
 }

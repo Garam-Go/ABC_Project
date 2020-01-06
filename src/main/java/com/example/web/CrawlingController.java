@@ -20,22 +20,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class CrawlingController {
 	@ResponseBody
-	@RequestMapping("medicine.json")
+	@RequestMapping("me.json")
 	public List<HashMap<String, Object>> medicine() throws Exception{
-		//int i=0;
+		int i=0;
 		List<HashMap<String, Object>> mlist = new ArrayList<HashMap<String, Object>>();
-		Document doc=Jsoup.connect("https://terms.naver.com/medicineSearch.nhn").get();
+		Document doc=Jsoup.connect("https://terms.naver.com/medicineSearch.nhn?page=7").get();
 		Elements es=doc.select(".list_wrap .content_list");
 		
 		for(Element e:es.select("li")){
 			HashMap<String, Object> map= new HashMap<String, Object>();
 			map.put("medcode", e.select(".btn_txt").attr("data-contentsid"));
-			map.put("thumbnail", e.select(".listThumbnail").attr("src"));
+			map.put("thumbnail", e.select("img").attr("src"));
 			map.put("medname", e.select("a strong").text());
 			map.put("medcontent", e.select(".desc").text());
-			if(!e.select("a strong").text().equals("")/*&& i<5*/){
+			if(!e.select("a strong").text().equals("")){
 				mlist.add(map);
-				//i=i+1;
+				i=i+1;
 			}
 		}
 		return mlist;
