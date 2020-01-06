@@ -59,6 +59,11 @@ public class HospitalController {
 			//System.out.println(dao.slist(cri));
 			return	dao.slist(cri);
 		}
+		
+		@RequestMapping("Hos-index")
+		public String index(){
+			return "/Hospital/index";
+		}
 	
 
 	
