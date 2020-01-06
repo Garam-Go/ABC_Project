@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>마이페이지</title>
+<link href="test.css" rel="stylesheet">
+<style>
+#inner-navbar{
+        background:yellow;
+        width:300px;
+        height:100%;
+        margin: 10px;
+        float:left;
+        padding:10px;
+        font-size:20px;
+	}
+#inner-content{
+        background:skyblue;
+        width:70%;
+        height:100%;
+        margin: 10px;
+        float:left;
+	}
+#table-profile{
+        width:600px;
+        background:white;
+        margin:100px auto;
+        
+    }
+table tr td{
+    border-collapse: collapse;
+}
+
+ul{
+    list-style: none;
+}
+
+#in-hos ul{
+    display: none;
+}
+
+#in-hos:hover ul{
+    display: block;
+}
+#in-med ul{
+    display: none;
+}
+
+#in-med:hover ul{
+    display: block;
+}
+#in-com ul{
+    display: none;
+}
+
+#in-com:hover ul{
+    display: block;
+}
+
+#inner-button{
+    border:1px solid;
+    width:50%;
+    margin-top: 150px;
+    margin-left: 200px;
+    padding-left: 150px;
+}
+
+.my-button{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border: none;
+    background-color: lightgreen;
+    box-shadow: 1px 1px 5px gray;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 50px;
+}
+
+</style>
+</head>
+<body>
+<div id="page">
+	<div id="header">
+		<h1>마이페이지</h1>
+		<div id="login">
+			<jsp:include page="loginmenu.jsp"></jsp:include>
+		</div>
+	    <div id="navbar">
+			<jsp:include page="../navBar.jsp"></jsp:include>
+	    </div>
+	</div>
+	<div id="content">
+		<div id="inner-navbar">
+			<ul id="out-ul">
+				<li>나의 보관함
+					<ul id="in-ul">
+						<li id="in-hos">병원
+                            <ul>
+                                <li>최근 본 병원</li>
+                                <li>병원 예약 관리</li>
+                                <li>리뷰관리</li>
+                            </ul>
+                        </li>
+						<li id="in-med">약
+                            <ul>
+                                <li>최근 검색한 약</li>
+                                <li>내가 관심있는 약</li>
+                                <li>내가 쓴 댓글</li>
+                            </ul>
+                        </li>
+						<li id="in-com">커뮤
+                            <ul>
+                                <li>내가 쓴 글</li>
+                                <li>내가 쓴 질문</li>
+                            </ul>
+                        </li>
+					</ul>
+				</li>
+			</ul>
+			<ul id="out-ul">
+				<li>메세지함
+					<ul id="in-ul">
+						<li>메세지 확인</li>
+						<li>주소록</li>
+						<li>휴지통</li>
+					</ul>
+				</li>
+			</ul>
+			<ul id="out-ul">
+				<li>고객센터
+					<ul id="in-ul">
+						<li>QnA</li>
+						<li>1:1 질문하기</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="inner-content">
+			<div id="inner-button">
+                <button class="my-button">최근 본 병원</button>
+                <button class="my-button">병원 예약 현황</button>
+                <button class="my-button">내가 쓴 리뷰</button>
+            </div>
+		</div>
+	</div>
+	<div id="footer">
+	
+	</div>
+</div>
+</body>
+</html>

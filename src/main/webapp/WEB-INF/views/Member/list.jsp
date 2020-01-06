@@ -15,7 +15,7 @@
 <body>
 	<h1>LISLTISLTISLISTLISLIST</h1>
 	<div id="top">
-		<jsp:include page="menu.jsp"></jsp:include>
+		<jsp:include page="loginmenu.jsp"></jsp:include>
 	</div>
 </body>
 </html>

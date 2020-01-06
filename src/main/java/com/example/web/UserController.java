@@ -17,7 +17,8 @@ import com.example.persistence.MemberDAO;
 public class UserController {
 	@Inject
 	MemberDAO dao;
-
+	
+	//홈
 	@RequestMapping("home")
 	public String home(String email, HttpSession session) {
 		if (email != null) {
@@ -26,6 +27,7 @@ public class UserController {
 		return "home";
 	}
 
+	//로그인 이동
 	@RequestMapping("login")
 	public String login() {
 		return "/Member/login";
@@ -44,18 +46,20 @@ public class UserController {
 			
 			String pass = dao.login(mid).getMpassword();
 			
+			
 			//로그인 한 아이디의 비번이 DB에 있는 비번과 맞는지 평가해봄
-			if (vo.getMpassword().equals(pass)) {
+			if (vo.getMpassword().equals(pass)&&dao.login(mid).getMstatus()!=5) {
 				System.out.println("로그인 성공 ");
 				session.setAttribute("mid", mid);
+				return "redirect:home";
 				
 			//관리자 계정인지 검사	
-			} else if (vo.getMid().equals("admin") && vo.getMpassword().equals("admin")) {
-				Map<String, Object> map = new HashMap<String, Object>();
-				map.put("admin_id", "admin");
-				map.put("admin_name", "관리자");
-				session.setAttribute("admin", map);
-				return "redirect:/admin_main";
+			} else if (vo.getMpassword().equals(pass)&&dao.login(mid).getMstatus()==5) {
+
+				session.setAttribute("admin", "관리자");
+				session.setAttribute("mid", "admin");
+				
+				return "redirect:AdminMain";
 
 			//비밀번호가 틀렸을시
 			} else {
@@ -74,9 +78,10 @@ public class UserController {
 		}
 		
 
-		return "redirect:home";
+		
 	}
 
+	//로그아웃
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("mid");
@@ -91,6 +96,7 @@ public class UserController {
 		return "/Member/signIn";
 	}
 
+	//회원가입post
 	@RequestMapping(value = "signIn", method = RequestMethod.POST)
 	public void signInPost(MemberVO vo, HttpSession session) throws Exception {
 		dao.signIn(vo); 

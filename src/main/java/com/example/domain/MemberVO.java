@@ -5,6 +5,15 @@ public class MemberVO {
 	private String mpassword;
 	private String mname;
 	private String mgender;
+	private int mstatus;
+	
+	
+	public int getMstatus() {
+		return mstatus;
+	}
+	public void setMstatus(int mstatus) {
+		this.mstatus = mstatus;
+	}
 	public String getMid() {
 		return mid;
 	}
