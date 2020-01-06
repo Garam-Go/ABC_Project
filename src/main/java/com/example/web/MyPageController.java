@@ -94,4 +94,15 @@ public class MyPageController {
 		public String messageDel(){
 			return "/Member/Message/MessageDel";
 		}
+	//고객센터 이동
+	@RequestMapping("CSqna")
+	public String CSqna(){
+		return "/Member/CS/CSqna";
+	}
+
+	//1:1질문 이동
+	@RequestMapping("CSqes")
+	public String CSqes(){
+		return "/Member/CS/CSqes";
+	}
 }

@@ -66,7 +66,7 @@
 			<jsp:include page="../MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<input type="text" value="${mid }" id="mid">
+			<input type="hidden" value="${mid }" id="mid">
 			<table id="table-message" border=1></table>
 			<script id="temp" type="text/x-handlebars-templete">
 				<tr style= "background:lightgreen;">
