@@ -61,8 +61,8 @@
 				<jsp:include page="right.jsp"></jsp:include>
 			</div>
 		</div>
-		<div id="footer" style="width:800px; height:100px;background:#666666;">
-			<jsp:include page="bottom.jsp"></jsp:include>
+		<div id="footer">
+		
 		</div>
 		<div>
 			<a href="detail">◀</a>
