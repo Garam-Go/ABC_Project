@@ -65,7 +65,8 @@ td {
 						<td>${vo.h_machine}</td>
 
 					</tr>
-				</table>				
+				</table>	
+				<input type="button" value="예약" onClick="location.href='Hos-reservation?h_code=${vo.h_code}'">			
 				<div
 					style="background: white; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
 					<select style="height: 50px;" id="grade">
@@ -88,7 +89,10 @@ td {
 		
 		</div>
 			<div id="content-right" style="width: 120px; height: 1000px; background: lightgray; float: left;">
-				<jsp:include page="right.jsp"></jsp:include>
+				<div style="margin-top:150px;">
+					<input type="button" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
+					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
+				</div>
 			</div>
 		</div>
 		<div id="footer"></div>
@@ -101,24 +105,36 @@ td {
 </body>
 	<script>
 	/* 리뷰 목록 */
-	
 	$("#btnreview").on("click",function(){
 		//alert("하하");
 	var revcontent=$("#review").val();
 	var h_hcode=$("#h_code").val();
-	var grade=$("#grade option:selected").val();
-	alert(grade);
+	var revgrade=$("#grade option:selected").val();
+	//alert(grade);
 	
-	/*
+	//유효성체크
+	if(revcontent==""){
+		alert("내용을 입력하세요");
+		revcontent.focus();
+		return false;
+	}
+	
+	if(grade==""){
+		alert("평점을 선택하세요");
+		return false;
+	}
+	
 	$.ajax({
 		type:"get",
-		url:"../reviewinsert",
-		data:{"revcontent":revcontent,"grade":grade,"h_hcode":h_hcode,"hrevmyid":"user00"},
+		url:"../Hos-reviewinsert",
+		data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":"user00"},
 		success:function(){
 			alert("성공");
 		}
 	});
-	*/
+	
 	});
+	
+	
 	</script>
 </html>

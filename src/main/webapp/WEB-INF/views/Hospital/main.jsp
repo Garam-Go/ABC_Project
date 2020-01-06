@@ -94,7 +94,7 @@ td {
 							style="border: 1px solid gray;"></table>
 						<script id="temp" type="text/x-handlebars-template">
 							{{#each .}}
-								<tr onClick="location.href='detail?h_code={{h_code}}'" h_code="{{h_code}}">
+								<tr onClick="location.href='Hos-detail?h_code={{h_code}}'" h_code="{{h_code}}">
 									<td>{{h_name}}</td>
 								</tr>
 							{{/each}}
@@ -124,31 +124,6 @@ td {
 						}
 					});
 					
-					$("#tbl").on("click","tr",function(){
-						//alert("G");
-						var str="";
-						//var tdArr=new Array();
-						var tr=$(this);
-						var td=tr.children();
-						
-						//alert("클릭한 row의 모든 데이터:" +tr.text());
-						
-						//반복문을 이용해서 배열에 값을 담아 사용가능
-						var mhrecent=td.eq(1).text();
-						//alert("mhrecent:" +mhrecent +"mhid:" +mhid);
-						/*
-						$.ajax({
-							type:"get",
-							url:"minsert.json",
-							data:{"mhrecent":mhrecent,"mhid":"user03"},
-							success:function(){
-								alert("성공");
-							}
-						});
-						*/
-					
-						
-					});
 
 					$("#btnClose").on("click", function() {
 						$("#darken-background").hide();
@@ -161,7 +136,7 @@ td {
 						//alert(query);
 						$.ajax({
 							type : "get",
-							url : "slist.json",
+							url : "Hos-slist.json",
 							data : {
 								"keyword" : query
 							},
@@ -224,7 +199,10 @@ td {
 			<div id="content-right"
 				style="width: 120px; height: 1000px; background: lightgray; float: left;">
 				<!-- content  right 시작 -->
-				<jsp:include page="right.jsp"></jsp:include>
+				<div style="margin-top:150px;">
+					<input type="button" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
+					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
+				</div>
 			</div>
 			<!-- content right 끝 -->
 
@@ -250,10 +228,7 @@ td {
 	$("#theme").on("click", "input:button", function() {
 		var themes = $(this).val();
 		//alert(themes);
-		location.href = "search?themes=" + themes;
-	});
-	$("#btnnext").on("click", function() {
-
+		location.href = "Hos-search?themes=" + themes;
 	});
 </script>
 </html>

@@ -19,8 +19,6 @@ public class ReviewServiceImpl implements ReviewService{
 		// TODO Auto-generated method stub
 		dao.insert(vo);
 		dao.update(vo.getH_hcode(),vo.getGrade());
-		
-		
 	}
 
 	
