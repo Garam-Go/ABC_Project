@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<ul id="out-ul">
+<ul>
 	<li id="out-li">나의 보관함
 		<ul id="in-ul">
 			<li id="in-hos"><a href="BasketHosMove">병원</a>
@@ -32,7 +32,7 @@
 		<ul id="in-ul">
 			<li><a href="MessageHome">메세지 확인</a></li>
 			<li><a href="Message">메세지 보내기</a></li>
-			<li><a href="'MessageBook?mbmyid='+${mid }">주소록</a></li>
+			<li><a href="MessageBook?mbmyid=+${mid }">주소록</a></li>
 			<li><a href="MessageDel">휴지통</a></li>
 		</ul>
 	</li>

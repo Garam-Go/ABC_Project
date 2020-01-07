@@ -39,10 +39,8 @@
 		<jsp:include page="../Nav/navBar.jsp"></jsp:include>
 	</div>
 	<div id="content" style="overflow: hidden;">
-		<div id="content-left" style="float: left; width: 680px;">
-				
-			<div style="text-align: center; width: 750px; margin-top: 25px; margin-left: 70px; margin-bottom: 25px; overflow:hidden;">
-				<div style="border: 5px solid #E0F8E6; width: 500px; margin-bottom: 30px; padding: 5px; float:left;">
+		<div id="content-left" style="float: left; width: 750px; overflow: hidden;">
+				<div style="border: 5px solid #E0F8E6; width: 450px; margin-bottom: 30px; padding: 5px; float:left;">
 						<!-- 카테고리 별 검색 -->
 						<select style="height: 35px;" id="searchType">
 							<option value="이비인후과"
@@ -86,7 +84,7 @@
 					</div>
 					<div id="new" style="float:right;">
 					<!-- 검색 연습 끝 -->
-						<select style="width:200px; margin: 0px auto; height: 50px;" id="hide-new">
+						<select style="width:150px; margin: 10px; height: 50px;" id="hide-new">
 							<option>1.인기 검색어 시작</option>
 							<option>10.인기 검색어 끝</option>
 						</select>
@@ -102,21 +100,19 @@
 				</tr>
 				{{/each}}
 			</script>
-		</div>
-	</div>
-	</div>
-			<!--content-left 끝  -->
-
-			<div id="content-right"
-				style="width: 120px; height: 1000px; background: lightgray; float: left;">
-				<!-- content-right 시작 -->
-				<div style="margin-top:150px;">
-					<input type="button" onClick="MessageHome" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
-					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
-				</div>
 			</div>
-
 		</div>
+		
+		<!--content-left 끝  -->
+		
+		<!-- content  right 시작 -->
+		<div id="content-right"	style="width: 120px; height: 500px; background: lightgray; float: right; margin-top:50px; margin-bottom:50px;" >
+			<div style="margin-top:150px;">
+				<input type="button" onClick="location.href='MessageHome'" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:100px;">
+				<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
+			</div>
+		</div>
+	</div>
 		<!-- content 끝 -->
 
 		<div id="footer"></div>
@@ -138,7 +134,7 @@
 
 	var searchType = $("#searchType option:selected").val();
 
-	
+	//셀렉트 박스로 검색
 	$("#selsearch").trigger("click");
 	$(document).ready(function() {
 		//페이지가 로딩하자마자 selsearch 버튼을 누르겠음
@@ -152,12 +148,14 @@
 		gettlist();
 
 	});
-
+	//검색버튼
 	$("#btnsearch").on("click", function() {
 		keyword = $("#keyword").val();
 		//alert(keyword);
 		gettlist();
 	});
+	
+	//엔터눌러서 검색
 	$("#keyword").keydown(function(key) {
 		if (key.keyCode == 13) {
 			keyword = $("#keyword").val();
@@ -216,6 +214,11 @@
 	$("#btnsearch").on("click", function() {
 		query2 = $("#query2").val();
 		//alert(query2);
+	});
+	
+	//병원목록의 병원 누르면 내 병원 리스트에 저장하기
+	$("#tblr").on("Click","tr",function(){
+		
 	});
 </script>
 </html>

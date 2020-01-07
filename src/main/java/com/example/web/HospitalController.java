@@ -14,11 +14,16 @@ import com.example.domain.HVO;
 import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.HDAO;
+import com.example.persistence.MBHDAO;
 
 @Controller
 public class HospitalController {
 	@Inject
 	HDAO Hdao;
+	
+	@Inject
+	MBHDAO mbhdao;
+	
 	
 	/* main 페이지로 이동*/
 	@RequestMapping("Hos-main")
@@ -61,6 +66,10 @@ public class HospitalController {
 		}
 	
 
-	
+	@ResponseBody
+	@RequestMapping("mhinsert")
+	public void mhinsert(String mhid, String mhrecent) throws Exception{
+		
+	}
 	
 }

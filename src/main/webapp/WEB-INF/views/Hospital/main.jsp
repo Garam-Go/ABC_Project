@@ -12,30 +12,6 @@
 
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <style>
-#darken-background {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	height: 100%;
-	width: 100%;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 1000;
-	overflow-y: scroll;
-	display: none;
-}
-
-#lightbox {
-	width: 700px;
-	margin: 20px auto;
-	padding: 15px;
-	border: 1px solid #333333;
-	border-radius: 5px;
-	background: white;
-	box-shadow: 0px 5px 5px rgba(34, 25, 25, 0.4);
-	text-align: center;
-}
-
 table {
 	border: 1px solid #444444;
 	border-collapse: collapse;
@@ -58,6 +34,9 @@ td {
 	width: 120px;
 }
 
+.theme:hover{
+	cursor:pointer;
+}
 .btnClose {
 	background-color: #4CAF50; /* Green */
 	border: none;
@@ -70,7 +49,10 @@ td {
 	margin: 5px;
 	width: 120px;
 }
-
+#tbl tr:hover{
+	cursor:pointer;
+	background : #9CC89D;
+}
 </style>
 </head>
 <body>
@@ -88,11 +70,10 @@ td {
 				<!-- content  left 시작 -->
 				
 				<!-- 라이트박스 -->
-				<div id="darken-background">
+				<div id="darken">
 
 					<div id="lightbox">
-						<table id="tbl" width="500" border=0
-							style="border: 1px solid gray;"></table>
+						<table id="tbl" width="500" border=0 style="border: 1px solid gray;"></table>
 						<script id="temp" type="text/x-handlebars-template">
 							{{#each .}}
 								<tr onClick="location.href='Hos-detail?h_code={{h_code}}'" h_code="{{h_code}}">
@@ -106,53 +87,7 @@ td {
 					</div>
 
 				</div>
-				<script>
-					$("#btnsearch").on("click", function() {
-						$("#darken-background").show();
-						//alert(query);
-						getlist();
-							
-					});
-					
 				
-
-					$("#query").on("keyup", function(key) {
-						if (key.keyCode == 13) {
-							$("#darken-background").show();
-							query = $("#query").val();
-							getlist();
-
-						}
-					});
-					
-
-					$("#btnClose").on("click", function() {
-						$("#darken-background").hide();
-					});
-
-					getlist();
-					var query = $("#query").val();
-					function getlist() {
-						query = $("#query").val();
-						//alert(query);
-						$.ajax({
-							type : "get",
-							url : "Hos-slist.json",
-							data : {
-								"keyword" : query
-							},
-							success : function(data) {
-								var temp = Handlebars
-										.compile($("#temp").html());
-								$("#tbl").html(temp(data));
-								//alert(data.length);
-						
-								
-								
-							}
-						});
-					}
-				</script>
 
 
 
@@ -164,7 +99,7 @@ td {
 					</select>
 				</div>
 				<!-- 메뉴 테이블 -->
-				<table border=0 style="margin-top: 20px; margin-right: 20px;">
+				<table width=700 border=0 style="margin-top: 20px; margin-right: 20px;">
 					<tr>
 						<td height=100>병원 검색</td>
 						<td>
@@ -173,7 +108,7 @@ td {
 						</td>
 					</tr>
 					<tr>
-						<td width=200>병원이름으로 검색</td>
+						<td width=100>병원이름으로 검색</td>
 						<td>
 							<div id="theme">
 								<input type="button" value="이비인후과" class="theme"> 
@@ -205,7 +140,46 @@ td {
 				</div>
 			</div>
 			<!-- content right 끝 -->
+	<script>
+	//병원검색
+		$("#btnsearch").on("click", function() {
+			$("#darken").show();
+			//alert(query);
+			getlist();
+		});
+		
+	
+	//엔터 눌러서 병원검색
+		$("#query").on("keyup", function(key) {
+			if (key.keyCode == 13) {
+				$("#darken").show();
+				query = $("#query").val();
+				getlist();
 
+			}
+		});
+		
+	//검색 결과 닫기
+		$("#btnClose").on("click", function() {
+			$("#darken").hide();
+		});
+
+		getlist();
+		var query = $("#query").val();
+		function getlist() {
+			query = $("#query").val();
+			//alert(query);
+			$.ajax({
+				type : "get",
+				url : "Hos-slist.json",
+				data : {"keyword" : query},
+				success : function(data) {
+					var temp = Handlebars.compile($("#temp").html());
+					$("#tbl").html(temp(data));		
+				}
+			});
+		}
+	</script>
 
 		</div>
 		<!-- content 끝 -->

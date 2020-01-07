@@ -32,7 +32,7 @@
 	float: left;
 }
 #table-message{
-	width:800px;
+	width:600px;
 	border:1px solid;
 	
 }
@@ -41,7 +41,7 @@
 	margin-left: 50px;
 	background: white;
 	padding:20px;
-	width: 900px;
+	width: 600px;
 }
 </style>
 </head>
@@ -68,20 +68,20 @@
 					<table id="table-message" border=1>
 						<tr>
 							<td width=100>제목</td>
-							<td width=700>
+							<td width=500>
 								<input type="text" size=100 name="mstitle" value="${param.mstitle }">
 							</td>
 						</tr>
 						<tr>
 							<td width=100>받는이</td>
-							<td width=700 style="overflow:hidden;">
+							<td width=500 style="overflow:hidden;">
 								<input type="text" name="msreceiver" value="${param.msreceiver }">
 								<input type="button" value="주소록" id="bookbutton" style="float:right;">
 							</td>
 						</tr>
 						<tr>
 							<td width=100>내용</td>
-							<td width=700>
+							<td width=500>
 								<textarea cols=100 rows=10 name="mscontent"></textarea>
 							</td>
 						</tr>

@@ -4,13 +4,13 @@ body{
 }
 #page{
     background-color: white; 
-    width:95%; 
+    width:960px; 
     box-shadow: 1px 1px 10px gray;
-    margin: 30px;
-    padding:0 50px 50px 50px;
+    margin: 30px auto;
+    padding:50px;
 }
 #header{
-	width:90%;
+	width:100%;
 	overflow:hidden;
 }
 #login{
@@ -41,7 +41,7 @@ body{
     float: left;
 }
 #content-right{
-	margin-left:100px;
+	margin-left:50px;
     float: left;
 }
 #footer{
@@ -53,14 +53,14 @@ body{
 }
 /* 요소 */
 .oribtn{
-    width: 120px;
-    height: 70px;
+    width: 100px;
+    height: 60px;
     border-radius: 15px;
     border: none;
     box-shadow: 1px 1px 10px gray;
-    margin-left: 70px;
+    margin-left: 50px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 17px;
     vertical-align: middle;
 }
 .oribtn:hover{

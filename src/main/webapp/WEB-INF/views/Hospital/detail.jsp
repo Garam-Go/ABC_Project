@@ -9,12 +9,15 @@
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<link href="${pageContext.request.contextPath}/resources/main (2).css"
-	rel="stylesheet">
+
+<link href="${pageContext.request.contextPath}/resources/test.css"	rel="stylesheet">
+
 <style>
+#page{
+	text-align: center;
+}
 table {
-	margin-top:10px;
-	margin-bottom:10px;
+	margin:10px auto;
 	border: 1px solid #444444;
 	border-collapse: collapse;
 }
@@ -27,7 +30,12 @@ td {
 </head>
 <body>
 	<div id="page">
-		<div id="navbar"></div>
+		<div id="login">
+			<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+		</div>
+		<div id="navbar">
+			<jsp:include page="../Nav/navBar.jsp"></jsp:include>
+		</div>
 		<div id="content" style="overflow: hidden;">
 			<div id="content-left" style="float: left; width: 680px; ">
 				<div id="new"
@@ -77,7 +85,7 @@ td {
 						<option value="2">★★☆☆☆</option>
 						<option value="1">★☆☆☆☆</option>
 					</select> 
-					<input type="text" size=55 style="height: 50px;" id="review"> 
+					<input type="text" size=55 style="height: 45px;" id="review"> 
 					<input type="button" value="등록" style="height: 50px;" id="btnreview">
 					
 				<div

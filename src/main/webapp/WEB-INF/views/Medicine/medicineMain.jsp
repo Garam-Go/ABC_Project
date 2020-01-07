@@ -7,31 +7,31 @@
 	<link href="${pageContext.request.contextPath}/resources/test.css"	rel="stylesheet">
 	<title>MedicineMain</title>
 	<style>
-		body {
-			margin:0px;
-			padding:0px;
-			background:darkgray;
-		}
-		#page {
-			width:1200px;
-			height:1800px;
-			margin:20px auto;
-			background:white;
-			text-align:center;
-			box-shadow:1px 5px 5px gray;
-		}
-		#top{
-			background:gray;
-			width:1200px;
-			height:150px;
-			margin-bottom:50px;
-		}
-		#content{
-			margin:0 auto;
-			width:1200px;
-			height:700px;
-			position:relative;
-		}
+/* 		body { */
+/* 			margin:0px; */
+/* 			padding:0px; */
+/* 			background:darkgray; */
+/* 		} */
+/* 		#page { */
+/* 			width:1200px; */
+/* 			height:1800px; */
+/* 			margin:20px auto; */
+/* 			background:white; */
+/* 			text-align:center; */
+/* 			box-shadow:1px 5px 5px gray; */
+/* 		} */
+/* 		#top{ */
+/* 			background:gray; */
+/* 			width:1200px; */
+/* 			height:150px; */
+/* 			margin-bottom:50px; */
+/* 		} */
+/* 		#content{ */
+/* 			margin:0 auto; */
+/* 			width:1200px; */
+/* 			height:700px; */
+/* 			position:relative; */
+/* 		} */
 		#left{
 			width:150px;
 			height:410px;

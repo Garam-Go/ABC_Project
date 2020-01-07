@@ -12,7 +12,7 @@
 <style>
 #inner-navbar {
 	background: yellow;
-	width: 300px;
+	width: 250px;
 	height: 100%;
 	margin: 10px;
 	float: left;
@@ -22,7 +22,7 @@
 
 #inner-content {
 	background: skyblue;
-	width: 70%;
+	width: 65%;
 	height: 100%;
 	margin: 10px;
 	float: left;
