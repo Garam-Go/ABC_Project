@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.HVO;
+import com.example.domain.MBasketHVO;
 import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.HDAO;
@@ -65,11 +66,14 @@ public class HospitalController {
 			return	Hdao.slist(cri);
 		}
 	
-
+	//병원을 클릭하면 클릭한 병원의 정보가 저장
 	@ResponseBody
 	@RequestMapping("mhinsert")
 	public void mhinsert(String mhid, String mhrecent) throws Exception{
-		
+		MBasketHVO vo = new MBasketHVO();
+		vo.setMhid(mhid);
+		vo.setMhrecent(mhrecent);
+		mbhdao.insert(vo);
 	}
 	
 }

@@ -2,14 +2,17 @@ package com.example.persistence;
 
 import java.util.List;
 
-import com.example.domain.MyBasHVO;
+import com.example.domain.HVO;
+import com.example.domain.MBasketHVO;
 import com.example.domain.SearchCriteria;
 
 public interface MBHDAO {
 	//저장된 병원의 리스트
-	public List<MyBasHVO> list(String mhid,SearchCriteria cri) throws Exception;
+	public List<MBasketHVO> list(String mhid,SearchCriteria cri) throws Exception;
 	//최근 열어본 병원의 정보 저장
-	public void insert(MyBasHVO vo) throws Exception;
+	public void insert(MBasketHVO vo) throws Exception;
 	//병원 리뷰 저장
 	
+	//저장된 병원의 코드를 이용한 병원불러오기
+	public HVO hread(String h_code) throws Exception;
 }

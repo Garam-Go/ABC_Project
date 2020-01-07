@@ -28,6 +28,9 @@
 	width: 100px;
 	padding: 10px;
 }
+.hos-click:hover{
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -95,7 +98,7 @@
 			<table border=1 width=600 id="tblr"></table>
 			<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
-				<tr onClick="location.href='Hos-detail?h_code={{h_code}}'">
+				<tr onClick="location.href='Hos-detail?h_code={{h_code}}'" h_code="{{h_code}}" class="hos-click">
 					<td style="padding:5px;">{{h_name}}</td>
 				</tr>
 				{{/each}}
@@ -216,9 +219,6 @@
 		//alert(query2);
 	});
 	
-	//병원목록의 병원 누르면 내 병원 리스트에 저장하기
-	$("#tblr").on("Click","tr",function(){
-		
-	});
+	
 </script>
 </html>

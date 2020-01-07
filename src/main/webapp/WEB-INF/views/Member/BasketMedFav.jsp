@@ -26,7 +26,7 @@
 		float:left;
 	}
 	#table-hospital{
-		width:800px;
+		width:600px;
 		background:white;
 		margin:100px auto;
 		

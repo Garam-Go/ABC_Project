@@ -112,6 +112,28 @@ td {
 	
 </body>
 	<script>
+	var mid = "${mid}";
+	//detail넘어오면 병원 저장하기
+	$(document).ready(function(){
+		alert(mid);
+		if(mid==null || mid==""){
+			return;
+		}else{
+			var mhid = mid;
+			var mhrecent = "${param.h_code}";
+			$.ajax({
+				type:"get",
+				url:"mhinsert",
+				data:{"mhid":mhid,"mhrecent":mhrecent},
+				success:function(){
+					alert("save");
+				}
+			});
+		}
+		
+	});
+
+	
 	/* 리뷰 목록 */
 	$("#btnreview").on("click",function(){
 		//alert("하하");

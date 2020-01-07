@@ -20,9 +20,6 @@ public interface HDAO {
 	public void update(HVO vo)throws Exception; //진료과목 입력하기
 	/*    병원 리뷰    */
 	public void reviewinsert(ReviewVO vo) throws Exception;
-	
-
-	
-	
+		
 
 }
