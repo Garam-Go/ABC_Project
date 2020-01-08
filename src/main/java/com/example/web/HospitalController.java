@@ -56,16 +56,58 @@ public class HospitalController {
 		@ResponseBody
 		@RequestMapping("Hos-slist.json")
 		public List<HVO> slistjson(SearchCriteria cri) throws Exception{
-			//System.out.println(dao.slist(cri));
 			return	dao.slist(cri);
 		}
 		
+		/* 부트스트랩 확인용 */
 		@RequestMapping("Hos-index")
 		public String index(){
 			return "/Hospital/index";
 		}
-	
-
+		@RequestMapping("Hos-mainhtml")
+		public String mainhtml(){
+			return "/Hospital/mainhtml";
+		}
+		@RequestMapping("Hos-detailhtml")
+		public String detailhtml(){
+			return "/Hospital/detailhtml";
+		}
+		
+		/*부트스트랩으로 */
+		/* css구성 */
+		/* dmain */
+		@RequestMapping("Hos-dmain")
+		public String dmain(){
+			return "/Hospital/dmain";
+		}
+		/* ddmain.template */
+		@RequestMapping("Hos-dmainhtml")
+		public String dmainhtml()throws Exception{
+			return "/Hospital/dmainhtml";
+		}
+		
+		/* dsearch */
+		@RequestMapping("Hos-dsearch")
+		public String dsearch(){
+			return "/Hospital/dsearch";
+		}
+		/* dsearch template */
+		@RequestMapping("Hos-dsearchhtml")
+		public String dsearchhtml(){
+			return "/Hospital/dsearchhtml";
+		}
+		/* ddetail*/
+		@RequestMapping("Hos-ddetail")
+		public String ddetail(Model model,String h_code)throws Exception{
+			model.addAttribute("vo",dao.read(h_code));
+			return "/Hospital/ddetail";
+		}
+		/* detail template */
+		@RequestMapping("Hos-ddetailhtml")
+		public String ddetailhtml(Model model,String h_code)throws Exception{
+			model.addAttribute("vo",dao.read(h_code));
+			return "/Hospital/ddetailhtml";
+		}
 	
 	
 }

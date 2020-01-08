@@ -6,8 +6,6 @@
 		insert into HSearch(h_code,h_name)
 		values(#{h_code},#{h_name})
 	</insert>
-	
-	
 	<insert id="tinsert">
 		insert into HSearch(h_code,h_name,h_time,h_address,h_machine,h_phone)
 		values(#{h_code},#{h_name},#{h_time},#{h_address},#{h_machine},#{h_phone})

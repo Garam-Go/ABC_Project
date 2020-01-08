@@ -9,8 +9,7 @@
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <link href="${pageContext.request.contextPath}/resources/main (2).css"
 	rel="stylesheet">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+  
 <style>
 #darken-background {
 	position: absolute;
@@ -54,7 +53,7 @@ td {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 5px;
+	margin:20px;
 	width: 120px;
 }
 
@@ -75,11 +74,17 @@ td {
 </head>
 <body>
 	<div id="page">
+	
+	
 		<div id="navbar"></div>
+		
+		
+		
+		
 		<div id="content" style="overflow: hidden;">
 			<!-- content 시작 -->
 
-			<div id="content-left" style="float: left; width: 680px;">
+			<div id="content-left" style="float: left; width: 680px;overflow:hidden;">
 				<!-- content  left 시작 -->
 
 				<input type="text" id="query" value="소아"> <input
@@ -167,6 +172,7 @@ td {
 					</select>
 				</div>
 				<!-- 메뉴 테이블 -->
+				<div style="float:left;overflow:hidden;">
 				<table border=0 style="margin-top: 20px; margin-right: 20px;">
 					<tr>
 						<td colspan="2" height=100>병원 검색</td>
@@ -175,29 +181,30 @@ td {
 						<td width=200>병원이름으로 검색</td>
 						<td>
 							<div id="theme">
-								<input type="button" value="이비인후과" class="theme"> <input
-									type="button" value="소아" class="theme"> <input
-									type="button" value="피부과" class="theme"> <input
-									type="button" value="외과" class="theme"> <input
-									type="button" value="정형외과" class="theme"> <input
-									type="button" value="안과" class="theme"> <input
-									type="button" value="치과" class="theme"> <input
-									type="button" value="한의원" class="theme"> <input
-									type="button" value="산부인과" class="theme"> <input
-									type="button" value="비뇨기과" class="theme"> <input
-									type="button" value="성형외과" class="theme"> <input
-									type="button" value="신경과" class="theme"> <input
-									type="button" value="신경외과" class="theme"> <input
-									type="button" value="정신" class="theme"> <input
-									type="button" value="마취통증" class="theme">
+								<input type="button" value="이비인후과" class="theme"> 
+								<input type="button" value="소아" class="theme"> 
+								<input type="button" value="피부과" class="theme"> 
+								<input type="button" value="외과" class="theme"> 
+								<input type="button" value="정형외과" class="theme"> 
+								<input type="button" value="안과" class="theme"> 
+								<input type="button" value="치과" class="theme"> 
+								<input type="button" value="한의원" class="theme"> 
+								<input type="button" value="산부인과" class="theme"> 
+								<input type="button" value="비뇨기과" class="theme"> 
+								<input type="button" value="성형외과" class="theme"> 
+								<input type="button" value="신경과" class="theme"> 
+								<input type="button" value="신경외과" class="theme"> 
+								<input type="button" value="정신" class="theme"> 
+								<input type="button" value="마취통증" class="theme">
 							</div>
 						</td>
 					</tr>
 				</table>
+				</div>
 			</div>
 			<!-- content  left 끝 -->
 			<div id="content-right"
-				style="width: 120px; height: 1000px; background: lightgray; float: left;">
+				style="width: 120px; height: 1000px; background: lightgray; float:right;overflow:hidden;">
 				<!-- content  right 시작 -->
 				<div style="margin-top:150px;">
 					<input type="button" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
@@ -210,9 +217,7 @@ td {
 		</div>
 		<!-- content 끝 -->
 
-
-
-
+	
 		<div id="footer">
 			<!-- footer 시작 -->
 
@@ -220,7 +225,6 @@ td {
 		<!-- footer 끝 -->
 
 	</div>
-	<!-- page 끝 -->
 
 </body>
 <script>
