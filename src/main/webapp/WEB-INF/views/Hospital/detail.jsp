@@ -38,23 +38,19 @@ td {
 		</div>
 		<div id="content" style="overflow: hidden;">
 			<div id="content-left" style="float: left; width: 680px; ">
-				<div id="new"
-					style="background: white; width: 100px; heigth: 50px; margin-left: 500px; margin-top: 20px;">
+				<div id="new"	style="background: white; width: 100px; heigth: 50px; margin-left: 500px; margin-top: 20px;">
 					<select style="margin: 0px auto; height: 50px;" id="hide-new">
 						<option>1.인기 검색어 시작</option>
 						<option>10.인기 검색어 끝</option>
 					</select>
 				</div>
-				<div
-					style="background: #E0F8E6; width: 600px; height: 200px; margin: 0px auto; margin-top: 20px;">
-					지도 출력</div>
 				<input type="hidden" value="${vo.h_code}" id="h_code">
 
 
 				<table border=1 width=530 style="margin-top:20px;">
 					<tr>
 						<td width=100>병원이름</td>
-						<td>${vo.h_name}</td>
+						<td id="h_name">${vo.h_name}</td>
 					</tr>
 					<tr>
 						<td width=100>진료시간</td>
@@ -74,11 +70,9 @@ td {
 
 					</tr>
 				</table>	
-				<input type="button" value="예약" onClick="location.href='Hos-reservation?h_code=${vo.h_code}'">			
-				<div
-					style="background: white; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
+				<div style="background: white; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
 					<select style="height: 50px;" id="grade">
-						<option  value="" selected disabled hidden>평점 선택</option>
+						<option value="none" selected disabled hidden>평점 선택</option>
 						<option value="5">★★★★★</option>
 						<option value="4">★★★★☆</option>
 						<option value="3">★★★☆☆</option>
@@ -88,83 +82,82 @@ td {
 					<input type="text" size=55 style="height: 45px;" id="review"> 
 					<input type="button" value="등록" style="height: 50px;" id="btnreview">
 					
-				<div
-					style="background: #E0F8E6; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
-					<input type="button" value="길찾기" style="margin-top: 12px;">
-					<input type="button" value="네비게이션" style="margin-top: 12px;">
-				</div>
+<!-- 				<div style="background: #E0F8E6; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;"> -->
+<!-- 					<input type="button" value="길찾기" style="margin-top: 12px;"> -->
+<!-- 					<input type="button" value="네비게이션" style="margin-top: 12px;"> -->
+<!-- 				</div> -->
 			</div>
 		
 		</div>
-			<div id="content-right" style="width: 120px; height: 1000px; background: lightgray; float: left;">
+			<!-- content  right 시작 -->
+			<div id="content-right"	style="width: 120px; height: 500px; background: lightgray; float: right; margin-top:50px; margin-bottom:50px;" >
 				<div style="margin-top:150px;">
-					<input type="button" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:150px;">
+					<input type="button" onClick="location.href='MessageHome'" value="메세지함" style="width:100px;height:75px;margin-left:2.5px;margin-bottom:100px;">
 					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
 				</div>
 			</div>
+			<div>
+				<a href="search">이전</a>
+			</div>
 		</div>
 		<div id="footer"></div>
-		<div>
-			<a href="search">◀</a> <a href="reservation">▶</a>
-		</div>
-				
+		
 	</div>
 	
 </body>
 	<script>
 	var mid = "${mid}";
+	
 	//detail넘어오면 병원 저장하기
-	$(document).ready(function(){
-		alert(mid);
-		if(mid==null || mid==""){
-			return;
-		}else{
-			var mhid = mid;
-			var mhrecent = "${param.h_code}";
-			$.ajax({
-				type:"get",
-				url:"mhinsert",
-				data:{"mhid":mhid,"mhrecent":mhrecent},
-				success:function(){
-					alert("save");
-				}
-			});
-		}
-		
-	});
+// 	$(document).ready(function(){
+// 		//alert(mid);
+// 		if(mid==null || mid==""){
+// 			return;
+// 		}else{
+// 			var mhid = mid;
+// 			var mhrecent = "${param.h_code}";
+// 			$.ajax({
+// 				type:"get",
+// 				url:"mhinsert",
+// 				data:{"mhid":mhid,"mhrecent":mhrecent},
+// 				success:function(){
+// 					//alert("save");
+// 				}
+// 			});
+// 		}
+// 	});
 
 	
 	/* 리뷰 목록 */
 	$("#btnreview").on("click",function(){
 		//alert("하하");
-	var revcontent=$("#review").val();
-	var h_hcode=$("#h_code").val();
-	var revgrade=$("#grade option:selected").val();
-	//alert(grade);
-	
-	//유효성체크
-	if(revcontent==""){
-		alert("내용을 입력하세요");
-		revcontent.focus();
-		return false;
-	}
-	
-	if(grade==""){
-		alert("평점을 선택하세요");
-		return false;
-	}
-	
-	$.ajax({
-		type:"get",
-		url:"../Hos-reviewinsert",
-		data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":"user00"},
-		success:function(){
-			alert("성공");
+		var h_name=$("#h_name").html();
+		var revcontent=$("#review").val();
+		var h_hcode=$("#h_code").val();
+		var revgrade=$("#grade").val();
+		var mid = "${mid}";
+		alert(revgrade+h_name);
+		//유효성체크
+		if(revcontent==""){
+			alert("내용을 입력하세요");
+			revcontent.focus();
+			return false;
 		}
+		if(revgrade==null){
+			alert("평점을 선택하세요");
+			return false;
+		}
+		$.ajax({
+			type:"get",
+			url:"Hos-reviewinsert",
+			data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":mid,"h_name":h_name},
+			success:function(){
+				alert("성공");
+ 				$("#grade").prop("value","none");
+				$("#review").val("");
+			}
+		});
 	});
-	
-	});
-	
 	
 	</script>
 </html>

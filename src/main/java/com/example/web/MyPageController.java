@@ -50,36 +50,30 @@ public class MyPageController {
 	@RequestMapping("BasketHosSaveList")
 	public HashMap<String, Object> mbhlist(String mid,SearchCriteria cri)throws Exception{
 		HashMap<String, Object> hash = new HashMap<String, Object>();
-//		cri.setPerPageNum(10); //한 페이지에 보여줄 데이터 갯수
-//		
-//		PageMaker pm = new PageMaker(); //페이지에 관한 정보들
-//		pm.setCri(cri);
-//		
-//		pm.setTotalCount(10); //전체의 데이터를 임의로 몇개라고 지정해줌.
-//		
-//		List<MBasketHVO> hlist = mbhdao.list(mid, cri);
-
+		cri.setPerPageNum(10); //한 페이지에 보여줄 데이터 갯수
+		
+		PageMaker pm = new PageMaker(); //페이지에 관한 정보들
+		pm.setCri(cri);
+		
+		pm.setTotalCount(mbhdao.total(mid));
+		
 		List<MBasketHVO> hlist = mbhdao.list(mid, cri);
 		
 		int i = hlist.size();
 		
-		System.out.println(i);
+		//System.out.println(i);
 		
-		HVO vo = new HVO();
-		
+		//hcode를 이용해 읽어온 데이터들을 반복해서 array에 넣어줌
+		ArrayList<HVO> array = new ArrayList<HVO>();
 		for(int a=0; a<i;a++){
+			HVO vo = new HVO();
 			vo = mbhdao.hread(hlist.get(a).getMhrecent().toString());
-			
+			array.add(vo);
 		}
-		hash.put("hcode", vo);
-		
-		
-//		List<HVO> hread = mbhdao.hread();
-		
-		
+		//System.out.println(array.toString());
+		hash.put("hos", array);
 		hash.put("list", mbhdao.list(mid, cri));
-//		hash.put("hos", h_code);
-//		hash.put("pm", pm);
+		hash.put("pm", pm);
 		return hash;
 	}
 	

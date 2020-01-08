@@ -60,20 +60,18 @@ table tr td{
 			<table id="table-hospital" width=600 border=1></table>
 			<script id="temp-hospital" type="text/x-handlebars-templete">
 				<tr>
-					<td colspan=3 style="overflow:hidden; background:lightgreen;">병원저장페이지
-						<input type="button" value="수정" style="float:right;">
-					</td>
+					<td colspan=3 style="overflow:hidden; background:lightgreen;">최근 본 병원	</td>
 				</tr>
 				<tr>
 					<td width=200>이름</td>
-					<td width=200>주소</td>
-					<td width=200>전화</td>
+					<td width=250>주소</td>
+					<td width=150>전화</td>
 				</tr>
-				{{#each list}}
+				{{#each hos}}
 					<tr>
-						<td width=200>{{mhid}}</td>
-						<td width=200>{{mhrecent}}</td>
-						<td width=200>{{h_phone}}</td>
+						<td width=200>{{h_name}}</td>
+						<td width=250>{{h_address}}</td>
+						<td width=150>{{h_phone}}</td>
 					</tr>
 				{{/each}}
 			</script>

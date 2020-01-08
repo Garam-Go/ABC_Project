@@ -11,7 +11,8 @@ public interface MBHDAO {
 	public List<MBasketHVO> list(String mhid,SearchCriteria cri) throws Exception;
 	//최근 열어본 병원의 정보 저장
 	public void insert(MBasketHVO vo) throws Exception;
-	//병원 리뷰 저장
+	//저장병원 리스트 토탈
+	public int total(String mhid);
 	
 	//저장된 병원의 코드를 이용한 병원불러오기
 	public HVO hread(String h_code) throws Exception;

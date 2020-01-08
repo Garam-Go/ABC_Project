@@ -55,16 +55,15 @@ public class HospitalController {
 		model.addAttribute("vo",Hdao.read(h_code));
 		return "/Hospital/reservation";
 	}
-	
 
-		//main.jsp에서 사용
-		//search.jsp에서 사용
-		@ResponseBody
-		@RequestMapping("Hos-slist.json")
-		public List<HVO> slistjson(SearchCriteria cri) throws Exception{
-			//System.out.println(dao.slist(cri));
-			return	Hdao.slist(cri);
-		}
+	//main.jsp에서 사용
+	//search.jsp에서 사용
+	@ResponseBody
+	@RequestMapping("Hos-slist.json")
+	public List<HVO> slistjson(SearchCriteria cri) throws Exception{
+		//System.out.println(dao.slist(cri));
+		return	Hdao.slist(cri);
+	}
 	
 	//병원을 클릭하면 클릭한 병원의 정보가 저장
 	@ResponseBody

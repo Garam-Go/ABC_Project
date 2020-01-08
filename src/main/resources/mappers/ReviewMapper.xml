@@ -10,5 +10,17 @@
 		update mbhrev set revgrade=revgrade+#{grade}
 		where h_hcode=#{h_hcode}
 	</update>
+<!-- 	revlist -->
+	<select id="revlist" resultType="com.example.domain.ReviewVO">
+		select * from mbhrev
+		where hrevmyid = #{hrevmyid}
+		order by hrevid desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+<!-- 	revtotal -->
+	<select id="revtotal" resultType="int">
+		select count(*) from mbhrev 
+		where hrevmyid = #{hrevmyid}
+	</select>
 </mapper>
 

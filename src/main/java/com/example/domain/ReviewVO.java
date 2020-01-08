@@ -1,5 +1,9 @@
 package com.example.domain;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ReviewVO {
 	
 	private int hrevid;
@@ -7,14 +11,24 @@ public class ReviewVO {
 	private int revgrade;
 	private String hrevmyid;
 	private String h_hcode;
-	private int grade;
+	
+	@JsonFormat(pattern="yyyy-MM-dd kk:mm:ss",timezone="Asia/Seoul")
+	private Date RevDate;
+	
+	private String h_name;
 	
 	
-	public int getGrade() {
-		return grade;
+	public String getH_name() {
+		return h_name;
 	}
-	public void setGrade(int grade) {
-		this.grade = grade;
+	public void setH_name(String h_name) {
+		this.h_name = h_name;
+	}
+	public Date getHdate() {
+		return RevDate;
+	}
+	public void setHdate(Date hdate) {
+		this.RevDate = hdate;
 	}
 	public String getH_hcode() {
 		return h_hcode;
@@ -46,12 +60,6 @@ public class ReviewVO {
 	public void setHrevmyid(String hrevmyid) {
 		this.hrevmyid = hrevmyid;
 	}
-	@Override
-	public String toString() {
-		return "ReviewVO [hrevid=" + hrevid + ", revcontent=" + revcontent + ", revgrade=" + revgrade + ", hrevmyid="
-				+ hrevmyid + ", h_hcode=" + h_hcode + ", grade=" + grade + "]";
-	}
-	
 	
 	
 }

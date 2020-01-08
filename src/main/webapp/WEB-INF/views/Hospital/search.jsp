@@ -98,7 +98,7 @@
 			<table border=1 width=600 id="tblr"></table>
 			<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
-				<tr onClick="location.href='Hos-detail?h_code={{h_code}}'" h_code="{{h_code}}" class="hos-click">
+				<tr  h_code="{{h_code}}" class="hos-click">
 					<td style="padding:5px;">{{h_name}}</td>
 				</tr>
 				{{/each}}
@@ -195,8 +195,7 @@
 		var h_code = $("#tbl tr td button").attr("h_code");
 		var h_name = $(this).attr("h_name");
 		var h_time = $(this).attr("h_time");
-		alert(h_code + "\n" + h_name + "\n" + h_time);
-
+		//alert(h_code + "\n" + h_name + "\n" + h_time);
 		$.ajax({
 			type : "get",
 			url : "rinsert.json",
@@ -207,11 +206,8 @@
 			},
 			success : function() {
 				//alert("저장됨");	
-
 			}
-
 		});
-
 	});
 
 	$("#btnsearch").on("click", function() {
@@ -219,6 +215,27 @@
 		//alert(query2);
 	});
 	
-	
+	//병원 누르면 저장하기
+	$("#tblr").on("click","tr",function(){
+		var mid = "${mid}";
+		//alert(mid);
+		if(mid==null || mid==""){
+			return;
+		}else{
+			var mhid = mid;
+			var mhrecent = $(this).attr("h_code");
+			//alert(mhrecent);
+			$.ajax({
+				type:"get",
+				url:"mhinsert",
+				data:{"mhid":mhid,"mhrecent":mhrecent},
+				success:function(){
+					//alert("save");
+					location.href="Hos-detail?h_code="+mhrecent;
+				}
+			});
+		}
+		
+	});
 </script>
 </html>

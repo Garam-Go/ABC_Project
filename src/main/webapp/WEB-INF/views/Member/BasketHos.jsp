@@ -11,7 +11,7 @@
 <style>
 #inner-navbar {
 	background: yellow;
-	width: 300px;
+	width: 250px;
 	height: 100%;
 	margin: 10px;
 	float: left;
@@ -21,10 +21,16 @@
 
 #inner-content {
 	background: skyblue;
-	width: 70%;
+	width: 67%;
 	height: 100%;
 	margin: 10px;
 	float: left;
+}
+
+#table-hospital{
+	width:600px;
+	background:white;
+	margin:100px auto;
 }
 
 #inner-button{

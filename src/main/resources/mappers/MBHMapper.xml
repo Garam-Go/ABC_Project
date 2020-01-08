@@ -5,6 +5,8 @@
 <!-- list -->
 	<select id="mbhlist" resultType="com.example.domain.MBasketHVO">
 		select * from mbasketh where mhid = #{mhid}
+		order by mhrecent desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 <!-- 	insert -->
 	<insert id="mbhinsert">
@@ -14,5 +16,8 @@
 	<select id="hread" resultType="com.example.domain.HVO">
 		select * from hsearch where h_code=#{h_code}
 	</select>
-	
+<!-- 	total -->
+	<select id="mbhtotal" resultType="int">
+		select count(*) from mbasketh where mhid = #{mhid}
+	</select>
 </mapper>

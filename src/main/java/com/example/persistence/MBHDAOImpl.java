@@ -41,4 +41,10 @@ public class MBHDAOImpl implements MBHDAO{
 		return session.selectOne(namespace+".hread",h_code);
 	}
 
+	@Override
+	public int total(String mhid) {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".mbhtotal",mhid);
+	}
+
 }
