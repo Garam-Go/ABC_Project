@@ -7,11 +7,12 @@
 <title>마이페이지</title>
 <link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/mypageNavbar.css" rel="stylesheet">
-
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <style>
 #inner-navbar {
 	background: yellow;
-	width: 300px;
+	width: 250px;
 	height: 100%;
 	margin: 10px;
 	float: left;
@@ -21,7 +22,7 @@
 
 #inner-content {
 	background: skyblue;
-	width: 70%;
+	width: 67%;
 	height: 100%;
 	margin: 10px;
 	float: left;

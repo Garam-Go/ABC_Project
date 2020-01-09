@@ -3,8 +3,8 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="ReivewMapper">
 	<insert id="insert">
-		insert into mbhrev(revcontent,revgrade,h_hcode,hrevmyid)
-		values(#{revcontent},#{revgrade},#{h_hcode},#{hrevmyid})
+		insert into mbhrev(revcontent,revgrade,h_hcode,hrevmyid,h_name)
+		values(#{revcontent},#{revgrade},#{h_hcode},#{hrevmyid},#{h_name})
 	</insert>
 	<update id="update">
 		update mbhrev set revgrade=revgrade+#{grade}

@@ -49,6 +49,7 @@ public class HospitalController {
 		//System.out.println(dao.read("1234567812"));
 		return "/Hospital/detail";
 	}
+	
 	/* reservation 페이지로 이동*/
 	@RequestMapping("Hos-reservation")
 	public String reservation(Model model,String h_code)throws Exception{

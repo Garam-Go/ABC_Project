@@ -70,7 +70,7 @@
 					<tr>
 						<td width=200>{{revcontent}}</td>
 						<td width=200>{{h_name}}</td>
-						<td width=200>{{hdate}}</td>
+						<td width=200>{{revDate}}</td>
 					</tr>
 				{{/each}}
 			</script>

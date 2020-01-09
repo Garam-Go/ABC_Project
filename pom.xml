@@ -15,6 +15,12 @@
 	</properties>
 	<dependencies>
 		<!-- 새로운 라이브러리 추가 시작 -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.datatype</groupId>
+		    <artifactId>jackson-datatype-jsr310</artifactId>
+		    <version>2.5.4</version>
+		</dependency>
 		<!-- selenium -->
 		<dependency>
            <groupId>org.seleniumhq.selenium</groupId>

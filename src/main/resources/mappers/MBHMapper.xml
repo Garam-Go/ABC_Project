@@ -5,7 +5,7 @@
 <!-- list -->
 	<select id="mbhlist" resultType="com.example.domain.MBasketHVO">
 		select * from mbasketh where mhid = #{mhid}
-		order by mhrecent desc
+		order by mbhid desc
 		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 <!-- 	insert -->

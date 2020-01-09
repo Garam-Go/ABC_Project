@@ -16,7 +16,7 @@
 <style>
 #inner-navbar {
 	background: yellow;
-	width: 300px;
+	width: 250px;
 	height: 100%;
 	margin: 10px;
 	float: left;
@@ -26,29 +26,29 @@
 
 #inner-content {
 	background: skyblue;
-	width: 70%;
-	height: 100%;
+	width: 67%;
+	height:100%;
 	margin: 10px;
 	float: left;
 }
 #table-message{
-	width:600px;
+	width:500px;
 	border:1px solid;
-	
+	margin: 10px auto;
+	text-align:left;
 }
 #message-content{
-	margin-top: 30px;
-	margin-left: 50px;
+	margin:30px auto;
 	background: white;
-	padding:20px;
-	width: 600px;
+	padding:10px;
+	width: 500px;
+	text-align:center;
 }
 </style>
 </head>
 <body>
 <div id="page">
 	<div id="header">
-		<h1>마이페이지</h1>
 		<div id="login">
 			<jsp:include page="../loginmenu.jsp"></jsp:include>
 		</div>
@@ -64,25 +64,25 @@
 			<h1>메세지 보내기</h1>
 			<div id="message-content">
 				<form name="fom" action="message" method="post">
-					<input type="text" value="${mid }" name="mssender">
+					<input type="hidden" value="${mid }" name="mssender">
 					<table id="table-message" border=1>
 						<tr>
 							<td width=100>제목</td>
-							<td width=500>
-								<input type="text" size=100 name="mstitle" value="${param.mstitle }">
+							<td width=400>
+								<input type="text" size=50 name="mstitle" value="${param.mstitle }">
 							</td>
 						</tr>
 						<tr>
 							<td width=100>받는이</td>
-							<td width=500 style="overflow:hidden;">
+							<td width=400 style="overflow:hidden;">
 								<input type="text" name="msreceiver" value="${param.msreceiver }">
 								<input type="button" value="주소록" id="bookbutton" style="float:right;">
 							</td>
 						</tr>
 						<tr>
 							<td width=100>내용</td>
-							<td width=500>
-								<textarea cols=100 rows=10 name="mscontent"></textarea>
+							<td width=400>
+								<textarea cols=50 rows=10 name="mscontent"></textarea>
 							</td>
 						</tr>
 					</table>

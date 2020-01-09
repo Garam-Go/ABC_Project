@@ -13,7 +13,7 @@
 <style>
 #inner-navbar {
 	background: yellow;
-	width: 300px;
+	width: 250px;
 	height: 100%;
 	margin: 10px;
 	float: left;
@@ -23,20 +23,20 @@
 
 #inner-content {
 	background: skyblue;
-	width: 70%;
+	width: 67%;
 	height: 100%;
 	margin: 10px;
 	float: left;
 }
 	#table-message{
-		width:800px;
+		width:600px;
 		background:white;
 		margin:100px auto;
 		
 	}
 	
 	#table-read {
-	width: 800px;
+	width: 600px;
 	border: 1px solid;
 }
 	table tr td{
@@ -53,7 +53,6 @@
 <body>
 <div id="page">
 	<div id="header">
-		<h1>마이페이지</h1>
 		<div id="login">
 			<jsp:include page="../loginmenu.jsp"></jsp:include>
 		</div>
@@ -66,6 +65,7 @@
 			<jsp:include page="../MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
+			<h3>받은메세지함</h3>
 			<input type="hidden" value="${mid }" id="mid">
 			<table id="table-message" border=1></table>
 			<script id="temp" type="text/x-handlebars-templete">

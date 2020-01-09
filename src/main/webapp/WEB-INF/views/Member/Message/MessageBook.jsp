@@ -12,7 +12,7 @@
 <style>
 #inner-navbar {
 	background: yellow;
-	width: 300px;
+	width: 250px;
 	height: 100%;
 	margin: 10px;
 	float: left;
@@ -22,7 +22,7 @@
 
 #inner-content {
 	background: skyblue;
-	width: 70%;
+	width: 67%;
 	height: 100%;
 	margin: 10px;
 	float: left;
@@ -41,7 +41,6 @@
 <body>
 <div id="page">
 	<div id="header">
-		<h1>마이페이지</h1>
 		<div id="login">
 			<jsp:include page="../loginmenu.jsp"></jsp:include>
 		</div>
@@ -54,6 +53,7 @@
 			<jsp:include page="../MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
+			<h3>주소록</h3>
 			<table id="tbl-book" width=700 border=1>
 				<tr style= "background:lightgreen;">
 					<td width=200>이름</td>

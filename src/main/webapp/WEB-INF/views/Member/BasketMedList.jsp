@@ -7,26 +7,28 @@
 <title>마이페이지</title>
 <link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/mypageNavbar.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <style>
 #inner-navbar{
 		background:yellow;
-		width:200px;
+		width:250px;
 		height:100%;
 		margin: 10px;
 		float:left;
-		padding:30px;
+		padding-top:30px;
 		font-size:20px;
 	}
 	#inner-content{
 		background:skyblue;
-		width:70%;
+		width:67%;
 		height:100%;
 		margin: 10px;
 		float:left;
 	}
-	#table-hospital{
-		width:800px;
+	#table-medicine{
+		width:600px;
 		background:white;
 		margin:100px auto;
 		
@@ -52,7 +54,7 @@
 			<jsp:include page="MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<table id="table-hospital" border=1>
+			<table id="table-medicine" border=1>
 				<tr>
 					<td colspan=3 style="overflow:hidden; background:lightgreen;">최근 검색한 약
 						<input type="button" value="수정" style="float:right;">

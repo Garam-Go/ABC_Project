@@ -136,7 +136,7 @@ td {
 		var h_hcode=$("#h_code").val();
 		var revgrade=$("#grade").val();
 		var mid = "${mid}";
-		alert(revgrade+h_name);
+		//alert(revgrade+h_name);
 		//유효성체크
 		if(revcontent==""){
 			alert("내용을 입력하세요");
@@ -152,7 +152,7 @@ td {
 			url:"Hos-reviewinsert",
 			data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":mid,"h_name":h_name},
 			success:function(){
-				alert("성공");
+				//alert("성공");
  				$("#grade").prop("value","none");
 				$("#review").val("");
 			}
