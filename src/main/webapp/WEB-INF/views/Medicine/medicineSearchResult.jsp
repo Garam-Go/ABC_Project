@@ -9,151 +9,86 @@
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	<style>
-		body {
-			margin:0px;
-			padding:0px;
-			background:darkgray;
-		}
-		#page {
-			width:1200px;
-			height:1800px;
-			margin:20px auto;
-			background:white;
-			text-align:center;
-			box-shadow:1px 5px 5px gray;
-		}
-		#top{
-			background:gray;
-			width:1200px;
-			height:150px;
-			margin-bottom:50px;
-		}
-		#content{
-			margin:0 auto;
-			width:1200px;
-			height:700px;
-			position:relative;
-		}
-		#left{
-			width:150px;
-			height:410px;
-			background:white;
-			margin-top:100px;
-			margin-left:50px;
-			margin-right:45px;
-			float:left;
-		}
-		#left1{
-			border:1px solid black;
-			width:150px;
-			height:170px;
-			background:white;
-			margin-bottom:70px;
-		}
-		#left2{
-			border:1px solid black;
-			width:150px;
-			height:170px;
-			background:white;
-		}
-		#center{
-			width:700px;
-			height:600px;
-			background:white;
-			margin:20px auto;
-			float:left;
-		}
-		#right{
-			width:150px;
-			height:170px;
-			float:right;
-			margin-top:100px;
-			margin-left:40px;
-			margin-right:50px;
-		}
-		.right1{
-			border:1px solid black;
-			width:150px;
-			height:50px;
-			background:white;
-			margin-bottom:70px;
-			
-		}
-		.right2{
-			border:1px solid black;
-			width:150px;
-			height:50px;
-			background:white;
-		}
 		table{
 			border-color:black;
 			border-collapse:collapse;
 		}
+		.row:hover{
+			background:lightgreen;
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
-	<div id="page">
-		<div id="top" style="margin-top:50px;"></div>
-		
-		<div id="search" style="margin-bottom:50px;">
-			<input type="text" id="keyword">
-			<input type="button" id="btnsearch" value="검색">
-		</div>
-		
-		<div id="content">
-			<div id="left">
-				<jsp:include page="left.jsp"></jsp:include>
-			</div>
-			<div id="center">
-			<!-- 테이블 목록 출력 -->
-			<h3>테이블 목록</h3>
-				<table id="boxlist" border=1 width=700></table>
-				<script id="temp" type="text/x-handlebars-template">
-				{{#each .}}
-				<tr class="row" onClick="location.href='medicineDes?medcode={{medcode}}'">
+	<!-- 테이블 목록 출력 -->
+	<h3>테이블 목록</h3>
+		<table id="boxlist" border=1 width=580></table>
+		<script id="temp-med" type="text/x-handlebars-template">
+				{{#each list}}
+				<tr class="row" medcode="{{medcode}}">
 					<td width=100 height=50>{{medcode}}</td>
 					<td class="medname">{{medname}}</td>
 					<td width=100>★100</td>
 				</tr>	
-				<tr>
+				<tr class="med-detail">
 					<td colspan=3 height=20>
-					<div style="overflow:hidden;text-overflow:ellipsis;width:700px;">
+					<div style="overflow:hidden;text-overflow:ellipsis;width:580px;">
 						{{medcontent}}
 					</div>
 					</td>
 				</tr>
 				{{/each}}
 				</script>
-				<div id="pagination" style="background:black;width:705px;height:50px;"></div>
-		</div>
-			<div id="right">
-				<jsp:include page="right.jsp"></jsp:include>
-			</div>
-		</div>
-	</div>
+		<button id="more" style="width:100%;margin:20px 0 20px 0;">더보기</button>
 </body>
 <script>
 var keyword=$("#keyword").val();
-var page=1;
+var page = 1; //결과 페이지 번호
+var size = 3; //한 페이지에 보여질 문서의 개수
+var is_end ;
 
+//약 상세페이지
+$("#boxlist").on("click","tr",function(){
+	var mmid = "${mid}";
+	var mmrecent = parseInt($(this).attr("medcode"));
+	$.ajax({
+		type:"get",
+		url:"mminsert",
+		data:{"mmid":mmid,"mmrecent":mmrecent},
+		success:function(){
+			alert("save");
+			location.href="medicineDes?medcode="+mmrecent;
+		}
+	});
+})
+
+
+//더보기버튼 누르기
+$("#more").on("click",function(){
+	page = page+3;
+	size = size +3;
+	getmedicine();
+});
 getmedicine();
+var keyword=$("#keyword").val();
 
-$("#btnsearch").on("click", function(){
-	is_end=false;
+//검색
+$("#btnsearch").on("click",function(){
 	page = 1;
 	$("#boxlist").html("");
 	keyword=$("#keyword").val();
-	getmedicine();
+	getmedicine();	
 });
 /*테이블 목록 출력*/
 function getmedicine(){
 	$.ajax({
 		type:"get",
 		url:"medicine.json",
-		data:{"keyword":keyword,"page":page},
+		data:{"keyword":keyword,"page":page,"perPageNum":size},
 		success:function(data){
-			var temp=Handlebars.compile($("#temp").html());
-			$("#boxlist").html(temp(data));
+			//alert(keyword);
+			var temp=Handlebars.compile($("#temp-med").html());
+			$("#boxlist").append(temp(data));
 		}
 	});
 }
@@ -165,11 +100,11 @@ function getme(){
 		url:"../me.json",
 		success:function(data){
 			var temp=Handlebars.compile($("#ctemp").html());
-			$("#boxclist").html(temp(data));
+			$("#boxclist").append(temp(data));
 		}
 	});
 }
-
+//페이징
 $("#pagination").on("click", "li a", function(event){
 	event.preventDefault();
 	page = $(this).attr("href");
@@ -177,7 +112,6 @@ $("#pagination").on("click", "li a", function(event){
 });
 
 $(".row").on("click", function(){
-	
 	var medcode=$(this).attr("medcode");
 	var medname=$(this).attr("medname");
 	$.ajax({

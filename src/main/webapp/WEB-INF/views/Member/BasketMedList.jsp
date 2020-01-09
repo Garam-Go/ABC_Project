@@ -28,7 +28,7 @@
 		float:left;
 	}
 	#table-medicine{
-		width:600px;
+		width:500px;
 		background:white;
 		margin:100px auto;
 		
@@ -54,19 +54,26 @@
 			<jsp:include page="MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<table id="table-medicine" border=1>
+			<table id="table-medicine" border=1></table>
+			<script id="temp-medicine" type="text/x-handlebars-templete">
 				<tr>
-					<td colspan=3 style="overflow:hidden; background:lightgreen;">최근 검색한 약
+					<td colspan=2 style="overflow:hidden; background:lightgreen;">최근 검색한 약
 						<input type="button" value="수정" style="float:right;">
 					</td>
 				</tr>
 				<tr>
-					<td width=200>약이름</td>
-					<td width=300>효능</td>
-					<td width=200>용법 및 용량</td>
+					<td width=200>약 코드</td>
+					<td width=300>약 이름</td>
 				</tr>
+				{{#each med}}
+					<tr>
+						<td width=200>{{medcode}}</td>
+						<td width=300>{{medname}}</td>
+					</tr>
+				{{/each}}
+			</script>
+				
 
-			</table>
 		</div>
 	</div>
 	<div id="footer">
@@ -74,4 +81,19 @@
 	</div>
 </div>
 </body>
+<script>
+	getmlist();
+	function getmlist(){
+		var mmid = "${mid}";
+		$.ajax({
+			type:"get",
+			url:"BasketMedSaveList",
+			data:{"mmid":mmid},
+			success:function(data){
+				var temp=Handlebars.compile($("#temp-medicine").html());
+				$("#table-medicine").html(temp(data));
+			}
+		});
+	}
+</script>
 </html>

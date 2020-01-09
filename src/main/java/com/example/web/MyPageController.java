@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.HVO;
 import com.example.domain.MBasketHVO;
+import com.example.domain.MBasketMVO;
+import com.example.domain.MedicineVO;
 import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.HDAO;
 import com.example.persistence.MBHDAO;
+import com.example.persistence.MBMDAO;
 import com.example.persistence.MemberDAO;
 
 @Controller
@@ -25,6 +28,8 @@ public class MyPageController {
 	MemberDAO mdao;
 	@Inject
 	MBHDAO mbhdao;
+	@Inject
+	MBMDAO mbmdao;
 	
 	//마이페이지 이동 (프로필용 사용자 정보 가져감)
 	@RequestMapping("MyPage")
@@ -92,11 +97,41 @@ public class MyPageController {
 	public String Basketmed(){
 		return "/Member/BasketMed";
 	}
+	
 	//최근 검색 약
 	@RequestMapping("BasketMedList")
 	public String Basketmedlist(){
 		return "/Member/BasketMedList";
 	}
+	
+	//최근 본 약의 데이터
+	@ResponseBody
+	@RequestMapping("BasketMedSaveList")
+	public HashMap<String, Object> mbMlist(String mmid,SearchCriteria cri)throws Exception{
+		HashMap<String, Object> hash = new HashMap<String, Object>();
+		cri.setPerPageNum(10); //한 페이지에 보여줄 데이터 갯수
+		
+		PageMaker pm = new PageMaker(); //페이지에 관한 정보들
+		pm.setCri(cri);
+		
+		pm.setTotalCount(mbmdao.mmtotal(mmid));
+		
+		List<MBasketMVO> hlist = mbmdao.mmlist(mmid, cri);
+		
+		int i = hlist.size();
+		
+		ArrayList<MedicineVO> array = new ArrayList<MedicineVO>();
+		for(int a=0; a<i;a++){
+			MedicineVO vo = new MedicineVO();
+			vo = mbmdao.mmread(hlist.get(a).getMmrecent());
+			array.add(vo);
+		}
+		hash.put("med", array);
+		hash.put("list", mbmdao.mmlist(mmid, cri));
+		hash.put("pm", pm);
+		return hash;
+	}
+	
 	//관심있는 약
 	@RequestMapping("BasketMedFav")
 	public String Basketmedfav(){

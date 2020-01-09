@@ -14,4 +14,7 @@ public interface MedicineDAO {
 	
 	public MedicineVO read(int medcode) throws Exception;
 	 
+	public List<MedicineVO> slist(SearchCriteria cri) throws Exception;
+	
+	public int stotal(SearchCriteria cri) throws Exception;
 }

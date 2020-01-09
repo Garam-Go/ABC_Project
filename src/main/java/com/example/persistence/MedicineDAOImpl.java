@@ -35,5 +35,17 @@ public class MedicineDAOImpl implements MedicineDAO{
 	public MedicineVO read(int medcode) throws Exception {
 		return session.selectOne(namespace + ".read", medcode);
 	}
+
+	@Override
+	public List<MedicineVO> slist(SearchCriteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".slist",cri);
+	}
+
+	@Override
+	public int stotal(SearchCriteria cri) throws Exception {
+		
+		return session.selectOne(namespace+".stotal",cri);
+	}
 	
 }
