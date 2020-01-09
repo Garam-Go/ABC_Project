@@ -25,16 +25,16 @@
 		select * from hsearch
 		where h_code=#{h_code}
 	</select>
-	<update id="update">
-		update hsearch set h_address=#{h_address}, h_machine=#{h_machine}, h_phone=#{h_phone},h_name=#{h_name},h_time=#{h_time}
-		where h_code=#{h_code}
-	</update>
+	
 	<select id="rlist" resultType="com.example.domain.ReviewVO">
 		select * from mbhrev
 	</select>
-	<insert id="reviewinsert">
-		insert into mbhrev(revcontent,revgrade,hrevmyid)
-		values(#{revcontent},#{revgrade},#{hrevmyid})
-	</insert>
+	
+	
+	<update id="update">
+		update hsearch set h_image=#{h_image}
+		where h_hcode=#{h_hcode}
+	</update>
+	
 </mapper>
 

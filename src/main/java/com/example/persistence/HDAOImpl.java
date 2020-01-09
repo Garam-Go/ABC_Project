@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.example.domain.HVO;
-import com.example.domain.MBasketHVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.SearchCriteria;
 
@@ -39,11 +38,7 @@ public class HDAOImpl implements HDAO{
 		return session.selectOne(namespace+".read",h_code);
 	}
 	
-	@Override
-	public void update(HVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		session.update(namespace+".update",vo);
-	}
+
 	@Override
 	public void tinsert(HVO vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -53,6 +48,11 @@ public class HDAOImpl implements HDAO{
 	public void reviewinsert(ReviewVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		session.insert(namespace+".reviewinsert",vo);
+	}
+	@Override
+	public void update(HVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.update(namespace+".update");
 	}
 
 	}

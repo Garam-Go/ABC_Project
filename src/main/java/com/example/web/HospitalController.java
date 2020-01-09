@@ -10,10 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.domain.GradeVO;
 import com.example.domain.HVO;
 import com.example.domain.PageMaker;
+import com.example.domain.ReviewVO;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.HDAO;
+import com.example.service.ReviewService;
 
 @RequestMapping("Hospital")
 @Controller
@@ -59,6 +62,14 @@ public class HospitalController {
 			return	dao.slist(cri);
 		}
 		
+	
+		
+		/*리뷰 컨트롤러*/
+	
+
+		
+		
+		
 		/* 부트스트랩 확인용 */
 		@RequestMapping("Hos-index")
 		public String index(){
@@ -78,35 +89,35 @@ public class HospitalController {
 		/* dmain */
 		@RequestMapping("Hos-dmain")
 		public String dmain(){
-			return "/Hospital/dmain";
+			return "/Hospital/theme/dmain";
 		}
 		/* ddmain.template */
 		@RequestMapping("Hos-dmainhtml")
 		public String dmainhtml()throws Exception{
-			return "/Hospital/dmainhtml";
+			return "/Hospital/template/dmainhtml";
 		}
 		
 		/* dsearch */
 		@RequestMapping("Hos-dsearch")
 		public String dsearch(){
-			return "/Hospital/dsearch";
+			return "/Hospital/theme/dsearch";
 		}
 		/* dsearch template */
 		@RequestMapping("Hos-dsearchhtml")
 		public String dsearchhtml(){
-			return "/Hospital/dsearchhtml";
+			return "/Hospital/template/dsearchhtml";
 		}
 		/* ddetail*/
 		@RequestMapping("Hos-ddetail")
 		public String ddetail(Model model,String h_code)throws Exception{
 			model.addAttribute("vo",dao.read(h_code));
-			return "/Hospital/ddetail";
+			return "/Hospital/theme/ddetail";
 		}
 		/* detail template */
 		@RequestMapping("Hos-ddetailhtml")
 		public String ddetailhtml(Model model,String h_code)throws Exception{
 			model.addAttribute("vo",dao.read(h_code));
-			return "/Hospital/ddetailhtml";
+			return "/Hospital/template/ddetailhtml";
 		}
 	
 	

@@ -11,13 +11,16 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>----------ddetailhtml--------------------</title>
+  <title>----------dsearchhtml--------------------</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../resources/ddetail/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="../resources/ddetail/css/blog-post.css" rel="stylesheet">
+  
+  	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 </head>
 
@@ -67,46 +70,81 @@
           by
           <a href="#">Start Bootstrap</a>
         </p>
+      
+ 
 
-        <hr>
-
+        
+        
+		<div>
+			
+						<!-- 카테고리 별 검색 -->
+						<select  class="form-control" id="searchType" style="overflow:hidden;">
+							<option value="이비인후과"
+								<c:out value="${param.card=='이비인후과'?'selected':''}"/>>이비인후과</option>
+							<option value="내과"
+								<c:out value="${param.card=='내과'?'selected':''}"/>>내과</option>
+							<option value="소아"
+								<c:out value="${param.card=='소아'?'selected':''}"/>>소아과</option>
+							<option value="피부과"
+								<c:out value="${param.card=='피부과'?'selected':''}"/>>피부과</option>
+							<option value="정형외과"
+								<c:out value="${param.card=='정형외과'?'selected':''}"/>>정형외과</option>
+							<option value="안과"
+								<c:out value="${param.card=='안과'?'selected':''}"/>>안과</option>
+							<option value="치과"
+								<c:out value="${param.card=='치과'?'selected':''}"/>>치과</option>
+							<option value="한의원"
+								<c:out value="${param.card=='한의원'?'selected':''}"/>>한의원</option>
+							<option value="산부인과"
+								<c:out value="${param.card=='산부인과'?'selected':''}"/>>산부인과</option>
+							<option value="비뇨기과"
+								<c:out value="${param.card=='비뇨기과'?'selected':''}"/>>비뇨기과</option>
+							<option value="성형외과"
+								<c:out value="${param.card=='성형외과'?'selected':''}"/>>성형외과</option>
+							<option value="가정의학과"
+								<c:out value="${param.card=='가정의학과'?'selected':''}"/>>가정의학과</option>
+							<option value="외과"
+								<c:out value="${param.card=='외과'?'selected':''}"/>>외과</option>
+							<option value="신경외과"
+								<c:out value="${param.card=='신경외과'?'selected':''}"/>>신경외과</option>
+							<option value="신경과"
+								<c:out value="${param.card=='신경과'?'selected':''}"/>>신경과</option>
+							<option value="정신"
+								<c:out value="${param.card=='정신'?'selected':''}"/>>정신과</option>
+							<option value="마취통증"
+								<c:out value="${param.card=='마취통증'?'selected':''}"/>>마취통증과</option>
+						</select> 
+						  <div class="btn-group">
+						<input type="hidden" value="검색" id="selsearch" class="btn btn-primary pull-right">
+						<!-- 직접 검색 -->
+		</div>
+		</div>
+		<hr>
         <!-- Date/Time -->
-        <p>Posted on January 1, 2019 at 12:00 PM</p>
 
-        <hr>
 		
-		<p>병원 사진 넣을거임</p>	
+		<div id="tblr"></div>
+		
+		<script id="tempr" type="text/x-handlebars-template">
+				{{#each .}}
+				<div onClick="location.href='Hos-ddetailhtml?h_code={{h_code}}'">
+					<div style="margin-top:5px;margin-bottom:5px;">{{h_name}}</div>
+					<hr>
+				</div>
+				{{/each}}
+		</script>
+			
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
 
-        <hr>
 
         <!-- Post Content -->
-        <p class="lead">${vo.h_name}</p>
-		<p>${vo.h_address}</p>
 
 
-          <p class="mb-0">${vo.h_time}</p>
-          <p>${vo.h_phone}</p>
 
 		
-        <p>${vo.h_machine}</p>
         
-        <hr>
 
-        <!-- Comments Form -->
-        <div class="card my-4">
-          <h5 class="card-header">리뷰작성</h5>
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-        </div>
-
+      
         <!-- Single Comment -->
         <div class="media mb-4">
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
@@ -224,5 +262,66 @@
   <script src="../resources/ddetail/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+	<script>
+	var query = "${param.query}";
+	//var theme="${param.theme}";
+	//alert(query+"\n"+theme);
+	var query2 = $("#query2").val();
+	var keyword = $("#keyword").val();
+	var themes = "${param.card}";
 
+	var searchType = $("#searchType option:selected").val();
+	
+	$("#searchType").on("change",function(){
+		//alert("gg");
+		var card=$(this).val();
+		//alert(card);
+		$("#selsearch").trigger("click");	
+	});
+	
+	
+	$(document).ready(function() {
+		//페이지가 로딩하자마자 selsearch 버튼을 누르겠음
+		$("#selsearch").trigger("click");
+	});
+
+	$("#selsearch").on("click", function() {
+		//alert("gg");
+		searchType = $("#searchType option:selected").val();
+		//alert(searchType);
+		gettlist();
+
+	});
+	$("#btnsearch").on("click", function() {
+		keyword = $("#keyword").val();
+		//alert(keyword);
+		gettlist();
+	});
+	$("#keyword").keydown(function(key) {
+		if (key.keyCode == 13) {
+			keyword = $("#keyword").val();
+			gettlist();
+		}
+	});
+	gettlist();
+
+	function gettlist() {
+		//alert("gg");
+		keyword = $("#keyword").val();
+		//alert(keyword);
+
+		$.ajax({
+			type : "get",
+			url : "Hos-slist.json",
+			data : {
+				"keyword" : searchType,
+			},
+			success : function(data) {
+				//alert(keyword);
+				var temp = Handlebars.compile($("#tempr").html());
+				$("#tblr").html(temp(data));
+			}
+		});
+	}
+	</script>
 </html>

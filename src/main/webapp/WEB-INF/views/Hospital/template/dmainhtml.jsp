@@ -19,6 +19,11 @@
 
   <!-- Custom styles for this template -->
   <link href="../resources/ddetail/css/blog-post.css" rel="stylesheet">
+  <!-- 합쳐지고 최소화된 최신 CSS -->
+
+<!-- 부가적인 테마 -->
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
   <style>
   	#darken-background {
 	position: absolute;
@@ -31,11 +36,11 @@
 	z-index: 1000;
 	overflow-y: scroll;
 	display: none;
-	margin-top:120px;
+	margin-top:55px;
 }
 
 #lightbox {
-	width: 100%;
+	width: 60%;
 	margin: 0px auto;
 	padding: 15px;
 	border: 1px solid #333333;
@@ -78,19 +83,25 @@
       </div>
     </div>
   </nav>
+  
+    
+
+
+
   <div id="darken-background">
 
 					<div id="lightbox">
-						<table id="tblh" class="table" border=0 style="border: 1px solid gray;"></table>
+						<div id="tblh"></div>
 						<script id="temph" type="text/x-handlebars-template">
 							{{#each .}}
-								<tr onClick="location.href='Hos-ddetail?h_code={{h_code}}'" class="hover">
-									<td>{{h_name}}</td>
-								</tr>
+								<div onClick="location.href='Hos-ddetailhtml?h_code={{h_code}}'">
+									<div style="margin-bottom:15px;margin-top:15px;">{{h_name}}</div>
+									<hr>
+								</div>
 							{{/each}}
 							</script>
 
-						<button id="btnClose" class="btnClose">닫기</button>
+						<button id="btnClose" class="btn btn-info">닫기</button>
 
 					</div>
 
@@ -117,6 +128,7 @@
         </p>
 
         <hr>
+
 
         <!-- Date/Time -->
         <p>병원 카테고리</p>

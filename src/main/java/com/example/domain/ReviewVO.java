@@ -1,5 +1,7 @@
 package com.example.domain;
 
+import java.util.Date;
+
 public class ReviewVO {
 	
 	private int hrevid;
@@ -7,7 +9,16 @@ public class ReviewVO {
 	private int revgrade;
 	private String hrevmyid;
 	private String h_hcode;
+	private Date h_Date;
 	private int grade;
+	
+	public Date getH_Date() {
+		return h_Date;
+	}
+	public void setH_Date(Date h_Date) {
+		this.h_Date = h_Date;
+	}
+
 	
 	
 	public int getGrade() {
@@ -49,8 +60,10 @@ public class ReviewVO {
 	@Override
 	public String toString() {
 		return "ReviewVO [hrevid=" + hrevid + ", revcontent=" + revcontent + ", revgrade=" + revgrade + ", hrevmyid="
-				+ hrevmyid + ", h_hcode=" + h_hcode + ", grade=" + grade + "]";
+				+ hrevmyid + ", h_hcode=" + h_hcode + ", h_Date=" + h_Date + ", grade=" + grade + "]";
 	}
+
+	
 	
 	
 	

@@ -69,6 +69,7 @@ td {
 				<input type="button" value="예약" onClick="location.href='Hos-reservation?h_code=${vo.h_code}'">			
 				<div
 					style="background: white; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
+					<div style="margin-bottom:10px;">
 					<select style="height: 50px;" id="grade">
 						<option  value="" selected disabled hidden>평점 선택</option>
 						<option value="5">★★★★★</option>
@@ -76,9 +77,23 @@ td {
 						<option value="3">★★★☆☆</option>
 						<option value="2">★★☆☆☆</option>
 						<option value="1">★☆☆☆☆</option>
-					</select> 
+					</select>
+					</div>
+					<div style="margin-top:10px;"> 
 					<input type="text" size=55 style="height: 50px;" id="review"> 
 					<input type="button" value="등록" style="height: 50px;" id="btnreview">
+					</div>
+					<h2>리뷰목록</h2>
+					<table border=1 width=500 id="tblq"></table>
+					<script id="tempq" type="text/x-handlebars-template">
+						{{#each .}}
+							<tr>
+								<td>{{h_hcode}}</td>
+								<td>{{revgrade}}</td>
+							</tr>
+						{{/each}}
+					</script>
+					
 					
 				<div
 					style="background: #E0F8E6; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
@@ -109,8 +124,8 @@ td {
 		//alert("하하");
 	var revcontent=$("#review").val();
 	var h_hcode=$("#h_code").val();
-	var revgrade=$("#grade option:selected").val();
-	//alert(grade);
+	var grade=$("#grade option:selected").val();
+	alert(revcontent+"\n"+grade+"\n"+h_hcode);
 	
 	//유효성체크
 	if(revcontent==""){
@@ -126,15 +141,14 @@ td {
 	
 	$.ajax({
 		type:"get",
-		url:"../Hos-reviewinsert",
-		data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":"user00"},
+		url:"Hos-reviewinsert",
+		data:{"revcontent":revcontent,"grade":grade,"h_hcode":h_hcode,"hrevmyid":"user00"},
 		success:function(){
 			alert("성공");
 		}
 	});
-	
 	});
-	
+
 	
 	</script>
 </html>

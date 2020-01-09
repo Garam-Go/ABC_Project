@@ -11,16 +11,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>----------dsearchhtml--------------------</title>
+  <title>----------ddetailhtml--------------------</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../resources/ddetail/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="../resources/ddetail/css/blog-post.css" rel="stylesheet">
-  
-  	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 </head>
 
@@ -70,85 +67,54 @@
           by
           <a href="#">Start Bootstrap</a>
         </p>
-		<div>
-			
-						<!-- 카테고리 별 검색 -->
-						<select  class="form-control" id="searchType" style="overflow:hidden;">
-							<option value="이비인후과"
-								<c:out value="${param.card=='이비인후과'?'selected':''}"/>>이비인후과</option>
-							<option value="내과"
-								<c:out value="${param.card=='내과'?'selected':''}"/>>내과</option>
-							<option value="소아"
-								<c:out value="${param.card=='소아'?'selected':''}"/>>소아과</option>
-							<option value="피부과"
-								<c:out value="${param.card=='피부과'?'selected':''}"/>>피부과</option>
-							<option value="정형외과"
-								<c:out value="${param.card=='정형외과'?'selected':''}"/>>정형외과</option>
-							<option value="안과"
-								<c:out value="${param.card=='안과'?'selected':''}"/>>안과</option>
-							<option value="치과"
-								<c:out value="${param.card=='치과'?'selected':''}"/>>치과</option>
-							<option value="한의원"
-								<c:out value="${param.card=='한의원'?'selected':''}"/>>한의원</option>
-							<option value="산부인과"
-								<c:out value="${param.card=='산부인과'?'selected':''}"/>>산부인과</option>
-							<option value="비뇨기과"
-								<c:out value="${param.card=='비뇨기과'?'selected':''}"/>>비뇨기과</option>
-							<option value="성형외과"
-								<c:out value="${param.card=='성형외과'?'selected':''}"/>>성형외과</option>
-							<option value="가정의학과"
-								<c:out value="${param.card=='가정의학과'?'selected':''}"/>>가정의학과</option>
-							<option value="외과"
-								<c:out value="${param.card=='외과'?'selected':''}"/>>외과</option>
-							<option value="신경외과"
-								<c:out value="${param.card=='신경외과'?'selected':''}"/>>신경외과</option>
-							<option value="신경과"
-								<c:out value="${param.card=='신경과'?'selected':''}"/>>신경과</option>
-							<option value="정신"
-								<c:out value="${param.card=='정신'?'selected':''}"/>>정신과</option>
-							<option value="마취통증"
-								<c:out value="${param.card=='마취통증'?'selected':''}"/>>마취통증과</option>
-						</select> 
-						
-						<input type="button" value="검색" id="selsearch" class="selsearch" style="float:left;">
-						<!-- 직접 검색 -->
-		</div>
-		<hr>
+
+        <hr>
+
         <!-- Date/Time -->
+        <p>Posted on January 1, 2019 at 12:00 PM</p>
 
-		
-		<div id="tblr"></div>
-		
-		<script id="tempr" type="text/x-handlebars-template">
-				{{#each .}}
-				<div onClick="location.href='Hos-ddetailhtml?h_code={{h_code}}'">
-					<div style="margin-top:5px;margin-bottom:5px;">{{h_name}}</div>
-					<hr>
-				</div>
-				{{/each}}
-		</script>
-			
+        <hr>
+		<input type="hidden" value="${vo.h_code}" id="h_code">		
+		<p>병원 사진 넣을거임</p>	
         <!-- Preview Image -->
+        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
 
+        <hr>
 
         <!-- Post Content -->
+        <p class="lead">${vo.h_name}</p>
+		<p>${vo.h_address}</p>
 
 
+          <p class="mb-0">${vo.h_time}</p>
+          <p>${vo.h_phone}</p>
 
 		
+        <p>${vo.h_machine}</p>
         
+        <hr>
 
         <!-- Comments Form -->
         <div class="card my-4">
           <h5 class="card-header">리뷰작성</h5>
           <div class="card-body">
             <form>
+            <select class="form-control">
+            	<option value="" selected disabled hidden>평점 선택</option>
+            	<option value="5">★★★★★</option>
+            	<option value="4">☆★★★★</option>
+            	<option value="3">☆☆★★★</option>
+            	<option value="2">☆☆☆★★</option>
+            	<option value="1">☆☆☆☆★</option>
+            </select>
               <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" rows="3" id="review"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-primary" id="btnreview">Submit</button>
             </form>
           </div>
+          
+
         </div>
 
         <!-- Single Comment -->
@@ -269,58 +235,35 @@
 
 </body>
 	<script>
-	var query = "${param.query}";
-	//var theme="${param.theme}";
-	//alert(query+"\n"+theme);
-	var query2 = $("#query2").val();
-	var keyword = $("#keyword").val();
-	var themes = "${param.card}";
-
-	var searchType = $("#searchType option:selected").val();
+	/* 리뷰 목록 */
+	$("#btnreview").on("click",function(){
+		//alert("하하");
+		
+		
+	var revcontent=$("#review").val();
+	var h_hcode=$("#h_code").val();
+	alert(revcontent+"\n"+h_hcode);
+	var revgrade=$("#grade option:selected").val();
+	//alert(grade);
 	
-	$("#selsearch").trigger("click");
-	$(document).ready(function() {
-		//페이지가 로딩하자마자 selsearch 버튼을 누르겠음
-		$("#selsearch").trigger("click");
-	});
-
-	$("#selsearch").on("click", function() {
-		//alert("gg");
-		searchType = $("#searchType option:selected").val();
-		//alert(searchType);
-		gettlist();
-
-	});
-	$("#btnsearch").on("click", function() {
-		keyword = $("#keyword").val();
-		//alert(keyword);
-		gettlist();
-	});
-	$("#keyword").keydown(function(key) {
-		if (key.keyCode == 13) {
-			keyword = $("#keyword").val();
-			gettlist();
+	//유효성체크
+	if(revcontent==""){
+		alert("내용을 입력하세요");
+		revcontent.focus();
+		return false;
+	}
+	
+	
+	/*
+	$.ajax({
+		type:"get",
+		url:"../Hos-reviewinsert",
+		data:{"revcontent":revcontent,"revgrade":revgrade,"h_hcode":h_hcode,"hrevmyid":"user00"},
+		success:function(){
+			alert("성공");
 		}
 	});
-	gettlist();
-
-	function gettlist() {
-		//alert("gg");
-		keyword = $("#keyword").val();
-		//alert(keyword);
-
-		$.ajax({
-			type : "get",
-			url : "Hos-slist.json",
-			data : {
-				"keyword" : searchType,
-			},
-			success : function(data) {
-				//alert(keyword);
-				var temp = Handlebars.compile($("#tempr").html());
-				$("#tblr").html(temp(data));
-			}
-		});
-	}
+	*/
+	});
 	</script>
 </html>

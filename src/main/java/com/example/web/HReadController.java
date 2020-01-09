@@ -341,7 +341,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -385,11 +385,13 @@ public class HReadController {
 					
 					
 					
+					
 					Elements e=es.select("#_business_13241129");
 						
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -490,6 +492,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -540,6 +543,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -590,7 +594,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -640,6 +644,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -690,7 +695,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -741,6 +746,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -790,6 +796,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -840,6 +847,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -889,6 +897,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -940,6 +949,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -989,6 +999,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1039,6 +1050,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1089,6 +1101,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1138,6 +1151,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1187,6 +1201,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1236,6 +1251,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1285,6 +1301,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1332,6 +1349,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1345,7 +1363,6 @@ public class HReadController {
 						map.put("phone", e2.select(".list_item_biztel .txt").text());
 						map.put("addressA", e2.select(".list_item_address .list_address li:nth-child(1)").text());//도로명 주소
 						map.put("addressB", e2.select(".list_item_address .list_address li:nth-child(2) .addr").text());//지번 주소
-					
 					
 					
 						Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
@@ -1380,6 +1397,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1428,6 +1446,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1478,6 +1497,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1528,6 +1548,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1580,6 +1601,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1632,6 +1654,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1684,6 +1707,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1736,6 +1760,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1788,6 +1813,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1840,6 +1866,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1892,6 +1919,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1944,6 +1972,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -1996,6 +2025,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2048,6 +2078,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2100,6 +2131,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2152,6 +2184,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2204,7 +2237,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -2256,7 +2289,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -2324,8 +2357,8 @@ public class HReadController {
 						map.put("phone", e2.select(".list_item_biztel .txt").text());
 						map.put("addressA", e2.select(".list_item_address .list_address li:nth-child(1)").text());//도로명 주소
 						map.put("addressB", e2.select(".list_item_address .list_address li:nth-child(2) .addr").text());//지번 주소
-					
-					
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
+						
 					
 					
 					Elements el=doc2.select("#_fixed_top_area .tab_detail_area");
@@ -2363,7 +2396,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -2412,7 +2445,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -2461,6 +2494,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2510,6 +2544,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2559,6 +2594,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2608,6 +2644,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2657,6 +2694,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2706,6 +2744,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2755,7 +2794,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -2804,6 +2843,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2853,6 +2893,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2902,6 +2943,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -2951,6 +2993,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3000,6 +3043,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3049,6 +3093,8 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
+						
 				
 					
 					//
@@ -3099,6 +3145,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3148,6 +3195,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3197,7 +3245,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -3246,6 +3294,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3295,6 +3344,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3344,6 +3394,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3393,6 +3444,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3442,6 +3494,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3491,6 +3544,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3540,6 +3594,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 				
 					
 					//
@@ -3589,7 +3644,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -3638,8 +3693,8 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
-					
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
+						
 					//
 					
 					Document doc2=Jsoup.connect("https://store.naver.com/hospitals/detail?id=13106247&query=%EC%9C%84%EB%8C%80%ED%95%AD%EB%A7%A5%EC%99%B8%EA%B3%BC%EC%9D%98%EC%9B%90").get();
@@ -3687,7 +3742,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -3736,7 +3791,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -3785,7 +3840,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -3834,8 +3889,8 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
-					
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
+						
 					//
 					
 					Document doc2=Jsoup.connect("https://store.naver.com/hospitals/detail?id=12833522&query=%EC%98%88%EC%A7%80%ED%95%AD%EC%99%B8%EA%B3%BC%EC%9D%98%EC%9B%90").get();
@@ -3883,7 +3938,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -3932,7 +3987,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -3981,7 +4036,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4030,7 +4085,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4079,7 +4134,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4128,7 +4183,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4177,7 +4232,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4227,7 +4282,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4276,7 +4331,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4325,7 +4380,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4374,7 +4429,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4423,7 +4478,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4472,7 +4527,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4521,7 +4576,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4570,8 +4625,8 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
-					
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
+						
 					//
 					
 					Document doc2=Jsoup.connect("https://store.naver.com/hospitals/detail?id=37637646&query=%EC%A2%8B%EC%9D%80%EC%83%9D%EA%B0%81%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95%EC%9D%98%ED%95%99%EA%B3%BC%EC%9D%98%EC%9B%90").get();
@@ -4619,7 +4674,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4668,7 +4723,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4717,7 +4772,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4766,7 +4821,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4816,7 +4871,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4865,7 +4920,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4914,7 +4969,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -4963,7 +5018,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -5012,7 +5067,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					
@@ -5061,7 +5116,7 @@ public class HReadController {
 						map.put("title", e.select(".name").text());
 						map.put("id", e.select(".list_item_inner").attr("data-nmb_hpl-doc-id"));
 						map.put("time",e.select(".time").text());
-				
+						map.put("image",e.select(".list_item_inner .thumb img").attr("src"));
 					
 					//
 					

@@ -7,7 +7,15 @@ public class HVO {
 	private String h_address;
 	private String h_machine;
 	private String h_phone;
+	private String h_image;
 	
+	
+	public String getImage() {
+		return h_image;
+	}
+	public void setImage(String h_image) {
+		this.h_image = h_image;
+	}
 	public String getH_time() {
 		return h_time;
 	}
@@ -44,12 +52,13 @@ public class HVO {
 	public void setH_name(String h_name) {
 		this.h_name = h_name;
 	}
+	
 	@Override
 	public String toString() {
 		return "HVO [h_code=" + h_code + ", h_name=" + h_name + ", h_time=" + h_time + ", h_address=" + h_address
-				+ ", h_machine=" + h_machine + ", h_phone=" + h_phone + "]";
+				+ ", h_machine=" + h_machine + ", h_phone=" + h_phone + ", h_image=" + h_image + "]";
 	}
-	
+
 	
 	
 }
