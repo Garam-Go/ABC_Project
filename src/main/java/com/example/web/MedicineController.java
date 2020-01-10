@@ -65,13 +65,6 @@ public class MedicineController {
 		return hash;
 	}
 	
-	@ResponseBody
-	@RequestMapping("insert")
-	public void insert(MedicineVO vo) throws Exception{
-		Meddao.insert(vo);
-		System.out.println(vo.toString());
-	}
-	
 	//마이리스트에 최근 본 약 저장
 	@ResponseBody
 	@RequestMapping("mminsert")

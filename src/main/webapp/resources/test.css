@@ -1,6 +1,7 @@
 @charset "UTF-8";
 body{
-	background-color: #9CC89D;
+	background-image: url('hospital2.jpg');
+    background-size: contain;
 }
 #page{
     background-color: white; 

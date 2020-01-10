@@ -56,7 +56,7 @@ $("#boxlist").on("click","tr",function(){
 		url:"mminsert",
 		data:{"mmid":mmid,"mmrecent":mmrecent},
 		success:function(){
-			alert("save");
+			//alert("save");
 			location.href="medicineDes?medcode="+mmrecent;
 		}
 	});
@@ -111,18 +111,5 @@ $("#pagination").on("click", "li a", function(event){
 	getmedicine();
 });
 
-$(".row").on("click", function(){
-	var medcode=$(this).attr("medcode");
-	var medname=$(this).attr("medname");
-	$.ajax({
-		type:"get",
-		url:"insert",
-		data:{"medcode":medcode,"medname":medname},
-		success:function(){
-			alert("저장되었습니다");
-			getmedicine();
-		}
-	});
-});
 </script>
 </html>

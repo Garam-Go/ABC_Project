@@ -11,4 +11,6 @@ public interface ReplyDAO {
 	public void insert(ReplyVO vo)throws Exception;
 	
 	public void delete(int replyid, int medcode) throws Exception;
+	
+	public int total(int medcode) throws Exception;
 }

@@ -74,8 +74,9 @@
 	.center4{
 	 	border:1px solid;
 	 	width:600px;
-	 	height:250px;
+	 	height:310px;
 	 	margin:0 auto;
+	 	padding:5px;
 	}
 	table{
 		border-color:black;
@@ -83,6 +84,12 @@
 	}
 	#replytbl{
 		border-color:white;
+		padding:5px;
+	}
+	a{text-decoration: none;}
+	.active{color:red;}
+	#pagination{
+		height:30px;
 	}
 </style>
 </head>
@@ -108,7 +115,7 @@
 				<div class="center1">
 				<table border=1 width=600>
 						<tr>
-							<td>${vo.medcode}</td>
+							<td id="medcode">${vo.medcode}</td>
 							<td>${vo.medname}</td>
 							<td>추천수★</td>
 						</tr>
@@ -134,7 +141,7 @@
 						<td width=30><button  replyid="{{replyid}}" medcode="{{medcode}}">X</button></td>
 					</tr>
 					<tr>
-						<td colspan=4 height=25>{{replycontent}}/td>
+						<td colspan=4 height=25>{{replycontent}}</td>
 					</tr>
 					{{/each}}
 					</script>
@@ -150,61 +157,65 @@
 </body>
 <script>
 var keyword=$("#keyword").val();
-
+var page = 1;
 //alert(medcode);
 
-getmedicine();
+getmreply();
+
 var page=1;
 
-function getmedicine(){
+//댓글목록 출력
+function getmreply(){
 	var medcode="${vo.medcode}";
 	//alert(medcode);
 	$.ajax({
 		type:"get",
-		url:"list",
-		data:{"medcode":medcode},
+		url:"mreplylist",
+		data:{"medcode":medcode,"page":page},
 		success:function(data){
 			var temp=Handlebars.compile($("#temp").html());
 			$("#replytbl").html(temp(data));
 			
 			var str="";
 			if(data.pm.prev){
-				str += "<a href='" + (data.pm.startPage-1) + "'>◀</a>";
+				str += "<a href='" + (data.pm.startPage-1) + "'>[이전] </a>";
 			}
 			for(var i=data.pm.startPage; i<=data.pm.endPage;i++){
 				if(data.pm.cri.page==i){
-					str += "[<a href='" + i + "' class='active'>" + i + "</a>]"	
+					str += "<a href='" + i + "' class='active'>[ " + i + " ] </a>"	
 				}else{
-					str += "[<a href='" + i + "'>" + i + "</a>]"
+					str += "<a href='" + i + "'>[ " + i + " ] </a>"
 				}
 			}
 			if(data.pm.next){
-				str += "<a href='" + (data.pm.endPage+1) + "'>▶</a>";
+				str += "<a href='" + (data.pm.endPage+1) + "'>[다음]</a>";
 			}
 			$("#pagination").html(str);
 		}
-		
 	});
 }
-$("#pagination").on("click",function(e){
+
+$("#pagination").on("click","a", function(e){
 	e.preventDefault();
 	page=$(this).attr("href");
-	getmedicine();
+	getmreply();
 });
 
-$("#btnsearch").on("click", function(){
+$("#btnsearch").on("click",function(){
 	is_end=false;
 	page = 1;
 	$("#boxlist").html("");
 	keyword=$("#keyword").val();
 	getmedicine();
-	
 });
+
+//댓글입력
 $("#btninsert").on("click", function(){
-	var medcode=$("#medcode").val();
-	var replyid=$("#replytbl tr").attr("replyid");
+	var medcode="${vo.medcode}";
+	var replyname="${mid}";
 	//alert(row);	
 	var replytext=$("#replytext").val();
+	//alert(medcode+replyname+replytext);
 	//alert(replyid);
 	if(replytext==""){
 		alert("댓글 내용을 입력하세요");
@@ -212,25 +223,27 @@ $("#btninsert").on("click", function(){
 	}else{
 		$.ajax({
 			type:"post",
-			url:"insert",
-			data:{"medcode":medcode, "replyid":replyid, "replycontent":replytext},
+			url:"mreplyinsert",
+			data:{"medcode":medcode, "replyname":replyname, "replycontent":replytext},
 			success:function(){
-				alert("성공");
-				getmedicine();
+				//alert("성공");
+				$("#replytext").val("");
+				getmreply();
 			}
 		});
 	}
 });
+//삭제
 $("#replytbl").on("click", ".row button", function(){
 	var medcode=$(this).attr("medcode");
 	var replyid=$(this).attr("replyid");
 	alert(medcode + replyid);
 	$.ajax({
 		type:"post",
-		url:"delete",
+		url:"mreplydelete",
 		data:{"medcode":medcode,"replyid":replyid},
 		success:function(){
-			getmedicine();
+			getmreply();
 		}
 	});
 });

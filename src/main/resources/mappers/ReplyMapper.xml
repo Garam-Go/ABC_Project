@@ -4,17 +4,17 @@
 <mapper  namespace="ReplyMapper">
 	<select id="list" resultType="com.example.domain.ReplyVO">
 		select * from medreply 
-		where boardid=#{boardid}
+		where medcode=#{medcode}
 		order by replyid desc 
 		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 	<select id="total" resultType="int">
 		select count(*) from medreply
-		where boardid=#{boardid}
+		where medcode=#{medcode}
 	</select>
 	<insert id="insert">
-		insert into medreply(boardid, replycontent)
-		values(#{boardid},#{replycontent})
+		insert into medreply(medcode, replycontent, replyname)
+		values(#{medcode},#{replycontent},#{replyname})
 	</insert>
 	<delete id="delete">
 		delete from medreply

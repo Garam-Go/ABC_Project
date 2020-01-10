@@ -16,13 +16,12 @@ import com.example.domain.ReplyVO;
 import com.example.persistence.ReplyDAO;
 
 @Controller
-@RequestMapping("medicine")
-public class ReplyController {
+public class MReplyController {
 	@Inject
 	ReplyDAO rdao;
 	
 	@ResponseBody
-	@RequestMapping("list")
+	@RequestMapping("mreplylist")
 	public Map<String, Object> list(Criteria cri, int medcode)throws Exception{
 		Map<String, Object> map=new HashMap<String, Object>();
 		
@@ -30,17 +29,24 @@ public class ReplyController {
 		PageMaker pm=new PageMaker();
 		pm.setStartPage(1);
 		pm.setCri(cri);
+		pm.setTotalCount(rdao.total(medcode));
 		
 		map.put("list", rdao.list(cri, medcode));                                                                                    
 		map.put("pm", pm);
 		//System.out.println(rdao.list("5", "2122856"));
 		return map;
 	}
-	@RequestMapping(value="insert", method=RequestMethod.POST)
-	public void insert(ReplyVO vo)throws Exception{
+	@ResponseBody
+	@RequestMapping(value="mreplyinsert", method=RequestMethod.POST)
+	public void insert(int medcode, String replyname, String replycontent)throws Exception{
+		ReplyVO vo = new ReplyVO();
+		vo.setMedcode(medcode);
+		vo.setReplycontent(replycontent);
+		vo.setReplyname(replyname);
 		rdao.insert(vo);
 	}
-	@RequestMapping(value="delete", method=RequestMethod.POST)
+	@ResponseBody
+	@RequestMapping(value="mreplydelete", method=RequestMethod.POST)
 	public void delete(int replyid, int medcode)throws Exception{
 		rdao.delete(replyid, medcode);
 	}

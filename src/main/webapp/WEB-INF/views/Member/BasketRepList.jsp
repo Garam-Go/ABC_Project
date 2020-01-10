@@ -20,26 +20,28 @@
 	}
 	#inner-content{
 		background:skyblue;
-		width:70%;
+		width:67%;
 		height:100%;
 		margin: 10px;
 		float:left;
 	}
 	#table-hospital{
-		width:800px;
+		width:600px;
 		background:white;
 		margin:100px auto;
 		
 	}
-	table tr td{
+	table, tr, td{
 		border-collapse: collapse;
+	}
+	#basm{
+		display:none;
 	}
 </style>
 </head>
 <body>
 <div id="page">
 	<div id="header">
-		<h1>마이페이지</h1>
 		<div id="login">
 			<jsp:include page="loginmenu.jsp"></jsp:include>
 		</div>
@@ -52,23 +54,29 @@
 			<jsp:include page="MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<table id="table-hospital" border=1>
-				<tr>
-					<td colspan=4 style="overflow:hidden; background:lightgreen;">내가 쓴 댓글
-						<select id="FreeSelect">
-							<option>자유게시판</option>
-							<option>약댓글</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td width=50>글번호</td>
-					<td width=350>댓글내용</td>
-					<td width=200>게시글</td>
-					<td width=200>작성일</td>
-				</tr>
-
-			</table>
+			<select id="FreeSelect" style="width:200px; height:50px; margin:30px;" onchange="selc(this)">
+				<option value="free">자유게시판</option>
+				<option value="med">약댓글</option>
+			</select>
+			<div id="basm">
+				<jsp:include page="BasketRepListM.jsp"></jsp:include>
+			</div>
+			<div id="basc">
+				<jsp:include page="BasketRepListC.jsp"></jsp:include>
+			</div>
+			<script>
+				function selc(val){
+					var sel = val.value;
+					alert(sel);
+					if(sel.equals("free")){
+						$("#basc").show();
+						$("#basm").hide();
+					}else{
+						$("#basm").show();
+						$("#basc").hide();
+					}
+				}
+			</script>
 		</div>
 	</div>
 	<div id="footer">

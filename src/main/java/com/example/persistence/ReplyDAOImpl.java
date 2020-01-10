@@ -36,4 +36,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 		map.put("medcode", medcode);
 		session.selectList(namespace + ".delete", map);
 	}
+	@Override
+	public int total(int medcode) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".total",medcode);
+	}
 }
