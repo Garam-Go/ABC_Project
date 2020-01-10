@@ -36,5 +36,9 @@ public class FDAOImpl implements FDAO{
 		return session.selectOne(namespace+".cread",pid);
 	}
 	
-	
+	@Override
+	public void insert(FVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace+".insert",vo);
+	}
 }

@@ -82,7 +82,7 @@
 				
 				<div style="overflow:hidden; margin-bottom:10px;">
 					<span style="float:right">
-						<input type="button" value="글쓰기" onClick="location.href='comu_insert'">
+						<input type="button" value="글쓰기" onClick="location.href='comu_insert?name=free'">
 					</span>
 				</div>
 				
@@ -117,7 +117,7 @@
 										<tr class=tr>
 											<td width=50>{{pid}}</td>
 											<td width=100>{{wdate}}</td>
-											<td width=275><a href="comu_detailList?id={{pid}}">{{title}}</a></td>
+											<td width=275><a href="comu_detailListFree?id={{pid}}">{{title}}</a></td>
 											<td width=75>{{fname}}</td>
 											<td width=50>{{num}}</td>
 										</tr>

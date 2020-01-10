@@ -23,9 +23,21 @@ public class ReplyDAOImpl implements ReplyDAO{
 	}
 
 	@Override
-	public void insert(ReplyVO vo) throws Exception {
+	public void Finsert(ReplyVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		session.insert(namespace+".insert",vo);
+		session.insert(namespace+".Finsert",vo);
+	}
+
+	@Override
+	public void Qinsert(ReplyVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace+".Qinsert",vo);
+	}
+
+	@Override
+	public List<ReplyVO> qlist(int pid) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".qlist",pid);
 	}
 	
 }

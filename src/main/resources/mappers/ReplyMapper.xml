@@ -6,7 +6,22 @@
 		order by rid desc
 	</select>
 	
-	<insert id="insert">
-		insert into comu_free_reply(pid, mid, content, reply) values(#{pid}, #{mid}, #{content}, #{reply});
+	<insert id="Finsert">
+		insert into comu_free_reply(pid, mid, content, reply)
+		values(#{pid}, #{mid}, #{content}, (SELECT AUTO_INCREMENT FROM information_schema.tables
+				WHERE table_name = 'comu_free_reply' AND table_schema = DATABASE( )));
 	</insert>
+	
+	<select id="qlist" resultType="com.example.domain.ReplyVO">
+		select * from comu_query_reply where pid = #{pid}
+		order by rid desc
+	</select>
+	
+	<insert id="Qinsert">
+		insert into comu_query_reply(pid, mid, content, reply)
+		values(#{pid}, #{mid}, #{content}, (SELECT AUTO_INCREMENT FROM information_schema.tables
+				WHERE table_name = 'comu_query_reply' AND table_schema = DATABASE( )));
+	</insert>
+	
+	
 </mapper>

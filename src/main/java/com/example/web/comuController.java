@@ -1,29 +1,41 @@
 package com.example.web;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
+import org.apache.commons.io.IOUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.example.domain.FVO;
 import com.example.domain.HealVO;
+import com.example.domain.HosReplyVO;
+import com.example.domain.HosVO;
 import com.example.domain.PageMaker;
+import com.example.domain.QVO;
 import com.example.domain.ReplyVO;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.FDAO;
 import com.example.persistence.HealDAO;
 import com.example.persistence.HosDAO;
+import com.example.persistence.HosReplyDAO;
 import com.example.persistence.HsearchDAO;
 import com.example.persistence.QDAO;
 import com.example.persistence.ReplyDAO;
@@ -48,6 +60,9 @@ public class comuController {
 
 	@Inject
 	ReplyDAO rdao;
+	
+	@Inject
+	HosReplyDAO hrdao;
 	
 	//자유게시판 이동
 	@RequestMapping("comu_clist")
@@ -211,11 +226,11 @@ public class comuController {
 	}
 	
 	//상세정보 페이지
-		@RequestMapping("comu_detailList")
-		public String comu_detailList(int id, Model model) throws Exception {
-			model.addAttribute("vo",fdao.cread(id));
-			return "community/comDetail";
-		}
+	@RequestMapping("comu_detailListFree")
+	public String comu_detailListFree(int id, Model model) throws Exception {
+		model.addAttribute("vo",fdao.cread(id));
+		return "community/comDetail";
+	}
 	
 	//replyList
 	@ResponseBody
@@ -226,8 +241,111 @@ public class comuController {
 	
 	//replyInsert
 	@ResponseBody
-	@RequestMapping("replyinsert.json")
-	public void replyinsert_json(ReplyVO vo) throws Exception{
-		rdao.insert(vo);
+	@RequestMapping("freereplyinsert.json")
+	public void freereplyinsert_json(ReplyVO vo) throws Exception{
+		rdao.Finsert(vo);
 	}
+	
+	//상세정보 페이지
+	@RequestMapping("comu_detailListQuery")
+	public String comu_detailListQuery(int id, Model model) throws Exception {
+		model.addAttribute("vo",qdao.qread(id));
+		return "community/comDetailQuery";
+	}
+	
+	//replyList
+	@ResponseBody
+	@RequestMapping("replyListQuery.json")
+	public List<ReplyVO> replyListQuery_json(int pid) throws Exception{
+		return rdao.qlist(pid);
+	}
+	
+	//replyInsert
+	@ResponseBody
+	@RequestMapping("queryreplyinsert.json")
+	public void queryreplyinsert_json(ReplyVO vo) throws Exception{
+		rdao.Qinsert(vo);
+	}
+	
+	//상세정보 페이지
+		@RequestMapping("comu_detailListComu")
+	public String comu_detailListComu(int id,String hcode, Model model) throws Exception {
+		model.addAttribute("vo",hosdao.hread(id,hcode));
+		return "community/comDetailComu";
+	}
+	
+	//replyList
+	@ResponseBody
+	@RequestMapping("replyListComu.json")
+	public List<ReplyVO> replyListComu_json(int pid, String hcode) throws Exception{
+		return hrdao.hlist(pid,hcode);
+	}
+	
+	//replyInsert
+	@ResponseBody
+	@RequestMapping("Comureplyinsert.json")
+	public void Comureplyinsert_json(HosReplyVO vo) throws Exception{
+			hrdao.Hinsert(vo);
+	}
+	
+	@Resource(name = "uploadPath")
+	private String path;
+	
+
+	@RequestMapping(value = "insertComu", method = RequestMethod.POST)
+	public String insertPostCom(HosVO vo, String hname, MultipartFile file1) throws Exception {
+		System.out.println(vo.toString());
+		if (file1.getOriginalFilename() != "") {
+			// 업로드
+			UUID uid = UUID.randomUUID();
+			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
+			File target = new File(path, savedName);
+			FileCopyUtils.copy(file1.getBytes(), target);
+ 
+			vo.setImage(savedName);
+		}
+		
+		hosdao.insert(vo);
+
+		return "redirect:comu_community?h_code="+vo.getHcode()+"&h_name="+hname;
+	}
+	
+	@RequestMapping(value = "insertfree", method = RequestMethod.POST)
+	public String insertPostFree(FVO vo, MultipartFile file1) throws Exception {
+		// 파일의 이름이 있다면 if문 실행
+		if (file1.getOriginalFilename() != "") {
+			// 업로드
+			UUID uid = UUID.randomUUID();
+			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
+			File target = new File(path, savedName);
+			FileCopyUtils.copy(file1.getBytes(), target);
+ 
+			vo.setImage(savedName);
+		}
+		System.out.println(vo.toString());
+
+		fdao.insert(vo);
+
+		return "redirect:comu_clist";
+	}
+	
+	@RequestMapping(value = "insertquery", method = RequestMethod.POST)
+	public String insertPostQuery(QVO vo, MultipartFile file1) throws Exception {
+		// 파일의 이름이 있다면 if문 실행
+		if (file1.getOriginalFilename() != "") {
+			// 업로드
+			UUID uid = UUID.randomUUID();
+			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
+			File target = new File(path, savedName);
+			FileCopyUtils.copy(file1.getBytes(), target);
+ 
+			vo.setImage(savedName);
+		}
+		System.out.println(vo.toString());
+
+		qdao.insert(vo);
+
+		return "redirect:comu_qlist";
+	}
+	
 }

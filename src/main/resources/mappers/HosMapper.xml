@@ -57,5 +57,14 @@
 			and fname like concat('%',#{cri.keyword},'%')
 		</if>
 	</select>
+	
+	<select id="hread" resultType="com.example.domain.HosVO">
+		select * from comu_hospital where hid=#{hid} and hcode=#{hcode}
+	</select>
+	
+	<insert id="insert">
+		insert into comu_hospital(hcode,title,content,fname,type,image)
+		values(#{hcode},#{title},#{content},#{fname},#{type},#{image});
+	</insert>
 
 </mapper>

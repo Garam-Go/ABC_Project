@@ -156,7 +156,7 @@ function gethlist() {
 function getrlist() {
 	$.ajax({
 		type : "get",
-		url : "replyList.json",
+		url : "replyListQuery.json",
 		data:{"pid":pid},
 		success : function(data) {
 			var temp = Handlebars.compile($("#temp").html());
@@ -176,7 +176,7 @@ $("#btnreply").on("click",function(){
 	var content=$("#reply").val();
 	$.ajax({
 		type : "get",
-		url : "freereplyinsert.json",
+		url : "queryreplyinsert.json",
 		data:{"pid":pid, "content":content,"mid":"admin"},
 		success : function(data) {
 			var temp = Handlebars.compile($("#temph").html());

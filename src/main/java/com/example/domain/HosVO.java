@@ -11,7 +11,6 @@ public class HosVO {
 	private String title;
 	private String fname;
 	private String content;
-	
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date wdate;
 	private String image;

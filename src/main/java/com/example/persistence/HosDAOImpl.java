@@ -40,6 +40,20 @@ public class HosDAOImpl implements HosDAO{
 		return session.selectOne(namespace+".hostotal",map);
 	}
 	
-	
+
+	@Override
+	public HosVO hread(int hid,String hcode) throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("hid", hid);
+		map.put("hcode", hcode);
+		return session.selectOne(namespace+".hread",map);
+	}
+
+	@Override
+	public void insert(HosVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace+".insert",vo);
+	}
 
 }

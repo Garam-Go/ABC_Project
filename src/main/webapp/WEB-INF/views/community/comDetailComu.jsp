@@ -57,6 +57,8 @@
 
 							<div>
 								{{content}}
+								<button class="btndel">삭제</button>
+								<button class="btnup">수정</button>
 							</div>
 						</div>
 					</td>
@@ -109,6 +111,7 @@ var page1=1;
 var query = $("#query").val();
 var htotal = 1;
 var pid="${param.id}"
+var hcode="${param.hcode}"
 
 gethlist();
 getrlist();
@@ -156,8 +159,8 @@ function gethlist() {
 function getrlist() {
 	$.ajax({
 		type : "get",
-		url : "replyList.json",
-		data:{"pid":pid},
+		url : "replyListComu.json",
+		data:{"pid":pid,"hcode":hcode},
 		success : function(data) {
 			var temp = Handlebars.compile($("#temp").html());
 			$("#box").html(temp(data));
@@ -172,13 +175,19 @@ $("#reply").keyup(function(key) {
 	}
 });
 
+//댓글 입력
 $("#btnreply").on("click",function(){
 	var content=$("#reply").val();
+	if($("#reply").val().length==0){
+		alert("내용을 입력하세요");
+		return;
+	}
 	$.ajax({
 		type : "get",
-		url : "freereplyinsert.json",
-		data:{"pid":pid, "content":content,"mid":"admin"},
+		url : "Comureplyinsert.json",
+		data:{"pid":pid, "hcode":hcode, "content":content,"mid":"admin"},
 		success : function(data) {
+			
 			var temp = Handlebars.compile($("#temph").html());
 			$("#boxh").html(temp(data));
 			htotal = data.pm.totalCount;
@@ -187,6 +196,10 @@ $("#btnreply").on("click",function(){
 	gethlist();
 	getrlist();
 	$("#reply").val("");
+});
+
+$(".btnup").on("click",function(){
+	alert("수정");
 });
 </script>
 </html>

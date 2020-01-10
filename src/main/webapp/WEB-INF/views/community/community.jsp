@@ -33,7 +33,7 @@
 						<input type="button" value="음식나눔"  id="food">
 					</span>
 					<span style="float:right">
-						<input type="button" value="글쓰기" onClick="location.href='comu_insert'">
+						<input type="button" value="글쓰기" onClick="location.href='comu_insert?name=com&hcode=${param.h_code}&hname=${param.h_name}'">
 					</span>
 				</div>
 				
@@ -68,7 +68,7 @@
 										<tr class=tr>
 											<td width=50>{{hid}}</td>
 											<td width=100>{{wdate}}</td>
-											<td width=275>{{title}}</td>
+											<td width=275><a href="comu_detailListComu?id={{hid}}&hcode=${param.h_code}">{{title}}</a></td>
 											<td width=75>{{fname}}</td>
 											<td width=50>{{num}}</td>
 										</tr>

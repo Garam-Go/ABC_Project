@@ -32,4 +32,9 @@
 	<select id="cread" resultType="com.example.domain.FVO">
 		select * from comu_free where pid=#{pid}
 	</select>
+	
+	<insert id="insert">
+		insert into comu_free(title, content, fname,image)
+		values(#{title}, #{content}, 'admin',#{image});
+	</insert>
 </mapper>
