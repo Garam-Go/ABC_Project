@@ -20,7 +20,7 @@
 	}
 	#inner-content{
 		background:skyblue;
-		width:67%;
+		width:67%;     
 		height:100%;
 		margin: 10px;
 		float:left;
