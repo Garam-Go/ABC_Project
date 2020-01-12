@@ -167,7 +167,12 @@
 		</div>		<!-- content end -->
 
 		<div id="footer">
-		
+			<div class="a c"  onClick="funab()">b</div>
+			<div class=a onClick="funac()">c</div>
+			<div class="a c">d</div>
+			<div class=a>e</div>
+			<div class="a c">f</div>
+			<div class=a onClick="funag()">g</div>
 		</div>
 	</div>
 	<script>
@@ -181,6 +186,17 @@
 		getlist();
 		gethealth();
 		gethlist();
+		
+		function funab(){
+			alert($(".a").length)
+			return $(".a").length;
+		}
+		
+		function funac(){
+			alert($(".c").length)
+			return $(".c").length;
+		}
+		
 		
 		//건강정보
 		function gethealth(){
