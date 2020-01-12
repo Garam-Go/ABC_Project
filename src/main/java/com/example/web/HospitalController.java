@@ -10,12 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.domain.GradeVO;
 import com.example.domain.HVO;
 import com.example.domain.PageMaker;
 import com.example.domain.ReviewVO;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.HDAO;
+import com.example.persistence.ReviewDAO;
 import com.example.service.ReviewService;
 
 @RequestMapping("Hospital")
@@ -63,9 +63,20 @@ public class HospitalController {
 		}
 		
 	
+		/* reivew dao Inject */
+		
+		@Inject
+		ReviewDAO rdao;
+		
+		@Inject
+		ReviewService service;
 		
 		/*리뷰 컨트롤러*/
-	
+		@ResponseBody
+		@RequestMapping("Hos-reviewinsert")
+		public void reviewinsert(ReviewVO vo)throws Exception{
+			service.insert(vo);
+		}
 
 		
 		
@@ -115,10 +126,17 @@ public class HospitalController {
 		}
 		/* detail template */
 		@RequestMapping("Hos-ddetailhtml")
-		public String ddetailhtml(Model model,String h_code)throws Exception{
-			model.addAttribute("vo",dao.read(h_code));
+		public String ddetailhtml()throws Exception{
 			return "/Hospital/template/ddetailhtml";
 		}
 	
+		
+		/*병원 이름 update 할 때 쓰고 지울거임 */
+		@RequestMapping("Hos-update")
+		public void update(HVO vo)throws Exception{
+			dao.update(vo);
+		}
+		
+		
 	
 }

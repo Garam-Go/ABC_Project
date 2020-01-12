@@ -75,9 +75,8 @@
 
         <hr>
 		<input type="hidden" value="${vo.h_code}" id="h_code">		
-		<p>병원 사진 넣을거임</p>	
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="img-fluid rounded" src="${vo.h_image}">
 
         <hr>
 

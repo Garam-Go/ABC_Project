@@ -128,7 +128,9 @@
 		<script id="tempr" type="text/x-handlebars-template">
 				{{#each .}}
 				<div onClick="location.href='Hos-ddetailhtml?h_code={{h_code}}'">
-					<div style="margin-top:5px;margin-bottom:5px;">{{h_name}}</div>
+					<div style="margin-top:5px;margin-bottom:5px;">
+						{{h_name}}<span style="float:right;">
+					</div>
 					<hr>
 				</div>
 				{{/each}}

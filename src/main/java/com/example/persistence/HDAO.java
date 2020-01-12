@@ -20,7 +20,7 @@ public interface HDAO {
 	public void reviewinsert(ReviewVO vo) throws Exception;
 	
 	
-	/* 사진 넣을 update 문(사진 update 하고 지울 메소드) */
+	/* 병원 이름 update 문(update 하고 지울 메소드) */
 	public void update(HVO vo) throws Exception;
 	
 	

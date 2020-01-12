@@ -52,7 +52,7 @@ public class HDAOImpl implements HDAO{
 	@Override
 	public void update(HVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		session.update(namespace+".update");
+		session.update(namespace+".update",vo);
 	}
 
 	}

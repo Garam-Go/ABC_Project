@@ -8,16 +8,23 @@ public class HVO {
 	private String h_machine;
 	private String h_phone;
 	private String h_image;
-	
-	
-	public String getImage() {
-		return h_image;
+	public String getH_code() {
+		return h_code;
 	}
-	public void setImage(String h_image) {
-		this.h_image = h_image;
+	public void setH_code(String h_code) {
+		this.h_code = h_code;
+	}
+	public String getH_name() {
+		return h_name;
+	}
+	public void setH_name(String h_name) {
+		this.h_name = h_name;
 	}
 	public String getH_time() {
 		return h_time;
+	}
+	public void setH_time(String h_time) {
+		this.h_time = h_time;
 	}
 	public String getH_address() {
 		return h_address;
@@ -37,28 +44,19 @@ public class HVO {
 	public void setH_phone(String h_phone) {
 		this.h_phone = h_phone;
 	}
-	public void setH_time(String h_time) {
-		this.h_time = h_time;
+	public String getH_image() {
+		return h_image;
 	}
-	public String getH_code() {
-		return h_code;
+	public void setH_image(String h_image) {
+		this.h_image = h_image;
 	}
-	public void setH_code(String h_code) {
-		this.h_code = h_code;
-	}
-	public String getH_name() {
-		return h_name;
-	}
-	public void setH_name(String h_name) {
-		this.h_name = h_name;
-	}
-	
 	@Override
 	public String toString() {
 		return "HVO [h_code=" + h_code + ", h_name=" + h_name + ", h_time=" + h_time + ", h_address=" + h_address
 				+ ", h_machine=" + h_machine + ", h_phone=" + h_phone + ", h_image=" + h_image + "]";
 	}
-
+	
+		
 	
 	
 }

@@ -2,6 +2,13 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="ReviewMapper">
-
+	<insert id="insert">
+		insert into mbhrev(revcontent,revgrade,h_hcode,hrevmyid)
+		values(#{revcontent},#{revgrade},#{h_hcode},#{hrevmyid})
+	</insert>
+	<update id="update">
+		update mbhrev set revgrade=revgrade+#{revgrade} 
+		where h_hcode = #{h_hcode}
+	</update>
 </mapper>
 

@@ -32,8 +32,8 @@
 	
 	
 	<update id="update">
-		update hsearch set h_image=#{h_image}
-		where h_hcode=#{h_hcode}
+		update hsearch set h_name=#{h_name}
+		where h_code=#{h_code}
 	</update>
 	
 </mapper>
