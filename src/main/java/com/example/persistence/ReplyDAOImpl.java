@@ -1,8 +1,10 @@
 package com.example.persistence;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 import javax.inject.Inject;
 
@@ -41,4 +43,29 @@ public class ReplyDAOImpl implements ReplyDAO{
 		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".total",medcode);
 	}
+
+	@Override
+	public List<ReplyVO> clist(int pid) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".clist",pid);
+	}
+
+	@Override
+	public void Finsert(ReplyVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace+".Finsert",vo);
+	}
+
+	@Override
+	public void Qinsert(ReplyVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace+".Qinsert",vo);
+	}
+
+	@Override
+	public List<ReplyVO> qlist(int pid) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".qlist",pid);
+	}
+	
 }

@@ -13,4 +13,9 @@ public interface ReplyDAO {
 	public void delete(int replyid, int medcode) throws Exception;
 	
 	public int total(int medcode) throws Exception;
+
+	public List<ReplyVO> clist(int pid) throws Exception;
+	public void Finsert(ReplyVO vo) throws Exception;
+	public List<ReplyVO> qlist(int pid) throws Exception;
+	public void Qinsert(ReplyVO vo) throws Exception;
 }

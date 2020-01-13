@@ -30,4 +30,15 @@ public class QDAOImpl implements QDAO{
 		return session.selectOne(namespace+".qtotal", cri);
 	}
 	
+	@Override
+	public QVO qread(int qid) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".qread",qid);
+	}
+	
+	@Override
+	public void insert(QVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(namespace+".insert",vo);
+	}
 }
