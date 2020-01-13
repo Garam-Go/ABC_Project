@@ -52,7 +52,7 @@
 		<div id="login">
 			<jsp:include page="../loginmenu.jsp"></jsp:include>
 		</div>
-	    <div id="navbar">
+	    <div>
 			<jsp:include page="../../Nav/navBar.jsp"></jsp:include>
 	    </div>
 	</div>

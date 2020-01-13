@@ -89,15 +89,6 @@ td {
 				</div>
 				
 
-
-
-				<div id="new">
-					<select style="margin: 0px auto; margin-top: 25px; height: 50px;"
-						id="hide-new">
-						<option>1.인기 검색어 시작</option>
-						<option>10.인기 검색어 끝</option>
-					</select>
-				</div>
 				<!-- 메뉴 테이블 -->
 				<table width=700 border=0 style="margin-top: 20px; margin-right: 20px;">
 					<tr>

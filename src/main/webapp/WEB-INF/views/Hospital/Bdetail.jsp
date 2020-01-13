@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>----------ddetailhtml--------------------</title>
+  <title>약 세부정보</title>
 
   <!-- Bootstrap core CSS -->
   <link href="resources/template/hos/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,33 +23,37 @@
 
 <body>
 
+ 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="homepage">
+      	<img src="resources/logo.png" id="iconimg" width=60 >
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="homepage">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="Hos-bmain">병원검색</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="bmed_list">약검색</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
 
   <!-- Page Content -->
   <div class="container">
@@ -60,13 +64,7 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">Post Title</h1>
-
-        <!-- Author -->
-        <p class="lead">
-          by
-          <a href="#">Start Bootstrap</a>
-        </p>
+        <h1 class="mt-4">약 세부검색</h1>
 
         <hr>
 

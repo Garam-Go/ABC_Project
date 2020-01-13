@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog Home - Start Bootstrap Template</title>
+  <title>약 세부검색</title>
 
   <!-- Bootstrap core CSS -->
   <link href="resources/template/med-list/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,32 +23,37 @@
 
 <body>
 
+  
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">약 검색 상세 페이지</a>
+      <a class="navbar-brand" href="homepage">
+      	<img src="resources/logo.png" id="iconimg" width=60 >
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">
-              <span class="sr-only">
-              	<jsp:include page="../Nav/navBar.jsp"></jsp:include>
-              </span>
+            <a class="nav-link" href="homepage">Home
+              <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="Hos-bmain">병원검색</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="bmed_list">약검색</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
 
   <!-- Page Content -->
   <div class="container">
@@ -59,18 +64,14 @@
       <div class="col-md-8">
 
         <h1 class="my-4">약 리스트
-          <small>Secondary Text</small>
+          <small>검색결과</small>
         </h1>
-		<div id="search" style="margin-bottom:20px;">
-				<input type="text" id="keyword">
-				<input type="button" id="btnsearch" value="검색">
-		</div>
         <!-- Blog Post -->
 
            <table id="boxlist" border=1 width=580></table>
 			<script id="temp-med" type="text/x-handlebars-template">
 				{{#each list}}
-				<tr class="row" medcode="{{medcode}}">
+				<tr class="det" medcode="{{medcode}}">
 					<td width=100 height=50>{{medcode}}</td>
 					<td class="medname">{{medname}}</td>
 					<td width=100>★100</td>
@@ -78,7 +79,7 @@
 				<tr class="med-detail">
 					<td colspan=3 height=20>
 					<div style="overflow:hidden;text-overflow:ellipsis;width:580px;">
-						{{medcontent}}
+						{{medcontent}}...
 					</div>
 					</td>
 				</tr>
@@ -99,12 +100,12 @@
 
         <!-- Search Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Search</h5>
+          <h5 class="card-header">검색</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
+              <input type="text" class="form-control" placeholder="Search for..." id="keyword">
               <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
+                <button class="btn btn-secondary" type="button" id="btnsearch">검색</button>
               </span>
             </div>
           </div>

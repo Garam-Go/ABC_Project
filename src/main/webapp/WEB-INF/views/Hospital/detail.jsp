@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>detail</title>
+<title>병원 세부정보</title>
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -38,12 +38,6 @@ td {
 		</div>
 		<div id="content" style="overflow: hidden;">
 			<div id="content-left" style="float: left; width: 680px; ">
-				<div id="new"	style="background: white; width: 100px; heigth: 50px; margin-left: 500px; margin-top: 20px;">
-					<select style="margin: 0px auto; height: 50px;" id="hide-new">
-						<option>1.인기 검색어 시작</option>
-						<option>10.인기 검색어 끝</option>
-					</select>
-				</div>
 				<input type="hidden" value="${vo.h_code}" id="h_code">
 
 
@@ -96,9 +90,7 @@ td {
 					<input type="button" value="질문게시판" style="width:100px;height:75px;margin-left:2.5px;">
 				</div>
 			</div>
-			<div>
-				<a href="search">이전</a>
-			</div>
+
 		</div>
 		<div id="footer"></div>
 		

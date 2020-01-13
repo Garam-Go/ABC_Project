@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>----------dsearchhtml--------------------</title>
+  <title>병원검색</title>
 
   <!-- Bootstrap core CSS -->
   <link href="resources/template/hos/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,32 +21,39 @@
   	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
-</head>
 
+</head>
+<style>
+	.hos-click:hover{
+		cursor: pointer;
+	}
+</style>
 <body>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="homepage">
+      	<img src="resources/logo.png" id="iconimg" width=60 >
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="homepage">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">병원검색</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#">약검색</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
         </ul>
       </div>
@@ -60,9 +67,10 @@
 
       <!-- Post Content Column -->
       <div class="col-lg-8">
-
+		
         <!-- Title -->
-        <h1 class="mt-4">Post Title</h1>
+        <h1 class="mt-4">병원 검색</h1>
+        
 
         <!-- Author -->
         <p class="lead">
@@ -109,7 +117,7 @@
 		<table border=1 width=600 id="tblr"></table>
 		<script id="tempr" type="text/x-handlebars-template">
 			{{#each .}}
-				<tr  h_code="{{h_code}}" class="hos-click">
+				<tr  h_code="{{h_code}}" class="hos-click" >
 					<td style="padding:5px;">{{h_name}}</td>
 				</tr>
 			{{/each}}
@@ -134,7 +142,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
-              		<a href="mypage-mypage">메세지함</a>
+              		<a href="MessageHome">메세지 확인하기</a>
               </div>
             </div>
           </div>
@@ -167,7 +175,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; ABCProject 2020</p>
     </div>
     <!-- /.container -->
   </footer>

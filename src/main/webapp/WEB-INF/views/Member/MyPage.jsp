@@ -43,7 +43,6 @@ table tr td {
 <body>
 	<div id="page">
 		<div id="header">
-			<h1>마이페이지</h1>
 			<div id="login">
 				<jsp:include page="loginmenu.jsp"></jsp:include>
 			</div>

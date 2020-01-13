@@ -137,11 +137,16 @@ public class MyPageController {
 	public String Basketmedfav(){
 		return "/Member/BasketMedFav";
 	}
-	//댓글 리스트(커뮤니티 페이지하고 연동)
-	@RequestMapping("BasketRepList")
-	public String Basketreplist(){
-		return "/Member/BasketRepList";
+	//약댓글 리스트
+	@RequestMapping("BasketRepListM")
+	public String BasketreplistM(){
+		return "/Member/BasketRepListM";
 	}
+	//커뮤댓글 리스트
+		@RequestMapping("BasketRepListC")
+		public String BasketreplistC(){
+			return "/Member/BasketRepListC";
+		}
 	//커뮤 보관함
 	@RequestMapping("BasketComMove")
 	public String Basketcom(){

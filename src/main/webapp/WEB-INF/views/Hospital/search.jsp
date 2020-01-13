@@ -85,13 +85,6 @@
 						<input type="button" value="검색" id="selsearch" class="selsearch">
 						<!-- 직접 검색 -->
 					</div>
-					<div id="new" style="float:right;">
-					<!-- 검색 연습 끝 -->
-						<select style="width:150px; margin: 10px; height: 50px;" id="hide-new">
-							<option>1.인기 검색어 시작</option>
-							<option>10.인기 검색어 끝</option>
-						</select>
-					</div>	
 				
 		<div style="width: 700px; background: #E0F8E6; margin-bottom: 50px; padding: 15px; clear:both;">		
 			<h2>검색된 병원 목록</h2>

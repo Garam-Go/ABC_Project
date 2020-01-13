@@ -100,32 +100,18 @@ public class MedicineController {
 	}
 
 	//마이리스트에서 내가 쓴 댓글 리스트
-//		@ResponseBody
-//		@RequestMapping("mmlist")
-//		public HashMap<String, Object> mmlist(Criteria cri, String replyname)throws Exception{
-//			HashMap<String, Object> hash = new HashMap<String, Object>();
-//			cri.setPerPageNum(10);
-//			PageMaker pm=new PageMaker();
-//			pm.setCri(cri);
-//			pm.setTotalCount(repdao.mmtotal(replyname));
-//			hash.put("pm",pm);
-//			hash.put("list",repdao.mmlist(cri,replyname));
-//			return hash; 
-//		}
-
-	//마이리스트에서 내가 쓴 댓글 리스트
-//	@ResponseBody
-//	@RequestMapping("mmlist")
-//	public HashMap<String, Object> mmlist(Criteria cri, String replyname)throws Exception{
-//		HashMap<String, Object> hash = new HashMap<String, Object>();
-//		cri.setPerPageNum(10);
-//		PageMaker pm=new PageMaker();
-//		pm.setCri(cri);
-//		pm.setTotalCount(repdao.mmtotal(replyname));
-//		hash.put("pm",pm);
-//		hash.put("list",repdao.mmlist(cri,replyname));
-//		return hash; 
-//	}
+		@ResponseBody
+		@RequestMapping("mmlist")
+		public HashMap<String, Object> mmlist(Criteria cri, String replyname)throws Exception{
+			HashMap<String, Object> hash = new HashMap<String, Object>();
+			cri.setPerPageNum(10);
+			PageMaker pm=new PageMaker();
+			pm.setCri(cri);
+			pm.setTotalCount(repdao.mmtotal(replyname));
+			hash.put("pm",pm);
+			hash.put("list",repdao.mmlist(cri,replyname));
+			return hash; 
+		}
 
 }
 

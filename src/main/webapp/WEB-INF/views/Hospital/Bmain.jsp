@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>----------dmainhtml--------------------</title>
+  <title>알보칠 프로젝트</title>
   <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   <!-- Bootstrap core CSS -->
@@ -50,17 +50,25 @@
 	text-align: center;
 }
 
-  	
+  	#tbl{
+  		margin:20px auto;
+  		border:1px solid gray;
+  	}
+  	#tbl tr:hover{
+  		cursor: pointer;
+  		background: lightgreen;
+  	}
   </style>
 </head>
 
 <body>
 
+  
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="home">  	
-			<img src="resources/logo.png" id="iconimg" width=60 >
+      <a class="navbar-brand" href="homepage">
+      	<img src="resources/logo.png" id="iconimg" width=60 >
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -68,22 +76,24 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">
-              <span class="sr-only">
-					<jsp:include page="../Nav/navBar.jsp"></jsp:include>
-              </span>
+            <a class="nav-link" href="homepage">Home
+              <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="Hos-bmain">병원검색</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="bmed_list">약검색</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
   
     
 
@@ -92,7 +102,7 @@
   <div id="darken-background">
 
 					<div id="lightbox">
-						<table id="tbl" width="500" border=0 style="border: 1px solid gray;"></table>
+						<table id="tbl" width="500" ></table>
 						<script id="temp" type="text/x-handlebars-template">
 							{{#each .}}
 								<tr onClick="location.href='Hos-detail?h_code={{h_code}}'" h_code="{{h_code}}">
@@ -120,13 +130,9 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">Post Title</h1>
+        <h1 class="mt-4">병원검색</h1>
 
-        <!-- Author -->
-        <p class="lead">
-          by
-          <a href="#">Start Bootstrap</a>
-        </p>
+     
 
         <hr>
 
@@ -190,9 +196,9 @@
           <h5 class="card-header">Search</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" id="query"  placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button" id="btnsearch">Go!</button>
+              <input type="text" class="form-control" id="query"  placeholder="Search for..." value=<c:if test="${query!=''?query:''}"/>>
+                            <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button" id="btnsearch">검색</button>
               </span>
             </div>
           </div>
@@ -225,7 +231,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
-              		<a href="mypage-mypage">메세지함</a>
+              		<a href="MessageHome">메세지함</a>
               </div>
             </div>
           </div>
@@ -254,7 +260,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; ABCProject 2020</p>
     </div>
     <!-- /.container -->
   </footer>
@@ -311,5 +317,10 @@
 			}
 		});
 	}
+	
+	$("#mainSearch").on("click",function(){
+		query = $("#query").val();
+		location.href="Hos-bmain?query="+query;
+	});
 	</script>
 </html>
