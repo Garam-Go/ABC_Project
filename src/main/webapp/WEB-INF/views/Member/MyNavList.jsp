@@ -14,14 +14,14 @@
 				<div id="in-med-menu">
 					<a href="BasketMedList">최근 검색한 약</a><br>
 					<a href="BasketMedFav">내 관심 약</a><br>
-					<a href="BasketRepListM">약 댓글 관리</a>
+					<a href="BasketRepList">약 댓글 관리</a>
 				</div>
 			</li>
 			<li id="in-com"><a href="BasketComMove">커뮤</a>
 				<div id="in-com-menu">
 					<a href="BasketComFree">내가 쓴 글</a><br>
 					<a href="BasketComQes">내가 쓴 질문</a><br>
-					<a href="BasketRepListC">내 댓글 관리</a>
+					<a href="BasketRepList">내 댓글 관리</a>
 				</div>
 			</li>
 		</ul>

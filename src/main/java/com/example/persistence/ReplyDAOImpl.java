@@ -27,12 +27,10 @@ public class ReplyDAOImpl implements ReplyDAO{
 		map.put("cri", cri);
 		return session.selectList(namespace + ".list", map);
 	}
-	
 	@Override
 	public void insert(ReplyVO vo) throws Exception {
 		session.insert(namespace + ".insert", vo);
 	}
-	
 	@Override
 	public void delete(int replyid, int medcode) throws Exception {
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -40,7 +38,6 @@ public class ReplyDAOImpl implements ReplyDAO{
 		map.put("medcode", medcode);
 		session.selectList(namespace + ".delete", map);
 	}
-	
 	@Override
 	public int total(int medcode) throws Exception {
 		// TODO Auto-generated method stub
@@ -69,23 +66,6 @@ public class ReplyDAOImpl implements ReplyDAO{
 	public List<ReplyVO> qlist(int pid) throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".qlist",pid);
-	}
-
-	@Override
-	public List<ReplyVO> mmlist(Criteria cri, String replyname) {
-		// TODO Auto-generated method stub
-		HashMap<String, Object> hash = new HashMap<String, Object>();
-		hash.put("cri", cri);
-		hash.put("replyname", replyname);
-		return session.selectList(namespace+".mmlist",hash);
-	}
-
-	@Override
-	public int mmtotal(String replyname) {
-		// TODO Auto-generated method stub
-		HashMap<String, Object> hash = new HashMap<String, Object>();
-		hash.put("replyname", replyname);
-		return session.selectOne(namespace+".mmtotal",replyname);
 	}
 	
 }
