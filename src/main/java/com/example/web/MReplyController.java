@@ -50,4 +50,5 @@ public class MReplyController {
 	public void delete(int replyid, int medcode)throws Exception{
 		rdao.delete(replyid, medcode);
 	}
+	
 }

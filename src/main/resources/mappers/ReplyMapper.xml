@@ -43,5 +43,16 @@
 				WHERE table_name = 'comu_query_reply' AND table_schema = DATABASE( )));
 	</insert>
 	
-	
+<!-- 	mmlist -->
+	<select id="mmlist" resultType="com.example.domain.ReplyVO">
+		select * from medreply
+		where replyname = #{replyname}
+		order by replyid desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+<!-- 	mmtotal -->
+	<select id="mmtotal" resultType="int">
+		select count(*) from medreply
+		where replyname = #{replyname}
+	</select>
 </mapper>
