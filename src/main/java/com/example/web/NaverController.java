@@ -60,7 +60,7 @@ public class NaverController {
 			System.out.println("비밀번호 : " + pass);
 		}
 
-		return "redirect:../home";
+		return "redirect:../homepage";
 	}
 
 	
