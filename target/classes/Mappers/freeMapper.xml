@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="freeMapper">
+
+	<select id="clist" resultType="com.example.domain.FVO">
+		select * from comu_free
+		<if test="searchType=='title'">
+			where title like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='content'">
+			where content like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='fname'">
+			where fname like concat('%',#{keyword},'%')
+		</if>
+		order by pid desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="ctotal" resultType="int">
+		select count(*) from comu_free
+		<if test="searchType=='title'">
+			where title like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='content'">
+			where content like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='fname'">
+			where fname like concat('%',#{keyword},'%')
+		</if>
+	</select>
+</mapper>
