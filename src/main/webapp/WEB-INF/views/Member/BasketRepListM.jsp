@@ -86,6 +86,7 @@
 </body>
 <script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 getmrep();
 function getmrep(){
 	var mid = "${mid}";
@@ -101,6 +102,8 @@ function getmrep(){
 	});
 }
 =======
+=======
+>>>>>>> parent of e224e1a... Revert "약댓글 띄우기"
 	getmrep();
 	function getmrep(){
 		var mid = "${mid}";
@@ -115,6 +118,9 @@ function getmrep(){
 			}
 		}
 	}
+<<<<<<< HEAD
+>>>>>>> parent of e224e1a... Revert "약댓글 띄우기"
+=======
 >>>>>>> parent of e224e1a... Revert "약댓글 띄우기"
 </script>
 </html>

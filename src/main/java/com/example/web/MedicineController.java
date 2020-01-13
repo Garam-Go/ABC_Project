@@ -28,6 +28,7 @@ public class MedicineController {
 	@Inject
 	ReplyDAO repdao;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	//ºÎÆ®½ºÆ®·¦
 	@RequestMapping("bmed_list")
@@ -47,6 +48,8 @@ public class MedicineController {
 		//System.out.println(mdao.read(medcode));
 		return "/Medicine/bmed_des";
 	}
+=======
+>>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
 =======
 >>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
 	
@@ -101,6 +104,7 @@ public class MedicineController {
 		mbmdao.mminsert(vo);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//¸¶ÀÌ¸®½ºÆ®¿¡¼­ ³»°¡ ¾´ ´ñ±Û ¸®½ºÆ®
 		@ResponseBody
 		@RequestMapping("mmlist")
@@ -115,6 +119,8 @@ public class MedicineController {
 			return hash; 
 		}
 =======
+=======
+>>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
 	
 	//¸¶ÀÌ¸®½ºÆ®¿¡¼­ ³»°¡ ¾´ ´ñ±Û ¸®½ºÆ®
 	@ResponseBody
@@ -129,6 +135,9 @@ public class MedicineController {
 		hash.put("list",repdao.mmlist(cri,replyname));
 		return hash; 
 	}
+<<<<<<< HEAD
+>>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
+=======
 >>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
 }
 
