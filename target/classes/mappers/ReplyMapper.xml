@@ -20,10 +20,8 @@
 		delete from medreply
 		where replyid=#{replyid}
 	</delete>
-</mapper>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper  namespace="ReplyMapper">
-	<select id="list" resultType="com.example.domain.ReplyVO">
+
+	<select id="clist" resultType="com.example.domain.ReplyVO">
 		select * from comu_free_reply where pid = #{pid}
 		order by rid desc
 	</select>
@@ -45,5 +43,16 @@
 				WHERE table_name = 'comu_query_reply' AND table_schema = DATABASE( )));
 	</insert>
 	
-	
+<!-- 	mmlist -->
+	<select id="mmlist" resultType="com.example.domain.ReplyVO">
+		select * from medreply
+		where replyname = #{replyname}
+		order by replyid desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+<!-- 	mmtotal -->
+	<select id="mmtotal" resultType="int">
+		select count(*) from medreply
+		where replyname = #{replyname}
+	</select>
 </mapper>
