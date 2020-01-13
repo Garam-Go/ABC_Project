@@ -57,13 +57,6 @@ public class ReplyVO {
 	public void setReplycommend(int replycommend) {
 		this.replycommend = replycommend;
 	}
-	@Override
-	public String toString() {
-		return "ReplyVO [replyid=" + replyid + ", medcode=" + medcode + ", replyname=" + replyname + ", replycontent="
-				+ replycontent + ", replydate=" + replydate + ", replyupdate=" + replyupdate + ", replycommend="
-				+ replycommend + "]";
-	}
-	
 	
 	private int rid;
 	private int pid;
@@ -76,11 +69,6 @@ public class ReplyVO {
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date wdate;
 	
-	@Override
-	public String toString() {
-		return "ReplyVO [rid=" + rid + ", pid=" + pid + ", plus=" + plus + ", minus=" + minus + ", reply=" + reply
-				+ ", mid=" + mid + ", content=" + content + ", wdate=" + wdate + "]";
-	}
 	public int getRid() {
 		return rid;
 	}

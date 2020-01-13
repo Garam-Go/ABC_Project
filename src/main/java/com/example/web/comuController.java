@@ -64,7 +64,7 @@ public class comuController {
 	@Inject
 	HosReplyDAO hrdao;
 	
-	//�����Խ��� �̵�
+	//占쏙옙占쏙옙占쌉쏙옙占쏙옙 占싱듸옙
 	@RequestMapping("comu_clist")
 	public String comu_clist(Model model, SearchCriteria cri) throws Exception {
 		cri.setPerPageNum(5);
@@ -72,7 +72,7 @@ public class comuController {
 		return "/community/main";
 	}
 	
-	//�����Խ��� ����
+	//占쏙옙占쏙옙占쌉쏙옙占쏙옙 占쏙옙占쏙옙
 	@ResponseBody
 	@RequestMapping("clist.json")
 	public Map<String, Object> clist(SearchCriteria cri) throws Exception{
@@ -87,7 +87,7 @@ public class comuController {
 		return map;
 	}
 	
-	//�ǰ����� ũ�Ѹ�
+	//占실곤옙占쏙옙占쏙옙 크占싼몌옙
 	@ResponseBody
 	@RequestMapping("health.json")
 	public List<HashMap<String,Object>> health() throws Exception{
@@ -110,7 +110,7 @@ public class comuController {
 			return list;
 	}
 	
-	//�ǰ����� ������ �̵�
+	//占실곤옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占싱듸옙
 		@RequestMapping("comu_hlist")
 	public String comu_hlist(Model model, SearchCriteria cri) throws Exception {
 			cri.setPerPageNum(5);
@@ -119,7 +119,7 @@ public class comuController {
 			return "community/hlist";
 		}
 		
-	//�ǰ����� ũ�Ѹ�
+	//占실곤옙占쏙옙占쏙옙 크占싼몌옙
 	@ResponseBody
 	@RequestMapping("healthlist.json")
 	public HashMap<String,Object> healthlist(int page,String keyword) throws Exception{
@@ -147,7 +147,7 @@ public class comuController {
 			return list;
 		}
 			
-	//�ǰ����� DB�� ���� �ֱ�
+	//占실곤옙占쏙옙占쏙옙 DB占쏙옙 占쏙옙占쏙옙 占쌍깍옙
 	@ResponseBody
 	@RequestMapping(value="hinsert", method=RequestMethod.POST)
 	public void hinsert(HealVO vo) throws Exception{
@@ -155,14 +155,14 @@ public class comuController {
 		hdao.hinsert(vo);
 	}
 
-	//�����Խ��� �̵�
+	//占쏙옙占쏙옙占쌉쏙옙占쏙옙 占싱듸옙
 	@RequestMapping("comu_qlist")
 	public String comu_qlist(Model model, SearchCriteria cri) throws Exception {
-		PageMaker pm = new PageMaker(); // �������� ���� ������
+		PageMaker pm = new PageMaker(); // 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
 		cri.setPerPageNum(5);
 		pm.setCri(cri);
 
-		pm.setTotalCount(qdao.qtotal(cri)); // ��ü�� �����͸� ���Ƿ� ���� ��������.
+		pm.setTotalCount(qdao.qtotal(cri)); // 占쏙옙체占쏙옙 占쏙옙占쏙옙占싶몌옙 占쏙옙占실뤄옙 占쏘개占쏙옙占� 占쏙옙占쏙옙占쏙옙占쏙옙.
 		
 		model.addAttribute("qlist", qdao.qlist(cri));
 		model.addAttribute("clist", fdao.clist(cri));
@@ -170,7 +170,7 @@ public class comuController {
 		return "/community/qlist";
 	}
 	
-	//�����Խ��� ����
+	//占쏙옙占쏙옙占쌉쏙옙占쏙옙 占쏙옙占쏙옙
 	@ResponseBody
 	@RequestMapping("qlist.json")
 	public Map<String, Object> qlist(SearchCriteria cri) throws Exception{
@@ -185,7 +185,7 @@ public class comuController {
 		return map;
 	}
 	
-	//���� ����Ʈ ������
+	//占쏙옙占쏙옙 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙
 	@ResponseBody
 	@RequestMapping("community.json")
 	public Map<String, Object> comulist(SearchCriteria cri) throws Exception{
@@ -199,13 +199,13 @@ public class comuController {
 		return map;
 	}
 	
-	//Ŀ�´�Ƽ ������ �̵�
+	//커占승댐옙티 占쏙옙占쏙옙占쏙옙 占싱듸옙
 	@RequestMapping("comu_community")
 	public String comu_community() throws Exception {
 		return "community/community";
 	}
 	
-	//�������Խ��� ����Ʈ ������
+	//占쏙옙占쏙옙占쏙옙占쌉쏙옙占쏙옙 占쏙옙占쏙옙트 占쏙옙占쏙옙占쏙옙
 	@ResponseBody
 	@RequestMapping("comu_community.json")
 	public Map<String, Object> comu_communityJson(String type, String hcode,SearchCriteria cri) throws Exception{
@@ -219,13 +219,13 @@ public class comuController {
 		return map;
 	}
 	
-	//�۾���
+	//占쌜억옙占쏙옙
 	@RequestMapping("comu_insert")
 	public String comu_insert() throws Exception {
 		return "community/comInsert";
 	}
 	
-	//������ ������
+	//占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
 	@RequestMapping("comu_detailListFree")
 	public String comu_detailListFree(int id, Model model) throws Exception {
 		model.addAttribute("vo",fdao.cread(id));
@@ -236,7 +236,7 @@ public class comuController {
 	@ResponseBody
 	@RequestMapping("replyList.json")
 	public List<ReplyVO> replyList_json(int pid) throws Exception{
-		return rdao.list(pid);
+		return rdao.clist(pid);
 	}
 	
 	//replyInsert
@@ -246,7 +246,7 @@ public class comuController {
 		rdao.Finsert(vo);
 	}
 	
-	//������ ������
+	//占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
 	@RequestMapping("comu_detailListQuery")
 	public String comu_detailListQuery(int id, Model model) throws Exception {
 		model.addAttribute("vo",qdao.qread(id));
@@ -267,7 +267,7 @@ public class comuController {
 		rdao.Qinsert(vo);
 	}
 	
-	//������ ������
+	//占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
 		@RequestMapping("comu_detailListComu")
 	public String comu_detailListComu(int id,String hcode, Model model) throws Exception {
 		model.addAttribute("vo",hosdao.hread(id,hcode));
@@ -296,7 +296,7 @@ public class comuController {
 	public String insertPostCom(HosVO vo, String hname, MultipartFile file1) throws Exception {
 		System.out.println(vo.toString());
 		if (file1.getOriginalFilename() != "") {
-			// ���ε�
+			// 占쏙옙占싸듸옙
 			UUID uid = UUID.randomUUID();
 			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
 			File target = new File(path, savedName);
@@ -312,9 +312,9 @@ public class comuController {
 	
 	@RequestMapping(value = "insertfree", method = RequestMethod.POST)
 	public String insertPostFree(FVO vo, MultipartFile file1) throws Exception {
-		// ������ �̸��� �ִٸ� if�� ����
+		// 占쏙옙占쏙옙占쏙옙 占싱몌옙占쏙옙 占쌍다몌옙 if占쏙옙 占쏙옙占쏙옙
 		if (file1.getOriginalFilename() != "") {
-			// ���ε�
+			// 占쏙옙占싸듸옙
 			UUID uid = UUID.randomUUID();
 			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
 			File target = new File(path, savedName);
@@ -331,9 +331,9 @@ public class comuController {
 	
 	@RequestMapping(value = "insertquery", method = RequestMethod.POST)
 	public String insertPostQuery(QVO vo, MultipartFile file1) throws Exception {
-		// ������ �̸��� �ִٸ� if�� ����
+		// 占쏙옙占쏙옙占쏙옙 占싱몌옙占쏙옙 占쌍다몌옙 if占쏙옙 占쏙옙占쏙옙
 		if (file1.getOriginalFilename() != "") {
-			// ���ε�
+			// 占쏙옙占싸듸옙
 			UUID uid = UUID.randomUUID();
 			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
 			File target = new File(path, savedName);
