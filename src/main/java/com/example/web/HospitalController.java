@@ -45,13 +45,13 @@ public class HospitalController {
 	
 	
 	/* main 페이지로 이동*/
-	@RequestMapping("Hos-main")
-	public String main(){
-		PageMaker pm=new PageMaker();
-		HashMap<String,Object> map= new HashMap<String,Object>();
-		map.put("pm", pm);
-		return "/Hospital/main";
-	}
+//	@RequestMapping("Hos-main")
+//	public String main(){
+//		PageMaker pm=new PageMaker();
+//		HashMap<String,Object> map= new HashMap<String,Object>();
+//		map.put("pm", pm);
+//		return "/Hospital/main";
+//	}
 	
 	
 	

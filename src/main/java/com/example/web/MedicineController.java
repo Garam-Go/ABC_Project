@@ -10,12 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.domain.Criteria;
 import com.example.domain.MBasketMVO;
 import com.example.domain.MedicineVO;
 import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.MBMDAO;
 import com.example.persistence.MedicineDAO;
+import com.example.persistence.ReplyDAO;
 
 @Controller
 public class MedicineController {
@@ -23,7 +25,8 @@ public class MedicineController {
 	MedicineDAO Meddao;
 	@Inject
 	MBMDAO mbmdao;
-	
+	@Inject
+	ReplyDAO repdao;
 	
 	//부트스트랩
 	@RequestMapping("bmed_list")
@@ -94,5 +97,18 @@ public class MedicineController {
 		vo.setMmrecent(mmrecent);
 		mbmdao.mminsert(vo);
 	}
+	//마이리스트에서 내가 쓴 댓글 리스트
+		@ResponseBody
+		@RequestMapping("mmlist")
+		public HashMap<String, Object> mmlist(Criteria cri, String replyname)throws Exception{
+			HashMap<String, Object> hash = new HashMap<String, Object>();
+			cri.setPerPageNum(10);
+			PageMaker pm=new PageMaker();
+			pm.setCri(cri);
+			pm.setTotalCount(repdao.mmtotal(replyname));
+			hash.put("pm",pm);
+			hash.put("list",repdao.mmlist(cri,replyname));
+			return hash; 
+		}
 }
 

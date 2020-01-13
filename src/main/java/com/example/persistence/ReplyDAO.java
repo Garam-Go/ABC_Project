@@ -18,4 +18,7 @@ public interface ReplyDAO {
 	public void Finsert(ReplyVO vo) throws Exception;
 	public List<ReplyVO> qlist(int pid) throws Exception;
 	public void Qinsert(ReplyVO vo) throws Exception;
+	
+	public List<ReplyVO> mmlist(Criteria cri, String replyname);
+	public int mmtotal(String replyname);
 }
