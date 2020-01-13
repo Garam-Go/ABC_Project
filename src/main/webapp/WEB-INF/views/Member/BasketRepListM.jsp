@@ -85,6 +85,7 @@
 </div>
 </body>
 <script>
+<<<<<<< HEAD
 getmrep();
 function getmrep(){
 	var mid = "${mid}";
@@ -99,5 +100,21 @@ function getmrep(){
 		}
 	});
 }
+=======
+	getmrep();
+	function getmrep(){
+		var mid = "${mid}";
+		$.ajax(){
+			type:"get",
+			url:"mmlist",
+			data:{"replyname":mid},
+			success:function(data){
+				var temp=Handlebars.compile($("#temp-medrep").html());
+				$("#table-medrep").html(temp(data));
+
+			}
+		}
+	}
+>>>>>>> parent of e224e1a... Revert "약댓글 띄우기"
 </script>
 </html>

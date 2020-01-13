@@ -27,6 +27,7 @@ public class MedicineController {
 	MBMDAO mbmdao;
 	@Inject
 	ReplyDAO repdao;
+<<<<<<< HEAD
 	
 	//ºÎÆ®½ºÆ®·¦
 	@RequestMapping("bmed_list")
@@ -46,6 +47,8 @@ public class MedicineController {
 		//System.out.println(mdao.read(medcode));
 		return "/Medicine/bmed_des";
 	}
+=======
+>>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
 	
 	//¾à°Ë»ö ¸ŞÀÎÆäÀÌÁö·Î ÀÌµ¿
 	@RequestMapping("medicineMain")
@@ -97,6 +100,7 @@ public class MedicineController {
 		vo.setMmrecent(mmrecent);
 		mbmdao.mminsert(vo);
 	}
+<<<<<<< HEAD
 	//¸¶ÀÌ¸®½ºÆ®¿¡¼­ ³»°¡ ¾´ ´ñ±Û ¸®½ºÆ®
 		@ResponseBody
 		@RequestMapping("mmlist")
@@ -110,5 +114,21 @@ public class MedicineController {
 			hash.put("list",repdao.mmlist(cri,replyname));
 			return hash; 
 		}
+=======
+	
+	//¸¶ÀÌ¸®½ºÆ®¿¡¼­ ³»°¡ ¾´ ´ñ±Û ¸®½ºÆ®
+	@ResponseBody
+	@RequestMapping("mmlist")
+	public HashMap<String, Object> mmlist(Criteria cri, String replyname)throws Exception{
+		HashMap<String, Object> hash = new HashMap<String, Object>();
+		cri.setPerPageNum(10);
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(repdao.mmtotal(replyname));
+		hash.put("pm",pm);
+		hash.put("list",repdao.mmlist(cri,replyname));
+		return hash; 
+	}
+>>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
 }
 

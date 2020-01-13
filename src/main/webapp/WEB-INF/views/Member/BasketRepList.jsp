@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,8 +57,8 @@
 		</div>
 		<div id="inner-content">
 			<select id="FreeSelect" style="width:200px; height:50px; margin:30px;" onchange="selc(this)">
-				<option value="free">자유게시판</option>
-				<option value="med">약댓글</option>
+				<option value="free" <c:out value="${param.list=='free' ? 'selected' : '' }"/>>자유게시판</option>
+				<option value="med"  <c:out value="${param.list=='med' ? 'selected' : '' }"/>>약댓글</option>
 			</select>
 			<div id="basm">
 				<jsp:include page="BasketRepListM.jsp"></jsp:include>
@@ -67,13 +69,10 @@
 			<script>
 				function selc(val){
 					var sel = val.value;
-					alert(sel);
-					if(sel.equals("free")){
-						$("#basc").show();
-						$("#basm").hide();
-					}else{
-						$("#basm").show();
-						$("#basc").hide();
+					if(sel=="free"){
+						$("#basc jsp:include").attr("page","BasketRepListC.jsp");
+					}else if(sel=="med"){
+						$("#basc").attr("page","BasketRepListM.jsp");
 					}
 				}
 			</script>
