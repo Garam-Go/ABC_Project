@@ -120,13 +120,6 @@
 
         <!-- Post Content -->
 
-
-
-		
-        
-
- 
-
       </div>
 
       <!-- Sidebar Widgets Column -->
