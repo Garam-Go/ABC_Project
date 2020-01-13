@@ -28,4 +28,13 @@
 			where fname like concat('%',#{keyword},'%')
 		</if>
 	</select>
+	
+	<select id="qread" resultType="com.example.domain.QVO">
+		select * from comu_query where qid=#{qid}
+	</select>
+	
+	<insert id="insert">
+		insert into comu_query(title, content,fname, image)
+		values(#{title}, #{content},'admin', #{image});
+	</insert>
 </mapper>
