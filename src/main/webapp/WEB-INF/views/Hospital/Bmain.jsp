@@ -196,7 +196,7 @@
           <h5 class="card-header">Search</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" id="query"  placeholder="Search for..." value=<c:if test="${query!=''?query:''}"/>>
+              <input type="text" class="form-control" id="query"  placeholder="Search for..." value='<c:out value="${param.query!=''?param.query:'' }"></c:out>'>
                             <span class="input-group-btn">
                 <button class="btn btn-secondary" type="button" id="btnsearch">검색</button>
               </span>
@@ -318,7 +318,8 @@
 		});
 	}
 	
-	$("#mainSearch").on("click",function(){
+	$("#mainSearch").on("click",function(e){
+		e.preventDefault();
 		query = $("#query").val();
 		location.href="Hos-bmain?query="+query;
 	});

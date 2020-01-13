@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Start Simple</title>
+    <title>알보칠프로젝트</title>
     <meta name="description" content="This is a basic starter template for MMPilot which includes Bootstrap Framework."/>
     <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
     <link href="resources/template/main/styles/main.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
   </head>
   <body id="top">
     <header class="tf-header">
@@ -22,7 +24,6 @@
               		<jsp:include page="Member/loginmenu.jsp"></jsp:include>		
               	</a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="MyPage">MyPage</a></li>
             </ul>
             <div id="nav-wrap" style="overflow:hidden; display: block;"></div>
           </div>
@@ -37,14 +38,14 @@
         <div class="row">
           <div class="col-md-7 col-sm-12">
             <p class="mt-4">...</p>
-            <p class="mt-5"><strong class="text-uppercase">병원/의약품 검색</strong></p>
+            <p class="mt-5"><strong class="text-uppercase">병원 검색</strong></p>
           </div>
         </div>
         <div class="row no-gutters">
           <div class="col-md-4 col-sm-12 tf-hh-col">
             <input class="mt-1 form-control" type="email" placeholder="검색어를 입력하세요" id="query">
           </div>
-          <div class="col-md-3 col-sm-12"><a class="tf-header-heading-btn a btn btn-primary btn-block mt-1" href="#">검색</a></div>
+          <div class="col-md-3 col-sm-12"><a class="tf-header-heading-btn a btn btn-primary btn-block mt-1" href="#" id="mainSearch">검색</a></div>
         </div>
       </div>
     </header>
@@ -94,7 +95,7 @@
                 <h3>커뮤니티</h3><!-- 커뮤니티 -->
               </div>
             </figcaption>
-            <a href="#"></a>
+            <a href="comu_clist"></a>
           </figure>
         </div>
       </div>
@@ -111,8 +112,8 @@
     <div class="carousel-inner">
       <div class="carousel-item active" style="background-image: url('resources/template/main/images/5-start-simple-slider.jpg');">
         <div class="carousel-caption">
-          <p class="slider-text-1"><br>""</p>
-          <p class="slider-text-2">""</p>
+          <p class="slider-text-1"><br>Final project</p>
+          <p class="slider-text-2">알보칠(알고 보고 치료하자)</p>
         </div>
       </div>
       <div class="carousel-item" style="background-image: url('resources/template/main/images/6-start-simple-slider.jpg');">
@@ -139,12 +140,12 @@
       <div class="col-md-4 col-sm-12">
       </div>
       <div class="col-md-8 col-sm-12 float-right text-right">
-        <h3 class="h5">Address</h3><span>Start Simple<br/>United States</span>
+        <h3 class="h5">Address</h3><span>ICIA교육원<br/>인천 미추홀구 매소홀로488번길 6-32 태승빌딩 5층</span>
         <p></p>
         <h3 class="h5">Phone</h3>
-        <p>(243) 948 3866</p>
+        <p>010-2706-1558</p>
         <h3 class="h5">Email</h3>
-        <p>contact@example.com</p>
+        <p>shrjs1@naver.com</p>
       </div>
     </div>
   </div>
@@ -153,7 +154,7 @@
     <footer class="bg-dark py-4 mt-5 tf-footer">
       <div class="container text-light">
         <div class="row">
-          <div class="col-md-6 col-sm-12">&copy; Your Company Name. All rights reserved.</div>
+          <div class="col-md-6 col-sm-12">&copy;ABCProject. All rights reserved.</div>
           <div class="col-md-6 col-sm-12 text-right tf-design">Design - <a href="https://templateflip.com" target="_blank">Templateflip</a></div>
         </div>
       </div>
@@ -163,5 +164,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="resources/template/main/scripts/main.js"></script>
   </body>
-
+<script>
+$("#mainSearch").on("click",function(e){
+	e.preventDefault();
+	query = $("#query").val();
+	location.href="Hos-bmain?query="+query;
+});
+</script>
 </html>
