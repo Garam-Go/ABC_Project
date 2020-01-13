@@ -10,14 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.domain.Criteria;
 import com.example.domain.MBasketMVO;
 import com.example.domain.MedicineVO;
 import com.example.domain.PageMaker;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.MBMDAO;
 import com.example.persistence.MedicineDAO;
-import com.example.persistence.ReplyDAO;
 
 @Controller
 public class MedicineController {
@@ -25,6 +23,7 @@ public class MedicineController {
 	MedicineDAO Meddao;
 	@Inject
 	MBMDAO mbmdao;
+<<<<<<< HEAD
 	@Inject
 	ReplyDAO repdao;
 <<<<<<< HEAD
@@ -52,6 +51,8 @@ public class MedicineController {
 >>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
 =======
 >>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
+=======
+>>>>>>> parent of 2d19357... ì•½ëŒ“ê¸€ ë„ìš°ê¸°
 	
 	//¾à°Ë»ö ¸ŞÀÎÆäÀÌÁö·Î ÀÌµ¿
 	@RequestMapping("medicineMain")
@@ -105,6 +106,7 @@ public class MedicineController {
 	}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//¸¶ÀÌ¸®½ºÆ®¿¡¼­ ³»°¡ ¾´ ´ñ±Û ¸®½ºÆ®
 		@ResponseBody
 		@RequestMapping("mmlist")
@@ -139,5 +141,7 @@ public class MedicineController {
 >>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
 =======
 >>>>>>> parent of e224e1a... Revert "ì•½ëŒ“ê¸€ ë„ìš°ê¸°"
+=======
+>>>>>>> parent of 2d19357... ì•½ëŒ“ê¸€ ë„ìš°ê¸°
 }
 

@@ -137,10 +137,10 @@ public class MyPageController {
 	public String Basketmedfav(){
 		return "/Member/BasketMedFav";
 	}
-	//약 댓글 리스트
-	@RequestMapping("BasketRepListM")
+	//댓글 리스트(커뮤니티 페이지하고 연동)
+	@RequestMapping("BasketRepList")
 	public String Basketreplist(){
-		return "/Member/BasketRepListM";
+		return "/Member/BasketRepList";
 	}
 	//커뮤 보관함
 	@RequestMapping("BasketComMove")
@@ -157,11 +157,6 @@ public class MyPageController {
 	public String Basketcomqes(){
 		return "/Member/BasketComQes";
 	}
-	//커뮤 댓글 리스트
-		@RequestMapping("BasketRepListC")
-		public String BasketreplistC(){
-			return "/Member/BasketRepListC";
-		}
 	//메세지함 이동
 	@RequestMapping("MessageHome")
 	public String Messagehome(){
