@@ -23,4 +23,46 @@
 		</tr>
 	</table>
 </body>
+<<<<<<< HEAD
+<script>
+<<<<<<< HEAD
+<<<<<<< HEAD
+getmrep();
+function getmrep(){
+	var mid = "${mid}";
+	$.ajax({
+		type:"get",
+		url:"mmlist",
+		data:{"replyname":mid},
+		success:function(data){
+			var temp=Handlebars.compile($("#temp-medrep").html());
+			$("#table-medrep").html(temp(data));
+
+		}
+	});
+}
+=======
+=======
+>>>>>>> parent of e224e1a... Revert "약댓글 띄우기"
+	getmrep();
+	function getmrep(){
+		var mid = "${mid}";
+		$.ajax(){
+			type:"get",
+			url:"mmlist",
+			data:{"replyname":mid},
+			success:function(data){
+				var temp=Handlebars.compile($("#temp-medrep").html());
+				$("#table-medrep").html(temp(data));
+
+			}
+		}
+	}
+<<<<<<< HEAD
+>>>>>>> parent of e224e1a... Revert "약댓글 띄우기"
+=======
+>>>>>>> parent of e224e1a... Revert "약댓글 띄우기"
+</script>
+=======
+>>>>>>> parent of 2d19357... 약댓글 띄우기
 </html>

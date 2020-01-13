@@ -45,30 +45,30 @@ public class HospitalController {
 	
 	
 	/* main 페이지로 이동*/
-	@RequestMapping("Hos-main")
-	public String main(){
-		PageMaker pm=new PageMaker();
-		HashMap<String,Object> map= new HashMap<String,Object>();
-		map.put("pm", pm);
-		return "/Hospital/main";
-	}
+//	@RequestMapping("Hos-main")
+//	public String main(){
+//		PageMaker pm=new PageMaker();
+//		HashMap<String,Object> map= new HashMap<String,Object>();
+//		map.put("pm", pm);
+//		return "/Hospital/main";
+//	}
 	
 	
 	
 	/* search 페이지로 이동*/
-	@RequestMapping("Hos-search")
-	public String search(Model model,SearchCriteria cri) throws Exception{
-		model.addAttribute("list",Hdao.list());
-		//System.out.println(dao.list());
-		return "/Hospital/search";
-	}
-	/* detail 페이지로 이동*/
-	@RequestMapping("Hos-detail")
-	public String detail(Model model,String h_code) throws Exception{
-		model.addAttribute("vo",Hdao.read(h_code));
-		//System.out.println(dao.read("1234567812"));
-		return "/Hospital/detail";
-	}
+//	@RequestMapping("Hos-search")
+//	public String search(Model model,SearchCriteria cri) throws Exception{
+//		model.addAttribute("list",Hdao.list());
+//		//System.out.println(dao.list());
+//		return "/Hospital/search";
+//	}
+//	/* detail 페이지로 이동*/
+//	@RequestMapping("Hos-detail")
+//	public String detail(Model model,String h_code) throws Exception{
+//		model.addAttribute("vo",Hdao.read(h_code));
+//		//System.out.println(dao.read("1234567812"));
+//		return "/Hospital/detail";
+//	}
 	
 	/* reservation 페이지로 이동*/
 	@RequestMapping("Hos-reservation")
