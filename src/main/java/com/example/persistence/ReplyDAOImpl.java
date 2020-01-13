@@ -1,12 +1,10 @@
 package com.example.persistence;
 
-<<<<<<< HEAD
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-=======
-import java.util.List;
->>>>>>> ngw
+
 
 import javax.inject.Inject;
 
@@ -45,19 +43,11 @@ public class ReplyDAOImpl implements ReplyDAO{
 		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".total",medcode);
 	}
-import com.example.domain.ReplyVO;
-@Repository
-public class ReplyDAOImpl implements ReplyDAO{
 
-	@Inject
-	SqlSession session;
-	
-	String namespace="ReplyMapper";
-	
 	@Override
-	public List<ReplyVO> list(int pid) throws Exception {
+	public List<ReplyVO> clist(int pid) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectList(namespace+".list",pid);
+		return session.selectList(namespace+".clist",pid);
 	}
 
 	@Override
