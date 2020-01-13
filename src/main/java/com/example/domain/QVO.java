@@ -2,11 +2,14 @@ package com.example.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class QVO {
 	private int qid;
 	private int num;
 	private String title;
 	private String content;
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date wdate;
 	private String image;
 	private String file;

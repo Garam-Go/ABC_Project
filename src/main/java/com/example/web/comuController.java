@@ -1,33 +1,44 @@
 package com.example.web;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
+import org.apache.commons.io.IOUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.example.domain.FVO;
+import com.example.domain.HealVO;
+import com.example.domain.HosReplyVO;
 import com.example.domain.HosVO;
 import com.example.domain.PageMaker;
+import com.example.domain.QVO;
+import com.example.domain.ReplyVO;
 import com.example.domain.SearchCriteria;
 import com.example.persistence.FDAO;
+import com.example.persistence.HealDAO;
 import com.example.persistence.HosDAO;
+import com.example.persistence.HosReplyDAO;
+import com.example.persistence.HsearchDAO;
 import com.example.persistence.QDAO;
+import com.example.persistence.ReplyDAO;
 
 @Controller
 public class comuController {
@@ -39,21 +50,34 @@ public class comuController {
 	QDAO qdao;
 	
 	@Inject
+	HealDAO hdao;
+	
+	@Inject
 	HosDAO hosdao;
+	
+	@Inject
+	HsearchDAO hsearchdao;
 
-	//ÀÚÀ¯°Ô½ÃÆÇ ÀÌµ¿
+	@Inject
+	ReplyDAO rdao;
+	
+	@Inject
+	HosReplyDAO hrdao;
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping("comu_clist")
 	public String comu_clist(Model model, SearchCriteria cri) throws Exception {
-		cri.setPerPageNum(10);
+		cri.setPerPageNum(5);
 		model.addAttribute("qlist", qdao.qlist(cri));
 		return "/community/main";
 	}
 	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@ResponseBody
 	@RequestMapping("clist.json")
 	public Map<String, Object> clist(SearchCriteria cri) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
-		cri.setPerPageNum(10);
+		cri.setPerPageNum(20);
 		PageMaker pm = new PageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(fdao.ctotal(cri));
@@ -63,7 +87,7 @@ public class comuController {
 		return map;
 	}
 	
-	//°Ç°­Á¤º¸ Å©·Ñ¸µ
+	//ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½Ñ¸ï¿½
 	@ResponseBody
 	@RequestMapping("health.json")
 	public List<HashMap<String,Object>> health() throws Exception{
@@ -86,18 +110,19 @@ public class comuController {
 			return list;
 	}
 	
-	//°Ç°­Á¤º¸ ÆäÀÌÁö ÀÌµ¿
+	//ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 		@RequestMapping("comu_hlist")
-		public String comu_hlist(Model model, SearchCriteria cri) throws Exception {
+	public String comu_hlist(Model model, SearchCriteria cri) throws Exception {
 			cri.setPerPageNum(5);
 			model.addAttribute("clist", fdao.clist(cri));
-			return "/community/hlist";
+			model.addAttribute("qlist", qdao.qlist(cri));
+			return "community/hlist";
 		}
 		
-		//°Ç°­Á¤º¸ Å©·Ñ¸µ
-		@ResponseBody
-		@RequestMapping("healthlist.json")
-		public HashMap<String,Object> healthlist(int page,String keyword) throws Exception{
+	//ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½Ñ¸ï¿½
+	@ResponseBody
+	@RequestMapping("healthlist.json")
+	public HashMap<String,Object> healthlist(int page,String keyword) throws Exception{
 			HashMap<String,Object> list = new HashMap<String,Object>();
 			
 			Document doc = Jsoup.connect("http://www.bosa.co.kr/news/articleList.html?page="+page+"&sc_section_code=&sc_sub_section_code=&sc_serial_code="
@@ -107,9 +132,9 @@ public class comuController {
 			
 			Elements es = doc.select("#article-list tbody tr td table tbody");
 			
-			ArrayList<HosVO> array = new ArrayList<HosVO>();
+			ArrayList<HealVO> array = new ArrayList<HealVO>();
 			for(Element e:es.select("tr")){
-				HosVO vo = new HosVO();
+				HealVO vo = new HealVO();
 				vo.setTitle(e.select("td table tbody tr td table tbody tr .list-titles a").text());
 				vo.setLink(e.select("td table tbody tr td table tbody tr .list-titles a").attr("href"));
 				vo.setWdate(e.select("td table tbody tr td table tbody tr .list-times").text());
@@ -121,27 +146,206 @@ public class comuController {
 			
 			return list;
 		}
-		
-		
-		//°Ç°­Á¤º¸ DB¿¡ Áý¾î ³Ö±â
-		@ResponseBody
-		@RequestMapping(value="hinsert", method=RequestMethod.POST)
-		public void hinsert(HosVO vo) throws Exception{
-			System.out.println(vo.toString());
-			hosdao.hinsert(vo);
-		}
-	
-	//Áú¹®°Ô½ÃÆÇ ÀÌµ¿
+			
+	//ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
+	@ResponseBody
+	@RequestMapping(value="hinsert", method=RequestMethod.POST)
+	public void hinsert(HealVO vo) throws Exception{
+		System.out.println(vo.toString());
+		hdao.hinsert(vo);
+	}
+
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping("comu_qlist")
 	public String comu_qlist(Model model, SearchCriteria cri) throws Exception {
-		PageMaker pm = new PageMaker(); // ÆäÀÌÁö¿¡ °üÇÑ Á¤º¸µé
-		cri.setPerPageNum(10);
+		PageMaker pm = new PageMaker(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		cri.setPerPageNum(5);
 		pm.setCri(cri);
 
-		pm.setTotalCount(qdao.qtotal(cri)); // ÀüÃ¼ÀÇ µ¥ÀÌÅÍ¸¦ ÀÓÀÇ·Î ¸î°³¶ó°í ÁöÁ¤ÇØÁÜ.
+		pm.setTotalCount(qdao.qtotal(cri)); // ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½î°³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		
 		model.addAttribute("qlist", qdao.qlist(cri));
+		model.addAttribute("clist", fdao.clist(cri));
 		model.addAttribute("pm", pm);
 		return "/community/qlist";
 	}
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@ResponseBody
+	@RequestMapping("qlist.json")
+	public Map<String, Object> qlist(SearchCriteria cri) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		cri.setPerPageNum(20);
+		PageMaker pm = new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(qdao.qtotal(cri));
+		map.put("pm", pm);
+		map.put("clist", qdao.qlist(cri));
+		
+		return map;
+	}
+	
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	@ResponseBody
+	@RequestMapping("community.json")
+	public Map<String, Object> comulist(SearchCriteria cri) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		cri.setPerPageNum(10);
+		PageMaker pm = new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(hsearchdao.htotal(cri));
+		map.put("pm", pm);
+		map.put("hlist", hsearchdao.hlist(cri));
+		return map;
+	}
+	
+	//Ä¿ï¿½Â´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	@RequestMapping("comu_community")
+	public String comu_community() throws Exception {
+		return "community/community";
+	}
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	@ResponseBody
+	@RequestMapping("comu_community.json")
+	public Map<String, Object> comu_communityJson(String type, String hcode,SearchCriteria cri) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		cri.setPerPageNum(10);
+		PageMaker pm = new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(hosdao.total(type,hcode,cri));
+		map.put("pm", pm);
+		map.put("hoslist", hosdao.list(type,hcode,cri));
+		return map;
+	}
+	
+	//ï¿½Û¾ï¿½ï¿½ï¿½
+	@RequestMapping("comu_insert")
+	public String comu_insert() throws Exception {
+		return "community/comInsert";
+	}
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	@RequestMapping("comu_detailListFree")
+	public String comu_detailListFree(int id, Model model) throws Exception {
+		model.addAttribute("vo",fdao.cread(id));
+		return "community/comDetail";
+	}
+	
+	//replyList
+	@ResponseBody
+	@RequestMapping("replyList.json")
+	public List<ReplyVO> replyList_json(int pid) throws Exception{
+		return rdao.list(pid);
+	}
+	
+	//replyInsert
+	@ResponseBody
+	@RequestMapping("freereplyinsert.json")
+	public void freereplyinsert_json(ReplyVO vo) throws Exception{
+		rdao.Finsert(vo);
+	}
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	@RequestMapping("comu_detailListQuery")
+	public String comu_detailListQuery(int id, Model model) throws Exception {
+		model.addAttribute("vo",qdao.qread(id));
+		return "community/comDetailQuery";
+	}
+	
+	//replyList
+	@ResponseBody
+	@RequestMapping("replyListQuery.json")
+	public List<ReplyVO> replyListQuery_json(int pid) throws Exception{
+		return rdao.qlist(pid);
+	}
+	
+	//replyInsert
+	@ResponseBody
+	@RequestMapping("queryreplyinsert.json")
+	public void queryreplyinsert_json(ReplyVO vo) throws Exception{
+		rdao.Qinsert(vo);
+	}
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		@RequestMapping("comu_detailListComu")
+	public String comu_detailListComu(int id,String hcode, Model model) throws Exception {
+		model.addAttribute("vo",hosdao.hread(id,hcode));
+		return "community/comDetailComu";
+	}
+	
+	//replyList
+	@ResponseBody
+	@RequestMapping("replyListComu.json")
+	public List<ReplyVO> replyListComu_json(int pid, String hcode) throws Exception{
+		return hrdao.hlist(pid,hcode);
+	}
+	
+	//replyInsert
+	@ResponseBody
+	@RequestMapping("Comureplyinsert.json")
+	public void Comureplyinsert_json(HosReplyVO vo) throws Exception{
+			hrdao.Hinsert(vo);
+	}
+	
+	@Resource(name = "uploadPath")
+	private String path;
+	
+
+	@RequestMapping(value = "insertComu", method = RequestMethod.POST)
+	public String insertPostCom(HosVO vo, String hname, MultipartFile file1) throws Exception {
+		System.out.println(vo.toString());
+		if (file1.getOriginalFilename() != "") {
+			// ï¿½ï¿½ï¿½Îµï¿½
+			UUID uid = UUID.randomUUID();
+			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
+			File target = new File(path, savedName);
+			FileCopyUtils.copy(file1.getBytes(), target);
+ 
+			vo.setImage(savedName);
+		}
+		
+		hosdao.insert(vo);
+
+		return "redirect:comu_community?h_code="+vo.getHcode()+"&h_name="+hname;
+	}
+	
+	@RequestMapping(value = "insertfree", method = RequestMethod.POST)
+	public String insertPostFree(FVO vo, MultipartFile file1) throws Exception {
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ifï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		if (file1.getOriginalFilename() != "") {
+			// ï¿½ï¿½ï¿½Îµï¿½
+			UUID uid = UUID.randomUUID();
+			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
+			File target = new File(path, savedName);
+			FileCopyUtils.copy(file1.getBytes(), target);
+ 
+			vo.setImage(savedName);
+		}
+		System.out.println(vo.toString());
+
+		fdao.insert(vo);
+
+		return "redirect:comu_clist";
+	}
+	
+	@RequestMapping(value = "insertquery", method = RequestMethod.POST)
+	public String insertPostQuery(QVO vo, MultipartFile file1) throws Exception {
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ifï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		if (file1.getOriginalFilename() != "") {
+			// ï¿½ï¿½ï¿½Îµï¿½
+			UUID uid = UUID.randomUUID();
+			String savedName = uid.toString() + "_" + file1.getOriginalFilename();
+			File target = new File(path, savedName);
+			FileCopyUtils.copy(file1.getBytes(), target);
+ 
+			vo.setImage(savedName);
+		}
+		System.out.println(vo.toString());
+
+		qdao.insert(vo);
+
+		return "redirect:comu_qlist";
+	}
+	
 }
