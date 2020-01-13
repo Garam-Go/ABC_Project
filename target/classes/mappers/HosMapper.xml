@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="HosMapper">
+
+	<select id="hoslist" resultType="com.example.domain.HosVO">
+		select * from comu_hospital where hcode=#{hcode}
+		<if test="type=='rise'">
+			and type='1'
+		</if>
+		<if test="type=='coffee'">
+			and type='2'
+		</if>
+		<if test="type=='movie'">
+			and type='3'
+		</if>
+		<if test="type=='food'">
+			and type='4'
+		</if>
+		<if test="type=='all'">
+		</if>
+		<if test="cri.searchType=='title'">
+			and title like concat('%',#{cri.keyword},'%')
+		</if>
+		<if test="cri.searchType=='content'">
+			and content like concat('%',#{cri.keyword},'%')
+		</if>
+		<if test="cri.searchType=='fname'">
+			and fname like concat('%',#{cri.keyword},'%')
+		</if>
+		order by hid desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="hostotal" resultType="int">
+		select count(*) from comu_hospital where hcode=#{hcode}
+		<if test="type=='rise'">
+			and type='1'
+		</if>
+		<if test="type=='coffee'">
+			and type='2'
+		</if>
+		<if test="type=='movie'">
+			and type='3'
+		</if>
+		<if test="type=='food'">
+			and type='4'
+		</if>
+		<if test="type=='all'">
+		</if>
+		<if test="cri.searchType=='title'">
+			and title like concat('%',#{cri.keyword},'%')
+		</if>
+		<if test="cri.searchType=='content'">
+			and content like concat('%',#{cri.keyword},'%')
+		</if>
+		<if test="cri.searchType=='fname'">
+			and fname like concat('%',#{cri.keyword},'%')
+		</if>
+	</select>
+	
+	<select id="hread" resultType="com.example.domain.HosVO">
+		select * from comu_hospital where hid=#{hid} and hcode=#{hcode}
+	</select>
+	
+	<insert id="insert">
+		insert into comu_hospital(hcode,title,content,fname,type,image)
+		values(#{hcode},#{title},#{content},#{fname},#{type},#{image});
+	</insert>
+
+</mapper>
