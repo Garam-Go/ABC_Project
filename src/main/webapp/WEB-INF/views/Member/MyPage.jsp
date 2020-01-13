@@ -11,27 +11,27 @@
 
 <style>
 #inner-navbar {
-	background: yellow;
-	width: 250px;
-	height: 100%;
-	margin: 10px;
-	float: left;
-	padding-top: 30px;
-	font-size: 20px;
+   background: yellow;
+   width: 250px;
+   height: 100%;
+   margin: 10px;
+   float: left;
+   padding-top: 30px;
+   font-size: 20px;
 }
 
 #inner-content {
-	background: skyblue;
-	width: 65%;
-	height: 100%;
-	margin: 10px;
-	float: left;
+   background: skyblue;
+   width: 67%;
+   height: 100%;
+   margin: 10px;
+   float: left;
 }
 
 #table-profile {
-	width: 600px;
-	background: white;
-	margin: 100px auto;
+	width:600px;
+   background:white;
+   margin:100px auto;
 }
 
 table tr td {

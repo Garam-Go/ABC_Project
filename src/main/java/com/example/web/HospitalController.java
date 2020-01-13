@@ -25,6 +25,24 @@ public class HospitalController {
 	@Inject
 	MBHDAO mbhdao;
 	
+	/* 부트스트랩 */
+	@RequestMapping("Hos-bmain")
+	public String bmain(){
+		return "/Hospital/Bmain";
+	}
+	/* 부트스트랩 */
+	@RequestMapping("Hos-bsearch")
+	public String bsearch(){
+		return "/Hospital/Bsearch";
+	}
+	/* 부트스트랩 */
+	@RequestMapping("Hos-bdetail")
+	public String bdetail(Model model,String h_code) throws Exception{
+		model.addAttribute("vo",Hdao.read(h_code));
+		return "/Hospital/Bdetail";
+	}
+	
+	
 	
 	/* main 페이지로 이동*/
 	@RequestMapping("Hos-main")
@@ -34,6 +52,8 @@ public class HospitalController {
 		map.put("pm", pm);
 		return "/Hospital/main";
 	}
+	
+	
 	
 	/* search 페이지로 이동*/
 	@RequestMapping("Hos-search")
@@ -56,6 +76,11 @@ public class HospitalController {
 		model.addAttribute("vo",Hdao.read(h_code));
 		return "/Hospital/reservation";
 	}
+
+	
+
+
+
 
 	//main.jsp에서 사용
 	//search.jsp에서 사용

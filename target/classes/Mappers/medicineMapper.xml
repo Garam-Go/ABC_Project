@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="medicineMapper">
+<!-- list -->
+	<select id="list" resultType="com.example.domain.MedicineVO">
+		select * from medlist
+		limit #{pageStart}, #{perPageNum}
+	</select>
+<!-- 	insert -->
+	<insert id="insert">
+		insert into medlist(medcode,medname,medcontent)
+		values(#{medcode},#{medname},#{medcontent})
+	</insert>
+<!-- 	total -->
+	<select id="total" resultType="int">
+		select count(*) from medlist
+	</select>
+<!-- 	slist -->
+	<select id="slist" resultType="com.example.domain.MedicineVO">
+		select * from medlist
+		where medname like concat('%',#{keyword},'%') or medcontent like concat('%',#{keyword},'%')
+		limit #{pageStart}, #{perPageNum}
+	</select>
+<!-- 	stotal -->
+	<select id="stotal" resultType="int">
+		select count(*) from medlist
+		where medname like concat('%',#{keyword},'%') or medcontent like concat('%',#{keyword},'%')
+	</select>
+<!-- 	read -->
+	<select id="read" resultType="com.example.domain.MedicineVO">
+		select * from medlist
+		where medcode = #{medcode}
+	</select>
+</mapper>

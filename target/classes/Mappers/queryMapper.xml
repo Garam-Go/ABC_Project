@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="queryMapper">
+	<select id="qlist" resultType="com.example.domain.QVO">
+		select * from comu_query
+		<if test="searchType=='title'">
+			where title like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='content'">
+			where content like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='fname'">
+			where fname like concat('%',#{keyword},'%')
+		</if>
+		order by qid desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="qtotal" resultType="int">
+		select count(*) from comu_query
+		<if test="searchType=='title'">
+			where title like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='content'">
+			where content like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='fname'">
+			where fname like concat('%',#{keyword},'%')
+		</if>
+	</select>
+	
+	<select id="qread" resultType="com.example.domain.QVO">
+		select * from comu_query where qid=#{qid}
+	</select>
+	
+	<insert id="insert">
+		insert into comu_query(title, content,fname, image)
+		values(#{title}, #{content},'admin', #{image});
+	</insert>
+</mapper>

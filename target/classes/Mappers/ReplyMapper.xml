@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="ReplyMapper">
+	<select id="list" resultType="com.example.domain.ReplyVO">
+		select * from medreply 
+		where medcode=#{medcode}
+		order by replyid desc 
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	<select id="total" resultType="int">
+		select count(*) from medreply
+		where medcode=#{medcode}
+	</select>
+	<insert id="insert">
+		insert into medreply(medcode, replycontent, replyname)
+		values(#{medcode},#{replycontent},#{replyname})
+	</insert>
+	<delete id="delete">
+		delete from medreply
+		where replyid=#{replyid}
+	</delete>
+</mapper>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="ReplyMapper">
+	<select id="list" resultType="com.example.domain.ReplyVO">
+		select * from comu_free_reply where pid = #{pid}
+		order by rid desc
+	</select>
+	
+	<insert id="Finsert">
+		insert into comu_free_reply(pid, mid, content, reply)
+		values(#{pid}, #{mid}, #{content}, (SELECT AUTO_INCREMENT FROM information_schema.tables
+				WHERE table_name = 'comu_free_reply' AND table_schema = DATABASE( )));
+	</insert>
+	
+	<select id="qlist" resultType="com.example.domain.ReplyVO">
+		select * from comu_query_reply where pid = #{pid}
+		order by rid desc
+	</select>
+	
+	<insert id="Qinsert">
+		insert into comu_query_reply(pid, mid, content, reply)
+		values(#{pid}, #{mid}, #{content}, (SELECT AUTO_INCREMENT FROM information_schema.tables
+				WHERE table_name = 'comu_query_reply' AND table_schema = DATABASE( )));
+	</insert>
+	
+	
+</mapper>

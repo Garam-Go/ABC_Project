@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="HosReplyMapper">
+	<select id="hlist" resultType="com.example.domain.HosVO">
+		select * from comu_hospital_reply where pid = #{pid} and hcode=#{hcode}
+		order by rid desc
+	</select>
+	
+	<insert id="Hinsert">
+		insert into comu_hospital_reply(hcode, pid, mid, content, reply)
+		values(#{hcode},#{pid}, #{mid}, #{content}, (SELECT AUTO_INCREMENT FROM information_schema.tables
+				WHERE table_name = 'comu_hospital_reply' AND table_schema = DATABASE( )));
+	</insert>
+</mapper>

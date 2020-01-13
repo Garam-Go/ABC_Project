@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="MBHMapper">
+<!-- list -->
+	<select id="mbhlist" resultType="com.example.domain.MBasketHVO">
+		select * from mbasketh where mhid = #{mhid}
+		order by mbhid desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+<!-- 	insert -->
+	<insert id="mbhinsert">
+		insert into mbasketh (mhid, mhrecent) values(#{mhid},#{mhrecent})
+	</insert>
+<!-- 	hread -->
+	<select id="hread" resultType="com.example.domain.HVO">
+		select * from hsearch where h_code=#{h_code}
+	</select>
+<!-- 	total -->
+	<select id="mbhtotal" resultType="int">
+		select count(*) from mbasketh where mhid = #{mhid}
+	</select>
+</mapper>

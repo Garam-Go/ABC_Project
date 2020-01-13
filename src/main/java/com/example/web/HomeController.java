@@ -33,7 +33,13 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "page";
 	}
+	//부트스트랩 메인 
+	@RequestMapping("homepage")
+	public String homepage(){
+		return "page";
+	}
+	
 	
 }

@@ -17,6 +17,15 @@ import com.example.persistence.MemberDAO;
 public class UserController {
 	@Inject
 	MemberDAO dao;
+	@RequestMapping("page")
+	public String page(String email, HttpSession session) {
+		if (email != null) {
+			session.setAttribute("mid", email);
+		}
+		return "page";
+	}
+	
+	
 	
 	//홈
 	@RequestMapping("home")
@@ -51,7 +60,7 @@ public class UserController {
 			if (vo.getMpassword().equals(pass)&&dao.login(mid).getMstatus()!=5) {
 				System.out.println("로그인 성공 ");
 				session.setAttribute("mid", mid);
-				return "redirect:home";
+				return "redirect:page";
 				
 			//관리자 계정인지 검사	
 			} else if (vo.getMpassword().equals(pass)&&dao.login(mid).getMstatus()==5) {
@@ -85,7 +94,7 @@ public class UserController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("mid");
-		return "redirect:home";
+		return "redirect:homepage";
 	}
 
 	

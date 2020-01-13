@@ -24,6 +24,26 @@ public class MedicineController {
 	@Inject
 	MBMDAO mbmdao;
 	
+	
+	//부트스트랩
+	@RequestMapping("bmed_list")
+	public String bmed_list(Model model, SearchCriteria cri)throws Exception{
+		cri.setPerPageNum(3);
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(Meddao.total());
+		model.addAttribute("pm",pm);
+		model.addAttribute("list",Meddao.list(cri));
+		return "/Medicine/bmed_list";
+	}
+	//부트스트랩 약검색한거 상세페이지
+	@RequestMapping("bmed_des")
+	public String bmed_des(int medcode, Model model) throws Exception{
+		model.addAttribute("vo", Meddao.read(medcode));
+		//System.out.println(mdao.read(medcode));
+		return "/Medicine/bmed_des";
+	}
+	
 	//약검색 메인페이지로 이동
 	@RequestMapping("medicineMain")
 	public String medicineMain(){
