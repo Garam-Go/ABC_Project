@@ -5,13 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>어드민 메인페이지</title>
-<!--     합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!--     부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!--     합쳐지고 최소화된 최신 자바스크립트 -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
 <link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/mypageNavbar.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -21,11 +14,8 @@
 <script src="resources/template/main/scripts/main.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
 <link href="resources/template/main/styles/main.css" rel="stylesheet">
-
 <style>
 #navbar h1{vertical-align: middle;}
-
-
 #content{
 	 width: 100%;
     height: 800px;
@@ -34,12 +24,11 @@
 }
 #inner-navbar {
    background: #9CC89D;
-   width: 2px;
+   width: 250px;
    height: 100%;
    float: left;
    padding-top:80px;
-   font-size: 16px;
-	padding-left:-10px;
+   font-size: 18px;
 }
 #inner-content {
    width: 67%;
@@ -55,23 +44,21 @@
 	margin-bottom:10px;
 }
 
-
 </style>
 </head>
 <body>
-
 <div id="page">
 
 	
-   	<!-- Navigation -->
+    <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="homepage">
       	<img src="resources/logo.png" id="iconimg" width=60 >
       </a>
-      <div id="login">
-      		<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
-		</div>
+      	<div id="login">
+		<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+	</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -104,34 +91,131 @@
     		<ul id="out-ul">
 				<li id="out-li">회원관리
 					<ul id="in-ul">
-						<li><a href="" style="color:black;">회원목록 확인</a></li>
-						<li ><a href="" style="color:black;">회원 등급전환</a></li>
-						<li><a href="NewFile" style="color:black;">신고된 회원 목록</a></li>
-						<li><a href="NewFile2" style="color:black;">블랙리스트 목록</a></li>
-						<li><a href="NewFile3" style="color:black;">탈퇴회원 관리</a></li>
+						<li><a href="">회원목록 확인</a></li>
+						<li ><a href="">회원 등급전환</a></li>
+						<li><a id="aNew1" href="NewFile">신고된 회원 목록</a></li>
+						<li><a id="aNew2" href="NewFile2">블랙리스트 목록</a></li>
+						<li><a href="NewFile3">탈퇴회원 관리</a></li>
 					</ul>
 				</li>
 				<li id="out-li">고객센터
 					<ul id="in-ul">
-						<li><a href="qna" style="color:black;">QnA관리</a></li>
-						<li><a href="adminQuestionList" style="color:black;">1:1질문확인 & 답변</a></li>
-						<li><a href="adminReport" style="color:black;">신고된 글 확인</a></li>
+						<li><a href="qna">QnA관리</a></li>
+						<li><a href="adminQuestionList">1:1질문확인 & 답변</a></li>
+						<li><a href="adminReport">신고된 글 확인</a></li>
 					</ul>
 				</li>
 			</ul>
 			</div>
     	<div id="inner-content">
-    
-    	</div>	
+    		
+	<table border=1 width=500 style="text-align:center;background:white;">
+		<tr>
+			<td></td>
+			<td>아이디</td>
+			<td>이름</td>
+			<td>가입일자</td>
+			<td>현재등급</td>
+			<td>신고수</td>
+			<td>수락</td>
+		</tr>
+		<tr>
+		<td><input type="checkbox"></td>
+			<td>user22</td>
+			<td>칼슘</td>
+			<td>2019.12.09</td>
+			<td>블랙리스트</td>
+			<td>6</td>
+			<td><button>해제</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>user23</td>
+			<td>칼륨</td>
+			<td>2019.12.08</td>
+			<td>블랙리스트</td>
+			<td>5</td>
+			<td><button>해제</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>user24</td>
+			<td>마그네슘</td>
+			<td>2019.12.07</td>
+			<td>블랙리스트</td>
+			<td>5</td>
+			<td><button>해제</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>user25</td>
+			<td>바나나</td>
+			<td>2019.12.06</td>
+			<td>블랙리스트</td>
+			<td>5</td>
+			<td><button>해제</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>shrjs25@naver.com</td>
+			<td>나비</td>
+			<td>2019.12.05</td>
+			<td>블랙리스트</td>
+			<td>6</td>
+			<td><button>해제</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>user26@naver.com</td>
+			<td>비행기</td>
+			<td>2019.12.04</td>
+			<td>블랙리스트</td>
+			<td>7</td>
+			<td><button>해제</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>user27@naver.com</td>
+			<td>기차</td>
+			<td>2019.12.03</td>
+			<td>블랙리스트</td>
+			<td>8</td>
+			<td><button>해제</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>user28@naver.com</td>
+			<td>차표</td>
+			<td>2019.12.02</td>
+			<td>블랙리스트</td>
+			<td>7</td>
+			<td><button>해제</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td>user29@naver.com</td>
+			<td>표범</td>
+			<td>2019.12.01</td>
+			<td>블랙리스트</td>
+			<td>6</td>
+			<td><button>해제</button></td>
+		</tr>
+	</table>
+	<div style="margin:0px auto; text-align:center;">
+		<a href="#">◀</a>
+		<a href="#">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+		<a href="#">▶</a>
+	</div>
+		
+    	</div>
     </div>
-    
+    <div id="footer">
+    </div>
 </div>
-<footer class="py-5 bg-dark">
-	    <div class="container">
-	      <p class="m-0 text-center text-white">Copyright &copy; ABCProject 2020</p>
-	    </div>
-	    <!-- /.container -->
-	  </footer>
 </body>
 
 </html>

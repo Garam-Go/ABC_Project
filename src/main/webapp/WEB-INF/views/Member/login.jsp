@@ -53,7 +53,7 @@
 			<div style="text-align:center">
 			<input type="button" value="로그인" id="btnlogin" class="btn">
 			<input type="button" onClick="location.href='signIn'" value="회원가입" class="btn">
-			<input type="button" onClick="location.href='home'" value="취소" class="btn">
+			<input type="button" onClick="location.href='page'" value="취소" class="btn">
 			</div>
 			<!-- 네이버아이디로 로그인 버튼 노출 영역 -->
 			<div id="naver_id_login" style="margin:0 auto;"></div>

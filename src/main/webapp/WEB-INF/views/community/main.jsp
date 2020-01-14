@@ -11,6 +11,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="resources/template/main/scripts/main.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
+<link href="resources/template/main/styles/main.css" rel="stylesheet">
+
+
+
+
 <style>
 	.health{
 		width:280px;
@@ -34,22 +44,53 @@
 </head>
 <body>
 	<div id="page">
-		<div id="login">
-			<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
-		</div>
-		<div id="navbar">
-			<jsp:include page="../Nav/navBar.jsp"></jsp:include>
-		</div>
+	
+		<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="homepage">
+      	<img src="resources/logo.png" id="iconimg" width=60 >
+      </a>
+      <div id="login">
+		<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+	</div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Hos-bmain">병원검색</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bmed_list">약검색</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comu_clist">커뮤니티</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 		<div id="content" style="overflow:hidden;">
 		
-			<div style="width: 800px; background: #86E57F; overflow: hidden;">
+			<div style="width: 800px; overflow: hidden;margin:20px auto;">
 				<!-- head -->
 				<div style="width: 300px; height: 200px; float: left; margin-left: 50px;">
 					<div style="text-align:right; padding-right:10px; font-size:20px;">
-						<b><a href="comu_hlist" style="text-decoration:none">+</a></b>
+						<b><a href="comu_hlist" style="text-decoration:none;color:black;"">+</a></b>
 					</div>
-					<table id="tbl" border=1 width=300 style="border-collapse:collapse;"></table>
+					<table id="tbl" border=1 width=300 style="border-collapse:collapse; background:white; box-shadow:3px 3px 3px darkgray;"></table>
 					<script id="temp" type="text/x-handlebars-template">
 						{{#each .}}
 							<tr>
@@ -65,10 +106,10 @@
 				
 				<div style="width: 300px; height: 150px; float: right; margin-right: 50px;">
 					<div style="text-align:right; padding-right:10px; font-size:20px;">
-						<b><a href="comu_qlist" style="text-decoration:none">+</a></b>
+						<b><a href="comu_qlist" style="text-decoration:none;color:black;">+</a></b>
 					</div>
 					<div style="text-align:center;">
-						<table border=1 style="border-collapse:collapse;">
+						<table border=1 style="border-collapse:collapse;  background:white; box-shadow:3px 3px 3px darkgray;">
 							<c:forEach var="qvo" items="${qlist}" begin="0" end="4">
 									<tr>
 										<td><div class=health>${qvo.title}</div></td>
@@ -81,7 +122,7 @@
 			</div>
 	
 			<!-- mid -->
-			<div id="content-left" style = "width:600px; float:left">
+			<div id="content-left" style = "width:700px; float:left;margin-left:100px;margin-bottom:20px;"><!-- 테이블 짤리면 여기 바꾸면됨 -->
 				<div style="margin-top: 50px;">
 				
 				<div style="overflow:hidden; margin-bottom:10px;">
@@ -108,7 +149,7 @@
 							
 						<div>
 							<div>
-								<table id="tbl1" border=1 width=600 style="text-align: center;"></table>
+								<table id="tbl1" border=1 width=700 style="text-align: center;"></table>
 								<script id="temp1" type="text/x-handlebars-template">
 									<tr>
 										<td width=50>번호</td>
@@ -132,12 +173,13 @@
 					</div>
 		
 					<!-- bottom -->
-					<div id=pagination style="width: 580px; background: #FFA7A7; margin-top: 20px; padding: 10px;"></div>
+					<div id=pagination class="pagination" style="width: 285px; text-align:center;margin:0px auto; background: #FFA7A7; margin-top: 20px; padding: 10px;"></div>
+				
 				</div>
 			</div>
 			
 			<div id = "content-right" style="width: 180px; float: right; margin: 50px 0px 10px 20px; background:lightgray;">					
-				<input type="button" value="메세지함" style="width:100px;height:75px; margin:10px;">
+				<input type="button" value="메세지함"  onClick="location.href='MessageHome'"style="width:100px;height:75px; margin:10px;">
            		<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;" onClick="location.href='comu_qlist'">   
            		<input type="text" id="query" style="width:160px;margin:10px;">
 
@@ -169,7 +211,7 @@
 				
 			</div>
 		</div>		<!-- content end -->
-
+<!-- 
 		<div id="footer">
 			<div class="a c"  onClick="funab()">b</div>
 			<div class=a onClick="funac()">c</div>
@@ -178,6 +220,19 @@
 			<div class="a c">f</div>
 			<div class=a onClick="funag()">g</div>
 		</div>
+-->
+		<footer class="py-5 bg-dark">
+	    <div class="container">
+	      <p class="m-0 text-center text-white">Copyright &copy; ABCProject 2020</p>
+	    </div>
+	    <div class="a c"  onClick="funab()">b</div>
+			<div class=a onClick="funac()">c</div>
+			<div class="a c">d</div>
+			<div class=a>e</div>
+			<div class="a c">f</div>
+			<div class=a onClick="funag()">g</div>
+	    <!-- /.container -->
+	  </footer>
 	</div>
 	<script>
 		var searchType = $("#searchType").val();
@@ -252,9 +307,9 @@
 					}
 					for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
 						if(i==page){
-							str += "[<a href='"+ i + "' class=active>" + i + "</a>] ";
+							str += "[<a href='"+ i + "'class=active>" + i + "</a>] ";
 						}else{
-							str += "[<a href='"+ i + "' style='color:white'>" + i + "</a>] ";
+							str += "[<a href='"+ i + "'style='color:white'>" + i + "</a>] ";
 						}
 					}
 					if(data.pm.next){

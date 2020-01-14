@@ -9,14 +9,53 @@
 <link href="resources/main.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="resources/template/main/scripts/main.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
+<link href="resources/template/main/styles/main.css" rel="stylesheet">
+
 </head>
 <body>
 <div id=page>
 	
 	
-	<div id=navbar>
-	
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="homepage">
+      	<img src="resources/logo.png" id="iconimg" width=60 >
+      </a>
+     	<div id="login">
+		<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
 	</div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Hos-bmain">병원검색</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bmed_list">약검색</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comu_clist">커뮤니티</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 	<h1 id="name"></h1>
 	
 	<div id=content style="overflow:hidden;">
@@ -84,15 +123,19 @@
 		</div>
 		
 		<div id = "content-right" style="width: 180px; float: right; margin: 50px 0px 10px 20px; background:lightgray;">					
-			<input type="button" value="메세지함" style="width:100px;height:75px; margin:10px;">
+			<input type="button" value="메세지함" onClick="location.href='MessageHome'" style="width:100px;height:75px; margin:10px;">
            	<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;" onClick="location.href='comu_qlist'">   
 		</div>
 	</div>
 	
-	<div id=footer>
 	
-	</div>
 </div>
+<footer class="py-5 bg-dark">
+	    <div class="container">
+	      <p class="m-0 text-center text-white">Copyright &copy; ABCProject 2020</p>
+	    </div>
+	    <!-- /.container -->
+	  </footer>
 </body>
 <script>
 var searchType = $("#searchType").val();

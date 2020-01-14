@@ -30,7 +30,7 @@
 </style>
 <body>
 
-  <!-- Navigation -->
+ <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="homepage">
@@ -47,11 +47,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">병원검색</a>
+            <a class="nav-link" href="Hos-bmain">병원검색</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">약검색</a>
+            <a class="nav-link" href="bmed_list">약검색</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comu_clist">커뮤니티</a>
+          </li>
+      
           <li class="nav-item">
             <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
@@ -59,7 +63,6 @@
       </div>
     </div>
   </nav>
-
   <!-- Page Content -->
   <div class="container">
 
@@ -74,8 +77,7 @@
 
         <!-- Author -->
         <p class="lead">
-          by
-          <a href="#">Start Bootstrap</a>
+          <a href="#"></a>
         </p>
       
  
@@ -103,8 +105,8 @@
 							<option value="정신" <c:out value="${param.btn=='정신'?'selected':''}"/>>정신과</option>
 							<option value="마취통증" <c:out value="${param.btn=='마취통증'?'selected':''}"/>>마취통증과</option>
 						</select>
-						<input type="text" id="keyword" size=30 style="height:35px">
-						<input type="button" value="검색" id="selsearch" class="selsearch"> 
+						<input type="hidden" id="keyword" size=30 style="height:35px">
+						<input type="hidden" value="검색" id="selsearch" class="selsearch"> 
 						
 		</div>
 		
@@ -154,7 +156,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
-              		<a href="#">질문게시판</a>
+              		<a href="comu_qlist">질문게시판</a>
               </div>
             </div>
           </div>

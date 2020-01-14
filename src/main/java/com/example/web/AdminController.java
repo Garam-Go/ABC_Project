@@ -16,6 +16,44 @@ public class AdminController {
 	@Inject
 	MemberDAO Memdao;
 	
+	//질문 답변 목록
+	@RequestMapping("adminQuestionList")
+	public String adminQuestionList(){
+		return "/Admin/adminQuestionList";
+	}
+	
+	//질문 답변 리드
+	@RequestMapping("adminQuestionAnswer")
+	public String adminQuestionAnswer(){
+		return "/Admin/adminQuestionAnswer";
+	}
+	//신고 된 글 목록
+	@RequestMapping("adminReport")
+	public String adminReport(){
+		return "/Admin/adminReport";
+	}
+	//신고된 회원 목록
+	@RequestMapping("NewFile")
+	public String NewFile(){
+		return "/Admin/NewFile";
+	}
+	//블랙리스트
+	@RequestMapping("NewFile2")
+	public String NewFile2(){
+		return "/Admin/NewFile2";
+	}
+	//탈퇴
+	@RequestMapping("NewFile3")
+	public String NewFile3(){
+		return "/Admin/NewFile3";
+	}
+	//Q&A
+	@RequestMapping("qna")
+	public String qna(){
+		return "/Admin/qna";
+	}
+
+	
 	//어드민 메인페이지 이동
 	@RequestMapping("AdminMain")
 	public String main(){
@@ -29,4 +67,6 @@ public class AdminController {
 		List<MemberVO> list = Memdao.list();
 		return list;
 	}
+	
+	
 }

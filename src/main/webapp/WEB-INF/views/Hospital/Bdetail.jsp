@@ -24,7 +24,7 @@
 <body>
 
  
-  <!-- Navigation -->
+<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="homepage">
@@ -46,6 +46,10 @@
           <li class="nav-item">
             <a class="nav-link" href="bmed_list">약검색</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comu_clist">커뮤니티</a>
+          </li>
+    
           <li class="nav-item">
             <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>

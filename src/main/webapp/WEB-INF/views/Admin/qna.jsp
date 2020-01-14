@@ -4,18 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>마이페이지</title>
-<link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/mypageNavbar.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-
+<title>어드민 메인페이지</title>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="resources/template/main/scripts/main.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
 <link href="resources/template/main/styles/main.css" rel="stylesheet">
 
+<link href="${pageContext.request.contextPath}/resources/test.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/mypageNavbar.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <style>
+#navbar h1{vertical-align: middle;}
+#content{
+	 width: 100%;
+    height: 800px;
+    padding: 10px; 
+    overflow: hidden;
+}
 #inner-navbar {
    background: #9CC89D;
    width: 250px;
@@ -31,33 +37,29 @@
    margin: 50px;
    float: left;
 }
-
-#table-profile {
-	width:600px;
-   background:white;
-   margin:100px auto;
+#inner-member{
+	border:1px solid;
+	padding:10px;
+	text-align:center;
+	background:white;
+	margin-bottom:10px;
 }
 
-table tr td {
-	border-collapse: collapse;
-}
 </style>
 </head>
 <body>
 <div id="page">
-	<div id="header">
-		<div id="login">
-			<jsp:include page="loginmenu.jsp"></jsp:include>
-		</div>
-	<!-- Navigation -->
+
+	
+    <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="homepage">
       	<img src="resources/logo.png" id="iconimg" width=60 >
       </a>
-      <div id="login">
-				<jsp:include page="loginmenu.jsp"></jsp:include>
-		</div>
+   	<div id="login">
+		<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+	</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -77,46 +79,56 @@ table tr td {
           <li class="nav-item">
             <a class="nav-link" href="comu_clist">커뮤니티</a>
           </li>
-       
+          <li class="nav-item">
+            <a class="nav-link" href="CSqna">고객센터</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
         </ul>
       </div>
     </div>
-  </nav> 
-	</div>
-	<div id="content">
-		<div id="inner-navbar">
-			<jsp:include page="MyNavList.jsp"></jsp:include>
-		</div>
-		<div id="inner-content">
-			<table id="table-rev" border=1></table>
-			<script id="temp-rev" type="text/x-handlebars-templete">
-				<tr>
-					<td colspan=3 style="overflow:hidden; background:lightgreen;">내가 쓴 리뷰 목록
-						<input type="button" value="수정" style="float:right;">
-					</td>
-				</tr>
-				<tr>
-					<td width=200>제목</td>
-					<td width=200>병원</td>
-					<td width=200>작성일</td>
-				</tr>
-				{{#each list}}
-					<tr>
-						<td width=200>{{revcontent}}</td>
-						<td width=200>{{h_name}}</td>
-						<td width=200>{{revDate}}</td>
-					</tr>
-				{{/each}}
-			</script>
-
-		</div>
-	</div>
-	
+  </nav>
+    <div id="content">
+    	<div id="inner-navbar">
+    		<ul id="out-ul">
+				<li id="out-li">회원관리
+					<ul id="in-ul">
+						<li><a href="">회원목록 확인</a></li>
+						<li><a href="">회원 등급전환</a></li>
+						<li><a href="NewFil">신고된 회원 목록</a></li>
+						<li><a href="NewFil2">블랙리스트 목록</a></li>
+						<li><a href="NewFile3">탈퇴회원 관리</a></li>
+					</ul>
+				</li>
+				<li id="out-li">고객센터
+					<ul id="in-ul">
+						<li><a href="#">QnA관리</a></li>
+						<li><a href="adminQuestionList">1:1질문확인 & 답변</a></li>
+						<li><a href="adminReport">신고된 글 확인</a></li>
+					</ul>
+				</li>
+			</ul>
+			</div>
+    	<div id="inner-content">
+    		
+    		<table border=1 width=550 style="background:white;margin-top:100px;">
+    			<tr>
+    				<td width=50>제목</td>
+    				<td><input type="text" size="70"></td>
+    			</tr>
+    			<tr>
+    				<td>내용</td>
+    				<td><textarea cols="70" rows="6"></textarea></td>
+    			</tr>
+    		</table>
+    		<button>저장</button>
+    		<button>취소</button>
+    	</div>
+    </div>
+ 
 </div>
-	<footer class="py-5 bg-dark">
+<footer class="py-5 bg-dark">
 	    <div class="container">
 	      <p class="m-0 text-center text-white">Copyright &copy; ABCProject 2020</p>
 	    </div>
@@ -124,21 +136,6 @@ table tr td {
 	  </footer>
 </body>
 <script>
-revlist();
 
-function revlist(){
-	var mid = "${mid}";
-	//alert(mid);
-	$.ajax({
-		type:"get",
-		url:"Hos-reviewlist",
-		data:{"hrevmyid":mid},
-		success:function(data){
-			//alert(data);
-			var temp=Handlebars.compile($("#temp-rev").html());
-			$("#table-rev").html(temp(data));
-		}
-	});
-}
 </script>
 </html>

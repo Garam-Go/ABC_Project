@@ -30,7 +30,7 @@
 <body>
 
  
-  <!-- Navigation -->
+ <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="homepage">
@@ -53,13 +53,16 @@
             <a class="nav-link" href="bmed_list">약검색</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="comu_clist">커뮤니티</a>
+          </li>
+        
+          <li class="nav-item">
             <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
 
 
 
@@ -146,7 +149,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
-              	<a href="mypage-mypage">메세지함</a>
+              	<a href="MessageHome">메세지함</a>
               </div>
               <div class="col-lg-6">
              
@@ -161,7 +164,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
-              	<a href="#">질문게시판</a>
+              	<a href="comu_qlist">질문게시판</a>
               </div>
               <div class="col-lg-6">
              

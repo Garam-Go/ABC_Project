@@ -24,12 +24,13 @@
 <body>
 
   
-  <!-- Navigation -->
+<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="homepage">
       	<img src="resources/logo.png" id="iconimg" width=60 >
       </a>
+   
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,6 +47,10 @@
           <li class="nav-item">
             <a class="nav-link" href="bmed_list">약검색</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comu_clist">커뮤니티</a>
+          </li>
+         
           <li class="nav-item">
             <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
@@ -117,7 +122,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
-              	<a href="mypage-mypage">메세지함</a>
+              	<a href="MessageHome">메세지함</a>
               </div>
               <div class="col-lg-6">
              
@@ -126,6 +131,19 @@
           </div>
         </div>
 
+	<div class="card my-4">
+          <h5 class="card-header">질문게시판</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+              	<a href="comu_qlist">질문게시판</a>
+              </div>
+              <div class="col-lg-6">
+             
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Side Widget -->
      
 

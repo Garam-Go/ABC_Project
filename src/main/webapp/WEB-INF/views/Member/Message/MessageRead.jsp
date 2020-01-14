@@ -23,7 +23,7 @@
 </head>
 <body>
 
-	<h1>메세지 확인</h1>
+	<h1 style="padding-top:50px;">메세지 확인</h1>
 
 	<input type="text" value="${mid }" name="mssender">
 		<table id="table-read" border=1></table>
