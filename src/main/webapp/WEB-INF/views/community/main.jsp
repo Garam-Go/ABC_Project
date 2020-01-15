@@ -84,11 +84,11 @@
 
 		<div id="content" style="overflow:hidden;">
 		
-			<div style="width: 800px; overflow: hidden;margin:20px auto;">
+			<div style="width: 800px; overflow: hidden; margin:20px auto;">
 				<!-- head -->
 				<div style="width: 300px; height: 200px; float: left; margin-left: 50px;">
 					<div style="text-align:right; padding-right:10px; font-size:20px;">
-						<b><a href="comu_hlist" style="text-decoration:none;color:black;"">+</a></b>
+						<b><a href="comu_hlist" style="text-decoration:none; color:black;"">+</a></b>
 					</div>
 					<table id="tbl" border=1 width=300 style="border-collapse:collapse; background:white; box-shadow:3px 3px 3px darkgray;"></table>
 					<script id="temp" type="text/x-handlebars-template">
@@ -151,7 +151,7 @@
 							<div>
 								<table id="tbl1" border=1 width=700 style="text-align: center;"></table>
 								<script id="temp1" type="text/x-handlebars-template">
-									<tr>
+									<tr style="background:#9ccfde">
 										<td width=50>번호</td>
 										<td width=100>작성일</td>
 										<td width=275>제목</td>
@@ -162,7 +162,7 @@
 										<tr class=tr>
 											<td width=50>{{pid}}</td>
 											<td width=100>{{wdate}}</td>
-											<td width=275><a href="comu_detailListFree?id={{pid}}">{{title}}</a></td>
+											<td width=275><a href="comu_detailListFree?id={{pid}}" style="color:black;">{{title}}</a></td>
 											<td width=75>{{fname}}</td>
 											<td width=50>{{num}}</td>
 										</tr>
@@ -173,17 +173,17 @@
 					</div>
 		
 					<!-- bottom -->
-					<div id=pagination class="pagination" style="width: 285px; text-align:center;margin:0px auto; background: #FFA7A7; margin-top: 20px; padding: 10px;"></div>
+					<div id=pagination class="pagination" style="width: 285px; text-align:center;margin:0px auto; margin-top: 20px; padding: 10px;"></div>
 				
 				</div>
 			</div>
 			
-			<div id = "content-right" style="width: 180px; float: right; margin: 50px 0px 10px 20px; background:lightgray;">					
+			<div id = "content-right" style="width: 180px; float: right; margin: 100px 50px 0px 20px; background:lightgray;">					
 				<input type="button" value="메세지함"  onClick="location.href='MessageHome'"style="width:100px;height:75px; margin:10px;">
            		<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;" onClick="location.href='comu_qlist'">   
            		<input type="text" id="query" style="width:160px;margin:10px;">
 
-           		<table id="boxh" border=1 width=180 style="; border-collapse:collapse; overflow:hidden;"></table>
+           		<table id="boxh" border=1 width=180 style="border-collapse:collapse; overflow:hidden;"></table>
 				<script id="temph" type="text/x-handlebars-template">	
 				{{#each hlist}}
 					<tr>
@@ -303,17 +303,17 @@
 					
 					var str="";
 					if(data.pm.prev){
-						str += "<a href='" + (data.pm.startPage - 1) + "'>◀</a>";
+						str += "<a href='" + (data.pm.startPage - 1) + "'style='color:black'>◀</a>";
 					}
 					for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
 						if(i==page){
 							str += "[<a href='"+ i + "'class=active>" + i + "</a>] ";
 						}else{
-							str += "[<a href='"+ i + "'style='color:white'>" + i + "</a>] ";
+							str += "[<a href='"+ i + "'style='color:black'>" + i + "</a>] ";
 						}
 					}
 					if(data.pm.next){
-						str += "<a href='" + (data.pm.endPage + 1) + "'>▶</a>";
+						str += "<a href='" + (data.pm.endPage + 1) + "'style='color:black'>▶</a>";
 					}
 					$("#pagination").html(str);
 				}

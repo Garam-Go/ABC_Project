@@ -85,7 +85,7 @@ table tr td {
     </div>
   </nav>
 	</div>
-	<div id="content">
+	<div id="content" style="padding:0px;">
 		<div id="inner-navbar">
 			<jsp:include page="MyNavList.jsp"></jsp:include>
 		</div>

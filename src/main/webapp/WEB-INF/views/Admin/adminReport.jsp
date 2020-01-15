@@ -119,72 +119,72 @@
     				<td>신고일</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>병원</td>
-    				<td width=250>신고합니다</td>
+    			<tr>
+    				<td width=70>병원</td>
+    				<td>신고합니다</td>
     				<td width=50>kim</td>
     				<td width=80>2019-12-20</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>약</td>
-    				<td width=250>신고합니다</td>
+    			<tr>
+    				<td>약</td>
+    				<td>신고합니다</td>
     				<td width=50>kyo</td>
     				<td width=80>2019-12-05</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>약</td>
-    				<td width=250>신고글입니다</td>
+    			<tr>
+    				<td>약</td>
+    				<td>신고글입니다</td>
     				<td width=50>kyo</td>
     				<td width=80>2019-11-12</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>커뮤니티</td>
-    				<td width=250>신고합니다</td>
+    			<tr>
+    				<td>커뮤니티</td>
+    				<td>신고합니다</td>
     				<td width=50>nam</td>
     				<td width=80>2019-10-02</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>약</td>
-    				<td width=250>신고합니다</td>
+    			<tr">
+    				<td>약</td>
+    				<td>신고합니다</td>
     				<td width=50>nam</td>
     				<td width=80>2019-09-25</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>약</td>
-    				<td width=250>신고글입니다</td>
+    			<tr">
+    				<td>약</td>
+    				<td>신고글입니다</td>
     				<td width=50>nam</td>
     				<td width=80>2019-07-08</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>병원</td>
-    				<td width=250>신고합니다</td>
+    			<tr">
+    				<td>병원</td>
+    				<td>신고합니다</td>
     				<td width=50>kim</td>
     				<td width=80>2019-07-02</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>커뮤니티</td>
-    				<td width=250>신고합니다</td>
+    			<tr>
+    				<td>커뮤니티</td>
+    				<td>신고합니다</td>
     				<td width=50>nam</td>
     				<td width=80>2019-06-14</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>커뮤니티</td>
-    				<td width=250>신고글입니다</td>
+    			<tr>
+    				<td>커뮤니티</td>
+    				<td>신고글입니다</td>
     				<td width=50>kyo</td>
     				<td width=80>2019-05-23</td>
     				
     			</tr>
-    			<tr onclick="location.href='adminQuestionAnswer'" style="cursor:pointer;">
-    				<td width=50>약</td>
-    				<td width=250>신고합니다</td>
+    			<tr>
+    				<td>약</td>
+    				<td>신고합니다</td>
     				<td width=50>kim</td>
     				<td width=80>2019-04-07</td>
     				

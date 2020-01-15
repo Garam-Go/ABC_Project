@@ -15,6 +15,26 @@
 <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
 <link href="resources/template/main/styles/main.css" rel="stylesheet">
 
+<style>
+	.health{
+		width:280px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		text-align: left;
+	}
+	
+	.hos{
+		width:160px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		text-align: left;
+	}
+	
+	.active{color:black}
+</style>
+
 </head>
 <body>
 <div id=page>
@@ -61,7 +81,7 @@
 	<div id=content style="overflow:hidden;">
 		
 		
-		<div id="content-left" style = "width:600px; float:left;">
+		<div id="content-left" style = "width:600px; float:left; margin-left:150px;">
 			<div style="margin-top: 50px;">
 				<div style="overflow:hidden; margin-bottom:10px;">
 					<span id="btnType" style="float:left">
@@ -107,7 +127,7 @@
 										<tr class=tr>
 											<td width=50>{{hid}}</td>
 											<td width=100>{{wdate}}</td>
-											<td width=275><a href="comu_detailListComu?id={{hid}}&hcode=${param.h_code}">{{title}}</a></td>
+											<td width=275><a href="comu_detailListComu?id={{hid}}&hcode=${param.h_code}" style="color:black;">{{title}}</a></td>
 											<td width=75>{{fname}}</td>
 											<td width=50>{{num}}</td>
 										</tr>
@@ -118,7 +138,7 @@
 					</div>
 		
 					<!-- bottom -->
-				<div id=pagination style="width: 580px; background: #FFA7A7; margin-top: 20px; padding: 10px;"></div>
+				<div id=pagination style="width: 285px; text-align:center;margin:0px auto; margin-top: 20px; padding: 10px;"></div>
 			</div>
 		</div>
 		
@@ -206,7 +226,7 @@ getlist();
 					if(i==page){
 						str += "[<a href='"+ i + "' class=active>" + i + "</a>] ";
 					}else{
-						str += "[<a href='"+ i + "' style='color:white'>" + i + "</a>] ";
+						str += "[<a href='"+ i + "' style='color:black'>" + i + "</a>] ";
 					}
 				}
 				if(data.pm.next){

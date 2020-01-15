@@ -36,6 +36,9 @@
       <a class="navbar-brand" href="homepage">
       	<img src="resources/logo.png" id="iconimg" width=60 >
       </a>
+         <div id="login">
+		<jsp:include page="../Member/loginmenu.jsp"></jsp:include>
+	</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -106,18 +109,18 @@
             </div>
             
             <p class="card-text">댓글 리스트</p>
-            	<table id="replytbl" border=1 width=600></table>
+            	<table id="replytbl" border=1 width=700></table>
 					<script id="temp" type="text/x-handlebars-template">
 					{{#each list}}
-					<tr class="row" replyid="{{replyid}}">
+					<tr class="replyrow" replyid="{{replyid}}">
 						<input type="hidden" id="medcode" value={{medcode}}>
-						<td width=40 id="replyid" style="font-size:12px;">{{replyid}}</td>
-						<td style="text-align:left;">{{replyname}}</td>
+						<td width=30 id="replyid" style="font-size:12px;">{{replyid}}</td>
+						<td width=100>{{replyname}}</td>
 						<td style="text-align:right;">{{replydate}}</td>
-						<td width=30><button  replyid="{{replyid}}" medcode="{{medcode}}">X</button></td>
+						<td width=30><button replyid="{{replyid}}" medcode="{{medcode}}">X</button></td>
 					</tr>
 					<tr>
-						<td colspan=4 height=25>{{replycontent}}</td>
+						<td colspan=4>{{replycontent}}</td>
 					</tr>
 					{{/each}}
 					</script>
@@ -276,7 +279,7 @@ $("#btninsert").on("click", function(){
 	}
 });
 //삭제
-$("#replytbl").on("click", ".row button", function(){
+$("#replytbl").on("click", ".replyrow button", function(){
 	var medcode=$(this).attr("medcode");
 	var replyid=$(this).attr("replyid");
 	alert(medcode + replyid);

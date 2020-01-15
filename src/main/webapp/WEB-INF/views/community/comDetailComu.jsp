@@ -55,14 +55,13 @@
   </nav>
 <div id=page>
 
-	<h1>[상세정보 페이지]</h1>
 	
 	<div id="navbar">
 	
 	</div>
 	
 	<div id="content" style="overflow:hidden">
-		<div id="content-left" style = "width:600px; float:left;">
+		<div id="content-left" style = "width:600px; float:left; margin-left:200px;">
 			<table width=600 border=1 style="border-collapse:collapse;">
 				<tr>
 					<td>${vo.fname}</td>
@@ -83,7 +82,7 @@
 				</tr>
 			</table>
 			<br>
-			<input type="text" id="reply" style="line-height:40px; float:left" size=75>
+			<input type="text" id="reply" style="line-height:40px;" size=40>
 			<input type="button" id="btnreply" value="입력" style="height:40px;">
 			
 			<table id="box" border=1 width=525 style="float:left; margin-top:10px;"></table>

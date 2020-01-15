@@ -69,6 +69,7 @@ table tr td {
 </style>
 <title>건강정보 게시판</title>
 <link href="resources/main.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/test.css"	rel="stylesheet">
 </head>
 <body>
 	<!-- Navigation -->
@@ -109,16 +110,16 @@ table tr td {
 
 		<div id="content" style="overflow: hidden">
 
-			<div style="width: 800px; background: #86E57F; overflow: hidden;">
+			<div style="width: 800px; overflow: hidden; margin:0 auto;">
 				<!-- head -->
 				<div
 					style="width: 300px; height: 200px; float: left; margin-left: 50px;">
 					<div
 						style="text-align: right; padding-right: 10px; font-size: 20px;">
-						<b><a href="comu_clist" style="text-decoration: none">+</a></b>
+						<b><a href="comu_clist" style="text-decoration: none; color:black;">+</a></b>
 					</div>
 					<div>
-						<table border=1 width=280 style="border-collapse: collapse;">
+						<table border=1 width=280 style="border-collapse:collapse; background:white; box-shadow:3px 3px 3px darkgray;">
 							<c:forEach var="cvo" items="${clist}">
 								<tr>
 									<td>${cvo.title}</td>
@@ -132,12 +133,12 @@ table tr td {
 					style="width: 300px; height: 150px; float: right; margin-right: 50px;">
 					<div
 						style="text-align: right; padding-right: 10px; font-size: 20px;">
-						<b><a href="comu_qlist" style="text-decoration: none">+</a></b>
+						<b><a href="comu_qlist" style="text-decoration: none; color:black;">+</a></b>
 					</div>
 
 					<div>
 						<table border=1
-							style="border-collapse: collapse; text-align: center">
+							style="border-collapse: collapse; text-align: center; background:white; box-shadow:3px 3px 3px darkgray;">
 							<c:forEach var="qvo" items="${qlist}" begin="0" end="4">
 								<tr>
 									<td><div class=health>${qvo.title}</div></td>
@@ -150,7 +151,7 @@ table tr td {
 			</div>
 
 			<div id="content-left"
-				style="float: left; margin: 50px 10px; overflow: hidden; width: 580px;">
+				style="margin: 50px 0px 0px 150px; overflow: hidden; width: 580px;">
 
 
 
@@ -187,7 +188,7 @@ table tr td {
 			</div>
 
 			<div id="content-right"
-				style="width: 180px; float: right; margin: 50px 10px; background: lightgray;">
+				style="width: 180px; float: right; margin: 100px 50px 0px 20px; background: lightgray;">
 				<input type="button" value="메세지함"
 					style="width: 100px; height: 75px; margin: 10px;"> <input
 					type="button" value="질문게시판"

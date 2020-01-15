@@ -17,7 +17,7 @@
 <body>
 <div id=page>
 
-	<h1>커뮤니티 글쓰기</h1>
+	<h1 style="margin-bottom:20px;">커뮤니티 글쓰기</h1>
 	
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -57,7 +57,7 @@
   </nav>
 	
 	<div id="content" style="overflow:hidden;">
-		<div id="content-left" style = "width:600px; float:left;">
+		<div id="content-left" style = "width:800px; float:left;">
 			<form name=frm method="post" enctype="multipart/form-data">
 				<div style="overflow:hidden">
 					<span id="select" style="float:left">
@@ -69,8 +69,8 @@
 							<option value="4">음식나눔</option>
 						</select>
 					</span>
-					<span style="float:right">
-						제목 : <input type=text name=title>
+					<span style="margin-left:170px;">
+						제목 : <input type=text name=title size=60>
 					</span>
 				</div>
 				
@@ -79,19 +79,19 @@
 				
 				<div style="float:right">${mid}</div>
 				
-				<textarea cols=85 rows=20 name=content></textarea>
+				<textarea style="margin-left:150px;" cols=85 rows=20 name=content></textarea>
 				
 				<div>
 					<input id=file type="file" name="file1" style="visibility: hidden" accept="image/*">
 				</div>
 				
-				<div>
+				<div style="margin-left:180px;">
 					<img id="img" src="http://placehold.it/150x200" width=150 height=200>
+					<br>
+					<input type="button" value="저장" onClick="funsave()">
+					<input type="reset" value="취소">
+					<input type="button" value="목록" onClick="location.href='list'">
 				</div>
-				<br>
-				<input type="button" value="저장" onClick="funsave()">
-				<input type="reset" value="취소">
-				<input type="button" value="목록" onClick="location.href='list'">
 				
 			</form>
 		</div>

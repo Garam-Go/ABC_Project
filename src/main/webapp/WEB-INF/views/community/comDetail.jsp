@@ -78,11 +78,11 @@
 				</tr>
 			</table>
 			<br>
-			<div style="maring-left:120px;">
-				<input type="text" id="reply" style="line-height:40px; float:left" size=75>
+			<div style="margin-left:120px;">
+				<input type="text" id="reply" style="line-height:40px;" size=75>
 				<input type="button" id="btnreply" value="입력" style="height:40px;">
 			</div>
-			<table id="box" border=1 width=525 style="float:left; margin-top:10px;"></table>
+			<table id="box" border=1 width=525 style="margin-left:160px;float:left; margin-top:10px;"></table>
 			<script id="temp" type="text/x-handlebars-template">
 			{{#each .}}
 				<tr>

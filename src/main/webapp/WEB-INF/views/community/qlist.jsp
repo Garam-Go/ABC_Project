@@ -34,6 +34,7 @@
 </style>
 <title>전문의 질문 게시판</title>
 <link href="resources/main.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/test.css"	rel="stylesheet">
 </head>
 <body>
 <!-- Navigation -->
@@ -79,13 +80,13 @@
 	
 	<div id="content" style="overflow:hidden;">
 	
-		<div style="width: 800px; background: #86E57F; overflow: hidden;">
+		<div style="width: 800px; overflow: hidden; margin:0 auto;">
 				<!-- head -->
 				<div style="width: 300px; height: 200px; float: left; margin-left: 50px;">
 					<div style="text-align:right; padding-right:10px; font-size:20px;">
-						<b><a href="comu_hlist" style="text-decoration:none">+</a></b>
+						<b><a href="comu_hlist" style="text-decoration:none; color:black;">+</a></b>
 					</div>
-					<table id="tbl" border=1 width=300 style="border-collapse:collapse;"></table>
+					<table id="tbl" border=1 width=300 style="border-collapse:collapse;background:white; box-shadow:3px 3px 3px darkgray;"></table>
 					<script id="temp" type="text/x-handlebars-template">
 						{{#each .}}
 							<tr>
@@ -101,10 +102,10 @@
 				
 				<div style="width: 300px; height: 150px; float: right; margin-right: 50px;">
 					<div style="text-align:right; padding-right:10px; font-size:20px;">
-						<b><a href="comu_clist" style="text-decoration:none">+</a></b>
+						<b><a href="comu_clist" style="text-decoration:none;color:black;">+</a></b>
 					</div>
 					<div style="text-align:center;">
-						<table border=1 style="border-collapse:collapse;">
+						<table border=1 style="border-collapse:collapse;background:white; box-shadow:3px 3px 3px darkgray;">
 							<c:forEach var="cvo" items="${clist}" begin="0" end="4">
 									<tr>
 										<td><div class=health>${cvo.title}</div></td>
@@ -116,7 +117,7 @@
 				</div>
 			</div>
 		
-		<div id="content-left" style = "width:600px; float:left">
+		<div id="content-left" style = "width:700px; float:left;margin-left:100px;margin-bottom:20px;">
 			<div style="margin-top: 50px;">
 			
 			<div style="overflow:hidden; margin-bottom:10px;">
@@ -144,7 +145,7 @@
 							
 						<div>
 							<div>
-								<table id="tbl1" border=1 width=600 style="text-align: center;"></table>
+								<table id="tbl1" border=1 width=700 style="text-align: center;"></table>
 								<script id="temp1" type="text/x-handlebars-template">
 									<tr>
 										<td width=50>번호</td>
@@ -157,7 +158,7 @@
 										<tr class=tr>
 											<td width=50>{{qid}}</td>
 											<td width=100>{{wdate}}</td>
-											<td width=300><a href="comu_detailListQuery?id={{qid}}">{{title}}</a></td>
+											<td width=300><a href="comu_detailListQuery?id={{qid}}" style="color:black;">{{title}}</a></td>
 											<td width=100>{{fname}}</td>
 											<td width=50>{{num}}</td>
 										</tr>
@@ -168,8 +169,9 @@
 					</div>
 		
 					<!-- bottom -->
-					<div id=pagination style="width: 580px; background: #FFA7A7; margin-top: 20px; padding: 10px;"></div>
+					<div id=pagination style="width: 285px; text-align:center;margin:0px auto; margin-top: 20px; padding: 10px;"></div>
 				</div>
+				
 		</div>
 		<div id = "content-right" style="width: 180px; float: right; margin: 50px 10px 10px 0px; background:lightgray;">					
 				<input type="button" value="메세지함" style="width:100px;height:75px; margin:10px;">
@@ -177,7 +179,7 @@
            		
            		<input type="text" id="query" style="width:160px;margin:10px;">
 
-           		<table id="boxh" border=1 width=180 style="; border-collapse:collapse; overflow:hidden;"></table>
+           		<table id="boxh" border=1 width=180 style="border-collapse:collapse; overflow:hidden;"></table>
 				<script id="temph" type="text/x-handlebars-template">	
 				{{#each hlist}}
 					<tr>
@@ -272,17 +274,17 @@
 					
 					var str="";
 					if(data.pm.prev){
-						str += "<a href='" + (data.pm.startPage - 1) + "'>◀</a>";
+						str += "<a href='" + (data.pm.startPage - 1) + "'style='color:black'>◀</a>";
 					}
 					for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
 						if(i==page){
 							str += "[<a href='"+ i + "' class=active>" + i + "</a>] ";
 						}else{
-							str += "[<a href='"+ i + "' style='color:white'>" + i + "</a>] ";
+							str += "[<a href='"+ i + "' style='color:black'>" + i + "</a>] ";
 						}
 					}
 					if(data.pm.next){
-						str += "<a href='" + (data.pm.endPage + 1) + "'>▶</a>";
+						str += "<a href='" + (data.pm.endPage + 1) + "'style='color:black'>▶</a>";
 					}
 					$("#pagination").html(str);
 				}

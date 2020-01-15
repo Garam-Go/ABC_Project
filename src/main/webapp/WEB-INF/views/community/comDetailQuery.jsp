@@ -55,14 +55,12 @@
   </nav>
 <div id=page>
 
-	<h1>[상세정보 페이지]</h1>
-	
 	<div id="navbar">
 	
 	</div>
 	
 	<div id="content" style="overflow:hidden">
-		<div id="content-left" style = "width:600px; float:left;">
+		<div id="content-left" style = "width:600px; margin-left:100px;float:left;">
 			<table width=600 border=1 style="border-collapse:collapse;">
 				<tr>
 					<td>${vo.fname}</td>
@@ -83,7 +81,7 @@
 				</tr>
 			</table>
 			<br>
-			<input type="text" id="reply" style="line-height:40px; float:left" size=75>
+			<input type="text" id="reply" style="line-height:40px; float:left" size=60>
 			<input type="button" id="btnreply" value="입력" style="height:40px;">
 			
 			<table id="box" border=1 width=525 style="float:left; margin-top:10px;"></table>
@@ -107,7 +105,7 @@
 			</script>
 		</div>
 		
-		<div id = "content-right" style="width: 180px; float: right; margin: 50px 10px 10px 0px; background:lightgray;">					
+		<div id = "content-right" style="width: 180px; float: right; margin: 50px 50px 0px 20px; background:lightgray;">					
 				<input type="button" value="메세지함" style="width:100px;height:75px; margin:10px;">
            		<input type="button" value="질문게시판" style="width:100px;height:75px;margin:10px;" onClick="location.href='comu_qlist'">     
            		

@@ -73,9 +73,10 @@ td {
       </div>
     </div>
   </nav>
-
+		
 		<div id="content" style="overflow: hidden;">
-			<div id="content-left" style="float: left; width: 680px; ">
+			<h3 style="margin-top:50px;">병원 상세 정보</h3>
+			<div id="content-left" style="float: left; width: 680px; margin:50px 0px 0px 200px;">
 				<input type="hidden" value="${vo.h_code}" id="h_code">
 
 
