@@ -34,7 +34,7 @@
 }
 #inner-navbar {
    background: #9CC89D;
-   width: 2px;
+   width: 250px;
    height: 100%;
    float: left;
    padding-top:80px;
@@ -114,7 +114,7 @@
 				<li id="out-li">고객센터
 					<ul id="in-ul">
 						<li><a href="qna" style="color:black;">QnA관리</a></li>
-						<li><a href="adminQuestionList" style="color:black;">1:1질문확인 & 답변</a></li>
+						<li><a href="adminQuestionList" style="color:black;">1:1질문 & 답변</a></li>
 						<li><a href="adminReport" style="color:black;">신고된 글 확인</a></li>
 					</ul>
 				</li>

@@ -44,7 +44,7 @@
 					<h1>회원가입</h1>
 					<div class="textbox">
 						<i class="fa fa-user" aria-hidden="true"></i> 
-						<input type="text"	id="input" name="mid" placeholder="아이디">
+						<input type="text"	id="input" name="mid" placeholder="아이디" value='<c:out value="${param.mid != '' ? param.mid : '' }"></c:out>'>
 					</div>
 
 					<div class="textbox">

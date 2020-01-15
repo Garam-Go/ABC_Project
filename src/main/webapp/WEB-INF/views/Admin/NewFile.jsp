@@ -28,7 +28,7 @@
    height: 100%;
    float: left;
    padding-top:80px;
-   font-size: 18px;
+   font-size: 16px;
 }
 #inner-content {
    width: 67%;
@@ -92,32 +92,33 @@
     		<ul id="out-ul">
 				<li id="out-li">회원관리
 					<ul id="in-ul">
-						<li><a href="">회원목록 확인</a></li>
-						<li ><a href="">회원 등급전환</a></li>
-						<li><a id="aNew1" href="NewFile">신고된 회원 목록</a></li>
-						<li><a id="aNew2" href="NewFile2">블랙리스트 목록</a></li>
-						<li><a href="NewFile3">탈퇴회원 관리</a></li>
+						<li><a href="" style="color:black;">회원목록 확인</a></li>
+						<li ><a href="" style="color:black;">회원 등급전환</a></li>
+						<li><a id="aNew1" href="NewFile" style="color:black;">신고된 회원 목록</a></li>
+						<li><a id="aNew2" href="NewFile2" style="color:black;">블랙리스트 목록</a></li>
+						<li><a href="NewFile3" style="color:black;">탈퇴회원 관리</a></li>
 					</ul>
 				</li>
 				<li id="out-li">고객센터
 					<ul id="in-ul">
-						<li><a href="qna">QnA관리</a></li>
-						<li><a href="adminQuestionList">1:1질문확인 & 답변</a></li>
-						<li><a href="adminReport">신고된 글 확인</a></li>
+						<li><a href="qna" style="color:black;">QnA관리</a></li>
+						<li><a href="adminQuestionList" style="color:black;">1:1질문 & 답변</a></li>
+						<li><a href="adminReport" style="color:black;">신고된 글 확인</a></li>
 					</ul>
 				</li>
 			</ul>
 			</div>
     	<div id="inner-content">
-	<table border=1 width=500 style="text-align:center;background:white;"> 
+    	<h3 style="margin-top:50px;">신고된 회원 목록</h3>
+	<table border=1 width=530 style="text-align:center;background:white; margin-top:50px;"> 
 		<tr>
 			<td></td>
 			<td width=100>아이디</td>
 			<td width=100>이름</td>
 			<td width=100>가입일자</td>
 			<td width=100>현재등급</td>
-			<td width=50>신고수</td>
-			<td width=50>수락</td>
+			<td width=70>신고수</td>
+			<td width=60>수락</td>
 		</tr>
 		<tr>
 			<td><input type="checkbox"></td>

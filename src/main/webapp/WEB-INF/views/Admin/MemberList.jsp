@@ -75,7 +75,7 @@
 				<li id="out-li">고객센터
 					<ul id="in-ul">
 						<li><a href="">QnA관리</a></li>
-						<li><a href="">1:1질문확인 & 답변</a></li>
+						<li><a href="">1:1질문 & 답변</a></li>
 						<li><a href="">신고된 글 확인</a></li>
 					</ul>
 				</li>
