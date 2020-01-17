@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog Home - Start Bootstrap Template</title>
+  <title>약 세부정보</title>
 
   <!-- Bootstrap core CSS -->
   <link href="resources/template/med-list/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -77,8 +77,8 @@
       <!-- Blog Entries Column -->
       <div class="col-md-8">
 
-        <h1 class="my-4">약 검색 결과
-          <small>Secondary Text</small>
+        <h1 class="my-4">약 세부정보
+          <small></small>
         </h1>
 
         <!-- Blog Post -->
@@ -100,7 +100,7 @@
           <div class="card-body">
            <h4 class="card-title">댓글</h4>
            <div class="input-group">
-              <input type="text"  class="form-control" placeholder="Search for..." id="replytext">
+              <input type="text"  class="form-control" placeholder="댓글을 입력하세요" id="replytext">
               <span class="input-group-btn">
                 <button class="btn btn-secondary" type="button" id="btninsert">등록</button>              </span>
             </div>
@@ -138,10 +138,10 @@
           <h5 class="card-header">Search</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" placeholder="Search for...">
+              <input type="text" placeholder="Search for..." id="keyword">
               <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
+                <button class="btn btn-secondary" id="btnsearch" type="button">검색</button>
+              </span> 
             </div>
           </div>
         </div>
@@ -247,11 +247,9 @@ $("#pagination").on("click","a", function(e){
 });
 
 $("#btnsearch").on("click",function(){
-	is_end=false;
-	page = 1;
-	$("#boxlist").html("");
+
 	keyword=$("#keyword").val();
-	getmedicine();
+	location.href="bmed_list?keyword="+keyword;
 });
 
 //댓글입력
@@ -262,6 +260,12 @@ $("#btninsert").on("click", function(){
 	var replytext=$("#replytext").val();
 	//alert(medcode+replyname+replytext);
 	//alert(replyid);
+	var mid = "${mid}";
+	if(mid==""){
+		alert("로그인 후 이용해주세요.");
+		location.href="login";
+		return false;
+	}
 	if(replytext==""){
 		alert("댓글 내용을 입력하세요");
 		$("#replytext").focus();

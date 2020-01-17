@@ -36,6 +36,6 @@
 	
 	<insert id="insert">
 		insert into comu_free(title, content, fname,image)
-		values(#{title}, #{content}, 'admin',#{image});
+		values(#{title}, #{content}, #{fname},#{image});
 	</insert>
 </mapper>

@@ -16,7 +16,9 @@ import com.example.domain.SearchCriteria;
 public class ReviewDAOImpl implements ReviewDAO{
 @Inject
 SqlSession session;
+
 private String namespace="ReivewMapper";
+
 @Override
 public void insert(ReviewVO vo) throws Exception {
 	// TODO Auto-generated method stub
@@ -42,6 +44,12 @@ public List<ReviewVO> list(String hrevmyid,SearchCriteria cri) throws Exception 
 public int total(String hrevmyid) {
 	// TODO Auto-generated method stub
 	return session.selectOne(namespace+".revtotal",hrevmyid);
+}
+@Override
+public List<ReviewVO> rlist( String h_code) throws Exception {
+	// TODO Auto-generated method stub
+
+	return session.selectList(namespace+".rlist",h_code);
 }
 
 

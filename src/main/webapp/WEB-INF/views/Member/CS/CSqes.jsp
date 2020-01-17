@@ -39,9 +39,7 @@
    margin:100px auto;
 }
 
-table tr td {
-	border-collapse: collapse;
-}
+table{background:white; width:700px;border-collapse: collapse;}
 
 </style>
 </head>

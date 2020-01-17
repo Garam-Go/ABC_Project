@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
 <link href="resources/template/main/styles/main.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <style>
 #inner-navbar {
@@ -81,29 +82,33 @@ table tr td {
         </ul>
       </div>
     </div>
-  </nav>>
+  </nav>
 	</div>
 	<div id="content" style="padding:0px;">
 		<div id="inner-navbar">
 			<jsp:include page="MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<table id="table-hospital" border=1>
+			<table id="tbl" border=1></table>
+			<script id="temp" type="text/x-handlebars-templete">
 				<tr>
-					<td colspan=3 style="overflow:hidden; background:lightgreen;">내가 쓴 게시글
-						<select id="FreeSelect">
-							<option>자유게시판</option>
-							<option>질문게시판</option>
-						</select>
-					</td>
+					<td colspan=3 style="overflow:hidden; background:lightgreen;">내가 쓴 게시글	</td>
 				</tr>
 				<tr>
 					<td width=200>글번호</td>
 					<td width=300>제목</td>
 					<td width=200>작성일</td>
 				</tr>
+				{{#each .}}
+					<tr>
+						<td width=200>{{pid}}</td>
+						<td width=300>{{title}}</td>
+						<td width=200>{{wdate}}</td>
+					</tr>
+				{{/each}}
+			</script>
+				
 
-			</table>
 		</div>
 	</div>
 
@@ -115,4 +120,19 @@ table tr td {
 	    <!-- /.container -->
 	  </footer>
 </body>
+<script>
+flist();
+function flist(){
+	var mid = "${mid}";
+	$.ajax({
+		type:"get",
+		url:"mbclist",
+		data:{"fname":mid},
+		success:function(data){
+			var temp=Handlebars.compile($("#temp").html());
+			$("#tbl").html(temp(data));
+		}
+	});
+}
+</script>
 </html>

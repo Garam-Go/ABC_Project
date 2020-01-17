@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,7 +56,7 @@
 	background:white;
 	margin-bottom:10px;
 }
-
+table{background:white;}
 
 </style>
 </head>
@@ -121,7 +123,23 @@
 			</ul>
 			</div>
     	<div id="inner-content">
-    
+    		<table id="tbl" width=700 border=1></table>
+				<script id="temp" type="text/x-handlebars-templete">
+					<tr>
+						<td>아이디</td>
+						<td>이름</td>
+						<td>성별</td>
+						<td>회원등급</td>
+					</tr>
+					{{#each .}}
+						<tr>
+							<td>{{mid}}</td>
+							<td>{{mname}}</td>
+							<td>{{mgender}}</td>
+							<td>{{mstatus}}</td>
+						</tr>
+					{{/each}}
+				</script>
     	</div>	
     </div>
     
@@ -133,5 +151,18 @@
 	    <!-- /.container -->
 	  </footer>
 </body>
+<script>
+getmlist();
+function getmlist(){
+	$.ajax({
+		type:"get",
+		url:"MemList",
+		success:function(data){
+			var temp=Handlebars.compile($("#temp").html());
+			$("#tbl").html(temp(data));
 
+		}
+	});
+}
+</script>
 </html>

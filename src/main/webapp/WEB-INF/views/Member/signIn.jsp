@@ -54,7 +54,7 @@
 
 					<div class="textbox">
 						<i class="fa fa-user" aria-hidden="true"></i> 
-						<input type="text"	id="input" name="mpassword" placeholder="이름">
+						<input type="text"	id="input" name="mname" placeholder="이름">
 					</div>
 
 					<div class="textbox">
@@ -90,7 +90,7 @@
 			var mname = $(fom.mname).val();
 			var mgender = fom.mgender.value;
 
-			alert(mid + mpassword + mname + mgender);
+			//alert(mid + mpassword + mname + mgender);
 
 			$.ajax({
 				type : "post",

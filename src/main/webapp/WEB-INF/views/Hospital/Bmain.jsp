@@ -112,7 +112,7 @@
 						<table id="tbl" width="500" ></table>
 						<script id="temp" type="text/x-handlebars-template">
 							{{#each .}}
-								<tr onClick="location.href='Hos-detail?h_code={{h_code}}'" h_code="{{h_code}}">
+								<tr h_code="{{h_code}}">
 									<td>{{h_name}}</td>
 								</tr>
 							{{/each}}
@@ -281,6 +281,27 @@
 	<!-- 라이트 박스 출력문 -->
 	<script>
 	getlist();
+	//병원 누르면 저장하기
+	$("#tbl").on("click","tr",function(){
+		var mid = "${mid}";
+		//alert(mid);
+		if(mid==null || mid==""){
+			return;
+		}else{
+			var mhid = mid;
+			var mhrecent = $(this).attr("h_code");
+			//alert(mhrecent);
+			$.ajax({
+				type:"get",
+				url:"mhinsert",
+				data:{"mhid":mhid,"mhrecent":mhrecent},
+				success:function(){
+					//alert("save");
+					location.href="Hos-detail?h_code="+mhrecent;
+				}
+			});
+		}
+	});
 	
 	$("#btnsearch").on("click",function(){
 		$("#darken-background").show();

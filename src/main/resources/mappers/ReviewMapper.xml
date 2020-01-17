@@ -22,5 +22,11 @@
 		select count(*) from mbhrev 
 		where hrevmyid = #{hrevmyid}
 	</select>
+	<!-- 	rlist -->
+	<select id="rlist" resultType="com.example.domain.ReviewVO">
+		select * from mbhrev
+		where h_hcode = #{h_code}
+		order by hrevid desc
+	</select>
 </mapper>
 

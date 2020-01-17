@@ -11,12 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.domain.MemberVO;
+import com.example.domain.MessageVO;
 import com.example.persistence.MemberDAO;
+import com.example.persistence.MessageDAO;
 
 @Controller
 public class UserController {
 	@Inject
 	MemberDAO dao;
+	@Inject
+	MessageDAO msdao;
+	
+	
 	@RequestMapping("page")
 	public String page(String email, HttpSession session) {
 		if (email != null) {
@@ -110,6 +116,12 @@ public class UserController {
 	public void signInPost(MemberVO vo, HttpSession session) throws Exception {
 		dao.signIn(vo); 
 		session.setAttribute("signlogin", vo.getMid());
+		MessageVO msvo = new MessageVO();
+		msvo.setMscontent("가입을 환영합니다");
+		msvo.setMssender("admin");
+		msvo.setMstitle("가입을 환영합니다!");
+		msvo.setMsreceiver(vo.getMid());
+		msdao.insert(msvo);
 	}
 
 	

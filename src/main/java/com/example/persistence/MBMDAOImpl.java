@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.domain.MBasketMVO;
 import com.example.domain.MedicineVO;
+import com.example.domain.ReplyVO;
 import com.example.domain.SearchCriteria;
 
 @Repository
@@ -43,6 +44,12 @@ public class MBMDAOImpl implements MBMDAO{
 	public MedicineVO mmread(int mmrecent) throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".mread",mmrecent);
+	}
+
+	@Override
+	public List<ReplyVO> replist(String replyname) {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".replist",replyname);
 	}
 
 }

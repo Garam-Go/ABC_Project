@@ -60,7 +60,7 @@
       <div class="col-md-4 col-sm-12 pt-2">
         <div class="card">
             <figure class="snip1432">
-              <img class="img-fluid card-img-top" src="resources/template/main/images/2-start-simple.jpg" alt="2-start-simple" />
+              <img class="img-fluid card-img-top" src="resources/template/main/images/hos.jpg" alt="hospital" />
               <figcaption>
                 <div>
                 	<h3></h3>
@@ -74,7 +74,7 @@
       <div class="col-md-4 col-sm-12 pt-2">
         <div class="card">
           <figure class="snip1432">
-            <img class="img-fluid card-img-top" src="resources/template/main/images/3-start-simple.jpg" alt="2-start-simple" />
+            <img class="img-fluid card-img-top" src="resources/template/main/images/med.jpg" alt="medicine" />
             <figcaption>
               <div>
                 <h3></h3>
@@ -88,7 +88,7 @@
       <div class="col-md-4 col-sm-12 pt-2">
         <div class="card">
           <figure class="snip1432">
-            <img class="img-fluid card-img-top" src="resources/template/main/images/4-start-simple.jpg" alt="2-start-simple" />
+            <img class="img-fluid card-img-top" src="resources/template/main/images/4-start-simple.jpg" alt="community" />
             <figcaption>
               <div>
                 <h3></h3>

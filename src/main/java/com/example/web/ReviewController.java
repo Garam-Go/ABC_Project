@@ -35,10 +35,17 @@ public class ReviewController {
 	@ResponseBody
 	@RequestMapping("Hos-reviewinsert")
 	public void review(ReviewVO vo)throws Exception{
-		Revservice.insert(vo);
+		Revdao.insert(vo);
 	}
 	
-	//리뷰리스트 출력
+	//리뷰출력
+	@ResponseBody
+	@RequestMapping("revlist")
+	public List<ReviewVO> list(String hcode) throws Exception{
+		return Revdao.rlist(hcode);
+	}
+	
+	//마이페이지용 리뷰리스트 출력
 	@ResponseBody
 	@RequestMapping("Hos-reviewlist")
 	public HashMap<String, Object> revlist(String hrevmyid,SearchCriteria cri) throws Exception{

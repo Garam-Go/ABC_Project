@@ -11,4 +11,5 @@ public interface ReviewDAO {
 	public void insert(ReviewVO vo)throws Exception;
 	public void update(String h_hcode,int grade)throws Exception;
 	public int total(String hrevmyid);
+	public List<ReviewVO> rlist (String h_code)throws Exception;
 }

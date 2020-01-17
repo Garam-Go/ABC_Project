@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
 <link href="resources/template/main/styles/main.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <style>
 #inner-navbar {
@@ -48,14 +46,15 @@ table tr td {
 <body>
 <div id="page">
 	<div id="header">
-		<!-- Navigation -->
+		
+	  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="homepage">
       	<img src="resources/logo.png" id="iconimg" width=60 >
       </a>
-      <div id="login">
-				<jsp:include page="loginmenu.jsp"></jsp:include>
+  <div id="login">
+			<jsp:include page="loginmenu.jsp"></jsp:include>
 		</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,7 +75,7 @@ table tr td {
           <li class="nav-item">
             <a class="nav-link" href="comu_clist">커뮤니티</a>
           </li>
-  
+     
           <li class="nav-item">
             <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
@@ -85,32 +84,31 @@ table tr td {
     </div>
   </nav>
 	</div>
-	<div id="content">
+	<div id="content" style="padding:0px;">
 		<div id="inner-navbar">
 			<jsp:include page="MyNavList.jsp"></jsp:include>
 		</div>
 		<div id="inner-content">
-			<table id="table-medrep" width=700 border=1></table>
-				<script id="temp-medrep" type="text/x-handlebars-templete">
+			<table id="tbl" border=1></table>
+			<script id="temp" type="text/x-handlebars-templete">
+				<tr>
+					<td colspan=3 style="overflow:hidden; background:lightgreen;">내가 쓴 약 댓글	</td>
+				</tr>
+				<tr>
+					<td width=200>약코드</td>
+					<td width=300>내용</td>
+					<td width=200>작성일</td>
+				</tr>
+				{{#each .}}
 					<tr>
-						<td colspan=4 style="overflow:hidden; background:lightgreen;">내가 쓴 댓글
-						</td>
+						<td width=200>{{medcode}}</td>
+						<td width=300>{{replycontent}}</td>
+						<td width=200>{{replydate}}</td>
 					</tr>
-					<tr>
-						<td width=50>번호</td>
-						<td width=250>댓글내용</td>
-						<td width=150>약이름</td>
-						<td width=150>작성일</td>
-					</tr>
-					{{#each list}}			
-						<tr>
-							<td width=50>{{replyid}}</td>
-							<td width=250>{{replycontent}}</td>
-							<td width=150>{{medcode}}</td>
-							<td width=150>작성일</td>
-						</tr>
-					{{/each}}
-				</script>
+				{{/each}}
+			</script>
+				
+
 		</div>
 	</div>
 
@@ -123,19 +121,18 @@ table tr td {
 	  </footer>
 </body>
 <script>
-	getmrep();
-	function getmrep(){
-		var mid = "${mid}";
-		$.ajax({
-			type:"get",
-			url:"mmlist",
-			data:{"replyname":mid},
-			success:function(data){
-				var temp=Handlebars.compile($("#temp-medrep").html());
-				$("#table-medrep").html(temp(data));
-
-			}
-		});
-	}
+flist();
+function flist(){
+	var mid = "${mid}";
+	$.ajax({
+		type:"get",
+		url:"mbmreplist",
+		data:{"replyname":mid},
+		success:function(data){
+			var temp=Handlebars.compile($("#temp").html());
+			$("#tbl").html(temp(data));
+		}
+	});
+}
 </script>
 </html>

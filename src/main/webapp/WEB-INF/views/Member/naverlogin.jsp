@@ -8,14 +8,14 @@
 </head>
 <body>
 <script type="text/javascript">
-  var naver_id_login = new naver_id_login("rqO0TDIARI6udRXDMExh", "http://localhost:8088/example/Member/naverlogin");
+  var naver_id_login = new naver_id_login("rqO0TDIARI6udRXDMExh", "http://192.168.0.134:8088/abc/Member/naverlogin");
   // 접근 토큰 값 출력
    var token = naver_id_login.oauthParams.access_token;
   // 네이버 사용자 프로필 조회
   naver_id_login.get_naver_userprofile("naverSignInCallback()");
   // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
   function naverSignInCallback() {
-    alert(naver_id_login.getProfileData('email'));
+    //alert(naver_id_login.getProfileData('email'));
     var email = naver_id_login.getProfileData('email');
 //     alert(naver_id_login.getProfileData('nick_name'));
 //     alert(naver_id_login.getProfileData('gender'));

@@ -76,8 +76,7 @@
 				
 				<input type=hidden value="${param.hcode}" name=hcode>
 				<input type=hidden value="${param.hname}" name=hname>
-				
-				<div style="float:right">${mid}</div>
+				<input type="hidden" value="${mid }" name=fname>
 				
 				<textarea style="margin-left:150px;" cols=85 rows=20 name=content></textarea>
 				
@@ -86,11 +85,11 @@
 				</div>
 				
 				<div style="margin-left:180px;">
-					<img id="img" src="http://placehold.it/150x200" width=150 height=200>
+					<img id="img" src="http://placehold.it/150x200" width=150 >
 					<br>
 					<input type="button" value="저장" onClick="funsave()">
 					<input type="reset" value="취소">
-					<input type="button" value="목록" onClick="location.href='list'">
+					<input type="button" value="목록" onClick="location.href='comu_clist'">
 				</div>
 				
 			</form>

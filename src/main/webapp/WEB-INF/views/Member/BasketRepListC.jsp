@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,600,700" rel="stylesheet">
 <link href="resources/template/main/styles/main.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <style>
 #inner-navbar {
@@ -40,18 +41,20 @@
 table tr td {
 	border-collapse: collapse;
 }
-
 </style>
 </head>
 <body>
-<!-- Navigation -->
+<div id="page">
+	<div id="header">
+		
+	  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="homepage">
       	<img src="resources/logo.png" id="iconimg" width=60 >
       </a>
-      <div id="login">
-				<jsp:include page="loginmenu.jsp"></jsp:include>
+  <div id="login">
+			<jsp:include page="loginmenu.jsp"></jsp:include>
 		</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -72,7 +75,7 @@ table tr td {
           <li class="nav-item">
             <a class="nav-link" href="comu_clist">커뮤니티</a>
           </li>
-      
+     
           <li class="nav-item">
             <a class="nav-link" href="MyPage?mid=${mid}">마이페이지</a>
           </li>
@@ -80,44 +83,56 @@ table tr td {
       </div>
     </div>
   </nav>
-
-<div id="page">
-	
-
-		<div id="header">
-			
-		</div>
-		<div id="content">
-			<div id="inner-navbar">
-				<jsp:include page="MyNavList.jsp"></jsp:include>
-			</div>
-			<div id="inner-content">
-			
-		<table id="table-hospital" border=1>
-		<tr>
-			<td colspan=4 style="overflow:hidden; background:lightgreen;">내가 쓴 댓글
-			</td>
-		</tr>
-		<tr>
-			<td width=50>번호</td>
-			<td width=250>댓글내용</td>
-			<td width=150>게시글</td>
-			<td width=150>작성일</td>
-		</tr>
-	</table>
-			</div>
-		</div>
-		
 	</div>
+	<div id="content" style="padding:0px;">
+		<div id="inner-navbar">
+			<jsp:include page="MyNavList.jsp"></jsp:include>
+		</div>
+		<div id="inner-content">
+			<table id="tbl" border=1></table>
+			<script id="temp" type="text/x-handlebars-templete">
+				<tr>
+					<td colspan=3 style="overflow:hidden; background:lightgreen;">내가 쓴 커뮤니티 댓글	</td>
+				</tr>
+				<tr>
+					<td width=200>글번호</td>
+					<td width=300>내용</td>
+					<td width=200>작성일</td>
+				</tr>
+				{{#each .}}
+					<tr>
+						<td width=200>{{pid}}</td>
+						<td width=300>{{content}}</td>
+						<td width=200>{{wdate}}</td>
+					</tr>
+				{{/each}}
+			</script>
+				
+
+		</div>
+	</div>
+
+</div>
 	<footer class="py-5 bg-dark">
 	    <div class="container">
 	      <p class="m-0 text-center text-white">Copyright &copy; ABCProject 2020</p>
 	    </div>
 	    <!-- /.container -->
 	  </footer>
-
-
-
-
 </body>
+<script>
+flist();
+function flist(){
+	var mid = "${mid}";
+	$.ajax({
+		type:"get",
+		url:"mbcreplist",
+		data:{"mid":mid},
+		success:function(data){
+			var temp=Handlebars.compile($("#temp").html());
+			$("#tbl").html(temp(data));
+		}
+	});
+}
+</script>
 </html>

@@ -43,7 +43,7 @@
 	background:white;
 	margin-bottom:10px;
 }
-
+table{background:white; width:700px;}
 </style>
 </head>
 <body>

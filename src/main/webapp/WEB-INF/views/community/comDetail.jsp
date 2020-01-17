@@ -72,7 +72,7 @@
 						<br>
 						
 						<div style="text-align:center">
-							<img src="display?fileName=${vo.image}" width=150 height=200>
+							<img src="display?fileName=${vo.image}" width=400>
 						</div>
 					</td>
 				</tr>
@@ -214,21 +214,24 @@ $("#reply").keyup(function(key) {
 	}
 });
 
+//댓글입력
 $("#btnreply").on("click",function(){
 	var content=$("#reply").val();
+	var mid = "${mid}";
 	$.ajax({
 		type : "get",
 		url : "freereplyinsert.json",
-		data:{"pid":pid, "content":content,"mid":"admin"},
+		data:{"pid":pid, "content":content,"mid":mid},
 		success : function(data) {
-			var temp = Handlebars.compile($("#temph").html());
-			$("#boxh").html(temp(data));
-			htotal = data.pm.totalCount;
+			var temp = Handlebars.compile($("#temp").html());
+			$("#box").html(temp(data));
+			
+			$("#reply").val("");
+			gethlist();
+			getrlist();
 		}
 	});
-	gethlist();
-	getrlist();
-	$("#reply").val("");
+
 });
 </script>
 </html>

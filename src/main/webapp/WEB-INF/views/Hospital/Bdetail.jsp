@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>약 세부정보</title>
+  <title>병원 세부정보</title>
 
   <!-- Bootstrap core CSS -->
   <link href="resources/template/hos/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -181,7 +181,7 @@
 	var mid = "${mid}";
 	
 	
-	/* 리뷰 목록 */
+	/* 리뷰삽입 */
 	$("#btnreview").on("click",function(){
 		//alert("하하");
 		var h_name=$("#h_name").html();
@@ -191,6 +191,11 @@
 		var mid = "${mid}";
 		//alert(revgrade+h_name);
 		//유효성체크
+		if(mid==""){
+			alert("로그인 후 이용해주세요.");
+			location.href="login";
+			return false;
+		}
 		if(revcontent==""){
 			alert("내용을 입력하세요");
 			revcontent.focus();
@@ -208,6 +213,7 @@
 				//alert("성공");
  				$("#grade").prop("value","none");
 				$("#review").val("");
+				revlist();
 			}
 		});
 	});

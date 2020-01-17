@@ -41,7 +41,10 @@
 table tr td {
 	border-collapse: collapse;
 }
-
+.msg-detail:hover{
+	cursor: pointer;
+	background:lightgreen;
+}
 </style>
 </head>
 <body>
@@ -99,10 +102,10 @@ table tr td {
 					<td width=30>
 						<input type="checkbox" id="chk-all">
 					</td>
-					<td width=300>제목</td>
+					<td width=200 >제목</td>
 					<td width=100>보낸사람</td>
 					<td width=200>보낸날짜</td>
-					<td width=50>답장</td>
+					<td width=70>답장</td>
 				</tr>
 				{{#each list}}
 					<tr>

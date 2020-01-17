@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -18,7 +19,12 @@
   <link href="resources/template/med-list/css/blog-home.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-
+<style>
+.det:hover{
+	cursor: pointer;
+	background:lightgreen;
+}
+</style>
 </head>
 
 <body>
@@ -78,7 +84,7 @@
            <table id="boxlist" border=1 width=580></table>
 			<script id="temp-med" type="text/x-handlebars-template">
 				{{#each list}}
-				<tr class="det" medcode="{{medcode}}">
+				<tr class="det" medcode="{{medcode}}" onClick="location.href='bmed_des?medcode={{medcode}}'">
 					<td width=100 height=50>{{medcode}}</td>
 					<td class="medname">{{medname}}</td>
 					<td width=100>★100</td>
@@ -110,7 +116,7 @@
           <h5 class="card-header">검색</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for..." id="keyword">
+              <input type="text" class="form-control" placeholder="Search for..." id="keyword" value='<c:out value="${param.key==''?'':param.keyword}"></c:out>'>
               <span class="input-group-btn">
                 <button class="btn btn-secondary" type="button" id="btnsearch">검색</button>
               </span>
@@ -160,7 +166,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; ABC Project 2020</p>
     </div>
     <!-- /.container -->
   </footer>
@@ -175,6 +181,16 @@ var keyword=$("#keyword").val();
 var page = 1; //결과 페이지 번호
 var size = 3; //한 페이지에 보여질 문서의 개수
 var is_end ;
+
+$(document).ready(function(){
+	keyword = "${param.keyword}";
+	if(keyword !=''){
+		page = 1;
+		$("#boxlist").html("");
+		keyword=$("#keyword").val();
+		getmedicine();
+	}
+});
 
 //약 상세페이지
 $("#boxlist").on("click","tr",function(){

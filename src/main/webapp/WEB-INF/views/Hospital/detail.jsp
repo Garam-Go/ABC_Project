@@ -26,6 +26,7 @@ table {
 	margin:10px auto;
 	border: 1px solid #444444;
 	border-collapse: collapse;
+	background:white;
 }
 
 td {
@@ -103,7 +104,7 @@ td {
 
 					</tr>
 				</table>	
-				<div style="background: white; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;">
+				<div style="background: white; width: 700px; height: 50px; margin: 0px auto;margin-top:20px;">
 					<select style="height: 50px;" id="grade">
 						<option value="none" selected disabled hidden>평점 선택</option>
 						<option value="5">★★★★★</option>
@@ -112,8 +113,28 @@ td {
 						<option value="2">★★☆☆☆</option>
 						<option value="1">★☆☆☆☆</option>
 					</select> 
-					<input type="text" size=55 style="height: 45px;" id="review"> 
+					<input type="text" size=55 style="height: 50px;" id="review"> 
 					<input type="button" value="등록" style="height: 50px;" id="btnreview">
+					
+					<table id="tbl-hosrev" width=600 border=1></table>
+						<script id="temp-hosrev" type="text/x-handlebars-templete">
+						<tr style="background:lightgreen;">
+							<td width=50>번호</td>
+							<td width=100>유저</td>
+							<td>내용</td>
+							<td width=50>평점</td>
+						</tr>
+						{{#each .}}
+							<tr>
+								<td width=50>{{hrevid}}</td>
+								<td width=100>{{hrevmyid}}</td>
+								<td>{{revcontent}}</td>
+								<td width=50>{{revgrade}}점</td>
+							</tr>	
+						{{/each}}
+						</script>
+					
+					
 					
 <!-- 				<div style="background: #E0F8E6; width: 600px; height: 50px; margin: 0px auto;margin-top:20px;"> -->
 <!-- 					<input type="button" value="길찾기" style="margin-top: 12px;"> -->
@@ -143,6 +164,23 @@ td {
 </body>
 	<script>
 	var mid = "${mid}";
+	revlist();
+	
+	function revlist(){
+		var mid = "${mid}";
+		
+		var hcode = "${vo.h_code}";
+		$.ajax({
+			type:"get",
+			url:"revlist",
+			data:{"hcode":hcode},
+			success:function(data){
+				var temp=Handlebars.compile($("#temp-hosrev").html());
+				$("#tbl-hosrev").html(temp(data));
+			}
+		});
+
+	}
 	
 	//detail넘어오면 병원 저장하기
 // 	$(document).ready(function(){
@@ -164,7 +202,7 @@ td {
 // 	});
 
 	
-	/* 리뷰 목록 */
+	/* 리뷰삽입 */
 	$("#btnreview").on("click",function(){
 		//alert("하하");
 		var h_name=$("#h_name").html();
@@ -174,6 +212,11 @@ td {
 		var mid = "${mid}";
 		//alert(revgrade+h_name);
 		//유효성체크
+		if(mid==""){
+			alert("로그인 후 이용해주세요.");
+			location.href="login";
+			return false;
+		}
 		if(revcontent==""){
 			alert("내용을 입력하세요");
 			revcontent.focus();
@@ -191,6 +234,7 @@ td {
 				//alert("성공");
  				$("#grade").prop("value","none");
 				$("#review").val("");
+				revlist();
 			}
 		});
 	});
