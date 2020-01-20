@@ -284,12 +284,14 @@
 	//병원 누르면 저장하기
 	$("#tbl").on("click","tr",function(){
 		var mid = "${mid}";
+		var mhrecent = $(this).attr("h_code");
 		//alert(mid);
 		if(mid==null || mid==""){
-			return;
+			mhrecent = $(this).attr("h_code");
+			location.href="Hos-detail?h_code="+mhrecent;
 		}else{
 			var mhid = mid;
-			var mhrecent = $(this).attr("h_code");
+			mhrecent = $(this).attr("h_code");
 			//alert(mhrecent);
 			$.ajax({
 				type:"get",
